@@ -7,7 +7,16 @@ module.exports = {
         "./node_modules/flowbite/**/*.js",
     ],
     theme: {
-        extend: {},
+        extend: {
+            colors: {
+                button: "#22DB66",
+                buttonhover: "#12C554",
+                background: "#FFC525",
+            },
+        },
+        fontFamily: {
+            custom: ["Montserrat", "sans-serif"],
+        },
     },
     plugins: [require("flowbite/plugin")],
 };
