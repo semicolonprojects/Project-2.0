@@ -10,13 +10,14 @@
 
 <body class="bg-background">
     <section class="bg-background  font-custom">
-        <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-            <div class=" bg-background rounded-3xl border-2 border-rose-50 md:mt-0 sm:max-w-md xl:p-0 ">
+        <div
+            class="flex flex-col items-center justify-center px-6 py-8 mx-auto sm:h-screen md:h-screen lg:h-screen xl:h-screen 2xl:h-screen lg:py-0">
+            <div class=" bg-background rounded-3xl border-2 border-rose-50 md:mt-0 sm:max-w-md xl:p-0 shadow-2xl">
                 <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
                     <h1 class="text-6xl font-extrabold leading-tight tracking-tight text-gray-900  dark:text-white">
                         Selamat Datang
                     </h1>
-                    <div class="max-w-sm mx-auto px-6">
+                    <div class="max-w-sm mx-auto px-0 py-12 sm:py-12">
                         <form class="space-y-4 md:space-y-6" action="#">
                             <div>
                                 <label for="email"
@@ -32,7 +33,7 @@
                                     <input placeholder="Password" :type="show ? 'password' : 'text'"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-md focus:ring-primary-600 focus:border-primary-600 block w-72 p-2.5">
                                     <div
-                                        class="absolute inset-y-0 right-0 sm:pr-8 md:pr-8 lg:pr-8 xl:pr-12 flex items-center text-sm leading-5">
+                                        class="absolute inset-y-0 right-0 sm:pr-24 md:pr-24 xl:pr-24 2xl:pr-24 flex items-center text-sm leading-5">
                                         <svg class="h-6 text-gray-700" fill="none" @click="show = !show"
                                             :class="{'hidden': !show, 'block':show }" xmlns="http://www.w3.org/2000/svg"
                                             viewbox="0 0 576 512">
@@ -53,7 +54,7 @@
                                 </div>
                             </div>
                             <button
-                                class="bg-button hover:bg-buttonhover text-black font-bold py-3 px-12 rounded text-xs">
+                                class="bg-button hover:bg-buttonhover text-black font-bold py-3 px-12 rounded text-xs shadow-2xl">
                                 Login
                             </button>
                         </form>
