@@ -13,6 +13,9 @@ module.exports = {
                 buttonhover: "#12C554",
                 background: "#FFC525",
             },
+            animation: {
+                "spin-slow": "bounce 1.5s linear infinite",
+            },
         },
         fontFamily: {
             custom: ["Montserrat", "sans-serif"],
