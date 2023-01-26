@@ -12,6 +12,8 @@ module.exports = {
                 button: "#22DB66",
                 buttonhover: "#12C554",
                 background: "#FFC525",
+                gradienthover: "#FDA085",
+                Via: "#FFA800",
             },
             animation: {
                 "spin-slow": "bounce 1.5s linear infinite",
