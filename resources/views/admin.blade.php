@@ -10,9 +10,7 @@
 </head>
 
 <body>
-    <div class="flex h-screen items-center justify-center">
-        <img class="animate-bounce h-96 w-96" src="{{ asset('Assets/images/Madukuy RGB Logogram.png') }}" />
-    </div>
+
 </body>
 
 </html>
