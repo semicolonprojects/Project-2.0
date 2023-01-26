@@ -10,13 +10,13 @@
 </head>
 
 <body>
-    {{-- <section name="navbar">
-        <nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900">
+    <section name="navbar">
+        <nav class="bg-white border-gray-200 px- sm:px-4 py-2.5 rounded dark:bg-gray-900">
             <div class="container flex flex-wrap items-center justify-between mx-auto">
-                <a href="https://flowbite.com/" class="flex items-center">
-                    <img src="https://flowbite.com/docs/images/logo.svg" class="h-6 mr-3 sm:h-9" alt="Flowbite Logo" />
-                    <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span>
-                </a>
+                <div class="px-0 py-0">
+                    <img src=' Assets/images/Madukuy RGB Logogram.png'
+                        class="h-15 w-16  inset-y-0 flex-items-center mr-3 ml-12" />
+                </div>
                 <div class="flex md:order-2">
                     <form class="flex items-center">
                         <label for="simple-search" class="sr-only">Search</label>
@@ -99,7 +99,7 @@
                 </div>
             </div>
     </section>
-    </nav> --}}
+    </nav>
 
 
     <button data-drawer-target="logo-sidebar" data-drawer-toggle="logo-sidebar" aria-controls="logo-sidebar"
@@ -114,7 +114,7 @@
         </svg>
     </button>
 
-    <aside id="logo-sidebar"
+    {{-- <aside id="logo-sidebar"
         class="w-64 fixed left-0 top-0 h-screen transition-transform -translate-x-full sm:translate-x-0 z-40"
         aria-label="Sidebar">
         <div class="px-3 py-1  bg-background dark:bg-gray-800 h-full">
@@ -221,7 +221,7 @@
                 </li>
             </ul>
         </div>
-    </aside>
+    </aside> --}}
 
     <div class="sm:ml-64">
         <div class="m-4 p-4 border-dashed border-gray-200 dark:border-gray-700 border-2 rounded-lg">
