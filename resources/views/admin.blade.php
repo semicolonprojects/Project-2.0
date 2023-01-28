@@ -100,6 +100,47 @@
             </div>
     </section>
     </nav>
+    
+    <div class=" relative ml-32 inline-flex"> 
+        <button  type="button"  class="text-black  bg-background hover:bg-gradient-to-bl from-yellow-200 to-bg-yellow-300 focus:ring-4 focus:outline-none focus:ring-yellow-400 font-medium rounded-full text-sm p-4 text-center inline-flex items-center ml-96  dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" > 
+       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path></svg>
+         
+      </button>
+      
+      <div class=" absolute top-14 left-1/2  ml-8 px-2 "> 
+      <p class=" font-light text-black">Masuk</p> 
+         </div>
+       
+       <button  type="button"  class="text-black  bg-background hover:bg-gradient-to-bl from-yellow-200 to-bg-yellow-300 focus:ring-4 focus:outline-none focus:ring-yellow-400 font-medium rounded-full text-sm p-4 text-center inline-flex items-center ml-8  dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" > 
+       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect><path d="M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"></path><path d="M16 4h2a2 2 0 0 1 2 2v4"></path><path d="M21 14H11"></path><path d="m15 10-4 4 4 4"></path></svg>
+        <span class="sr-only">Icon description</span>
+      </button>
+       
+       <div class=" absolute top-14 left-1/2  ml-32 "> 
+      <p class=" font-light text-black">Keluar</p> 
+         </div>
+      
+       <button  type="button"  class="text-black  bg-background hover:bg-gradient-to-bl from-yellow-200 to-bg-yellow-300 focus:ring-4 focus:outline-none focus:ring-yellow-400 font-medium rounded-full text-sm p-4 text-center inline-flex items-center ml-8 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" > 
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><path d="m15 11-6 6"></path><path d="m9 11 6 6"></path></svg>
+        <span class="sr-only">Icon description</span>
+      </button>
+      
+       <div class=" absolute top-14 left-1/2  ml-56 "> 
+      <p class=" font-light text-black">Izin</p> 
+         </div>
+
+       <button  type="button"  class="text-black  bg-background hover:bg-gradient-to-bl from-yellow-200 to-bg-yellow-300 focus:ring-4 focus:outline-none focus:ring-yellow-400 font-medium rounded-full text-sm p-4 text-center inline-flex items-center ml-8  dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" > 
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><path d="M12 11h4"></path><path d="M12 16h4"></path><path d="M8 11h.01"></path><path d="M8 16h.01"></path></svg>
+        <span class="sr-only">Icon description</span>
+      </button>
+       
+       <div class=" absolute top-14 left-1/2  ml-72 px-6   "> 
+      <p class=" font-light text-black">Cuti</p> 
+         </div>
+      
+      
+       
+      </div> 
 
     <section name="sidebar">
     <aside id="logo-sidebar"
