@@ -100,121 +100,150 @@
             </div>
     </section>
     </nav>
-    
-    <div class=" relative ml-32 inline-flex"> 
-        <button  type="button"  class="text-black  bg-background hover:bg-gradient-to-bl from-yellow-200 to-bg-yellow-300 focus:ring-4 focus:outline-none focus:ring-yellow-400 font-medium rounded-full text-sm p-4 text-center inline-flex items-center ml-96  dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" > 
-       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path></svg>
-         
-      </button>
-      
-      <div class=" absolute top-14 left-1/2  ml-8 px-2 "> 
-      <p class=" font-light text-black">Masuk</p> 
-         </div>
-       
-       <button  type="button"  class="text-black  bg-background hover:bg-gradient-to-bl from-yellow-200 to-bg-yellow-300 focus:ring-4 focus:outline-none focus:ring-yellow-400 font-medium rounded-full text-sm p-4 text-center inline-flex items-center ml-8  dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" > 
-       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect><path d="M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"></path><path d="M16 4h2a2 2 0 0 1 2 2v4"></path><path d="M21 14H11"></path><path d="m15 10-4 4 4 4"></path></svg>
-        <span class="sr-only">Icon description</span>
-      </button>
-       
-       <div class=" absolute top-14 left-1/2  ml-32 "> 
-      <p class=" font-light text-black">Keluar</p> 
-         </div>
-      
-       <button  type="button"  class="text-black  bg-background hover:bg-gradient-to-bl from-yellow-200 to-bg-yellow-300 focus:ring-4 focus:outline-none focus:ring-yellow-400 font-medium rounded-full text-sm p-4 text-center inline-flex items-center ml-8 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" > 
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><path d="m15 11-6 6"></path><path d="m9 11 6 6"></path></svg>
-        <span class="sr-only">Icon description</span>
-      </button>
-      
-       <div class=" absolute top-14 left-1/2  ml-56 "> 
-      <p class=" font-light text-black">Izin</p> 
-         </div>
 
-       <button  type="button"  class="text-black  bg-background hover:bg-gradient-to-bl from-yellow-200 to-bg-yellow-300 focus:ring-4 focus:outline-none focus:ring-yellow-400 font-medium rounded-full text-sm p-4 text-center inline-flex items-center ml-8  dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" > 
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><path d="M12 11h4"></path><path d="M12 16h4"></path><path d="M8 11h.01"></path><path d="M8 16h.01"></path></svg>
-        <span class="sr-only">Icon description</span>
-      </button>
-       
-       <div class=" absolute top-14 left-1/2  ml-72 px-6   "> 
-      <p class=" font-light text-black">Cuti</p> 
-         </div>
-      
-      
-       
-      </div> 
+    <div class=" relative ml-32 inline-flex">
+        <button type="button"
+            class="text-black  bg-background hover:bg-gradient-to-bl from-yellow-200 to-bg-yellow-300 focus:ring-4 focus:outline-none focus:ring-yellow-400 font-medium rounded-full text-sm p-4 text-center inline-flex items-center ml-96  dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+            </svg>
+
+        </button>
+
+        <div class=" absolute top-14 left-1/2  ml-8 px-2 ">
+            <p class=" font-light text-black">Masuk</p>
+        </div>
+
+        <button type="button"
+            class="text-black  bg-background hover:bg-gradient-to-bl from-yellow-200 to-bg-yellow-300 focus:ring-4 focus:outline-none focus:ring-yellow-400 font-medium rounded-full text-sm p-4 text-center inline-flex items-center ml-8  dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                <path d="M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"></path>
+                <path d="M16 4h2a2 2 0 0 1 2 2v4"></path>
+                <path d="M21 14H11"></path>
+                <path d="m15 10-4 4 4 4"></path>
+            </svg>
+            <span class="sr-only">Icon description</span>
+        </button>
+
+        <div class=" absolute top-14 left-1/2  ml-32 ">
+            <p class=" font-light text-black">Keluar</p>
+        </div>
+
+        <button type="button"
+            class="text-black  bg-background hover:bg-gradient-to-bl from-yellow-200 to-bg-yellow-300 focus:ring-4 focus:outline-none focus:ring-yellow-400 font-medium rounded-full text-sm p-4 text-center inline-flex items-center ml-8 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                <path d="m15 11-6 6"></path>
+                <path d="m9 11 6 6"></path>
+            </svg>
+            <span class="sr-only">Icon description</span>
+        </button>
+
+        <div class=" absolute top-14 left-1/2  ml-56 ">
+            <p class=" font-light text-black">Izin</p>
+        </div>
+
+        <button type="button"
+            class="text-black  bg-background hover:bg-gradient-to-bl from-yellow-200 to-bg-yellow-300 focus:ring-4 focus:outline-none focus:ring-yellow-400 font-medium rounded-full text-sm p-4 text-center inline-flex items-center ml-8  dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                <path d="M12 11h4"></path>
+                <path d="M12 16h4"></path>
+                <path d="M8 11h.01"></path>
+                <path d="M8 16h.01"></path>
+            </svg>
+            <span class="sr-only">Icon description</span>
+        </button>
+
+        <div class=" absolute top-14 left-1/2  ml-72 px-6   ">
+            <p class=" font-light text-black">Cuti</p>
+        </div>
+
+
+
+    </div>
 
     <section name="sidebar">
-    <aside id="logo-sidebar"
-        class="w-20 fixed left-0 top-0 h-screen transition-transform-translate-x-full sm:translate-x-0 z-40"
-        aria-label="logo-sidebar">
-        <div class="px-3 py-1  bg-background dark:bg-gray-800 h-full">
-            <div class="flex h-20 w-20 items-center justify-center mt-3 mb-9">
-                <img src=' Assets/images/Madukuy RGB Logogram.png'
-                    class="h-15 w-16  inset-y-0 flex-items-center mr-7" >
+        <aside id="logo-sidebar"
+            class="w-20 fixed left-0 top-0 h-screen transition-transform-translate-x-full sm:translate-x-0 z-40"
+            aria-label="logo-sidebar">
+            <div class="px-3 py-1  bg-background dark:bg-gray-800 h-full">
+                <div class="flex h-20 w-20 items-center justify-center mt-3 mb-9">
+                    <img src=' Assets/images/Madukuy RGB Logogram.png'
+                        class="h-15 w-16  inset-y-0 flex-items-center mr-7">
+                </div>
+                <ul class=" space-y-2">
+                    <li>
+                        <a href="#"
+                            class="flex items-center p-4 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gradient-to-bl from-yellow-200 to-bg-yellow-300">
+                            <svg aria-hidden="true"
+                                class="w-6 h-6 text-black transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                                fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path>
+                                <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="flex items-center p-4 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gradient-to-bl from-yellow-200 to-bg-yellow-300 ">
+                            <svg aria-hidden="true"
+                                class="flex-shrink-0 w-6 h-6 text-black transition duration-75 dark:text-gray-400 group-hover:bg-yellow-200"
+                                fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z">
+                                </path>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="flex items-center p-4 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gradient-to-bl from-yellow-200 to-bg-yellow-300">
+                            <svg aria-hidden="true"
+                                class="flex-shrink-0 w-6 h-6 text-black transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                                fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M8.707 7.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l2-2a1 1 0 00-1.414-1.414L11 7.586V3a1 1 0 10-2 0v4.586l-.293-.293z">
+                                </path>
+                                <path
+                                    d="M3 5a2 2 0 012-2h1a1 1 0 010 2H5v7h2l1 2h4l1-2h2V5h-1a1 1 0 110-2h1a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V5z">
+                                </path>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="flex items-center p-4 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gradient-to-bl from-yellow-200 to-bg-yellow-300">
+                            <svg aria-hidden="true"
+                                class="flex-shrink-0 w-6 h-6 text-black transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                                fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="flex items-center p-4 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gradient-to-bl from-yellow-200 to-bg-yellow-300">
+                            <svg aria-hidden="true"
+                                class="flex-shrink-0 w-6 h-6 text-black transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                                fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M10 2a4 4 0 00-4 4v1H5a1 1 0 00-.994.89l-1 9A1 1 0 004 18h12a1 1 0 00.994-1.11l-1-9A1 1 0 0015 7h-1V6a4 4 0 00-4-4zm2 5V6a2 2 0 10-4 0v1h4zm-6 3a1 1 0 112 0 1 1 0 01-2 0zm7-1a1 1 0 100 2 1 1 0 000-2z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
             </div>
-            <ul class=" space-y-2">
-                <li>
-                    <a href="#"
-                        class="flex items-center p-4 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gradient-to-bl from-yellow-200 to-bg-yellow-300">
-                        <svg aria-hidden="true"
-                            class="w-6 h-6 text-black transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                            fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path>
-                            <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path>
-                        </svg>
-                    </a>
-                </li>
-                <li>
-                    <a href="#"
-                        class="flex items-center p-4 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gradient-to-bl from-yellow-200 to-bg-yellow-300 ">
-                        <svg aria-hidden="true"
-                            class="flex-shrink-0 w-6 h-6 text-black transition duration-75 dark:text-gray-400 group-hover:bg-yellow-200"
-                            fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z">
-                            </path>
-                        </svg>
-                    </a>
-                </li>
-                <li>
-                    <a href="#"
-                        class="flex items-center p-4 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gradient-to-bl from-yellow-200 to-bg-yellow-300">
-                        <svg aria-hidden="true"
-                            class="flex-shrink-0 w-6 h-6 text-black transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                            fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M8.707 7.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l2-2a1 1 0 00-1.414-1.414L11 7.586V3a1 1 0 10-2 0v4.586l-.293-.293z">
-                            </path>
-                            <path
-                                d="M3 5a2 2 0 012-2h1a1 1 0 010 2H5v7h2l1 2h4l1-2h2V5h-1a1 1 0 110-2h1a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V5z">
-                            </path>
-                        </svg>
-                    </a>
-                </li>
-                <li>
-                    <a href="#"
-                        class="flex items-center p-4 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gradient-to-bl from-yellow-200 to-bg-yellow-300">
-                        <svg aria-hidden="true"
-                            class="flex-shrink-0 w-6 h-6 text-black transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                            fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-                                clip-rule="evenodd"></path>
-                        </svg>
-                    </a>
-                </li>
-                <li>
-                    <a href="#"
-                        class="flex items-center p-4 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gradient-to-bl from-yellow-200 to-bg-yellow-300">
-                        <svg aria-hidden="true"
-                            class="flex-shrink-0 w-6 h-6 text-black transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                            fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd"
-                                d="M10 2a4 4 0 00-4 4v1H5a1 1 0 00-.994.89l-1 9A1 1 0 004 18h12a1 1 0 00.994-1.11l-1-9A1 1 0 0015 7h-1V6a4 4 0 00-4-4zm2 5V6a2 2 0 10-4 0v1h4zm-6 3a1 1 0 112 0 1 1 0 01-2 0zm7-1a1 1 0 100 2 1 1 0 000-2z"
-                                clip-rule="evenodd"></path>
-                        </svg>
-                    </a>
-                </li>
-            </ul>
-        </div>
     </section>
     </aside>
     {{-- <aside id="logo-sidebar"
@@ -325,16 +354,99 @@
             </ul>
         </div>
     </aside> --}}
+    <br><br>
+    <div class="ml-32">
+        <div class="grid grid-flow-col">
+            <div class="block max-w-md p-6 bg-white border border-gray-200 rounded-xl  hover:bg-gray-100 shadow-2xl">
+                <div class="grid grid-flow-col gap-60">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">Order Stats</h5>
+                    <button id="orderStats" data-dropdown-toggle="orderStatsTrigger">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-8 h-8">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+                        </svg>
+                    </button>
+                </div>
+                <div><canvas id="myChart" width="273" height="166"></canvas></div>
+            </div>
+            <div class="block max-w-md p-6 bg-white border border-gray-200 rounded-xl  hover:bg-gray-100 shadow-2xl">
+                <div class="grid grid-flow-col gap-44">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">Top Products</h5>
+                    <div class="grid grid-flow-col gap-3">
+                        <p class="font-normal text-xl text-black/60">Daily</p>
+                        <button id="orderStats" data-dropdown-toggle="orderStatsTrigger">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="0.5"
+                                stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="grid grid-flow-row gap-32">
+                    <div class="grid grid-flow-col justify-center gap-3">
+                        <p class="self-center text-xl text-black">1.</p>
+                        <div class="flex flex-wrap justify-center">
+                            <div
+                                class="bg-bgTopProducs rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-28 w-28">
+                                <img src="Assets\images\pure-honey-1-removebg-preview.png" />
+                            </div>
+                        </div>
+                        <p class="self-center text-xl text-black ">Madu Durian</p>
+                        <p class="self-center text-xl text-black ">600ml</p>
+                        <p class="self-center text-xl text-black ">20pcs</p>
+                    </div>
+                    <div class="grid grid-flow-col justify-center gap-3">
+                        <p class="self-center text-xl text-black">2.</p>
+                        <div class="flex flex-wrap justify-center">
+                            <div
+                                class="bg-bgTopProducs rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-28 w-28">
+                                <img src="Assets\images\pure-honey-1-removebg-preview.png" />
+                            </div>
+                        </div>
+                        <p class="self-center text-xl text-black ">Madu Durian</p>
+                        <p class="self-center text-xl text-black ">600ml</p>
+                        <p class="self-center text-xl text-black ">20pcs</p>
+                    </div>
+                    <div class="grid grid-flow-col justify-center gap-3">
+                        <p class="self-center text-xl text-black">3.</p>
+                        <div class="flex flex-wrap justify-center">
+                            <div
+                                class="bg-bgTopProducs rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-28 w-28">
+                                <img src="Assets\images\pure-honey-1-removebg-preview.png" />
+                            </div>
+                        </div>
+                        <p class="self-center text-xl text-black ">Madu Durian</p>
+                        <p class="self-center text-xl text-black ">600ml</p>
+                        <p class="self-center text-xl text-black ">20pcs</p>
+                    </div>
 
-    <div class="sm:ml-64">
-        <div class="m-4 p-4 border-dashed border-gray-200 dark:border-gray-700 border-2 rounded-lg">
-            <p class="dark:text-white text-gray-800">Main content area</p>
+                </div>
+            </div>
         </div>
-
     </div>
 
 
-
+    <!-- Dropdown menu -->
+    <div id="orderStatsTrigger"
+        class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+        <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="orderStats">
+            <li>
+                <a href="#"
+                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Daily</a>
+            </li>
+            <li>
+                <a href="#"
+                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Monthly</a>
+            </li>
+            <li>
+                <a href="#"
+                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Yearly</a>
+            </li>
+            <li>
+        </ul>
+    </div>
+    @vite(['resources/css/app.css','resources/js/app.js'])
 </body>
 
 </html>
