@@ -14,6 +14,7 @@ module.exports = {
                 background: "#FFC525",
                 gradienthover: "#FDA085",
                 Via: "#FFA800",
+                bgTopProducs: "#F9F9E0",
             },
             animation: {
                 "spin-slow": "bounce 1.5s linear infinite",
