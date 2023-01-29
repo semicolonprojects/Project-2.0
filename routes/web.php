@@ -20,3 +20,7 @@ Route::get('/', function () {
 Route::get('/admin', function () {
     return view('admin');
 });
+
+Route::get('/superadmin', function () {
+    return view('sadash');
+});
