@@ -22,5 +22,5 @@ Route::get('/admin', function () {
 });
 
 Route::get('/superadmin', function () {
-    return view('sadash');
+    return view('dashboard.sadash');
 });

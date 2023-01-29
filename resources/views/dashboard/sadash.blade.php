@@ -349,8 +349,9 @@
             </ul>
         </div>
     </aside> --}}
-
-    <div class="ml-48 p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3">
+   
+    {{-- Overview --}}
+    <div class="ml-44 mt-10 p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3">
         <div
             class="py-2 inline-flex rounded-xl border border-gray-400/70 bg-gray-200/0 shadow-md shadow-gray-400 w-52 h-40">
             <h3 class="absolute ml-3 text-xl font-bold text-black">Marketing</h3>
@@ -568,6 +569,8 @@
             </tbody>
         </table>
     </div>
+
+    {{-- Order Stats --}}
     <div class="grid grid-flow-col ml-16 justify-center gap-36">
         <div class="inline-block max-w-sm p-6 bg-white border border-gray-200 rounded-xl  hover:bg-gray-100 shadow-2xl">
             <div class="grid grid-flow-col gap-40">
@@ -582,6 +585,8 @@
             </div>
             <div class="inline-flex absolute justify-center py-10"><canvas id="myChart"></canvas></div>
         </div>
+
+        {{-- Top Products --}}
         <div
             class="inline-block max-w-sm  p-6 bg-white border border-gray-200 rounded-xl  hover:bg-gray-100 shadow-2xl">
             <div class="grid grid-flow-col gap-20">
@@ -630,10 +635,11 @@
                     <p class="self-center text-base text-black ">600ml</p>
                     <p class="self-center text-base text-black ">20pcs</p>
                 </div>
-
             </div>
         </div>
     </div>
+
+    {{-- Table Stok Produk --}}
     <div
         class="max-w-5xl bg-white border border-black rounded-lg shadow-[0px_8px_8px_rgba(0,0,0,0.5)] mt-28 mb-10 content-center ml-32">
         <a href="#">
@@ -796,6 +802,8 @@
             </nav>
         </div>
     </div>
+
+    {{-- Table Low Stok --}}
     <div
         class="max-w-5xl bg-white border border-black rounded-lg shadow-[0px_8px_8px_rgba(0,0,0,0.5)] mt-28 mb-10 content-center ml-32">
         <a href="#">
@@ -958,6 +966,56 @@
             </nav>
         </div>
     </div>
+    
+    {{-- Top Customers --}}
+    <div class="ml-60 mt-10 p-10">
+        <div class=" max-w-2xl h-[640px] p-6 bg-white border border-gray-200 rounded-xl  hover:bg-gray-100 shadow-2xl">
+            <h5 class="inline-flex absolute mb-2 text-2xl font-bold tracking-tight  text-gray-900 ">Top Customers</h5>
+            <div class="inline-flex ml-[550px]">
+                <p class="font-normal text-xl text-black/60">Daily</p>
+                <button id="topProducts" data-dropdown-toggle="topProductsTrigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="0.5"
+                    stroke="currentColor" class="w-5 h-5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                </svg>
+            </button>
+        </div>
+        <div class="inline-table ml-32 mt-6 py-16">
+            <div class="inline-flex justify-center gap-3">
+                <p class="self-center text-base text-black">1.</p>
+                <div class="flex flex-wrap justify-center">
+                    <div class="bg-bgTopProducs rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-14 w-14">
+                        <img src="Assets\images\pure-honey-1-removebg-preview.png" />
+                    </div>
+            </div>
+            <p class="self-center text-base text-black ">Madu Durian</p>
+            <p class="self-center text-base text-black ">600ml</p>
+            <p class="self-center text-base text-black ">20pcs</p>
+        </div>
+        <div class="grid grid-flow-col justify-center gap-3">
+            <p class="self-center text-base text-black">1.</p>
+            <div class="flex flex-wrap justify-center">
+                <div class="bg-bgTopProducs rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-14 w-14">
+                    <img src="Assets\images\pure-honey-1-removebg-preview.png" />
+                </div>
+            </div>
+            <p class="self-center text-base text-black ">Madu Durian</p>
+            <p class="self-center text-base text-black ">600ml</p>
+            <p class="self-center text-base text-black ">20pcs</p>
+        </div>
+        <div class="grid grid-flow-col justify-center gap-3">
+            <p class="self-center text-base text-black">1.</p>
+            <div class="flex flex-wrap justify-center">
+                <div class="bg-bgTopProducs rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-14 w-14">
+                    <img src="Assets\images\pure-honey-1-removebg-preview.png" />
+                </div>
+            </div>
+            <p class="self-center text-base text-black ">Madu Durian</p>
+            <p class="self-center text-base text-black ">600ml</p>
+            <p class="self-center text-base text-black ">20pcs</p>
+        </div>
+    </div>
+</div>
     <!-- Back to top button -->
     <button type="button" data-mdb-ripple="true" data-mdb-ripple-color="light"
         class="p-3 bg-background text-black font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-gradient-to-bl from-yellow-200 to-bg-yellow-300 focus:ring-yellow-400 focus:shadow-lg focus:outline-none transition duration-150 ease-in-out hidden bottom-5 right-5 fixed"
@@ -1000,6 +1058,7 @@
             <li>
         </ul>
     </div>
+    
     @vite(['resources/css/app.css','resources/js/app.js'])
 </body>
 
