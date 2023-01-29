@@ -15,6 +15,7 @@ module.exports = {
                 gradienthover: "#FDA085",
                 Via: "#FFA800",
                 bgTopProducs: "#F9F9E0",
+                stockProductText: "#3E4649",
             },
             animation: {
                 "spin-slow": "bounce 1.5s linear infinite",
