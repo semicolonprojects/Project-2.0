@@ -2,7 +2,7 @@
 
 @section('mainContent')
 
-<div class="ml-44 mt-10 p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3">
+<div class="ml-48 mt-10 p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3">
     <div
         class="py-2 inline-flex rounded-xl border border-gray-400/70 bg-gray-200/0 shadow-md shadow-gray-400 w-52 h-40">
         <h3 class="absolute ml-3 text-xl font-bold text-black">Marketing</h3>
@@ -58,7 +58,7 @@
 </div>
 
 {{-- Table Order Stats --}}
-<div class="ml-8 px-24 py-12">
+<div class="ml-24 px-24 py-12">
     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
@@ -212,8 +212,9 @@
 </div>
 
 {{-- Order Stats --}}
-<div class="grid grid-flow-col ml-16 justify-center gap-36">
-    <div class="inline-block max-w-sm p-6 bg-white border border-gray-200 rounded-xl  hover:bg-gray-100 shadow-2xl">
+<div class="ml-48 mt-10 p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-24 ">
+    <div
+        class="inline-block p-6 bg-white border border-gray-200 rounded-xl  hover:bg-gray-100 shadow-2xl w-[384px] h-[450px]">
         <div class="grid grid-flow-col gap-40">
             <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">Order Stats</h5>
             <button id="orderStats" data-dropdown-toggle="orderStatsTrigger">
@@ -224,11 +225,12 @@
                 </svg>
             </button>
         </div>
-        <div class="inline-flex absolute justify-center py-10"><canvas id="myChart"></canvas></div>
+        <div class="inline-flex absolute justify-center py-10 ml-3"><canvas id="myChart"></canvas></div>
     </div>
 
     {{-- Top Products --}}
-    <div class="inline-block max-w-sm  p-6 bg-white border border-gray-200 rounded-xl  hover:bg-gray-100 shadow-2xl">
+    <div
+        class="inline-block max-w-sm  p-6 bg-white border border-gray-200 rounded-xl  hover:bg-gray-100 shadow-2xl w-[384px] h-[450px]">
         <div class="grid grid-flow-col gap-20">
             <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">Top Products</h5>
             <div class="grid grid-flow-col">
@@ -281,7 +283,7 @@
 
 {{-- Table Stok Produk --}}
 <div
-    class="max-w-5xl bg-white border border-black rounded-lg shadow-[0px_8px_8px_rgba(0,0,0,0.5)] mt-28 mb-10 content-center ml-32">
+    class="max-w-5xl bg-white border border-black rounded-lg shadow-[0px_8px_8px_rgba(0,0,0,0.5)] mt-28 mb-10 content-center ml-40">
     <a href="#">
         <img class="rounded-t-lg" src="/docs/images/blog/image-1.jpg" alt="" />
     </a>
@@ -445,7 +447,7 @@
 
 {{-- Table Low Stok --}}
 <div
-    class="max-w-5xl bg-white border border-black rounded-lg shadow-[0px_8px_8px_rgba(0,0,0,0.5)] mt-28 mb-10 content-center ml-32">
+    class="max-w-5xl bg-white border border-black rounded-lg shadow-[0px_8px_8px_rgba(0,0,0,0.5)] mt-28 mb-10 content-center ml-40">
     <a href="#">
         <img class="rounded-t-lg" src="/docs/images/blog/image-1.jpg" alt="" />
     </a>
@@ -608,7 +610,7 @@
 </div>
 
 {{-- Top Customers --}}
-<div class="ml-24 mt-10 p-10">
+<div class="ml-28 px-12 mt-10 p-10">
     <div class=" max-w-5xl h-[480px] p-6 bg-white border border-gray-200 rounded-xl  hover:bg-gray-100 shadow-2xl">
         <h5 class="inline-flex absolute mb-2 text-2xl font-bold tracking-tight  text-gray-900 ">Top Customers</h5>
         <div class="inline-flex ml-[900px]">
