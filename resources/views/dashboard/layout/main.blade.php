@@ -99,71 +99,6 @@
     </section>
     </nav>
 
-    {{-- Absensi & Cuti --}}
-    {{-- <div class=" relative ml-28 inline-flex sm:-ml-56 md:-ml-32 xl:ml-28 ">
-        <div class=" relative inline-flex self-center ">
-            <button type="button"
-                class="text-black  bg-background hover:bg-gradient-to-bl from-yellow-200 to-bg-yellow-300 focus:ring-4 focus:outline-none focus:ring-yellow-400 font-medium rounded-full text-sm p-4 text-center inline-flex items-center ml-96  ">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
-                    <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-                </svg>
-            </button>
-            <p class=" font-light text-black absolute top-14 left-1/2 ml-40 px-2 mt-1">Masuk</p>
-
-
-        </div>
-        <div class=" relative inline-flex self-center ">
-
-            <button type="button"
-                class="text-black  bg-background hover:bg-gradient-to-bl from-yellow-200 to-bg-yellow-300 focus:ring-4 focus:outline-none focus:ring-yellow-400 font-medium rounded-full text-sm p-4 text-center inline-flex items-center ml-8  ">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
-                    <path d="M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"></path>
-                    <path d="M16 4h2a2 2 0 0 1 2 2v4"></path>
-                    <path d="M21 14H11"></path>
-                    <path d="m15 10-4 4 4 4"></path>
-                </svg>
-
-            </button>
-            <p class=" font-light text-black absolute top-14  ml-4 px-6 mt-1">Keluar</p>
-
-
-        </div>
-        <div class=" relative inline-flex self-center ">
-            <button type="button"
-                class="text-black  bg-background hover:bg-gradient-to-bl from-yellow-200 to-bg-yellow-300 focus:ring-4 focus:outline-none focus:ring-yellow-400 font-medium rounded-full text-sm p-4 text-center inline-flex items-center ml-8 ">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
-                    <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-                    <path d="m15 11-6 6"></path>
-                    <path d="m9 11 6 6"></path>
-                </svg>
-
-            </button>
-            <p class=" font-light text-black absolute top-14  ml-6 px-6 mt-1">Izin</p>
-
-        </div>
-        <div class=" relative inline-flex self-center ">
-            <button type="button"
-                class="text-black  bg-background hover:bg-gradient-to-bl from-yellow-200 to-bg-yellow-300 focus:ring-4 focus:outline-none focus:ring-yellow-400 font-medium rounded-full text-sm p-4 text-center inline-flex items-center ml-8  ">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
-                    <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-                    <path d="M12 11h4"></path>
-                    <path d="M12 16h4"></path>
-                    <path d="M8 11h.01"></path>
-                    <path d="M8 16h.01"></path>
-                </svg>
-                <span class="sr-only">Icon description</span>
-            </button>
-            <p class=" font-light text-black absolute top-14  ml-6 px-6 mt-1">Cuti</p>
-        </div>
-    </div> --}}
     <div class="ml-10 mt-3 sm:ml-16 md:ml-20 xl:ml-48">
         <div class="inline-flex ml-16 sm:ml-16 md:ml-20 xl:ml-72">
             <button type="button"
@@ -180,7 +115,7 @@
             <button type="button"
                 class="text-black  bg-background hover:bg-gradient-to-bl from-yellow-200 to-bg-yellow-300 focus:ring-4 focus:outline-none focus:ring-yellow-400 font-medium rounded-full text-sm p-4 text-center inline-flex items-center ml-8 ">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    stroke="currentColor" stroke-width="2" stroke-line p="round" stroke-linejoin="round">
                     <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
                     <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
                     <path d="m15 11-6 6"></path>
@@ -245,7 +180,8 @@
                 <ul class="space-y-2">
 
                     <li>
-                        <a href="#" class="flex items-center p-4 text-base font-normal text-gray-900 rounded-lg  ">
+                        <a href="/superadmin"
+                            class="flex items-center p-4 text-base font-normal text-gray-900 rounded-lg  ">
                             <svg aria-hidden="true"
                                 class="flex-shrink-0 w-6 h-6 text-black transition duration-75 group-hover:bg-yellow-200"
                                 fill="none" stroke-width="2" stroke="currentColor" viewBox="0 0 20 20"
@@ -257,7 +193,8 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="flex items-center p-4 text-base font-normal text-gray-900 rounded-lg ">
+                        <a href="/marketingdashboard"
+                            class="flex items-center p-4 text-base font-normal text-gray-900 rounded-lg ">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5"
                                 stroke="currentColor" class="w-6 h-6">
                                 <path stroke-linecap="round" stroke-linejoin="round"
