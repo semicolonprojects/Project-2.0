@@ -691,74 +691,74 @@
                 </div>
             </div>
         </div>
-    <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
-        <div
-        class="inline-flex absolute py-2 mt-[24px] ml-[70px] rounded-xl border border-gray-400/70 bg-gray-200/0 shadow-md shadow-gray-400 w-64 h-16">
-        <div class="bg-bgTopProducs ml-8 rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-8 w-8">
-            <img src="Assets\images\pure-honey-1-removebg-preview.png" />
+        <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
+            <div
+                class="inline-flex absolute py-2 mt-[24px] ml-[70px] rounded-xl border border-gray-400/70 bg-gray-200/0 shadow-md shadow-gray-400 w-64 h-16">
+                <div class="bg-bgTopProducs ml-8 rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-8 w-8">
+                    <img src="Assets\images\pure-honey-1-removebg-preview.png" />
+                </div>
+                <div class="bg-bgTopProducs ml-12 rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-8 w-8">
+                    <img src="Assets\images\pure-honey-1-removebg-preview.png" />
+                </div>
+                <div class="bg-bgTopProducs ml-12 rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-8 w-8">
+                    <img src="Assets\images\pure-honey-1-removebg-preview.png" />
+                </div>
+                <div class="mt-8 inline-flex absolute ml-3">
+                    <p class="text-xs">Madu Durian</p>
+                </div>
+                <div class="mt-8 inline-flex absolute ml-24">
+                    <p class="text-xs">Madu Durian</p>
+                </div>
+                <div class="mt-8 inline-flex absolute ml-44">
+                    <p class="text-xs">Madu Durian</p>
+                </div>
+            </div>
+
+            <div
+                class="inline-flex absolute py-2 mt-[24px] ml-[370px] rounded-xl border border-gray-400/70 bg-gray-200/0 shadow-md shadow-gray-400 w-64 h-16">
+                <div class="bg-bgTopProducs ml-8 rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-8 w-8">
+                    <img src="Assets\images\pure-honey-1-removebg-preview.png" />
+                </div>
+                <div class="bg-bgTopProducs ml-12 rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-8 w-8">
+                    <img src="Assets\images\pure-honey-1-removebg-preview.png" />
+                </div>
+                <div class="bg-bgTopProducs ml-12 rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-8 w-8">
+                    <img src="Assets\images\pure-honey-1-removebg-preview.png" />
+                </div>
+                <div class="mt-8 inline-flex absolute ml-3">
+                    <p class="text-xs">Madu Durian</p>
+                </div>
+                <div class="mt-8 inline-flex absolute ml-24">
+                    <p class="text-xs">Madu Durian</p>
+                </div>
+                <div class="mt-8 inline-flex absolute ml-44">
+                    <p class="text-xs">Madu Durian</p>
+                </div>
+            </div>
+
+            <div
+                class="inline-flex absolute py-2 mt-[24px] ml-[660px] rounded-xl border border-gray-400/70 bg-gray-200/0 shadow-md shadow-gray-400 w-64 h-16">
+                <div class="bg-bgTopProducs ml-8 rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-8 w-8">
+                    <img src="Assets\images\pure-honey-1-removebg-preview.png" />
+                </div>
+                <div class="bg-bgTopProducs ml-12 rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-8 w-8">
+                    <img src="Assets\images\pure-honey-1-removebg-preview.png" />
+                </div>
+                <div class="bg-bgTopProducs ml-12 rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-8 w-8">
+                    <img src="Assets\images\pure-honey-1-removebg-preview.png" />
+                </div>
+                <div class="mt-8 inline-flex absolute ml-3">
+                    <p class="text-xs">Madu Durian</p>
+                </div>
+                <div class="mt-8 inline-flex absolute ml-24">
+                    <p class="text-xs">Madu Durian</p>
+                </div>
+                <div class="mt-8 inline-flex absolute ml-44">
+                    <p class="text-xs">Madu Durian</p>
+                </div>
+            </div>
         </div>
-        <div class="bg-bgTopProducs ml-12 rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-8 w-8">
-            <img src="Assets\images\pure-honey-1-removebg-preview.png" />
-        </div>
-        <div class="bg-bgTopProducs ml-12 rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-8 w-8">
-                <img src="Assets\images\pure-honey-1-removebg-preview.png" />
-            </div>
-            <div class="mt-8 inline-flex absolute ml-3">
-                <p class="text-xs">Madu Durian</p>
-            </div>
-            <div class="mt-8 inline-flex absolute ml-24">
-                <p class="text-xs">Madu Durian</p>
-            </div>
-            <div class="mt-8 inline-flex absolute ml-44">
-                <p class="text-xs">Madu Durian</p>
-            </div>
-        </div>
-        
-        <div
-        class="inline-flex absolute py-2 mt-[24px] ml-[370px] rounded-xl border border-gray-400/70 bg-gray-200/0 shadow-md shadow-gray-400 w-64 h-16">
-        <div class="bg-bgTopProducs ml-8 rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-8 w-8">
-            <img src="Assets\images\pure-honey-1-removebg-preview.png" />
-        </div>
-        <div class="bg-bgTopProducs ml-12 rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-8 w-8">
-                <img src="Assets\images\pure-honey-1-removebg-preview.png" />
-            </div>
-            <div class="bg-bgTopProducs ml-12 rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-8 w-8">
-                <img src="Assets\images\pure-honey-1-removebg-preview.png" />
-            </div>
-            <div class="mt-8 inline-flex absolute ml-3">
-                <p class="text-xs">Madu Durian</p>
-            </div>
-            <div class="mt-8 inline-flex absolute ml-24">
-                <p class="text-xs">Madu Durian</p>
-            </div>
-            <div class="mt-8 inline-flex absolute ml-44">
-                <p class="text-xs">Madu Durian</p>
-            </div>
-        </div>
-        
-        <div
-        class="inline-flex absolute py-2 mt-[24px] ml-[660px] rounded-xl border border-gray-400/70 bg-gray-200/0 shadow-md shadow-gray-400 w-64 h-16">
-        <div class="bg-bgTopProducs ml-8 rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-8 w-8">
-            <img src="Assets\images\pure-honey-1-removebg-preview.png" />
-            </div>
-            <div class="bg-bgTopProducs ml-12 rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-8 w-8">
-                <img src="Assets\images\pure-honey-1-removebg-preview.png" />
-            </div>
-            <div class="bg-bgTopProducs ml-12 rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-8 w-8">
-                <img src="Assets\images\pure-honey-1-removebg-preview.png" />
-            </div>
-            <div class="mt-8 inline-flex absolute ml-3">
-                <p class="text-xs">Madu Durian</p>
-            </div>
-            <div class="mt-8 inline-flex absolute ml-24">
-                <p class="text-xs">Madu Durian</p>
-            </div>
-            <div class="mt-8 inline-flex absolute ml-44">
-                <p class="text-xs">Madu Durian</p>
-            </div>
-        </div>
-</div>
-</div>
+    </div>
 </div>
 <!-- Back to top button -->
 <button type="button" data-mdb-ripple="true" data-mdb-ripple-color="light"
@@ -802,4 +802,6 @@
         <li>
     </ul>
 </div>
+
+@vite(['resources/css/app.css','resources/js/app.js'])
 @endsection
