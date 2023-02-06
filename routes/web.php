@@ -24,3 +24,7 @@ Route::get('/admin', function () {
 Route::get('/superadmin', function () {
     return view('dashboard.sadash');
 });
+
+Route::get('/marketingdashboard',function(){
+    return view('dashboard.mktdash');
+});
