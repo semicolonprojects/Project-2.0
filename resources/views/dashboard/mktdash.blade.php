@@ -112,5 +112,84 @@
     </div>
 </div>
 
+<div class="mt-14 ml-52">
+    <div class="inline-block p-6 bg-white border border-gray-200 rounded-xl  hover:bg-gray-100 shadow-2xl w-[1024px] h-[700px]">
+    <div class="grid grid-flow-col gap-[690px]">
+      <h5 class="text-2xl font-bold tracking-tight text-gray-900 ">Top Products</h5>
+      <div class="grid grid-flow-col">
+      <p class="font-normal text-xl text-black/60">Daily</p>
+      <button id="topProducts" data-dropdown-toggle="topProductsTrigger">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="0.5"
+              stroke="currentColor" class="w-5 h-5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+          </svg>
+      </button>
+    </div>
+    </div>
+      <div class="grid grid-flow-col gap-x-40 py-10">
+        <div class="grid grid-flow-row  ml-14 gap-3">
+          <p class="ml-9 text-[32px] text-black">1</p>
+          <div class="flex flex-wrap ">
+              <div class="bg-bgTopProducs rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-[94px] w-[93px]">
+                  <img class="mt-3 w-52 h-20" src="Assets\images\pure-honey-1-removebg-preview.png" />
+              </div>
+          </div>
+          <p class="text-base text-black ">Madu Durian</p>
+          <p class="px-5 text-base text-black ">600ml</p>
+          <p class="px-5 text-base text-black ">20pcs</p>
+      </div>
+    
+        <div class="grid grid-flow-row gap-3">
+          <p class="ml-9 text-[32px] text-black">2</p>
+          <div class="flex flex-wrap ">
+            <div class="bg-bgTopProducs rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-[94px] w-[93px]">
+              <img class="mt-3 w-52 h-20" src="Assets\images\pure-honey-1-removebg-preview.png" />
+            </div>
+          </div>
+          <p class="text-base text-black ">Madu Durian</p>
+          <p class="px-5 text-base text-black ">600ml</p>
+          <p class="px-5 text-base text-black ">20pcs</p>
+        </div>
+    
+        <div class="grid grid-flow-row gap-3">
+          <p class="ml-9 text-[32px] text-black">3</p>
+          <div class="flex flex-wrap ">
+            <div class="bg-bgTopProducs rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-[94px] w-[93px]">
+              <img class="mt-3 w-52 h-20" src="Assets\images\pure-honey-1-removebg-preview.png" />
+            </div>
+          </div>
+          <p class="text-base text-black ">Madu Durian</p>
+          <p class="px-5 text-base text-black ">600ml</p>
+          <p class="px-5 text-base text-black ">20pcs</p>
+        </div>
+      </div>
+        <div class="inline-flex absolute gap-10 mt-3 ">
+          <div class="inline-flex absolute mt-5 gap-10">
+              <p class=" text-[20px] text-black">4.</p>
+              <div class="flex flex-wrap pb-3">
+                  <div class=" bg-bgTopProducs rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-[83px] w-[83px]">
+                      <img class=" w-52 h-20 mt-3" src="Assets\images\pure-honey-1-removebg-preview.png" />
+                  </div>
+              </div>
+              <p class=" text-base text-black ">Madu Durian</p>
+              <p class=" text-base text-black ">600ml</p>
+              <p class=" text-base text-black ">20pcs</p>
+          </div>
+          <div>
+          <div class="inline-flex absolute gap-10 mt-36 ">
+              <p class=" text-[20px] text-black">5.</p>
+              <div class="flex flex-wrap">
+                  <div class="bg-bgTopProducs rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-[83px] w-[83px]">
+                      <img class="w-52 h-20 mt-3" src="Assets\images\pure-honey-1-removebg-preview.png" />
+                  </div>
+              </div>
+              <p class=" text-base text-black ">Madu Durian</p>
+              <p class=" text-base text-black ">600ml</p>
+              <p class=" text-base text-black ">20pcs</p>
+          </div>
+      </div>
+      </div>
+    </div>
+    </div>
 @vite(['resources/css/app.css','resources/js/app.js'])
 @endsection
