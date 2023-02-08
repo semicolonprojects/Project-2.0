@@ -28,24 +28,26 @@
         </div>
     </div>
     <div class="px-10 py-8">
-        <div class="grid grid-flow-col">
-            <div class="">
-                <p class="text-[#000000B8] text-xl font-custom">Orders</p>
-                <p class="text-black text-xl">5000</p>
+        <div class="grid grid-flow-col divide-x divide-black divide-y-reverse">
+            <div class="grid grid-flow-row divide-y divide-black">
+                <div class="px-7">
+                    <p class="text-[#000000B8] text-xl font-custom">Orders</p>
+                    <p class="text-black text-xl">5000</p>
+                </div>
+                <div class="px-7 py-10">
+                    <p class="text-[#000000B8] text-xl font-custom">Average sales success rate</p>
+                    <p class="text-black text-xl">12%</p>
+                </div>
             </div>
-            <div class="px-7">
-                <p class="text-[#000000B8] text-xl font-custom">Sales</p>
-                <p class="text-black text-xl">20.000</p>
-            </div>
-        </div><br><br>
-        <div class="grid grid-flow-col">
-            <div class="">
-                <p class="text-[#000000B8] text-xl font-custom">Average sales success rate</p>
-                <p class="text-black text-xl">12%</p>
-            </div>
-            <div class="mr-36">
-                <p class="text-[#000000B8] text-xl font-custom">Customers</p>
-                <p class="text-black text-xl">1.000</p>
+            <div class="grid grid-flow-row divide-y divide-black">
+                <div class="px-7">
+                    <p class="text-[#000000B8] text-xl font-custom">Sales</p>
+                    <p class="text-black text-xl">20.000</p>
+                </div>
+                <div class="px-7 py-10">
+                    <p class="text-[#000000B8] text-xl font-custom">Customers</p>
+                    <p class="text-black text-xl">1.000</p>
+                </div>
             </div>
         </div>
     </div>
