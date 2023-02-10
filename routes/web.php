@@ -28,3 +28,7 @@ Route::get('/superadmin', function () {
 Route::get('/marketingdashboard',function(){
     return view('dashboard.mktdash');
 });
+
+Route::get('/marketingdashboard/topcust',function(){
+    return view('dashboard.mktdash2');
+});

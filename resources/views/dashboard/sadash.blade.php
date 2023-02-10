@@ -611,7 +611,7 @@
 </div>
 
 {{-- Top Customers --}}
-<div class="ml-28 px-12 mt-10 p-10">
+<div class="ml-36 px-32 mt-10 p-10">
     <div class=" max-w-5xl h-[480px] p-6 bg-white border border-gray-200 rounded-xl  hover:bg-gray-100 shadow-2xl">
         <h5 class="inline-flex absolute mb-2 text-2xl font-bold tracking-tight  text-gray-900 ">Top Customers</h5>
         <div class="inline-flex ml-[900px]">
@@ -737,7 +737,7 @@
             </div>
 
             <div
-                class="inline-flex absolute py-2 mt-[24px] ml-[660px] rounded-xl border border-gray-400/70 bg-gray-200/0 shadow-md shadow-gray-400 w-64 h-16">
+                class="inline-flex absolute py-2 mt-[24px] ml-[680px] rounded-xl border border-gray-400/70 bg-gray-200/0 shadow-md shadow-gray-400 w-64 h-16">
                 <div class="bg-bgTopProducs ml-8 rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-8 w-8">
                     <img src="Assets\images\pure-honey-1-removebg-preview.png" />
                 </div>

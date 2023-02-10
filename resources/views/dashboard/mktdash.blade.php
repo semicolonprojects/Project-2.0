@@ -2,6 +2,7 @@
 
 @section('mainContent')
 
+{{-- Overview --}}
 <div
     class="w-[1024px] rounded-[13px] overflow-hidden ml-48 mt-10 bg-white border border-[#686868CF] shadow-[0px_8px_8px_rgba(0,0,0,0.5)]">
     <div class="px-6 py-4">
@@ -28,9 +29,9 @@
         </div>
     </div>
     <div class="px-10 py-8">
-        <div class="grid grid-flow-col divide-x divide-black divide-y-reverse">
+        <div class="grid grid-flow-col divide-x divide-black ">
             <div class="grid grid-flow-row divide-y divide-black">
-                <div class="px-7">
+                <div class="px-7 py-7">
                     <p class="text-[#000000B8] text-xl font-custom">Orders</p>
                     <p class="text-black text-xl">5000</p>
                 </div>
@@ -40,7 +41,7 @@
                 </div>
             </div>
             <div class="grid grid-flow-row divide-y divide-black">
-                <div class="px-7">
+                <div class="px-7 py-7">
                     <p class="text-[#000000B8] text-xl font-custom">Sales</p>
                     <p class="text-black text-xl">20.000</p>
                 </div>
@@ -112,6 +113,7 @@
     </div>
 </div>
 
+{{-- Top Product --}}
 <div class="mt-14 ml-52">
     <div class="inline-block p-6 bg-white border border-gray-200 rounded-xl  hover:bg-gray-100 shadow-2xl w-[1024px] h-[700px]">
     <div class="grid grid-flow-col gap-[690px]">
@@ -126,7 +128,7 @@
       </button>
     </div>
     </div>
-      <div class="grid grid-flow-col gap-x-40 py-10">
+    <div class="grid grid-flow-col gap-x-40 py-10 ">
         <div class="grid grid-flow-row  ml-14 gap-3">
           <p class="ml-9 text-[32px] text-black">1</p>
           <div class="flex flex-wrap ">
@@ -191,5 +193,258 @@
       </div>
     </div>
     </div>
+    
+    {{-- Summary Orders & Targets --}}
+    <div class="mt-14 ml-52">
+        <div class="inline-block p-6 bg-white border border-gray-200 rounded-xl  hover:bg-gray-100 shadow-2xl w-[1024px] h-[900px]">
+        <div class="inline-flex absolute">
+            <h5 class="text-2xl font-bold tracking-tight text-gray-900 ">Summary Order & Target </h5>
+        </div>
+        <div class="inline-flex absolute ml-[920px]">
+            <button id="orderStats" data-dropdown-toggle="orderStatsTrigger">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="w-8 h-8">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+                </svg>
+            </button>
+        </div>
+    <div class="grid grid-flow-col gap-7 ">     
+        <div class="grid grid-flow-row gap-7 ">
+        <div class="inline-flex mt-20 ml-10 bg-white border-2 border-gray-200 rounded-2xl shadow-xl w-[390px] h-[200px]"> 
+            <h5 class="text-xl font-semibold tracking-tight text-gray-900 ml-5 mt-3">Total Order</h5>
+            <div class="inline-flex absolute mt-32 mr-16">
+                <h5 class="text-4xl font-bold tracking-tight text-gray-900 ml-5 mt-3">IDR 27 M</h5>
+                <p class="ml-14 mt-7 text-gray-700/75">Today : 27 May 2023</p>
+            </div>
+            <div class="inline-flex absolute ml-80 mt-3 bg-[#22DB6636] text-[#25D466F7] rounded-xl  w-[50px] h-[50px]">
+                <div class="py-2 px-2">
+                <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+                    <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                        <circle cx="8" cy="21" r="1"/>
+                        <circle cx="19" cy="21" r="1"/>
+                        <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
+                    </g>
+                </svg>
+            </div>
+            </div>
+        </div>
+        <div class="inline-flex ml-10 bg-white border-2 border-gray-200 rounded-2xl shadow-xl w-[390px] h-[200px]">
+            <h5 class="text-xl font-semibold tracking-tight text-gray-900 ml-5 mt-3">Total Closing</h5>
+            <div class="inline-flex absolute mt-32 mr-16">
+                <h5 class="text-4xl font-bold tracking-tight text-gray-900 ml-5 mt-3">IDR 27 M</h5>
+                <p class="ml-14 mt-7 text-gray-700/75">Today : 27 May 2023</p>
+            </div>
+            <div class="inline-flex absolute ml-80 mt-3 bg-[#22DB6636] text-[#25D466F7] rounded-xl  w-[50px] h-[50px]">
+                <div class="py-2 px-2">
+                    <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                        <path d="m9 11l3 3L22 4"/>
+                        <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+                    </g>
+                    </svg>
+                </div>
+            </div>
+            </div>
+        </div>
+    
+
+    <div class="grid grid-flow-row gap-7">
+        <div class="inline-flex mt-20 ml-10 bg-white border-2 border-gray-200 rounded-2xl shadow-xl w-[390px] h-[200px]"> 
+            <h5 class="text-xl font-semibold tracking-tight text-gray-900 ml-5 mt-3">Daily Target</h5>
+            <div class="inline-flex absolute mt-32 mr-16">
+                <h5 class="text-4xl font-bold tracking-tight text-gray-900 ml-5 mt-3">IDR 27 M</h5>
+                <p class="ml-14 mt-7 text-gray-700/75">Today : 27 May 2023</p>
+            </div>
+            <div class="inline-flex absolute ml-80 mt-3 bg-[#22DB6636] text-[#25D466F7] rounded-xl  w-[50px] h-[50px]">
+                <div class="py-2 px-2">
+                    <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                        <path d="M3 3v18h18"/>
+                        <path d="m19 9l-5 5l-4-4l-3 3"/>
+                    </g>
+                </svg>
+            </div>
+            </div>
+        </div>
+        <div class="inline-flex ml-10 bg-white border-2 border-gray-200 rounded-2xl shadow-xl w-[390px] h-[200px]">
+            <h5 class="text-xl font-semibold tracking-tight text-gray-900 ml-5 mt-3">Actual Sales</h5>
+            <div class="inline-flex absolute mt-32 mr-16">
+                <h5 class="text-4xl font-bold tracking-tight text-gray-900 ml-5 mt-3">IDR 27 M</h5>
+                <p class="ml-14 mt-7 text-gray-700/75">Today : 27 May 2023</p>
+            </div>
+            <div class="inline-flex absolute ml-80 mt-3 bg-[#22DB6636] text-[#25D466F7] rounded-xl  w-[50px] h-[50px]">
+                <div class="py-2 px-2">
+                    <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+                        <g fill="currentColor">
+                        <path fill-rule="evenodd" d="M10.854 8.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+                        <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
+                    </g>
+                </svg>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    <div class="py-7 border-b-[1px] border-black "></div>
+<div class="grid grid-flow-col gap-7">
+    <div class="inline-flex absolute mt-3">
+        <h5 class="text-2xl font-bold tracking-tight text-gray-900">Daily Order Stats</h5>
+    </div>
+    <div class="inline-flex absolute mt-3 ml-[580px]">
+        <h5 class="text-2xl font-bold tracking-tight text-gray-900">Daily Target Stats</h5>
+    </div>
+    </div>
+</div>
+</div>
+
+{{-- Top Customer --}}
+<div class="ml-40 px-12 mt-10 p-10">
+    <div class=" max-w-5xl h-[480px] p-6 bg-white border border-gray-200 rounded-xl  hover:bg-gray-100 shadow-2xl">
+        <h5 class="inline-flex absolute mb-2 text-2xl font-bold tracking-tight  text-gray-900 ">Top Customers</h5>
+        <div class="inline-flex ml-[900px]">
+            <p class="font-normal text-xl text-black/60">Daily</p>
+            <button id="topProducts" data-dropdown-toggle="topProductsTrigger">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="0.5"
+                    stroke="currentColor" class="w-5 h-5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                </svg>
+            </button>
+        </div>
+        <div class=" mt-14 ml-24 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-9">
+            <div
+                class="py-2 inline-flex rounded-xl border border-gray-400/70 bg-gray-200/0 shadow-md shadow-gray-400 w-52 h-56">
+                <h3 class="absolute mt-4 ml-24 text-3xl font-bold text-black">1</h3>
+                <p class="absolute mt-16 ml-16 text-2xl font-extrabold text-gray-900">Hengki</p>
+                <div class="inline-flex absolute stroke-gray-900 w-5 h-5  ml-[165px] mt-0">
+                    <button id="orderStats" data-dropdown-toggle="orderStatsTrigger">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-8 h-8">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="mt-[120px] py-2 inline-flex absolute">
+                    <p class="self-center text-md text-black font-semibold ml-3 ">Total Orders</p>
+                    <p class="place-self-center text-md text-black font-normal ml-10 ">246 pcs</p>
+                </div>
+                <div class="mt-[155px] py-2 inline-flex absolute">
+                    <p class="self-center text-md text-black font-semibold ml-3 ">Revenue</p>
+                    <p class="place-self-center text-md text-black font-normal ml-9 ">IDR 246.000</p>
+                </div>
+            </div>
+            <div
+                class="py-2 inline-flex rounded-xl border border-gray-400/70 bg-gray-200/0 shadow-md shadow-gray-400 w-52 h-56">
+                <h3 class="absolute mt-4 ml-24 text-3xl font-bold text-black">2</h3>
+                <p class="absolute mt-16 ml-16 text-2xl font-extrabold text-gray-900">Hengki</p>
+                <div class="inline-flex absolute stroke-gray-900 w-5 h-5  ml-[165px] mt-0">
+                    <button id="orderStats" data-dropdown-toggle="orderStatsTrigger">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-8 h-8">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="mt-[120px] py-2 inline-flex absolute">
+                    <p class="self-center text-md text-black font-semibold ml-3 ">Total Orders</p>
+                    <p class="place-self-center text-md text-black font-normal ml-10 ">246 pcs</p>
+                </div>
+                <div class="mt-[155px] py-2 inline-flex absolute">
+                    <p class="self-center text-md text-black font-semibold ml-3 ">Revenue</p>
+                    <p class="place-self-center text-md text-black font-normal ml-9 ">IDR 246.000</p>
+                </div>
+            </div>
+            <div
+                class="py-2 inline-flex rounded-xl border border-gray-400/70 bg-gray-200/0 shadow-md shadow-gray-400 w-52 h-56">
+                <h3 class="absolute mt-4 ml-24 text-3xl font-bold text-black">3</h3>
+                <p class="absolute mt-16 ml-16 text-2xl font-extrabold text-gray-900">Hengki</p>
+                <div class="inline-flex absolute stroke-gray-900 w-5 h-5  ml-[165px] mt-0">
+                    <button id="orderStats" data-dropdown-toggle="orderStatsTrigger">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-8 h-8">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="mt-[120px] py-2 inline-flex absolute">
+                    <p class="self-center text-md text-black font-semibold ml-3 ">Total Orders</p>
+                    <p class="place-self-center text-md text-black font-normal ml-10 ">246 pcs</p>
+                </div>
+                <div class="mt-[155px] py-2 inline-flex absolute">
+                    <p class="self-center text-md text-black font-semibold ml-3 ">Revenue</p>
+                    <p class="place-self-center text-md text-black font-normal ml-9 ">IDR 246.000</p>
+                </div>
+            </div>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
+            <div
+                class="inline-flex absolute py-2 mt-[24px] ml-[70px] rounded-xl border border-gray-400/70 bg-gray-200/0 shadow-md shadow-gray-400 w-64 h-16">
+                <div class="bg-bgTopProducs ml-8 rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-8 w-8">
+                    <img src="Assets\images\pure-honey-1-removebg-preview.png" />
+                </div>
+                <div class="bg-bgTopProducs ml-12 rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-8 w-8">
+                    <img src="Assets\images\pure-honey-1-removebg-preview.png" />
+                </div>
+                <div class="bg-bgTopProducs ml-12 rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-8 w-8">
+                    <img src="Assets\images\pure-honey-1-removebg-preview.png" />
+                </div>
+                <div class="mt-8 inline-flex absolute ml-3">
+                    <p class="text-xs">Madu Durian</p>
+                </div>
+                <div class="mt-8 inline-flex absolute ml-24">
+                    <p class="text-xs">Madu Durian</p>
+                </div>
+                <div class="mt-8 inline-flex absolute ml-44">
+                    <p class="text-xs">Madu Durian</p>
+                </div>
+            </div>
+
+            <div
+                class="inline-flex absolute py-2 mt-[24px] ml-[370px] rounded-xl border border-gray-400/70 bg-gray-200/0 shadow-md shadow-gray-400 w-64 h-16">
+                <div class="bg-bgTopProducs ml-8 rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-8 w-8">
+                    <img src="Assets\images\pure-honey-1-removebg-preview.png" />
+                </div>
+                <div class="bg-bgTopProducs ml-12 rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-8 w-8">
+                    <img src="Assets\images\pure-honey-1-removebg-preview.png" />
+                </div>
+                <div class="bg-bgTopProducs ml-12 rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-8 w-8">
+                    <img src="Assets\images\pure-honey-1-removebg-preview.png" />
+                </div>
+                <div class="mt-8 inline-flex absolute ml-3">
+                    <p class="text-xs">Madu Durian</p>
+                </div>
+                <div class="mt-8 inline-flex absolute ml-24">
+                    <p class="text-xs">Madu Durian</p>
+                </div>
+                <div class="mt-8 inline-flex absolute ml-44">
+                    <p class="text-xs">Madu Durian</p>
+                </div>
+            </div>
+
+            <div
+                class="inline-flex absolute py-2 mt-[24px] ml-[680px] rounded-xl border border-gray-400/70 bg-gray-200/0 shadow-md shadow-gray-400 w-64 h-16">
+                <div class="bg-bgTopProducs ml-8 rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-8 w-8">
+                    <img src="Assets\images\pure-honey-1-removebg-preview.png" />
+                </div>
+                <div class="bg-bgTopProducs ml-12 rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-8 w-8">
+                    <img src="Assets\images\pure-honey-1-removebg-preview.png" />
+                </div>
+                <div class="bg-bgTopProducs ml-12 rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-8 w-8">
+                    <img src="Assets\images\pure-honey-1-removebg-preview.png" />
+                </div>
+                <div class="mt-8 inline-flex absolute ml-3">
+                    <p class="text-xs">Madu Durian</p>
+                </div>
+                <div class="mt-8 inline-flex absolute ml-24">
+                    <p class="text-xs">Madu Durian</p>
+                </div>
+                <div class="mt-8 inline-flex absolute ml-44">
+                    <p class="text-xs">Madu Durian</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 @vite(['resources/css/app.css','resources/js/app.js'])
 @endsection
