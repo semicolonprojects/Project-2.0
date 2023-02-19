@@ -4,4 +4,4 @@ import "./mychart.js";
 import "./scroll.js";
 import "./lineChart.js";
 import "./lineChartHero.js";
-import "./saleBar.js"
+import "./saleBar.js";

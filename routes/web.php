@@ -32,3 +32,27 @@ Route::get('/marketingdashboard',function(){
 Route::get('/marketingdashboard/topcust',function(){
     return view('dashboard.mktdash2');
 });
+
+Route::get('/logistikdash',function(){
+    return view('dashboard.logistik');
+});
+
+Route::get('/logistikdash/datasupplier',function(){
+    return view('dashboard.logistik2');
+});
+
+Route::get('/logistikdash/innout',function(){
+    return view('dashboard.logistik3');
+});
+
+Route::get('/logistikdash/tanggalprod',function(){
+    return view('dashboard.logistik4');
+});
+
+Route::get('/logistikdash/datasupplier2',function(){
+    return view('dashboard.logistik5');
+});
+
+Route::get('/logistikdash/dbb',function(){
+    return view('dashboard.logistik6');
+});
