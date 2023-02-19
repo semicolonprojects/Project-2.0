@@ -2,9 +2,9 @@
 
 @section('mainContent')
 
-<div class="ml-28 mt-10">
+<div class="ml-32 mt-16">
     <div class="mb-10">
-        <p class="text-[24px] text-black font-[700]">Data Barang Belanjaan</p>
+        <p class="text-[24px] text-black font-[700]">Detail Termin</p>
     </div>
     <div class="w-fit bg-[#FFFFFF] shadow-[0px_8px_8px_rgba(0,0,0,0.5)] rounded-[22px]">
         <div class="grid grid-flow-col gap-[640px] mb-3 px-5">
@@ -42,17 +42,9 @@
             </div>
         </div>
         <div id="accordion-collapse" data-accordion="collapse">
-            <table class=" w-[1120px] table-fixed text-sm text-left text-gray-500 dark:text-gray-400 ">
+            <table class=" w-[1070px] table-fixed text-sm text-left text-gray-500 dark:text-gray-400 ">
                 <thead class=" text-xs text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
-                        <th scope="col" class="p-4">
-                            <div class="flex items-center">
-                                <input id="checkbox-all" type="checkbox"
-                                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                                    onclick="toggle(this);">
-                                <label for="checkbox-all" class="sr-only">checkbox</label>
-                            </div>
-                        </th>
                         <th scope="col" class="px-6 py-3">
                             Order Id
                         </th>
@@ -61,6 +53,9 @@
                         </th>
                         <th scope="col" class="px-6 py-3">
                             Status
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Type
                         </th>
                         <th scope="col" class="px-6 py-3">
                             Customer Name
@@ -80,14 +75,7 @@
                     </tr>
                 </thead>
                 <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
-                    data-accordion-target="#accordion-color-3">
-                    <th scope="col" class="p-4">
-                        <div class="flex items-center">
-                            <input id="checkbox-all" type="checkbox"
-                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                            <label for="checkbox-all" class="sr-only">checkbox</label>
-                        </div>
-                    </th>
+                    data-accordion-target="#accordion-color-1">
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                         #SRMK14045
                     </th>
@@ -101,6 +89,11 @@
                             Progress</button>
 
                     </td>
+                    <td class="mt-2 px-4 align-center">
+                        <button disabled type="button"
+                            class="text-white bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300 text-xs font-medium rounded-full px-1 py-0.5 text-center mr-2 mb-2 ">Reseller</button>
+
+                    </td>
                     <td class="px-6 py-4">
                         Hengky
                         user@email.com
@@ -147,7 +140,7 @@
                     </td>
                 </tr>
                 <td class="inline-table">
-                    <div id="accordion-color-3" class="hidden">
+                    <div id="accordion-color-1" class="hidden">
                         <table
                             class="w-[1070px] table-fixed text-sm text-left border border-t-0 text-gray-500 dark:text-gray-400">
                             <thead>
@@ -159,33 +152,20 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <td>
+
+                                <th>
                                     <p class="ml-10">10.02.2022/18:38</p>
-                                </td>
+                                </th>
                                 <td>
                                     lorem ipsum DP lorem ipsum tanggal pelunasan
                                 </td>
-                            </tbody>
-                            <tbody>
-                                <td>
-                                    <p class="ml-10">10.02.2022/18:38</p>
-                                </td>
-                                <td>
-                                    lorem ipsum DP lorem ipsum tanggal pelunasan
-                                </td>
+
                             </tbody>
                         </table>
                     </div>
                 </td>
                 <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
-                    data-accordion-target="#accordion-color-4">
-                    <th scope="col" class="p-4">
-                        <div class="flex items-center">
-                            <input id="checkbox-all" type="checkbox"
-                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                            <label for="checkbox-all" class="sr-only">checkbox</label>
-                        </div>
-                    </th>
+                    data-accordion-target="#accordion-color-2">
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                         #SRMK14045
                     </th>
@@ -198,6 +178,11 @@
                             class="text-white bg-[#AF5705] focus:outline-none focus:ring-4 focus:ring-blue-300 text-xs font-medium rounded-full px-1 py-0.5 text-center mr-2 mb-2 ">Termin</button>
 
                     </td>
+                    <td class="mt-2 px-4 align-center">
+                        <button disabled type="button"
+                            class="text-white bg-[#FFC525] focus:outline-none focus:ring-4 focus:ring-blue-300 text-xs font-medium rounded-full px-1 py-0.5 text-center mr-2 mb-2 ">Distributor</button>
+
+                    </td>
                     <td class="px-6 py-4">
                         Hengky
                         user@email.com
@@ -243,7 +228,7 @@
                     </td>
                 </tr>
                 <td class="inline-table">
-                    <div id="accordion-color-4" class="hidden">
+                    <div id="accordion-color-2" class="hidden">
                         <table
                             class="w-[1070px] table-fixed text-sm text-left border border-t-0 text-gray-500 dark:text-gray-400">
                             <thead>
@@ -293,16 +278,16 @@
     </div>
 </div>
 
-<script>
-    function toggle(source) {
-    var checkboxes = document.querySelectorAll('input[type="checkbox"]');
-    for (var i = 0; i < checkboxes.length; i++) {
-        if (checkboxes[i] != source)
-            checkboxes[i].checked = source.checked;
-    }
-}
-console.log('assakjsa'); 
-</script>
+<!-- Back to top button -->
+<button type="button" data-mdb-ripple="true" data-mdb-ripple-color="light"
+    class="p-3 bg-background text-black font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-gradient-to-bl from-yellow-200 to-bg-yellow-300 focus:ring-yellow-400 focus:shadow-lg focus:outline-none transition duration-150 ease-in-out hidden bottom-5 right-5 fixed"
+    id="btn-back-to-top">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" class="w-4 h-4" role="img"
+        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+        <path fill="currentColor"
+            d="M34.9 289.5l-22.2-22.2c-9.4-9.4-9.4-24.6 0-33.9L207 39c9.4-9.4 24.6-9.4 33.9 0l194.3 194.3c9.4 9.4 9.4 24.6 0 33.9L413 289.4c-9.5 9.5-25 9.3-34.3-.4L264 168.6V456c0 13.3-10.7 24-24 24h-32c-13.3 0-24-10.7-24-24V168.6L69.2 289.1c-9.3 9.8-24.8 10-34.3.4z">
+        </path>
+    </svg>
+</button>
 
-@vite(['resources/css/app.css','resources/js/app.js'])
 @endsection

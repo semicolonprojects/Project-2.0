@@ -54,6 +54,93 @@
     </div>
 </div>
 
+{{-- Top Product --}}
+<div class="mt-14 ml-52">
+    <div
+        class="inline-block p-6 bg-white border border-gray-200 rounded-xl  hover:bg-gray-100 shadow-2xl w-[1024px] h-[700px]">
+        <div class="grid grid-flow-col gap-[690px]">
+            <h5 class="text-2xl font-bold tracking-tight text-gray-900 ">Top Products</h5>
+            <div class="grid grid-flow-col">
+                <p class="font-normal text-xl text-black/60">Daily</p>
+                <button id="topProducts" data-dropdown-toggle="topProductsTrigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="0.5"
+                        stroke="currentColor" class="w-5 h-5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div class="grid grid-flow-col gap-x-40 py-10 ">
+            <div class="grid grid-flow-row  ml-14 gap-3">
+                <p class="ml-9 text-[32px] text-black">1</p>
+                <div class="flex flex-wrap ">
+                    <div
+                        class="bg-bgTopProducs rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-[94px] w-[93px]">
+                        <img class="mt-3 w-52 h-20" src="Assets\images\pure-honey-1-removebg-preview.png" />
+                    </div>
+                </div>
+                <p class="text-base text-black ">Madu Durian</p>
+                <p class="px-5 text-base text-black ">600ml</p>
+                <p class="px-5 text-base text-black ">20pcs</p>
+            </div>
+
+            <div class="grid grid-flow-row gap-3">
+                <p class="ml-9 text-[32px] text-black">2</p>
+                <div class="flex flex-wrap ">
+                    <div
+                        class="bg-bgTopProducs rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-[94px] w-[93px]">
+                        <img class="mt-3 w-52 h-20" src="Assets\images\pure-honey-1-removebg-preview.png" />
+                    </div>
+                </div>
+                <p class="text-base text-black ">Madu Durian</p>
+                <p class="px-5 text-base text-black ">600ml</p>
+                <p class="px-5 text-base text-black ">20pcs</p>
+            </div>
+
+            <div class="grid grid-flow-row gap-3">
+                <p class="ml-9 text-[32px] text-black">3</p>
+                <div class="flex flex-wrap ">
+                    <div
+                        class="bg-bgTopProducs rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-[94px] w-[93px]">
+                        <img class="mt-3 w-52 h-20" src="Assets\images\pure-honey-1-removebg-preview.png" />
+                    </div>
+                </div>
+                <p class="text-base text-black ">Madu Durian</p>
+                <p class="px-5 text-base text-black ">600ml</p>
+                <p class="px-5 text-base text-black ">20pcs</p>
+            </div>
+        </div>
+        <div class="inline-flex absolute gap-10 mt-3 ">
+            <div class="inline-flex absolute mt-5 gap-10">
+                <p class=" text-[20px] text-black">4.</p>
+                <div class="flex flex-wrap pb-3">
+                    <div
+                        class=" bg-bgTopProducs rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-[83px] w-[83px]">
+                        <img class=" w-52 h-20 mt-3" src="Assets\images\pure-honey-1-removebg-preview.png" />
+                    </div>
+                </div>
+                <p class=" text-base text-black ">Madu Durian</p>
+                <p class=" text-base text-black ">600ml</p>
+                <p class=" text-base text-black ">20pcs</p>
+            </div>
+            <div>
+                <div class="inline-flex absolute gap-10 mt-36 ">
+                    <p class=" text-[20px] text-black">5.</p>
+                    <div class="flex flex-wrap">
+                        <div
+                            class="bg-bgTopProducs rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-[83px] w-[83px]">
+                            <img class="w-52 h-20 mt-3" src="Assets\images\pure-honey-1-removebg-preview.png" />
+                        </div>
+                    </div>
+                    <p class=" text-base text-black ">Madu Durian</p>
+                    <p class=" text-base text-black ">600ml</p>
+                    <p class=" text-base text-black ">20pcs</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- Back to top button -->
 <button type="button" data-mdb-ripple="true" data-mdb-ripple-color="light"
     class="p-3 bg-background text-black font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-gradient-to-bl from-yellow-200 to-bg-yellow-300 focus:ring-yellow-400 focus:shadow-lg focus:outline-none transition duration-150 ease-in-out hidden bottom-5 right-5 fixed"
@@ -81,6 +168,9 @@
         <li>
     </ul>
 </div>
+
+
+
 <div class="ml-48 mt-10 p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-24 ">
     <div
         class="inline-block p-6 bg-white border border-gray-200 rounded-xl  hover:bg-gray-100 shadow-2xl w-[384px] h-[450px]">
@@ -113,90 +203,32 @@
     </div>
 </div>
 
-{{-- Top Product --}}
+{{-- Sales Analytics --}}
+<div class="mt-14 ml-48">
+    <div
+        class="h-fit w-[845px] sm:w-[845px] md:w-[845px] lg:w-[845px] xl:w-[1026px]  bg-white border-[1px] shadow-[0px_4px_4px_rgba(0,0,0,0.25)] border-[#686868cf] rounded-[13px]">
+        <div class="grid grid-flow-col gap-[693px]">
+            <div class="p-5">
+                <p class="text-[24px] text-black font-bold">Sales Analytics</p>
+            </div>
+            <div class="inline-flex self-center">
+                <p class="font-normal text-xl text-black/60">Daily</p>
+                <button id="topProducts" data-dropdown-toggle="topProductsTrigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="0.5"
+                        stroke="currentColor" class="w-5 h-5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div><canvas id="salesAnalytics" width="1028px" height="283px"></canvas></div>
+    </div>
+</div>
+
+{{-- Summary Orders & Targets --}}
 <div class="mt-14 ml-52">
-    <div class="inline-block p-6 bg-white border border-gray-200 rounded-xl  hover:bg-gray-100 shadow-2xl w-[1024px] h-[700px]">
-    <div class="grid grid-flow-col gap-[690px]">
-      <h5 class="text-2xl font-bold tracking-tight text-gray-900 ">Top Products</h5>
-      <div class="grid grid-flow-col">
-      <p class="font-normal text-xl text-black/60">Daily</p>
-      <button id="topProducts" data-dropdown-toggle="topProductsTrigger">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="0.5"
-              stroke="currentColor" class="w-5 h-5">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-          </svg>
-      </button>
-    </div>
-    </div>
-    <div class="grid grid-flow-col gap-x-40 py-10 ">
-        <div class="grid grid-flow-row  ml-14 gap-3">
-          <p class="ml-9 text-[32px] text-black">1</p>
-          <div class="flex flex-wrap ">
-              <div class="bg-bgTopProducs rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-[94px] w-[93px]">
-                  <img class="mt-3 w-52 h-20" src="Assets\images\pure-honey-1-removebg-preview.png" />
-              </div>
-          </div>
-          <p class="text-base text-black ">Madu Durian</p>
-          <p class="px-5 text-base text-black ">600ml</p>
-          <p class="px-5 text-base text-black ">20pcs</p>
-      </div>
-    
-        <div class="grid grid-flow-row gap-3">
-          <p class="ml-9 text-[32px] text-black">2</p>
-          <div class="flex flex-wrap ">
-            <div class="bg-bgTopProducs rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-[94px] w-[93px]">
-              <img class="mt-3 w-52 h-20" src="Assets\images\pure-honey-1-removebg-preview.png" />
-            </div>
-          </div>
-          <p class="text-base text-black ">Madu Durian</p>
-          <p class="px-5 text-base text-black ">600ml</p>
-          <p class="px-5 text-base text-black ">20pcs</p>
-        </div>
-    
-        <div class="grid grid-flow-row gap-3">
-          <p class="ml-9 text-[32px] text-black">3</p>
-          <div class="flex flex-wrap ">
-            <div class="bg-bgTopProducs rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-[94px] w-[93px]">
-              <img class="mt-3 w-52 h-20" src="Assets\images\pure-honey-1-removebg-preview.png" />
-            </div>
-          </div>
-          <p class="text-base text-black ">Madu Durian</p>
-          <p class="px-5 text-base text-black ">600ml</p>
-          <p class="px-5 text-base text-black ">20pcs</p>
-        </div>
-      </div>
-        <div class="inline-flex absolute gap-10 mt-3 ">
-          <div class="inline-flex absolute mt-5 gap-10">
-              <p class=" text-[20px] text-black">4.</p>
-              <div class="flex flex-wrap pb-3">
-                  <div class=" bg-bgTopProducs rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-[83px] w-[83px]">
-                      <img class=" w-52 h-20 mt-3" src="Assets\images\pure-honey-1-removebg-preview.png" />
-                  </div>
-              </div>
-              <p class=" text-base text-black ">Madu Durian</p>
-              <p class=" text-base text-black ">600ml</p>
-              <p class=" text-base text-black ">20pcs</p>
-          </div>
-          <div>
-          <div class="inline-flex absolute gap-10 mt-36 ">
-              <p class=" text-[20px] text-black">5.</p>
-              <div class="flex flex-wrap">
-                  <div class="bg-bgTopProducs rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-[83px] w-[83px]">
-                      <img class="w-52 h-20 mt-3" src="Assets\images\pure-honey-1-removebg-preview.png" />
-                  </div>
-              </div>
-              <p class=" text-base text-black ">Madu Durian</p>
-              <p class=" text-base text-black ">600ml</p>
-              <p class=" text-base text-black ">20pcs</p>
-          </div>
-      </div>
-      </div>
-    </div>
-    </div>
-    
-    {{-- Summary Orders & Targets --}}
-    <div class="mt-14 ml-52">
-        <div class="inline-block p-6 bg-white border border-gray-200 rounded-xl  hover:bg-gray-100 shadow-2xl w-[1024px] h-[900px]">
+    <div
+        class="inline-block p-6 bg-white border border-gray-200 rounded-xl  hover:bg-gray-100 shadow-2xl w-[1024px] h-[980px]">
         <div class="inline-flex absolute">
             <h5 class="text-2xl font-bold tracking-tight text-gray-900 ">Summary Order & Target </h5>
         </div>
@@ -209,91 +241,117 @@
                 </svg>
             </button>
         </div>
-    <div class="grid grid-flow-col gap-7 ">     
-        <div class="grid grid-flow-row gap-7 ">
-        <div class="inline-flex mt-20 ml-10 bg-white border-2 border-gray-200 rounded-2xl shadow-xl w-[390px] h-[200px]"> 
-            <h5 class="text-xl font-semibold tracking-tight text-gray-900 ml-5 mt-3">Total Order</h5>
-            <div class="inline-flex absolute mt-32 mr-16">
-                <h5 class="text-4xl font-bold tracking-tight text-gray-900 ml-5 mt-3">IDR 27 M</h5>
-                <p class="ml-14 mt-7 text-gray-700/75">Today : 27 May 2023</p>
-            </div>
-            <div class="inline-flex absolute ml-80 mt-3 bg-[#22DB6636] text-[#25D466F7] rounded-xl  w-[50px] h-[50px]">
-                <div class="py-2 px-2">
-                <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
-                    <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-                        <circle cx="8" cy="21" r="1"/>
-                        <circle cx="19" cy="21" r="1"/>
-                        <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
-                    </g>
-                </svg>
-            </div>
-            </div>
-        </div>
-        <div class="inline-flex ml-10 bg-white border-2 border-gray-200 rounded-2xl shadow-xl w-[390px] h-[200px]">
-            <h5 class="text-xl font-semibold tracking-tight text-gray-900 ml-5 mt-3">Total Closing</h5>
-            <div class="inline-flex absolute mt-32 mr-16">
-                <h5 class="text-4xl font-bold tracking-tight text-gray-900 ml-5 mt-3">IDR 27 M</h5>
-                <p class="ml-14 mt-7 text-gray-700/75">Today : 27 May 2023</p>
-            </div>
-            <div class="inline-flex absolute ml-80 mt-3 bg-[#22DB6636] text-[#25D466F7] rounded-xl  w-[50px] h-[50px]">
-                <div class="py-2 px-2">
-                    <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-                        <path d="m9 11l3 3L22 4"/>
-                        <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
-                    </g>
-                    </svg>
+        <div class="grid grid-flow-col gap-7 ">
+            <div class="grid grid-flow-row gap-7 ">
+                <div
+                    class="inline-flex mt-20 ml-10 bg-white border-2 border-gray-200 rounded-2xl shadow-xl w-[390px] h-[200px]">
+                    <h5 class="text-xl font-semibold tracking-tight text-gray-900 ml-5 mt-3">Total Order</h5>
+                    <div class="inline-flex absolute mt-32 mr-16">
+                        <h5 class="text-4xl font-bold tracking-tight text-gray-900 ml-5 mt-3">IDR 27 M</h5>
+                        <p class="ml-14 mt-7 text-gray-700/75">Today : 27 May 2023</p>
+                    </div>
+                    <div
+                        class="inline-flex absolute ml-80 mt-3 bg-[#22DB6636] text-[#25D466F7] rounded-xl  w-[50px] h-[50px]">
+                        <div class="py-2 px-2">
+                            <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
+                                viewBox="0 0 24 24">
+                                <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2">
+                                    <circle cx="8" cy="21" r="1" />
+                                    <circle cx="19" cy="21" r="1" />
+                                    <path
+                                        d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="inline-flex ml-10 bg-white border-2 border-gray-200 rounded-2xl shadow-xl w-[390px] h-[200px]">
+                    <h5 class="text-xl font-semibold tracking-tight text-gray-900 ml-5 mt-3">Total Closing</h5>
+                    <div class="inline-flex absolute mt-32 mr-16">
+                        <h5 class="text-4xl font-bold tracking-tight text-gray-900 ml-5 mt-3">IDR 27 M</h5>
+                        <p class="ml-14 mt-7 text-gray-700/75">Today : 27 May 2023</p>
+                    </div>
+                    <div
+                        class="inline-flex absolute ml-80 mt-3 bg-[#22DB6636] text-[#25D466F7] rounded-xl  w-[50px] h-[50px]">
+                        <div class="py-2 px-2">
+                            <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
+                                viewBox="0 0 24 24">
+                                <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2">
+                                    <path d="m9 11l3 3L22 4" />
+                                    <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
                 </div>
             </div>
-            </div>
-        </div>
-    
 
-    <div class="grid grid-flow-row gap-7">
-        <div class="inline-flex mt-20 ml-10 bg-white border-2 border-gray-200 rounded-2xl shadow-xl w-[390px] h-[200px]"> 
-            <h5 class="text-xl font-semibold tracking-tight text-gray-900 ml-5 mt-3">Daily Target</h5>
-            <div class="inline-flex absolute mt-32 mr-16">
-                <h5 class="text-4xl font-bold tracking-tight text-gray-900 ml-5 mt-3">IDR 27 M</h5>
-                <p class="ml-14 mt-7 text-gray-700/75">Today : 27 May 2023</p>
-            </div>
-            <div class="inline-flex absolute ml-80 mt-3 bg-[#22DB6636] text-[#25D466F7] rounded-xl  w-[50px] h-[50px]">
-                <div class="py-2 px-2">
-                    <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-                        <path d="M3 3v18h18"/>
-                        <path d="m19 9l-5 5l-4-4l-3 3"/>
-                    </g>
-                </svg>
-            </div>
-            </div>
-        </div>
-        <div class="inline-flex ml-10 bg-white border-2 border-gray-200 rounded-2xl shadow-xl w-[390px] h-[200px]">
-            <h5 class="text-xl font-semibold tracking-tight text-gray-900 ml-5 mt-3">Actual Sales</h5>
-            <div class="inline-flex absolute mt-32 mr-16">
-                <h5 class="text-4xl font-bold tracking-tight text-gray-900 ml-5 mt-3">IDR 27 M</h5>
-                <p class="ml-14 mt-7 text-gray-700/75">Today : 27 May 2023</p>
-            </div>
-            <div class="inline-flex absolute ml-80 mt-3 bg-[#22DB6636] text-[#25D466F7] rounded-xl  w-[50px] h-[50px]">
-                <div class="py-2 px-2">
-                    <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
-                        <g fill="currentColor">
-                        <path fill-rule="evenodd" d="M10.854 8.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
-                        <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
-                    </g>
-                </svg>
+            <div class="grid grid-flow-row gap-7">
+                <div
+                    class="inline-flex mt-20 ml-10 bg-white border-2 border-gray-200 rounded-2xl shadow-xl w-[390px] h-[200px]">
+                    <h5 class="text-xl font-semibold tracking-tight text-gray-900 ml-5 mt-3">Daily Target</h5>
+                    <div class="inline-flex absolute mt-32 mr-16">
+                        <h5 class="text-4xl font-bold tracking-tight text-gray-900 ml-5 mt-3">IDR 27 M</h5>
+                        <p class="ml-14 mt-7 text-gray-700/75">Today : 27 May 2023</p>
+                    </div>
+                    <div
+                        class="inline-flex absolute ml-80 mt-3 bg-[#22DB6636] text-[#25D466F7] rounded-xl  w-[50px] h-[50px]">
+                        <div class="py-2 px-2">
+                            <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
+                                viewBox="0 0 24 24">
+                                <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2">
+                                    <path d="M3 3v18h18" />
+                                    <path d="m19 9l-5 5l-4-4l-3 3" />
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="inline-flex ml-10 bg-white border-2 border-gray-200 rounded-2xl shadow-xl w-[390px] h-[200px]">
+                    <h5 class="text-xl font-semibold tracking-tight text-gray-900 ml-5 mt-3">Actual Sales</h5>
+                    <div class="inline-flex absolute mt-32 mr-16">
+                        <h5 class="text-4xl font-bold tracking-tight text-gray-900 ml-5 mt-3">IDR 27 M</h5>
+                        <p class="ml-14 mt-7 text-gray-700/75">Today : 27 May 2023</p>
+                    </div>
+                    <div
+                        class="inline-flex absolute ml-80 mt-3 bg-[#22DB6636] text-[#25D466F7] rounded-xl  w-[50px] h-[50px]">
+                        <div class="py-2 px-2">
+                            <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+                                <g fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M10.854 8.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
+                                    <path
+                                        d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z" />
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
                 </div>
             </div>
+        </div>
+        <div class="py-7 border-b-[1px] border-black "></div>
+        <div class="grid grid-flow-col gap-7">
+            <div class="inline-flex absolute mt-3">
+                <h5 class="text-2xl font-bold tracking-tight text-gray-900">Daily Order Stats</h5>
+                <div class="mt-20 mr-16 absolute">
+                    <div><canvas id="dailyOrderStats" width="350px" height="200px"></canvas></div>
+                </div>
+            </div>
+
+            <div class="inline-flex absolute mt-3 ml-[580px]">
+                <h5 class="absolute text-2xl font-bold tracking-tight text-gray-900">Daily Target Stats</h5>
+                <div class="mb-7 w-96">
+                    <canvas id="dailyTarget" width="280px"></canvas>
+                </div>
             </div>
         </div>
+        <div class="py-48 mr-[503px] border-r-[1px] border-black"></div>
     </div>
-    <div class="py-7 border-b-[1px] border-black "></div>
-<div class="grid grid-flow-col gap-7">
-    <div class="inline-flex absolute mt-3">
-        <h5 class="text-2xl font-bold tracking-tight text-gray-900">Daily Order Stats</h5>
-    </div>
-    <div class="inline-flex absolute mt-3 ml-[580px]">
-        <h5 class="text-2xl font-bold tracking-tight text-gray-900">Daily Target Stats</h5>
-    </div>
-    </div>
-</div>
 </div>
 
 {{-- Top Customer --}}
@@ -446,5 +504,6 @@
         </div>
     </div>
 </div>
+
 @vite(['resources/css/app.css','resources/js/app.js'])
 @endsection

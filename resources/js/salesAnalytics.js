@@ -1,8 +1,10 @@
 import Chart from "chart.js/auto";
 
-const ctx = document.getElementById("lineChartHero");
+const sales = document.getElementById("salesAnalytics");
+
 var data = [0, 10, 5, 2, 20, 30];
-new Chart(ctx, {
+
+new Chart(sales, {
     type: "line",
     data: {
         datasets: [
@@ -39,8 +41,8 @@ new Chart(ctx, {
 
         scales: {
             y: {
-                suggestedMin: 50,
-                suggestedMax: 100,
+                suggestedMin: -10,
+                suggestedMax: 200,
             },
         },
     },

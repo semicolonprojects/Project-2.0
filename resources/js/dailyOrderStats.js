@@ -1,6 +1,7 @@
 import Chart from "chart.js/auto";
 
-const ctx = document.getElementById("lineChart");
+const ctx = document.getElementById("dailyOrderStats");
+
 var data = [0, 10, 5, 2, 20, 30];
 
 new Chart(ctx, {

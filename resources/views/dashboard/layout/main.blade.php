@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    @vite('resources/css/app.css')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    @vite('resources/css/app.css', 'resources/js/app.js')
 </head>
 
 <body>
@@ -218,7 +219,8 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="flex items-center p-4 text-base font-normal text-gray-900 rounded-lg ">
+                        <a href="/logistikdash"
+                            class="flex items-center p-4 text-base font-normal text-gray-900 rounded-lg ">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round">
@@ -236,6 +238,8 @@
     </section>
     </aside>
     @yield('mainContent')
+
+    @vite(['resources/css/app.css','resources/js/app.js'])
 </body>
 
 </html>
