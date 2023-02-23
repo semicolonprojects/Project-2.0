@@ -51,6 +51,41 @@
             </button>
         </div>
         <div class="border-gray-400 border-b-[1px] py-2"></div>
+        <div class="py-[50px]"><canvas id="MeSeStatusCanvas"></canvas>
+        </div>
+        <div class="p-5 bg-white border-[1px] border-gray-400  rounded-[13px]">
+
+            <div class="grid grid-flow-col mb-4 ml-2 border-b  gap-[270px]">
+                <p class="text-black font-custom font-bold">Conversion Rate</p>
+                <div>
+
+                    <svg class="mb-2" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
+                        fill="none" stroke="#FFC525" stroke-width="2" stroke-linecap="round" stroke-linejoin="round ">
+
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
+                </div>
+
+            </div>
+            <div class="font-custom font-normal ml-4 grid grid-flow-col ">
+                <div>
+                    <p>Mukti</p>
+                    <p>Supri</p>
+                    <p>Windah</p>
+                </div>
+                <div class="mr-72">
+                    <p>:</p>
+                    <p>:</p>
+                    <p>:</p>
+                </div>
+                <div>
+                    <p>30%</p>
+                    <p>30%</p>
+                    <p>30%</p>
+                </div>
+            </div>
+        </div>
     </div>
 
     {{-- Daily Financial Stats --}}
@@ -101,7 +136,7 @@
             <tr>
                 <th scope="col" class="px-6 py-3">
                     <div class="inline-block items-center p-1">
-                        <input id="checkbox-all" type="checkbox"
+                        <input id="checkbox-all" type="checkbox" onclick="toggle(this);"
                             class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                         <label for="checkbox-all" class="sr-only">checkbox</label>
                     </div>
@@ -585,6 +620,62 @@
     legend: {display: false},
     }
 });
+
+    function toggle(source) {
+    var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    for (var i = 0; i < checkboxes.length; i++) {
+        if (checkboxes[i] != source)
+            checkboxes[i].checked = source.checked;
+    }
+}
+
+var goals = [20, 19, 19]
+var predictions = [30,30,30]
+var ctx = document.getElementById("MeSeStatusCanvas");
+    var myChart = new Chart(ctx, {
+        type: 'horizontalBar',
+        data: {
+            labels: ["Mukti", "Supri", "Windah"],
+            datasets: [{
+                            label: 'Target',
+                            // fillColor: "rgba(220,220,220,0.5)",
+                            backgroundColor: "#FFC525",
+                            // highlightFill: "rgba(220,220,220,0.75)",
+                            // highlightStroke: "rgba(220,220,220,1)",
+                            data: goals,
+                            
+                        },
+                        {
+                            label: 'Actual Sales',
+                            fillColor: "rgba(0,0,0,0.5)",
+                            backgroundColor: "rgba(255, 197, 37, 0.3)",
+                            highlightFill: "rgba(0,0,0,0.5)",
+                            highlightStroke: "rgba(0,0,0,0.5)",
+                            data: predictions,
+                            
+                        },
+                    ]  
+        },
+        options: {  
+            responsive: true,
+            scales: {
+                  xAxes: [{
+                  stacked: true,
+                  display: false,
+                }],
+                yAxes: [{
+                    stacked: false,
+                  ticks: {
+                        beginAtZero:true
+                    }
+                }]
+            },
+            legend: {display: false},
+        }
+    });
+
+    
+
 </script>
 
 @endsection
