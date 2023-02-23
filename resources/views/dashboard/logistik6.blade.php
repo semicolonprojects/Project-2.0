@@ -300,8 +300,7 @@
         if (checkboxes[i] != source)
             checkboxes[i].checked = source.checked;
     }
-}
-console.log('assakjsa'); 
+} 
 </script>
 
 @vite(['resources/css/app.css','resources/js/app.js'])

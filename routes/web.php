@@ -73,3 +73,19 @@ Route::get('/logistikdash/datasupplier2', function () {
 Route::get('/logistikdash/dbb', function () {
     return view('dashboard.logistik6');
 });
+
+Route::get('/finance', function () {
+    return view('dashboard.finance');
+});
+
+Route::get('/finance/invoice', function () {
+    return view('dashboard.finance-invoice');
+});
+
+Route::get('/finance/income', function () {
+    return view('dashboard.finance-income');
+});
+
+Route::get('/finance/outcome', function () {
+    return view('dashboard.finance-outcome');
+});

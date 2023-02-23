@@ -6,3 +6,4 @@ import "./lineChart.js";
 import "./dailyTarget.js";
 import "./salesAnalytics.js";
 import "./dailyOrderStats.js";
+import "./revenue.js";

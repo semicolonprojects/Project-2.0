@@ -339,7 +339,7 @@
             <div class="inline-flex absolute mt-3">
                 <h5 class="text-2xl font-bold tracking-tight text-gray-900">Daily Order Stats</h5>
                 <div class="mt-20 mr-16 absolute">
-                    <div><canvas id="dailyOrderStats" width="350px" height="200px"></canvas></div>
+                    <div><canvas id="dailyOrderStats" width=" 350px" height="200px"></canvas></div>
                 </div>
             </div>
 
@@ -504,6 +504,59 @@
         </div>
     </div>
 </div>
+
+<script>
+    var data = [0, 10, 5, 2, 20, 30];
+
+new Chart('dailyOrderStats', {
+    type: "line",
+    data: {
+        datasets: [
+            {
+                fill: false,
+                label: "Target",
+                lineTension: 0,
+                data: data,
+                borderColor: "#A155B9",
+                backgroundColor: "#A155B9",
+            },
+            {
+                fill: false,
+                lineTension: 0,
+                label: "Total",
+                data: [100, 50, 60, 70, 10, 50],
+                borderColor: "#F765A3",
+                backgroundColor: "#F765A3",
+                borderDash: [10, 5],
+            },
+        ],
+        labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+    },
+    options: {
+        plugins: {
+            legend: {
+                align: "center",
+                position: "top",
+                padding: 30,
+                labels: {
+                    font: {
+                        size: 13,
+                        family: "Segoe UI",
+                    },
+                },
+            },
+        },
+
+        scales: {
+            y: {
+                suggestedMin: -10,
+                suggestedMax: 200,
+            },
+        },
+    },
+});
+
+</script>
 
 @vite(['resources/css/app.css','resources/js/app.js'])
 <script>
