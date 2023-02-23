@@ -506,4 +506,35 @@
 </div>
 
 @vite(['resources/css/app.css','resources/js/app.js'])
+<script>
+    var xValues = ["Jan", "Feb", "Mar", "Apr", "May", "Jun"];
+    var yValues = [7,8,8,9,9,9,10,11,14,14,15];
+    var yValues2 = [10,20,8,9,9,9,10,5,14,14,10];
+    
+    new Chart("dailyOrderStats", {
+      type: "line",
+      data: {
+        labels: xValues,
+        datasets: [{
+          fill: false,
+          lineTension: 0,
+          backgroundColor: "#A155B9",
+          borderColor: "#A155B9",
+          data: yValues
+        },{
+          fill: false,
+          lineTension: 0,
+          backgroundColor: "#F765A3",
+          borderColor: "#F765A3",
+          data: yValues2
+        },
+      ]
+      },
+      options: {
+        legend: {display: false},
+      }
+    });
+  </script>
+
+
 @endsection
