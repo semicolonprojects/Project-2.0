@@ -226,7 +226,9 @@
                 </svg>
             </button>
         </div>
-        <div class="inline-flex absolute justify-center py-10 ml-3"><canvas id="myChart"></canvas></div>
+        <div class="inline-flex absolute justify-center py-10 ml-3">
+            <div class='' id="{!! $orderStats->container() !!}"></div>
+        </div>
     </div>
 
     {{-- Top Products --}}
@@ -803,5 +805,9 @@
     </ul>
 </div>
 
+
+<script src="{{ $orderStats->cdn() }}"></script>
+
+{{ $orderStats->script() }}
 @vite(['resources/css/app.css','resources/js/app.js'])
 @endsection
