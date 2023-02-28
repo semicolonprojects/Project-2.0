@@ -89,3 +89,11 @@ Route::get('/finance/income', function () {
 Route::get('/finance/outcome', function () {
     return view('dashboard.finance-outcome');
 });
+
+Route::get('/finance/outcome-i', function () {
+    return view('dashboard.finance-outcome-i');
+});
+
+Route::get('/finance/outcome-e', function () {
+    return view('dashboard.finance-outcome-e');
+});
