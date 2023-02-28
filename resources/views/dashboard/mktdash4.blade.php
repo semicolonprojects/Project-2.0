@@ -173,7 +173,9 @@
                 </button>
             </div>
         </div>
-        <div class="py-5"><canvas id="saleBar"></canvas></div>
+        <div class="py-5">
+            <div id="{!! $saleThisMonth->container() !!}"></div>
+        </div>
     </div>
 </div>
 
@@ -193,27 +195,8 @@
     </ul>
 </div>
 
-<script>
-    var xValues = ["Tokopedia Utama",
-            "Shopee",
-            "Tokopedia Malang",
-            "Bukalapak",
-            "Lazada"];
-var yValues = [250, 200, 175, 125, 100, 0];
+<script src="{{ $saleThisMonth->cdn() }}"></script>
 
-new Chart("saleBar", {
-  type: "bar",
-  data: {
-    labels: xValues,
-    datasets: [{
-      backgroundColor: "#FFC525",
-      data: yValues
-    }]
-  },
-  options: {
-    legend: {display: false},
-  }
-});
-</script>
+{{ $saleThisMonth->script() }}
 
 @endsection

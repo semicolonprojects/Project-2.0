@@ -184,13 +184,15 @@
                 </svg>
             </button>
         </div>
-        <div class="inline-flex absolute justify-center py-10 ml-3"><canvas id="myChart"></canvas></div>
+        <div class="inline-flex absolute justify-center py-10 ml-3">
+            <div id="{!! $orderStats->container() !!}"></div>
+        </div>
     </div>
 
     <div
         class="inline-block p-6 bg-white border border-gray-200 rounded-xl  hover:bg-gray-100 shadow-2xl w-[384px] h-[450px]">
         <div class="grid grid-flow-col gap-40">
-            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">Order Stats</h5>
+            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">User Activity</h5>
             <button id="orderStats" data-dropdown-toggle="orderStatsTrigger">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" class="w-8 h-8">
@@ -199,7 +201,9 @@
                 </svg>
             </button>
         </div>
-        <div class="inline-flex absolute justify-center py-10 ml-3"><canvas id="lineChart"></canvas></div>
+        <div class="inline-flex absolute justify-center py-10 ml-3">
+            <div id="{!! $userActivity->container() !!}"></div>
+        </div>
     </div>
 </div>
 
@@ -221,7 +225,9 @@
                 </button>
             </div>
         </div>
-        <div><canvas id="salesAnalytics" width="1028px" height="283px"></canvas></div>
+        <div>
+            <div id="{!! $salesAnalytics->container() !!}" width="1028px" height="283px"></div>
+        </div>
     </div>
 </div>
 
@@ -339,255 +345,184 @@
             <div class="inline-flex absolute mt-3">
                 <h5 class="text-2xl font-bold tracking-tight text-gray-900">Daily Order Stats</h5>
                 <div class="mt-20 mr-16 absolute">
-                    <div><canvas id="dailyOrderStats" width=" 350px" height="200px"></canvas></div>
+                    <div>
+                        <div id="{!! $dailyOrderStats->container() !!}" width=" 350px" height="200px"></div>
+                    </div>
                 </div>
             </div>
 
             <div class="inline-flex absolute mt-3 ml-[580px]">
                 <h5 class="absolute text-2xl font-bold tracking-tight text-gray-900">Daily Target Stats</h5>
                 <div class="mb-7 w-96">
-                    <canvas id="dailyTarget" width="280px"></canvas>
+                    <div class='py-10' id="{!! $dailyTargetStats->container() !!}" width="280px">
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="py-48 mr-[503px] border-r-[1px] border-black"></div>
-    </div>
-</div>
-
-{{-- Top Customer --}}
-<div class="ml-40 px-12 mt-10 p-10">
-    <div class=" max-w-5xl h-[480px] p-6 bg-white border border-gray-200 rounded-xl  hover:bg-gray-100 shadow-2xl">
-        <h5 class="inline-flex absolute mb-2 text-2xl font-bold tracking-tight  text-gray-900 ">Top Customers</h5>
-        <div class="inline-flex ml-[900px]">
-            <p class="font-normal text-xl text-black/60">Daily</p>
-            <button id="topProducts" data-dropdown-toggle="topProductsTrigger">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="0.5"
-                    stroke="currentColor" class="w-5 h-5">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                </svg>
-            </button>
-        </div>
-        <div class=" mt-14 ml-24 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-9">
-            <div
-                class="py-2 inline-flex rounded-xl border border-gray-400/70 bg-gray-200/0 shadow-md shadow-gray-400 w-52 h-56">
-                <h3 class="absolute mt-4 ml-24 text-3xl font-bold text-black">1</h3>
-                <p class="absolute mt-16 ml-16 text-2xl font-extrabold text-gray-900">Hengki</p>
-                <div class="inline-flex absolute stroke-gray-900 w-5 h-5  ml-[165px] mt-0">
-                    <button id="orderStats" data-dropdown-toggle="orderStatsTrigger">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-8 h-8">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
-                        </svg>
-                    </button>
-                </div>
-                <div class="mt-[120px] py-2 inline-flex absolute">
-                    <p class="self-center text-md text-black font-semibold ml-3 ">Total Orders</p>
-                    <p class="place-self-center text-md text-black font-normal ml-10 ">246 pcs</p>
-                </div>
-                <div class="mt-[155px] py-2 inline-flex absolute">
-                    <p class="self-center text-md text-black font-semibold ml-3 ">Revenue</p>
-                    <p class="place-self-center text-md text-black font-normal ml-9 ">IDR 246.000</p>
-                </div>
-            </div>
-            <div
-                class="py-2 inline-flex rounded-xl border border-gray-400/70 bg-gray-200/0 shadow-md shadow-gray-400 w-52 h-56">
-                <h3 class="absolute mt-4 ml-24 text-3xl font-bold text-black">2</h3>
-                <p class="absolute mt-16 ml-16 text-2xl font-extrabold text-gray-900">Hengki</p>
-                <div class="inline-flex absolute stroke-gray-900 w-5 h-5  ml-[165px] mt-0">
-                    <button id="orderStats" data-dropdown-toggle="orderStatsTrigger">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-8 h-8">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
-                        </svg>
-                    </button>
-                </div>
-                <div class="mt-[120px] py-2 inline-flex absolute">
-                    <p class="self-center text-md text-black font-semibold ml-3 ">Total Orders</p>
-                    <p class="place-self-center text-md text-black font-normal ml-10 ">246 pcs</p>
-                </div>
-                <div class="mt-[155px] py-2 inline-flex absolute">
-                    <p class="self-center text-md text-black font-semibold ml-3 ">Revenue</p>
-                    <p class="place-self-center text-md text-black font-normal ml-9 ">IDR 246.000</p>
-                </div>
-            </div>
-            <div
-                class="py-2 inline-flex rounded-xl border border-gray-400/70 bg-gray-200/0 shadow-md shadow-gray-400 w-52 h-56">
-                <h3 class="absolute mt-4 ml-24 text-3xl font-bold text-black">3</h3>
-                <p class="absolute mt-16 ml-16 text-2xl font-extrabold text-gray-900">Hengki</p>
-                <div class="inline-flex absolute stroke-gray-900 w-5 h-5  ml-[165px] mt-0">
-                    <button id="orderStats" data-dropdown-toggle="orderStatsTrigger">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-8 h-8">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
-                        </svg>
-                    </button>
-                </div>
-                <div class="mt-[120px] py-2 inline-flex absolute">
-                    <p class="self-center text-md text-black font-semibold ml-3 ">Total Orders</p>
-                    <p class="place-self-center text-md text-black font-normal ml-10 ">246 pcs</p>
-                </div>
-                <div class="mt-[155px] py-2 inline-flex absolute">
-                    <p class="self-center text-md text-black font-semibold ml-3 ">Revenue</p>
-                    <p class="place-self-center text-md text-black font-normal ml-9 ">IDR 246.000</p>
-                </div>
-            </div>
-        </div>
-        <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
-            <div
-                class="inline-flex absolute py-2 mt-[24px] ml-[70px] rounded-xl border border-gray-400/70 bg-gray-200/0 shadow-md shadow-gray-400 w-64 h-16">
-                <div class="bg-bgTopProducs ml-8 rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-8 w-8">
-                    <img src="Assets\images\pure-honey-1-removebg-preview.png" />
-                </div>
-                <div class="bg-bgTopProducs ml-12 rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-8 w-8">
-                    <img src="Assets\images\pure-honey-1-removebg-preview.png" />
-                </div>
-                <div class="bg-bgTopProducs ml-12 rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-8 w-8">
-                    <img src="Assets\images\pure-honey-1-removebg-preview.png" />
-                </div>
-                <div class="mt-8 inline-flex absolute ml-3">
-                    <p class="text-xs">Madu Durian</p>
-                </div>
-                <div class="mt-8 inline-flex absolute ml-24">
-                    <p class="text-xs">Madu Durian</p>
-                </div>
-                <div class="mt-8 inline-flex absolute ml-44">
-                    <p class="text-xs">Madu Durian</p>
-                </div>
-            </div>
-
-            <div
-                class="inline-flex absolute py-2 mt-[24px] ml-[370px] rounded-xl border border-gray-400/70 bg-gray-200/0 shadow-md shadow-gray-400 w-64 h-16">
-                <div class="bg-bgTopProducs ml-8 rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-8 w-8">
-                    <img src="Assets\images\pure-honey-1-removebg-preview.png" />
-                </div>
-                <div class="bg-bgTopProducs ml-12 rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-8 w-8">
-                    <img src="Assets\images\pure-honey-1-removebg-preview.png" />
-                </div>
-                <div class="bg-bgTopProducs ml-12 rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-8 w-8">
-                    <img src="Assets\images\pure-honey-1-removebg-preview.png" />
-                </div>
-                <div class="mt-8 inline-flex absolute ml-3">
-                    <p class="text-xs">Madu Durian</p>
-                </div>
-                <div class="mt-8 inline-flex absolute ml-24">
-                    <p class="text-xs">Madu Durian</p>
-                </div>
-                <div class="mt-8 inline-flex absolute ml-44">
-                    <p class="text-xs">Madu Durian</p>
-                </div>
-            </div>
-
-            <div
-                class="inline-flex absolute py-2 mt-[24px] ml-[680px] rounded-xl border border-gray-400/70 bg-gray-200/0 shadow-md shadow-gray-400 w-64 h-16">
-                <div class="bg-bgTopProducs ml-8 rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-8 w-8">
-                    <img src="Assets\images\pure-honey-1-removebg-preview.png" />
-                </div>
-                <div class="bg-bgTopProducs ml-12 rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-8 w-8">
-                    <img src="Assets\images\pure-honey-1-removebg-preview.png" />
-                </div>
-                <div class="bg-bgTopProducs ml-12 rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-8 w-8">
-                    <img src="Assets\images\pure-honey-1-removebg-preview.png" />
-                </div>
-                <div class="mt-8 inline-flex absolute ml-3">
-                    <p class="text-xs">Madu Durian</p>
-                </div>
-                <div class="mt-8 inline-flex absolute ml-24">
-                    <p class="text-xs">Madu Durian</p>
-                </div>
-                <div class="mt-8 inline-flex absolute ml-44">
-                    <p class="text-xs">Madu Durian</p>
-                </div>
-            </div>
+            <div class="py-48 mr-[503px] border-r-[1px] border-black"></div>
         </div>
     </div>
-</div>
 
-<script>
-    var data = [0, 10, 5, 2, 20, 30];
+    {{-- Top Customer --}}
+    <div class="ml-40 px-12 mt-10 p-10">
+        <div class=" max-w-5xl h-[480px] p-6 bg-white border border-gray-200 rounded-xl  hover:bg-gray-100 shadow-2xl">
+            <h5 class="inline-flex absolute mb-2 text-2xl font-bold tracking-tight  text-gray-900 ">Top Customers</h5>
+            <div class="inline-flex ml-[900px]">
+                <p class="font-normal text-xl text-black/60">Daily</p>
+                <button id="topProducts" data-dropdown-toggle="topProductsTrigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="0.5"
+                        stroke="currentColor" class="w-5 h-5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                    </svg>
+                </button>
+            </div>
+            <div
+                class=" mt-14 ml-24 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-9">
+                <div
+                    class="py-2 inline-flex rounded-xl border border-gray-400/70 bg-gray-200/0 shadow-md shadow-gray-400 w-52 h-56">
+                    <h3 class="absolute mt-4 ml-24 text-3xl font-bold text-black">1</h3>
+                    <p class="absolute mt-16 ml-16 text-2xl font-extrabold text-gray-900">Hengki</p>
+                    <div class="inline-flex absolute stroke-gray-900 w-5 h-5  ml-[165px] mt-0">
+                        <button id="orderStats" data-dropdown-toggle="orderStatsTrigger">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="w-8 h-8">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="mt-[120px] py-2 inline-flex absolute">
+                        <p class="self-center text-md text-black font-semibold ml-3 ">Total Orders</p>
+                        <p class="place-self-center text-md text-black font-normal ml-10 ">246 pcs</p>
+                    </div>
+                    <div class="mt-[155px] py-2 inline-flex absolute">
+                        <p class="self-center text-md text-black font-semibold ml-3 ">Revenue</p>
+                        <p class="place-self-center text-md text-black font-normal ml-9 ">IDR 246.000</p>
+                    </div>
+                </div>
+                <div
+                    class="py-2 inline-flex rounded-xl border border-gray-400/70 bg-gray-200/0 shadow-md shadow-gray-400 w-52 h-56">
+                    <h3 class="absolute mt-4 ml-24 text-3xl font-bold text-black">2</h3>
+                    <p class="absolute mt-16 ml-16 text-2xl font-extrabold text-gray-900">Hengki</p>
+                    <div class="inline-flex absolute stroke-gray-900 w-5 h-5  ml-[165px] mt-0">
+                        <button id="orderStats" data-dropdown-toggle="orderStatsTrigger">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="w-8 h-8">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="mt-[120px] py-2 inline-flex absolute">
+                        <p class="self-center text-md text-black font-semibold ml-3 ">Total Orders</p>
+                        <p class="place-self-center text-md text-black font-normal ml-10 ">246 pcs</p>
+                    </div>
+                    <div class="mt-[155px] py-2 inline-flex absolute">
+                        <p class="self-center text-md text-black font-semibold ml-3 ">Revenue</p>
+                        <p class="place-self-center text-md text-black font-normal ml-9 ">IDR 246.000</p>
+                    </div>
+                </div>
+                <div
+                    class="py-2 inline-flex rounded-xl border border-gray-400/70 bg-gray-200/0 shadow-md shadow-gray-400 w-52 h-56">
+                    <h3 class="absolute mt-4 ml-24 text-3xl font-bold text-black">3</h3>
+                    <p class="absolute mt-16 ml-16 text-2xl font-extrabold text-gray-900">Hengki</p>
+                    <div class="inline-flex absolute stroke-gray-900 w-5 h-5  ml-[165px] mt-0">
+                        <button id="orderStats" data-dropdown-toggle="orderStatsTrigger">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="w-8 h-8">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="mt-[120px] py-2 inline-flex absolute">
+                        <p class="self-center text-md text-black font-semibold ml-3 ">Total Orders</p>
+                        <p class="place-self-center text-md text-black font-normal ml-10 ">246 pcs</p>
+                    </div>
+                    <div class="mt-[155px] py-2 inline-flex absolute">
+                        <p class="self-center text-md text-black font-semibold ml-3 ">Revenue</p>
+                        <p class="place-self-center text-md text-black font-normal ml-9 ">IDR 246.000</p>
+                    </div>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
+                <div
+                    class="inline-flex absolute py-2 mt-[24px] ml-[70px] rounded-xl border border-gray-400/70 bg-gray-200/0 shadow-md shadow-gray-400 w-64 h-16">
+                    <div class="bg-bgTopProducs ml-8 rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-8 w-8">
+                        <img src="Assets\images\pure-honey-1-removebg-preview.png" />
+                    </div>
+                    <div class="bg-bgTopProducs ml-12 rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-8 w-8">
+                        <img src="Assets\images\pure-honey-1-removebg-preview.png" />
+                    </div>
+                    <div class="bg-bgTopProducs ml-12 rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-8 w-8">
+                        <img src="Assets\images\pure-honey-1-removebg-preview.png" />
+                    </div>
+                    <div class="mt-8 inline-flex absolute ml-3">
+                        <p class="text-xs">Madu Durian</p>
+                    </div>
+                    <div class="mt-8 inline-flex absolute ml-24">
+                        <p class="text-xs">Madu Durian</p>
+                    </div>
+                    <div class="mt-8 inline-flex absolute ml-44">
+                        <p class="text-xs">Madu Durian</p>
+                    </div>
+                </div>
 
-new Chart('dailyOrderStats', {
-    type: "line",
-    data: {
-        datasets: [
-            {
-                fill: false,
-                label: "Target",
-                lineTension: 0,
-                data: data,
-                borderColor: "#A155B9",
-                backgroundColor: "#A155B9",
-            },
-            {
-                fill: false,
-                lineTension: 0,
-                label: "Total",
-                data: [100, 50, 60, 70, 10, 50],
-                borderColor: "#F765A3",
-                backgroundColor: "#F765A3",
-                borderDash: [10, 5],
-            },
-        ],
-        labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
-    },
-    options: {
-        plugins: {
-            legend: {
-                align: "center",
-                position: "top",
-                padding: 30,
-                labels: {
-                    font: {
-                        size: 13,
-                        family: "Segoe UI",
-                    },
-                },
-            },
-        },
+                <div
+                    class="inline-flex absolute py-2 mt-[24px] ml-[370px] rounded-xl border border-gray-400/70 bg-gray-200/0 shadow-md shadow-gray-400 w-64 h-16">
+                    <div class="bg-bgTopProducs ml-8 rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-8 w-8">
+                        <img src="Assets\images\pure-honey-1-removebg-preview.png" />
+                    </div>
+                    <div class="bg-bgTopProducs ml-12 rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-8 w-8">
+                        <img src="Assets\images\pure-honey-1-removebg-preview.png" />
+                    </div>
+                    <div class="bg-bgTopProducs ml-12 rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-8 w-8">
+                        <img src="Assets\images\pure-honey-1-removebg-preview.png" />
+                    </div>
+                    <div class="mt-8 inline-flex absolute ml-3">
+                        <p class="text-xs">Madu Durian</p>
+                    </div>
+                    <div class="mt-8 inline-flex absolute ml-24">
+                        <p class="text-xs">Madu Durian</p>
+                    </div>
+                    <div class="mt-8 inline-flex absolute ml-44">
+                        <p class="text-xs">Madu Durian</p>
+                    </div>
+                </div>
 
-        scales: {
-            y: {
-                suggestedMin: -10,
-                suggestedMax: 200,
-            },
-        },
-    },
-});
+                <div
+                    class="inline-flex absolute py-2 mt-[24px] ml-[680px] rounded-xl border border-gray-400/70 bg-gray-200/0 shadow-md shadow-gray-400 w-64 h-16">
+                    <div class="bg-bgTopProducs ml-8 rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-8 w-8">
+                        <img src="Assets\images\pure-honey-1-removebg-preview.png" />
+                    </div>
+                    <div class="bg-bgTopProducs ml-12 rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-8 w-8">
+                        <img src="Assets\images\pure-honey-1-removebg-preview.png" />
+                    </div>
+                    <div class="bg-bgTopProducs ml-12 rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-8 w-8">
+                        <img src="Assets\images\pure-honey-1-removebg-preview.png" />
+                    </div>
+                    <div class="mt-8 inline-flex absolute ml-3">
+                        <p class="text-xs">Madu Durian</p>
+                    </div>
+                    <div class="mt-8 inline-flex absolute ml-24">
+                        <p class="text-xs">Madu Durian</p>
+                    </div>
+                    <div class="mt-8 inline-flex absolute ml-44">
+                        <p class="text-xs">Madu Durian</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-</script>
+    <script src="{{ $orderStats->cdn() }}"></script>
 
-@vite(['resources/css/app.css','resources/js/app.js'])
-<script>
-    var xValues = ["Jan", "Feb", "Mar", "Apr", "May", "Jun"];
-    var yValues = [7,8,8,9,9,9,10,11,14,14,15];
-    var yValues2 = [10,20,8,9,9,9,10,5,14,14,10];
-    
-    new Chart("dailyOrderStats", {
-      type: "line",
-      data: {
-        labels: xValues,
-        datasets: [{
-          fill: false,
-          lineTension: 0,
-          backgroundColor: "#A155B9",
-          borderColor: "#A155B9",
-          data: yValues
-        },{
-          fill: false,
-          lineTension: 0,
-          backgroundColor: "#F765A3",
-          borderColor: "#F765A3",
-          data: yValues2
-        },
-      ]
-      },
-      options: {
-        legend: {display: false},
-      }
-    });
-  </script>
+    {{ $orderStats->script() }}
+    {{ $userActivity->script() }}
+    {{ $salesAnalytics->script() }}
+    {{ $dailyOrderStats->script() }}
+    {{ $dailyTargetStats->script() }}
+
+    @vite(['resources/css/app.css','resources/js/app.js'])
 
 
-@endsection
+    @endsection

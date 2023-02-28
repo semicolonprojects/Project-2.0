@@ -31,7 +31,9 @@
                     4,000,000</p>
             </div>
         </div>
-        <div class="px-5 py-5"><canvas id="revenue" width="739px" height="262px"></canvas></div>
+        <div class="px-5 py-5">
+            <div class='justify-center flex' id="{!! $dailyRevenue->container() !!}" width="739px" height="262px"></div>
+        </div>
     </div>
 </div>
 
@@ -51,7 +53,8 @@
             </button>
         </div>
         <div class="border-gray-400 border-b-[1px] py-2"></div>
-        <div class="py-[50px]"><canvas id="MeSeStatusCanvas"></canvas>
+        <div class="py-[50px]">
+            <div id="{!! $dailyStats->container() !!}"></div>
         </div>
         <div class="p-5 bg-white border-[1px] border-gray-400  rounded-[13px]">
 
@@ -102,10 +105,29 @@
             </button>
         </div>
         <div class="border-gray-400 border-b-[1px] py-2"></div>
+        <div class="mt-12">
+            <div class="grid grid-flow-row gap-3">
+                <div class="grid grid-flow-col gap-[269px]">
+                    <p class="font-semibold text-xl text-black">Revenue</p>
+                    <p class="font-semibold text-xl text-black">IDR, in millions</p>
+                </div>
+                <div id="{!! $dailyRevenue2->container() !!}"></div>
+                <div class="grid grid-flow-col gap-[269px]">
+                    <p class="font-semibold text-xl text-black">Profit</p>
+                    <p class="font-semibold text-xl text-black">in percents</p>
+                </div>
+                <div id="{!! $profit->container() !!}"></div>
+                <div class="grid grid-flow-col gap-[269px]">
+                    <p class="font-semibold text-xl text-black">Order Size</p>
+                    <p class="font-semibold text-xl text-black">Average value</p>
+                </div>
+                <div id="{!! $orderSize->container() !!}"></div>
+            </div>
+        </div>
     </div>
 </div>
 
-<div id="accordion-collapse" class="ml-32" data-accordion="collapse">
+<div id="accordion-collapse" class="ml-32" data-accordion="open">
     <table class=" w-[1070px] table-fixed text-sm text-left text-gray-500 dark:text-gray-400 ">
 
         <div
@@ -591,91 +613,12 @@
     </div>
 </div>
 
-<script>
-    new Chart('revenue', {
-    type: "line",
-    data: {
-        datasets: [
-            {
-                label: "Current Week",
-                data: [0, 25, 10, 20, 25, 30, 20],
-                borderColor: "#A155B9",
-                backgroundColor: "#A155B9",
-                fill:false,
-                lineTension: 0,
-            },
-            {
-                label: "Previous Week",
-                data: [10, 25, 15, 25, 30, 20, 15],
-                borderColor: "#F765A3",
-                backgroundColor: "#F765A3",
-                borderDash: [10, 5],
-                fill:false,
-                lineTension: 0,
-            },
-        ],
-        labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
-    },
-    options: {
-    legend: {display: false},
-    }
-});
+<script src="{{ $dailyRevenue->cdn() }}"></script>
 
-    function toggle(source) {
-    var checkboxes = document.querySelectorAll('input[type="checkbox"]');
-    for (var i = 0; i < checkboxes.length; i++) {
-        if (checkboxes[i] != source)
-            checkboxes[i].checked = source.checked;
-    }
-}
-
-var goals = [20, 19, 19]
-var predictions = [30,30,30]
-var ctx = document.getElementById("MeSeStatusCanvas");
-    var myChart = new Chart(ctx, {
-        type: 'horizontalBar',
-        data: {
-            labels: ["Mukti", "Supri", "Windah"],
-            datasets: [{
-                            label: 'Target',
-                            // fillColor: "rgba(220,220,220,0.5)",
-                            backgroundColor: "#FFC525",
-                            // highlightFill: "rgba(220,220,220,0.75)",
-                            // highlightStroke: "rgba(220,220,220,1)",
-                            data: goals,
-                            
-                        },
-                        {
-                            label: 'Actual Sales',
-                            fillColor: "rgba(0,0,0,0.5)",
-                            backgroundColor: "rgba(255, 197, 37, 0.3)",
-                            highlightFill: "rgba(0,0,0,0.5)",
-                            highlightStroke: "rgba(0,0,0,0.5)",
-                            data: predictions,
-                            
-                        },
-                    ]  
-        },
-        options: {  
-            responsive: true,
-            scales: {
-                  xAxes: [{
-                  stacked: true,
-                  display: false,
-                }],
-                yAxes: [{
-                    stacked: false,
-                  ticks: {
-                        beginAtZero:true
-                    }
-                }]
-            },
-            legend: {display: false},
-        }
-    });
-
-    
-
-</script>
+{{ $dailyRevenue->script() }}
+{{ $dailyStats->script() }}
+{{ $dailyRevenue2->script() }}
+{{ $profit->script() }}
+{{ $orderSize->script() }}
 
 @endsection

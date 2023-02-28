@@ -188,40 +188,15 @@
 </div>
 
 <div class="mt-14 ml-28">
-  <div class="inline-block p-6 bg-white border border-gray-200 rounded-xl  hover:bg-gray-100 shadow-2xl w-[1024px]">
+  <div class="inline-block p-6 bg-white border border-gray-200 rounded-xl  hover:bg-gray-100 shadow-2xl w-[1122px]">
     <p class="text-center text-[24px] text-black">Hengki's Order Chart </p>
-    <div><canvas id="salesAnalytics"></canvas></div>
+    <div>
+      <div id="{!! $hengkiOrder->container() !!}"></div>
+    </div>
   </div>
 </div>
 
-<script>
-  var xValues = ["Jan", "Feb", "Mar", "Apr", "May", "Jun"];
-  var yValues = [7,8,8,9,9,9,10,11,14,14,15];
-  var yValues2 = [10,20,8,9,9,9,10,5,14,14,10];
-  
-  new Chart("salesAnalytics", {
-    type: "line",
-    data: {
-      labels: xValues,
-      datasets: [{
-        fill: false,
-        lineTension: 0,
-        backgroundColor: "#A155B9",
-        borderColor: "#A155B9",
-        data: yValues
-      },{
-        fill: false,
-        lineTension: 0,
-        backgroundColor: "#F765A3",
-        borderColor: "#F765A3",
-        data: yValues2
-      },
-    ]
-    },
-    options: {
-      legend: {display: false},
-    }
-  });
-</script>
+<script src="{{$hengkiOrder->cdn() }}"></script>
 
+{{ $hengkiOrder -> script() }}
 @endsection
