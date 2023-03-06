@@ -286,7 +286,7 @@
 
 {{-- Table Stok Produk --}}
 <div
-    class="max-w-5xl bg-white border border-black rounded-lg shadow-[0px_8px_8px_rgba(0,0,0,0.5)] mt-28 mb-10 content-center ml-40">
+    class="max-w-5xl bg-white border border-black rounded-lg shadow-[0px_8px_8px_rgba(0,0,0,0.5)] mt-28 mb-10 content-center ml-48">
     <a href="#">
         <img class="rounded-t-lg" src="/docs/images/blog/image-1.jpg" alt="" />
     </a>
@@ -450,7 +450,7 @@
 
 {{-- Table Low Stok --}}
 <div
-    class="max-w-5xl bg-white border border-black rounded-lg shadow-[0px_8px_8px_rgba(0,0,0,0.5)] mt-28 mb-10 content-center ml-40">
+    class="max-w-5xl bg-white border border-black rounded-lg shadow-[0px_8px_8px_rgba(0,0,0,0.5)] mt-28 mb-10 content-center ml-48">
     <a href="#">
         <img class="rounded-t-lg" src="/docs/images/blog/image-1.jpg" alt="" />
     </a>
@@ -613,7 +613,7 @@
 </div>
 
 {{-- Top Customers --}}
-<div class="ml-36 px-32 mt-10 p-10">
+<div class="ml-36 px-12 mt-10 p-10">
     <div class=" max-w-5xl h-[480px] p-6 bg-white border border-gray-200 rounded-xl  hover:bg-gray-100 shadow-2xl">
         <h5 class="inline-flex absolute mb-2 text-2xl font-bold tracking-tight  text-gray-900 ">Top Customers</h5>
         <div class="inline-flex ml-[900px]">
@@ -625,7 +625,8 @@
                 </svg>
             </button>
         </div>
-        <div class=" mt-14 ml-24 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-9">
+        <div
+            class=" mt-14 ml-24 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-9">
             <div
                 class="py-2 inline-flex rounded-xl border border-gray-400/70 bg-gray-200/0 shadow-md shadow-gray-400 w-52 h-56">
                 <h3 class="absolute mt-4 ml-24 text-3xl font-bold text-black">1</h3>
@@ -762,6 +763,7 @@
         </div>
     </div>
 </div>
+
 <!-- Back to top button -->
 <button type="button" data-mdb-ripple="true" data-mdb-ripple-color="light"
     class="p-3 bg-background text-black font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-gradient-to-bl from-yellow-200 to-bg-yellow-300 focus:ring-yellow-400 focus:shadow-lg focus:outline-none transition duration-150 ease-in-out hidden bottom-5 right-5 fixed"

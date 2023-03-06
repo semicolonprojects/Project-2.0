@@ -297,8 +297,8 @@
 
             <div class="grid grid-flow-row gap-7">
                 <div
-                    class="inline-flex mt-20 ml-10 bg-white border-2 border-gray-200 rounded-2xl shadow-xl w-[390px] h-[200px]">
-                    <h5 class="text-xl font-semibold tracking-tight text-gray-900 ml-5 mt-3">Daily Target</h5>
+                    class="inline-flex mt-20 ml-5 bg-white border-2 border-gray-200 rounded-2xl shadow-xl w-[390px] h-[200px]">
+                    <h5 class="text-xl font-semibold tracking-tight text-gray-900  mt-3">Daily Target</h5>
                     <div class="inline-flex absolute mt-32 mr-16">
                         <h5 class="text-4xl font-bold tracking-tight text-gray-900 ml-5 mt-3">IDR 27 M</h5>
                         <p class="ml-14 mt-7 text-gray-700/75">Today : 27 May 2023</p>
@@ -351,7 +351,7 @@
                 </div>
             </div>
 
-            <div class="inline-flex absolute mt-3 ml-[580px]">
+            <div class="inline-flex absolute mt-3 ml-[507px]">
                 <h5 class="absolute text-2xl font-bold tracking-tight text-gray-900">Daily Target Stats</h5>
                 <div class="mb-7 w-96">
                     <div class='py-10' id="{!! $dailyTargetStats->container() !!}" width="280px">
@@ -363,7 +363,7 @@
     </div>
 
     {{-- Top Customer --}}
-    <div class="ml-40 px-12 mt-10 p-10">
+    <div class="px-1 mt-10 p-10">
         <div class=" max-w-5xl h-[480px] p-6 bg-white border border-gray-200 rounded-xl  hover:bg-gray-100 shadow-2xl">
             <h5 class="inline-flex absolute mb-2 text-2xl font-bold tracking-tight  text-gray-900 ">Top Customers</h5>
             <div class="inline-flex ml-[900px]">
@@ -513,6 +513,7 @@
             </div>
         </div>
     </div>
+
 
     <script src="{{ $orderStats->cdn() }}"></script>
 
