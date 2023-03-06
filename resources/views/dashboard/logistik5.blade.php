@@ -210,7 +210,7 @@
         </tbody>
     </table>
 </div>
-<div class="flex justify-center py-5">
+<div class="flex justify-center px-2 py-5">
   <nav aria-label="Page navigation example">
       <ul class="flex list-style-none">
           <li class="page-item disabled"><a

@@ -7,7 +7,7 @@
         <p class="text-[24px] text-black font-[700]">Detail Termin</p>
     </div>
     <div class="w-fit bg-[#FFFFFF] shadow-[0px_8px_8px_rgba(0,0,0,0.5)] rounded-[22px]">
-        <div class="grid grid-flow-col gap-[640px] mb-3 px-5">
+        <div class="grid grid-flow-col gap-[640px] mb-3 px-5 py-8">
             <div class="flex md:order-2">
                 <form class="flex items-center">
                     <label for="simple-search" class="sr-only">Search</label>

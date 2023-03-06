@@ -17,46 +17,46 @@
     </div>
     <div class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-10">
         <!--Card 1-->
-        <div class="bg-white border-[1px] border-[#686868cf] shadow-[0px_8px_8px_rgba(0,0,0,0.5)] rounded-[13px] px-5">
+        <div class="bg-white border-[1px] border-[#686868cf] shadow-[0px_8px_8px_rgba(0,0,0,0.5)] rounded-[13px] px-5 py-5">
             <p class="font-bold text-2xl text-black">Online</p>
-            <div class="grid grid-flow-col py-10">
-                <div class="">
-                    <p class="font-semibold text-[32px] text-gray-500">Shope</p>
-                    <p class="font-semibold text-[32px] text-gray-500">Tokopedia</p>
-                    <p class="font-semibold text-[32px] text-gray-500">Lazada</p>
-                    <p class="font-semibold text-[32px] text-gray-500">Bukalapak</p>
-                    <p class="font-semibold text-[32px] text-gray-500">Tiktok</p>
-                    <p class="font-semibold text-[32px] text-gray-500">Pettycash</p>
+            <div class="grid grid-flow-col py-10 gap-10">
+                <div class="grid grid-flow-row gap-5">
+                    <p class="font-semibold text-xl text-gray-500">Shope</p>
+                    <p class="font-semibold text-xl text-gray-500">Tokopedia</p>
+                    <p class="font-semibold text-xl text-gray-500">Lazada</p>
+                    <p class="font-semibold text-xl text-gray-500">Bukalapak</p>
+                    <p class="font-semibold text-xl text-gray-500">Tiktok</p>
+                    <p class="font-semibold text-xl text-gray-500">Pettycash</p>
                 </div>
-                <div class="">
-                    <p class="font-normal text-[32px] text-black">IDR xxx.xxx</p>
-                    <p class="font-normal text-[32px] text-black">IDR xxx.xxx</p>
-                    <p class="font-normal text-[32px] text-black">IDR xxx.xxx</p>
-                    <p class="font-normal text-[32px] text-black">IDR xxx.xxx</p>
-                    <p class="font-normal text-[32px] text-black">IDR xxx.xxx</p>
-                    <p class="font-normal text-[32px] text-black">IDR xxx.xxx</p>
+                <div class="grid grid-flow-row gap-5">
+                    <p class="font-normal text-xl text-black">IDR xxx.xxx</p>
+                    <p class="font-normal text-xl text-black">IDR xxx.xxx</p>
+                    <p class="font-normal text-xl text-black">IDR xxx.xxx</p>
+                    <p class="font-normal text-xl text-black">IDR xxx.xxx</p>
+                    <p class="font-normal text-xl text-black">IDR xxx.xxx</p>
+                    <p class="font-normal text-xl text-black">IDR xxx.xxx</p>
                 </div>
             </div>
         </div>
         <!--Card 2-->
-        <div class="bg-white border-[1px] border-[#686868cf] shadow-[0px_8px_8px_rgba(0,0,0,0.5)] rounded-[13px] px-5">
+        <div class="bg-white border-[1px] border-[#686868cf] shadow-[0px_8px_8px_rgba(0,0,0,0.5)] rounded-[13px] px-5 py-5">
             <p class="font-bold text-2xl text-black">Offline</p>
-            <div class="grid grid-flow-col py-10">
-                <div class="">
-                    <p class="font-semibold text-[32px] text-gray-500">Distributor</p>
-                    <p class="font-semibold text-[32px] text-gray-500">Maklon</p>
-                    <p class="font-semibold text-[32px] text-gray-500">Curah</p>
-                    <p class="font-semibold text-[32px] text-gray-500">Reseller</p>
-                    <p class="font-semibold text-[32px] text-gray-500">Eceran</p>
-                    <p class="font-semibold text-[32px] text-gray-500">Karyawan</p>
+            <div class="grid grid-flow-col py-10 gap-10">
+                <div class="grid grid-flow-row gap-5">
+                    <p class="font-semibold text-xl text-gray-500">Distributor</p>
+                    <p class="font-semibold text-xl text-gray-500">Maklon</p>
+                    <p class="font-semibold text-xl text-gray-500">Curah</p>
+                    <p class="font-semibold text-xl text-gray-500">Reseller</p>
+                    <p class="font-semibold text-xl text-gray-500">Eceran</p>
+                    <p class="font-semibold text-xl text-gray-500">Karyawan</p>
                 </div>
-                <div class="">
-                    <p class="font-normal text-[32px] text-black">IDR xxx.xxx</p>
-                    <p class="font-normal text-[32px] text-black">IDR xxx.xxx</p>
-                    <p class="font-normal text-[32px] text-black">IDR xxx.xxx</p>
-                    <p class="font-normal text-[32px] text-black">IDR xxx.xxx</p>
-                    <p class="font-normal text-[32px] text-black">IDR xxx.xxx</p>
-                    <p class="font-normal text-[32px] text-black">IDR xxx.xxx</p>
+                <div class="grid grid-flow-row gap-5">
+                    <p class="font-normal text-xl text-black">IDR xxx.xxx</p>
+                    <p class="font-normal text-xl text-black">IDR xxx.xxx</p>
+                    <p class="font-normal text-xl text-black">IDR xxx.xxx</p>
+                    <p class="font-normal text-xl text-black">IDR xxx.xxx</p>
+                    <p class="font-normal text-xl text-black">IDR xxx.xxx</p>
+                    <p class="font-normal text-xl text-black">IDR xxx.xxx</p>
                 </div>
             </div>
         </div>

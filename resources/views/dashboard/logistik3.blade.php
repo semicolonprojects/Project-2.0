@@ -1,12 +1,12 @@
 @extends('dashboard.layout.main')
 
 @section('mainContent')
-<div class="ml-28 mt-10">
+<div class="ml-32 mt-10">
     <div class="mb-10">
         <p class="text-[24px] text-black font-[700]">Data Barang Keluar Masuk</p>
     </div>
     <div class="w-fit bg-[#FFFFFF] shadow-[0px_8px_8px_rgba(0,0,0,0.5)] rounded-[22px] mb-5">
-        <div class="grid grid-flow-col gap-[640px] mb-3 px-5">
+        <div class="grid grid-flow-col gap-[640px] mb-3 px-5 py-8">
             <div class="flex md:order-2">
                 <form class="flex items-center">
                     <label for="simple-search" class="sr-only">Search</label>
@@ -41,7 +41,7 @@
             </div>
         </div>
         <div id="accordion-collapse" data-accordion="collapse">
-            <table class=" w-[1120px] table-fixed text-sm text-left text-gray-500 dark:text-gray-400 ">
+            <table class=" w-[1120px] table-fixed text-sm text-left text-gray-500 dark:text-gray-400 ml-8">
                 <thead class=" text-xs text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <th>
                         <div class="flex items-center">
@@ -51,7 +51,7 @@
                             <label for="checkbox-all" class="sr-only">checkbox</label>
                         </div>
                     </th>
-                    <th scope="col" class="px-6 py-3">
+                    <th scope="col" class="px-2 py-3">
                         Order Id
                     </th>
                     <th scope="col" class="px-6 py-3">
@@ -72,7 +72,7 @@
                     <th scope="col" class="px-6 py-3">
                         Date Out
                     </th>
-                    <th scope="col" class="px-6 py-3">
+                    <th scope="col" class="px-8 py-3">
                         Action
                     </th>
                     </tr>
@@ -86,7 +86,7 @@
                             <label for="checkbox-all" class="sr-only">checkbox</label>
                         </div>
                     </th>
-                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    <th scope="row" class="py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                         #SRMK14045
                     </th>
                     <td class="mt-2 px-4 align-center">
@@ -110,7 +110,7 @@
                     <td class="px-6 py-4">
                         10.2.2022/18:38
                     </td>
-                    <td>
+                    <td class="px-4 py-4">
                         <button>
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"

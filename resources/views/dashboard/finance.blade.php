@@ -2,7 +2,7 @@
 
 @section('mainContent')
 
-<div class="ml-28 mt-10">
+<div class="ml-40 mt-10">
     <div
         class="bg-[#d9d9d91f] shadow-[0px_4px_4px_rgba(0,0,0,0.25)] rounded-[10px] sm:w-[556px] md:w-[556px] lg:w-[847px] xl:w-[1088px] 2xl:w-[1088px]">
         <div
@@ -127,7 +127,7 @@
     </div>
 </div>
 
-<div id="accordion-collapse" class="ml-32" data-accordion="open">
+<div id="accordion-collapse" class="ml-40" data-accordion="open">
     <table class=" w-[1070px] table-fixed text-sm text-left text-gray-500 dark:text-gray-400 ">
 
         <div
@@ -429,8 +429,8 @@
     </div>
 </div>
 
-
-<div class="ml-28 mt-10">
+{{-- Summary Per Day --}}
+<div class="ml-28 mt-16">
     <p class="text-black text-[32px] font-bold text-center">Summary Per Day</p>
     <div class="py-5 sm:ml-[422px] md: lg:ml-[670px] xl:ml-[928px] 2xl:ml-[928px]">
         <button type="button"
@@ -533,7 +533,7 @@
 <div class="ml-28 mt-10">
     <div
         class="bg-white border-[1px] border-[#686868d1] shadow-[0px_8px_8px_rgba(0,0,0,0.5)] rounded-[13px] sm:w-[556px] md:w-[556px] lg:w-[847px] xl:w-[1088px] 2xl:w-[1088px]">
-        <p class="font-bold text-[32px] text-black text-end px-5">Summary Per Month</p>
+        <p class="font-bold text-[32px] text-black text-end px-7 py-5">Summary Per Month</p>
         <div class="grid grid-flow-col">
             <div class="px-[25px]">
                 <svg width="58" height="58" viewBox="0 0 58 58" fill="none" xmlns="http://www.w3.org/2000/svg">

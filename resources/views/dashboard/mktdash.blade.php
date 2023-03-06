@@ -55,7 +55,7 @@
 </div>
 
 {{-- Top Product --}}
-<div class="mt-14 ml-52">
+<div class="mt-14 ml-48">
     <div
         class="inline-block p-6 bg-white border border-gray-200 rounded-xl  hover:bg-gray-100 shadow-2xl w-[1024px] h-[700px]">
         <div class="grid grid-flow-col gap-[690px]">
@@ -232,7 +232,7 @@
 </div>
 
 {{-- Summary Orders & Targets --}}
-<div class="mt-14 ml-52">
+<div class="mt-14 ml-48">
     <div
         class="inline-block p-6 bg-white border border-gray-200 rounded-xl  hover:bg-gray-100 shadow-2xl w-[1024px] h-[980px]">
         <div class="inline-flex absolute">

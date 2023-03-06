@@ -156,7 +156,7 @@
 
 </div>
 
-<div class="mt-10 ml-32">
+<div class="mt-10 ml-40">
     <div class="bg-white shadow-[0px_8px_8px_rgba(0,0,0,0.5)] rounded-[20px] w-[1066px] py-5">
         <div class="grid grid-flow-col gap-[687px]">
             <div class="grid grid-flow-row">
