@@ -58,7 +58,7 @@
         </div>
         <div class="p-5 bg-white border-[1px] border-gray-400  rounded-[13px]">
 
-            <div class="grid grid-flow-col mb-4 ml-2 border-b  gap-[270px]">
+            <div class="grid grid-flow-col mb-4 ml-2 border-b  gap-[201px]">
                 <p class="text-black font-custom font-bold">Conversion Rate</p>
                 <div>
 
@@ -447,37 +447,42 @@
     <div
         class="grid py-3 gap-9 sm:-ml-24 md:-ml-24 lg:-ml-24 xl:-ml-80 2xl:-ml-24 sm:grid-flow-col md:grid-flow-row md:gap-[48px] md:px-48 lg:grid-flow-row lg:gap-[48px] lg:px-[400px] xl:grid-flow-col 2xl:grid-flow-col">
         <div
-            class="bg-white border-[#686868cf] border-[1px] shadow-[0px_8px_8px_rgba(0,0,0,0.5)] rounded-[13px] w-[282px] py-10 h-[270px]">
-            <div class="py-3"></div>
-            <div class="bg-[#DFFFDE] rounded-[6px] max-w-fit flex justify-items-center m-auto">
-                <svg width="58" height="58" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+            class="bg-white border-[#686868cf] border-[1px] shadow-[0px_8px_8px_rgba(0,0,0,0.5)] rounded-[13px] w-[203px] py-10 h-[201px]">
+            <div class="py-1"></div>
+            <div class="bg-[#FFC0C0] rounded-[6px] max-w-fit flex justify-items-center m-auto">
+                <svg width="58" height="58" viewBox="0 0 58 58" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="58" height="58" rx="6" fill="#DFFFDE" />
                     <path
-                        d="M15.041 21.7708C15.041 23.3067 16.2285 24.5417 17.6852 24.5417H20.6618C21.9285 24.5417 22.9577 23.465 22.9577 22.1192C22.9577 20.6783 22.3244 20.1558 21.3902 19.8233L16.6243 18.1608C15.6902 17.8283 15.0569 17.3217 15.0569 15.865C15.0569 14.535 16.086 13.4425 17.3527 13.4425H20.3293C21.786 13.4425 22.9735 14.6775 22.9735 16.2133"
+                        d="M25.041 31.7708C25.041 33.3067 26.2285 34.5417 27.6852 34.5417H30.6618C31.9285 34.5417 32.9577 33.465 32.9577 32.1192C32.9577 30.6783 32.3244 30.1558 31.3902 29.8233L26.6243 28.1608C25.6902 27.8283 25.0569 27.3217 25.0569 25.865C25.0569 24.535 26.086 23.4425 27.3527 23.4425H30.3293C31.786 23.4425 32.9735 24.6775 32.9735 26.2133"
                         stroke="#22DB66" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                    <path d="M19 11.875V26.125" stroke="#22DB66" stroke-width="1.5" stroke-linecap="round"
+                    <path d="M29 21.875V36.125" stroke="#22DB66" stroke-width="1.5" stroke-linecap="round"
                         stroke-linejoin="round" />
                     <path
-                        d="M34.8327 19C34.8327 27.74 27.7393 34.8333 18.9993 34.8333C10.2593 34.8333 3.16602 27.74 3.16602 19C3.16602 10.26 10.2593 3.16663 18.9993 3.16663"
+                        d="M44.8327 29C44.8327 37.74 37.7393 44.8333 28.9993 44.8333C20.2593 44.8333 13.166 37.74 13.166 29C13.166 20.26 20.2593 13.1666 28.9993 13.1666"
                         stroke="#22DB66" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                    <path d="M26.916 4.75V11.0833H33.2493" stroke="#22DB66" stroke-width="1.5" stroke-linecap="round"
+                    <path d="M36.916 14.75V21.0833H43.2493" stroke="#22DB66" stroke-width="1.5" stroke-linecap="round"
                         stroke-linejoin="round" />
-                    <path d="M34.8327 3.16663L26.916 11.0833" stroke="#22DB66" stroke-width="1.5" stroke-linecap="round"
+                    <path d="M44.8327 13.1666L36.916 21.0833" stroke="#22DB66" stroke-width="1.5" stroke-linecap="round"
                         stroke-linejoin="round" />
                 </svg>
+
+
             </div>
             <div class="">
                 <p class="text-[#8F8F8F] text-xl font-semibold justify-center m-auto flex">Income</p>
-                <p class="text-black text-[32px] font-semibold justify-center m-auto flex">IDR. 5000.000</p>
-                <p class="text-[#8F8F8F] text-sm font-semibold justify-end m-auto flex py-10 px-5">Today : 27 May 2023
+                <p class="text-black text-[24px] font-semibold justify-center m-auto flex">IDR. 5000.000</p>
+                <p class="text-[#8F8F8F] text-xs font-semibold justify-end m-auto flex py-2 px-3">Today : 27 May 2023
                 </p>
             </div>
         </div>
         <div
-            class="bg-white border-[#686868cf] border-[1px] shadow-[0px_8px_8px_rgba(0,0,0,0.5)] rounded-[13px] w-[282px] py-10 h-[270px]">
-            <div class="py-3"></div>
-            <div class="bg-[#DFFFDE] rounded-[6px] max-w-fit flex justify-items-center m-auto">
+            class="bg-white border-[#686868cf] border-[1px] shadow-[0px_8px_8px_rgba(0,0,0,0.5)] rounded-[13px] w-[203px] py-10 h-[201px]">
+            <div class="py-1"></div>
+            <div class="bg-[#FFC0C0] rounded-[6px] max-w-fit flex justify-items-center m-auto">
                 <svg width="58" height="58" viewBox="0 0 58 58" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    {{--
                     <rect x="58" y="58" width="58" height="58" rx="6" transform="rotate(-180 58 58)" fill="#FFC0C0" />
+                    --}}
                     <path
                         d="M25.0469 31.7652C25.0469 33.2979 26.232 34.5304 27.6857 34.5304H30.6563C31.9204 34.5304 32.9475 33.4559 32.9475 32.1128C32.9475 30.6749 32.3155 30.1535 31.3832 29.8217L26.627 28.1625C25.6947 27.8307 25.0627 27.325 25.0627 25.8713C25.0627 24.544 26.0897 23.4537 27.3538 23.4537H30.3245C31.7782 23.4537 32.9633 24.6862 32.9633 26.219"
                         stroke="#FD3131" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
@@ -495,14 +500,14 @@
             </div>
             <div class="">
                 <p class="text-[#8F8F8F] text-xl font-semibold justify-center m-auto flex">Outcome</p>
-                <p class="text-black text-[32px] font-semibold justify-center m-auto flex">IDR. 3000.000</p>
-                <p class="text-[#8F8F8F] text-sm font-semibold justify-end m-auto flex py-10 px-5">Today : 27 May 2023
+                <p class="text-black text-[24px] font-semibold justify-center m-auto flex">IDR. 3000.000</p>
+                <p class="text-[#8F8F8F] text-xs font-semibold justify-end m-auto flex py-2 px-3">Today : 27 May 2023
                 </p>
             </div>
         </div>
         <div
-            class="bg-white border-[#686868cf] border-[1px] shadow-[0px_8px_8px_rgba(0,0,0,0.5)] rounded-[13px] w-[282px] py-10 h-[270px]">
-            <div class="py-3"></div>
+            class="bg-white border-[#686868cf] border-[1px] shadow-[0px_8px_8px_rgba(0,0,0,0.5)] rounded-[13px] w-[203px] py-10 h-[201px]">
+            <div class="py-1"></div>
             <div class="bg-[#DFFFDE] rounded-[6px] max-w-fit flex justify-items-center m-auto">
                 <svg width="58" height="58" viewBox="0 0 58 58" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect x="58" y="58" width="58" height="58" rx="6" transform="rotate(-180 58 58)" fill="#FDFF9D" />
@@ -522,8 +527,26 @@
             </div>
             <div class="">
                 <p class="text-[#8F8F8F] text-xl font-semibold justify-center m-auto flex">Debt</p>
-                <p class="text-black text-[32px] font-semibold justify-center m-auto flex">IDR. 1000.000</p>
-                <p class="text-[#8F8F8F] text-sm font-semibold justify-end m-auto flex py-10 px-5">Today : 27 May 2023
+                <p class="text-black text-[24px] font-semibold justify-center m-auto flex">IDR. 1000.000</p>
+                <p class="text-[#8F8F8F] text-xs font-semibold justify-end m-auto flex py-2 px-3">Today : 27 May 2023
+                </p>
+            </div>
+        </div>
+
+        <div
+            class="bg-white border-[#686868cf] border-[1px] shadow-[0px_8px_8px_rgba(0,0,0,0.5)] rounded-[13px] w-[203px] py-10 h-[201px]">
+            <div class="py-1"></div>
+            <div class="bg-[#CED3FF] rounded-[6px] max-w-[58px] flex justify-items-center m-auto p-2">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M3 10H21M7 15H8M12 15H13M6 19H18C19.6569 19 21 17.6569 21 16V8C21 6.34315 19.6569 5 18 5H6C4.34315 5 3 6.34315 3 8V16C3 17.6569 4.34315 19 6 19Z"
+                        stroke="#4B54A3" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </div>
+            <div class="">
+                <p class="text-[#8F8F8F] text-xl font-semibold justify-center m-auto flex">Credit</p>
+                <p class="text-black text-[24px] font-semibold justify-center m-auto flex">IDR. 1000.000</p>
+                <p class="text-[#8F8F8F] text-xs font-semibold justify-end m-auto flex py-2 px-3">Today : 27 May 2023
                 </p>
             </div>
         </div>
@@ -534,8 +557,8 @@
     <div
         class="bg-white border-[1px] border-[#686868d1] shadow-[0px_8px_8px_rgba(0,0,0,0.5)] rounded-[13px] sm:w-[556px] md:w-[556px] lg:w-[847px] xl:w-[1088px] 2xl:w-[1088px]">
         <p class="font-bold text-[32px] text-black text-end px-7 py-5">Summary Per Month</p>
-        <div class="grid grid-flow-col">
-            <div class="px-[25px]">
+        <div class="grid grid-flow-col ">
+            <div class="px-[25px] p-4">
                 <svg width="58" height="58" viewBox="0 0 58 58" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect width="58" height="58" rx="6" fill="#DFFFDE" />
                     <path
@@ -609,7 +632,24 @@
             </div>
         </div>
 
-        <p class="font-semibold text-base text-[#8F8F8F] text-end px-5">May 2023</p>
+        <div class="grid grid-flow-col py-4">
+            <div class="px-[25px]">
+                <div class="bg-[#CED3FF] rounded-[6px] max-w-[58px] p-2">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M3 10H21M7 15H8M12 15H13M6 19H18C19.6569 19 21 17.6569 21 16V8C21 6.34315 19.6569 5 18 5H6C4.34315 5 3 6.34315 3 8V16C3 17.6569 4.34315 19 6 19Z"
+                            stroke="#4B54A3" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </div>
+            </div>
+            <div
+                class="-mt-[7px] -ml-[29px] sm:-ml-[232px] md:-ml-[232px] lg:-ml-[374px] xl:-ml-[484px] 2xl:-ml-[484px]">
+                <p class="font-semibold text-xl text-[#8F8F8F]">Credit</p>
+                <p class="font-semibold text-[32px] text-black">IDR. 1000.000</p>
+            </div>
+        </div>
+
+        <p class="font-semibold text-base text-[#8F8F8F] text-end px-5 py-3">May 2023</p>
     </div>
 </div>
 
