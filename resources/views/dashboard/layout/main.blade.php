@@ -246,7 +246,73 @@
         </div>
     </div>
 
-    <div class="py-10">
+    <div class="ml-10 mt-44 sm:ml-16 md:ml-20 xl:ml-48">
+        <div class="inline-flex ml-16 sm:ml-16 md:ml-20 xl:ml-72">
+            <button type="button"
+                class="text-black  bg-background hover:bg-gradient-to-bl from-yellow-200 to-bg-yellow-300 focus:ring-4 focus:outline-none focus:ring-yellow-400 font-medium rounded-full text-sm p-4 text-center inline-flex items-center ml-8  ">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                    <path d="M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"></path>
+                    <path d="M16 4h2a2 2 0 0 1 2 2v4"></path>
+                    <path d="M21 14H11"></path>
+                    <path d="m15 10-4 4 4 4"></path>
+                </svg>
+            </button>
+            <button type="button"
+                class="text-black  bg-background hover:bg-gradient-to-bl from-yellow-200 to-bg-yellow-300 focus:ring-4 focus:outline-none focus:ring-yellow-400 font-medium rounded-full text-sm p-4 text-center inline-flex items-center ml-8 ">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-line p="round" stroke-linejoin="round">
+                    <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                    <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                    <path d="m15 11-6 6"></path>
+                    <path d="m9 11 6 6"></path>
+                </svg>
+            </button>
+            <button type="button"
+                class="text-black  bg-background hover:bg-gradient-to-bl from-yellow-200 to-bg-yellow-300 focus:ring-4 focus:outline-none focus:ring-yellow-400 font-medium rounded-full text-sm p-4 text-center inline-flex items-center ml-8  ">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                    <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                    <path d="M12 11h4"></path>
+                    <path d="M12 16h4"></path>
+                    <path d="M8 11h.01"></path>
+                    <path d="M8 16h.01"></path>
+                </svg>
+                <span class="sr-only">Icon description</span>
+            </button>
+            <button type="button"
+                class="text-black  bg-background hover:bg-gradient-to-bl from-yellow-200 to-bg-yellow-300 focus:ring-4 focus:outline-none focus:ring-yellow-400 font-medium rounded-full text-sm p-4 text-center inline-flex items-center ml-8  ">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                    <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                    <path d="M12 11h4"></path>
+                    <path d="M12 16h4"></path>
+                    <path d="M8 11h.01"></path>
+                    <path d="M8 16h.01"></path>
+                </svg>
+                <span class="sr-only">Icon description</span>
+            </button>
+        </div>
+    </div>
+    <div class="ml-[150px]  inline-flex sm:ml-3 md:ml-20 xl:ml-[525px]">
+        <div class="flex-wrap absolute  ml-0">
+            <p class="font-light text-black">Masuk</p>
+        </div>
+        <div class="flex-wrap absolute  ml-[85px]">
+            <p class="font-light text-black">Keluar</p>
+        </div>
+        <div class="flex-wrap absolute  ml-[182px]">
+            <p class="font-light text-black">Ijin</p>
+        </div>
+        <div class="flex-wrap absolute  ml-[264px]">
+            <p class="font-light text-black">Cuti</p>
+        </div>
+    </div>
+
+    <div class="py-20">
         @yield('mainContent')
     </div>
 
