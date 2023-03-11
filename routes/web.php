@@ -90,3 +90,7 @@ Route::get('/finance/outcome-i', function () {
 Route::get('/finance/outcome-e', function () {
     return view('dashboard.finance-outcome-e');
 });
+
+Route::get('/sidebar', function () {
+    return view('sidebar');
+});
