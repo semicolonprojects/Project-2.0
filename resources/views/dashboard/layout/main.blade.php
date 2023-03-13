@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <nav class="fixed top-0 z-50 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+    <nav class="fixed top-0 z-50 w-full bg-white shadow-md shadow-gray-200">
         <div class="px-3 py-3 lg:px-5 lg:pl-3">
             <div class="flex items-center justify-between">
                 <div class="flex items-center justify-start">
@@ -25,7 +25,7 @@
                             </path>
                         </svg>
                     </button>
-                    <img src=' Assets/images/Madukuy CMYK Logo.png'
+                    <img src='{{asset('Assets/images/Madukuy CMYK Logo.png')}}'
                         class="h-15 w-16  inset-y-0 flex-items-center ml-5" />
                 </div>
                 <div class="flex justify-items-center">
@@ -240,13 +240,16 @@
                     </li>
                 </ul>
             </ul>
-            <h3 class="font-semibold text-xs ml-9 text-gray-500 absolute mt-[225px]">© 2023 Semicolon
+            <div class="px-9">
+            <h3 class="absolute bottom-3 font-semibold text-xs text-gray-500">© 2023 Semicolon
                 Projects;
             </h3>
+            </div>
         </div>
     </div>
 
-    <div class="ml-10 mt-44 sm:ml-16 md:ml-20 xl:ml-48">
+    {{-- Absensi, Cuti & Izin --}}
+    <div class="ml-10 mt-36 sm:ml-16 md:ml-20 xl:ml-48">
         <div class="inline-flex ml-16 sm:ml-16 md:ml-20 xl:ml-72">
             <button type="button"
                 class="text-black  bg-background hover:bg-gradient-to-bl from-yellow-200 to-bg-yellow-300 focus:ring-4 focus:outline-none focus:ring-yellow-400 font-medium rounded-full text-sm p-4 text-center inline-flex items-center ml-8  ">
@@ -298,21 +301,21 @@
         </div>
     </div>
     <div class="ml-[150px]  inline-flex sm:ml-3 md:ml-20 xl:ml-[525px]">
-        <div class="flex-wrap absolute  ml-0">
-            <p class="font-light text-black">Masuk</p>
+        <div class="flex-wrap absolute pr-20">
+            <p class="font-semibold text-black">Masuk</p>
         </div>
         <div class="flex-wrap absolute  ml-[85px]">
-            <p class="font-light text-black">Keluar</p>
+            <p class="font-semibold text-black">Keluar</p>
         </div>
         <div class="flex-wrap absolute  ml-[182px]">
-            <p class="font-light text-black">Ijin</p>
+            <p class="font-semibold text-black">Ijin</p>
         </div>
         <div class="flex-wrap absolute  ml-[264px]">
-            <p class="font-light text-black">Cuti</p>
+            <p class="font-semibold text-black">Cuti</p>
         </div>
     </div>
 
-    <div class="py-20">
+    <div class="py-10">
         @yield('mainContent')
     </div>
 

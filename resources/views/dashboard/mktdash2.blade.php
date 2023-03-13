@@ -2,9 +2,9 @@
 
 @section('mainContent')
 
-<div class="mt-14 ml-28">
+<div class="mt-14 ml-[98px]">
   <div
-    class="inline-block p-6 bg-white border border-gray-200 rounded-xl  hover:bg-gray-100 drop-shadow-2xl w-[1150px] h-[500px]">
+    class="inline-block p-6 bg-white border border-gray-200 rounded-xl  hover:bg-gray-100 shadow-2xl shadow-background w-[1150px] h-[500px]">
     <div
       class="inline-flex absolute mt-10 ml-[510px] w-20 h-20 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600">
       <svg class="absolute w-[85px] h-[96px] text-gray-400 -left-1" fill="currentColor" viewBox="0 0 20 20"
@@ -33,9 +33,9 @@
   </div>
 </div>
 
-<div class="ml-[70px] mt-10 p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-24 ">
+<div class="ml-[40px] mt-10 p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-24 ">
   <div
-    class="inline-block p-6 bg-white border border-gray-200 rounded-xl  hover:bg-gray-100 shadow-2xl w-[550px] h-[650px]">
+    class="inline-block p-6 bg-white border border-gray-200 rounded-xl  hover:bg-gray-100 shadow-2xl shadow-background w-[550px] h-[650px]">
     <div class="grid grid-flow-col gap-[150px]">
       <h5 class="text-2xl font-bold tracking-tight text-gray-900 "> Hengki's Top Products</h5>
       <div class="grid grid-flow-col">
@@ -133,7 +133,7 @@
     </div>
   </div>
   <div
-    class="inline-block p-6 bg-white border border-gray-200 rounded-xl  hover:bg-gray-100 shadow-2xl w-[550px] h-[650px]">
+    class="inline-block p-6 bg-white border border-gray-200 rounded-xl  hover:bg-gray-100 shadow-2xl shadow-background w-[550px] h-[650px]">
     <div class="grid grid-flow-col gap-[150px]">
       <h5 class="text-2xl font-bold tracking-tight text-gray-900 ">Hengki's Order Stats</h5>
       <div class="grid grid-flow-col">
@@ -188,7 +188,7 @@
 </div>
 
 <div class="mt-14 ml-28">
-  <div class="inline-block p-6 bg-white border border-gray-200 rounded-xl  hover:bg-gray-100 shadow-2xl w-[1122px]">
+  <div class="inline-block p-6 bg-white border border-gray-200 rounded-xl  hover:bg-gray-100 shadow-2xl shadow-background w-[1122px]">
     <p class="text-center text-[24px] text-black">Hengki's Order Chart </p>
     <div>
       <div id="{!! $hengkiOrder->container() !!}"></div>

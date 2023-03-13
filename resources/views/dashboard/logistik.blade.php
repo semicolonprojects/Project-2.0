@@ -6,7 +6,7 @@
 <div class="ml-40 mt-10">
     <div
         class="w-[396px] sm:w-[600px] md:w-[600px] lg:w-[824px] xl:w-[1024px] 2xl:w-[1024px] bg-[#FFFFFF] shadow-[0px_8px_8px_rgba(0,0,0,0.5)] rounded-[20px] px-16">
-        <h5 class="text-5xl text-black font-[700] text-center">Best sellers</h5>
+        <h5 class="text-5xl text-black font-[700] text-center p-5">Best sellers</h5>
         <div
             class="grid grid-flow-col py-10 gap-[44px] sm:gap-[228px] md:gap-[228px] lg:gap-[434px] xl:gap-[646px] 2xl:gap-[646px] ">
             <div class="grid grid-flow-row gap-0 mt-3">
@@ -802,7 +802,7 @@
 </div>
 
 {{-- Table Pembayaran --}}
-<div class="ml-32 mt-10">
+<div class="ml-28 mt-10">
     <div class="mb-10">
         <p class="text-[24px] text-black font-[700]">Tabel Pembayaran</p>
     </div>
@@ -1380,8 +1380,9 @@
         </div>
     </div>
 </div>
+<div class="pb-10">
 <div
-    class="w-[1024px] h-[600px] rounded-[13px] overflow-hidden ml-40 mt-44 bg-white border border-[#686868CF] shadow-[0px_8px_8px_rgba(0,0,0,0.5)]">
+    class="w-[1024px] h-[610px] rounded-[13px] overflow-hidden ml-40 mt-44 bg-white border border-[#686868CF] shadow-[0px_8px_8px_rgba(0,0,0,0.5)]">
     <div class="grid grid-flow-col">
         <div class="inline-flex mt-3 ml-5">
             <h5 class="text-2xl font-bold tracking-tight text-gray-900 ">Stock Barang Pendukung</h5>
@@ -1688,6 +1689,7 @@
             </ul>
         </nav>
     </div>
+</div>
 </div>
 </div>
 

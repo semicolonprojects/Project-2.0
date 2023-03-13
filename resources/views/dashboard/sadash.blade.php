@@ -3,7 +3,7 @@
 @section('mainContent')
 
 {{-- Overview --}}
-<div class="ml-48 mt-10 p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-9">
+<div class="ml-48 mt-10 pb-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-9">
     <div
         class="py-2 inline-flex rounded-xl border border-gray-400/70 bg-gray-200/0 shadow-md shadow-gray-400 w-52 h-40">
         <h3 class="absolute ml-3 text-xl font-bold text-black">Marketing</h3>
@@ -60,7 +60,7 @@
 </div>
 
 {{-- Table Order Stats --}}
-<div class="ml-24 px-24 py-12">
+<div class="ml-14 px-24 py-12">
     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
@@ -214,8 +214,8 @@
 </div>
 
 {{-- Order Stats --}}
-<div class=" ml-40 mt-14  grid grid-flow-col gap-[785px]">
-    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">Order Stats</h5>
+<div class=" ml-32 mt-14 grid grid-flow-col gap-[795px]">
+    <h5 class="mb-2 ml-5 text-2xl font-bold tracking-tight text-gray-900 ">Order Stats</h5>
     <button id="orderStats" data-dropdown-toggle="orderStatsTrigger">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
             class="w-8 h-8">
@@ -241,7 +241,8 @@
 
 </div>
 
-<div class="mt-14 ml-40">
+{{-- Top Products --}}
+<div class="mt-14 ml-[169px]">
     <div
         class="inline-block p-6 bg-white border border-gray-200 rounded-xl  hover:bg-gray-100 shadow-2xl w-[1024px] h-[700px]">
         <div class="grid grid-flow-col gap-[690px]">
@@ -328,7 +329,7 @@
 </div>
 
 {{-- Table Stok Produk --}}
-<div class="max-w-5xl bg-white border border-black rounded-lg shadow-[0px_8px_8px_rgba(0,0,0,0.5)] mt-28 mb-10 ml-40">
+<div class="max-w-5xl bg-white border border-black rounded-lg shadow-[0px_8px_8px_rgba(0,0,0,0.5)] mt-28 mb-10 ml-[169px]">
     <a href="#">
         <img class="rounded-t-lg" src="/docs/images/blog/image-1.jpg" alt="" />
     </a>
@@ -476,7 +477,7 @@
 
 {{-- Table Low Stok --}}
 <div
-    class="max-w-5xl bg-white border border-black rounded-lg shadow-[0px_8px_8px_rgba(0,0,0,0.5)] mt-28 mb-10 content-center ml-40">
+    class="max-w-5xl bg-white border border-black rounded-lg shadow-[0px_8px_8px_rgba(0,0,0,0.5)] mt-28 mb-10 content-center ml-[169px]">
     <a href="#">
         <img class="rounded-t-lg" src="/docs/images/blog/image-1.jpg" alt="" />
     </a>
@@ -639,7 +640,7 @@
 </div>
 
 {{-- Top Customers --}}
-<div class="ml-28 px-12 mt-10 p-10">
+<div class="ml-[123px] px-12 mt-10 p-10">
     <div class=" max-w-5xl h-[480px] p-6 bg-white border border-gray-200 rounded-xl  hover:bg-gray-100 shadow-2xl">
         <h5 class="inline-flex absolute mb-2 text-2xl font-bold tracking-tight  text-gray-900 ">Top Customers</h5>
         <div class="inline-flex ml-[900px]">

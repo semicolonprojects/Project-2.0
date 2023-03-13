@@ -29,43 +29,43 @@ Route::get('/admin', function () {
 
 Route::get('/superadmin', [SuperAdminController::class, 'index']);
 
-Route::get('/marketingdashboard', [MktdashController::class, 'index']);
+Route::get('/marketing', [MktdashController::class, 'index']);
 
-Route::get('/marketingdashboard/topcust', [Mktdash2Controller::class, 'index']);
+Route::get('/marketing/topcust', [Mktdash2Controller::class, 'index']);
 
-Route::get('/marketingdashboard/paymentstats', function () {
+Route::get('/marketing/paymentstats', function () {
     return view('dashboard.mktdash3');
 });
 
-Route::get('/marketingdashboard/customerinfo', [Mktdash4Controller::class, 'index']);
+Route::get('/marketing/customerinfo', [Mktdash4Controller::class, 'index']);
 
-Route::get('/marketingdashboard/orderstats', function () {
+Route::get('/marketing/orderstats', function () {
     return view('dashboard.mktdash5');
 });
 
-Route::get('/marketingdashboard/detailtermin', function () {
+Route::get('/marketing/detailtermin', function () {
     return view('dashboard.mktdash6');
 });
 
-Route::get('/logistikdash', [LogistikController::class, 'index']);
+Route::get('/logistik', [LogistikController::class, 'index']);
 
-Route::get('/logistikdash/datasupplier', function () {
+Route::get('/logistik/datasupplier', function () {
     return view('dashboard.logistik2');
 });
 
-Route::get('/logistikdash/innout', function () {
+Route::get('/logistik/innout', function () {
     return view('dashboard.logistik3');
 });
 
-Route::get('/logistikdash/tanggalprod', function () {
+Route::get('/logistik/tanggalprod', function () {
     return view('dashboard.logistik4');
 });
 
-Route::get('/logistikdash/datasupplier2', function () {
+Route::get('/logistik/datasupplier-c', function () {
     return view('dashboard.logistik5');
 });
 
-Route::get('/logistikdash/dbb', function () {
+Route::get('/logistik/dbb', function () {
     return view('dashboard.logistik6');
 });
 

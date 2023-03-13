@@ -2,7 +2,7 @@
 
 @section('mainContent')
 
-<div class="ml-32 mt-10">
+<div class="ml-28 mt-10">
     <div class="mb-10">
         <p class="text-[24px] text-black font-[700]">Data Barang Belanjaan</p>
     </div>
@@ -41,7 +41,7 @@
                 </button>
             </div>
         </div>
-        <div id="accordion-collapse" data-accordion="collapse">
+        <div id="accordion-collapse" data-accordion="open">
             <table class=" w-[1120px] table-fixed text-sm text-left text-gray-500 dark:text-gray-400 ">
                 <thead class=" text-xs text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>

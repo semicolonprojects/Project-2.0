@@ -3,7 +3,7 @@
 @section('mainContent')
 
 {{-- Tabel Gaji --}}
-<div class="mt-20 ml-40">
+<div class="mt-20 ml-28">
     <table
         class="w-[1100px] table-auto text-sm text-left border border-t-0 text-gray-500 dark:text-gray-400 bg-[#EEEE]">
         <tr>
@@ -22,7 +22,7 @@
     </table>
 </div>
 
-<div class="mt-20 ml-40">
+<div class="mt-20 ml-28">
     <table
         class="w-[1100px] table-auto text-sm text-left border border-t-0 text-gray-500 dark:text-gray-400 bg-[#EEEE]">
         <tr>
@@ -41,7 +41,7 @@
     </table>
 </div>
 
-<div class="mt-20 ml-40">
+<div class="mt-20 ml-28">
     <table
         class="w-[1100px] table-auto text-sm text-left border border-t-0 text-gray-500 dark:text-gray-400 bg-[#EEEE]">
         <tr>
@@ -64,7 +64,7 @@
     </table>
 </div>
 
-<div class="mt-20 ml-40">
+<div class="mt-20 ml-28">
     <table
         class="w-[1100px] table-auto text-sm text-left border border-t-0 text-gray-500 dark:text-gray-400 bg-[#EEEE]">
         <tr>
@@ -83,7 +83,7 @@
     </table>
 </div>
 
-<div class="mt-20 ml-40">
+<div class="mt-20 ml-28">
     <table
         class="w-[1100px] table-auto text-sm text-left border border-t-0 text-gray-500 dark:text-gray-400 bg-[#EEEE]">
         <tr>

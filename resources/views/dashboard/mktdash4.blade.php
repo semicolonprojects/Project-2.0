@@ -1,7 +1,7 @@
 @extends('dashboard.layout.main')
 @section('mainContent')
 
-<div class=" mt-10 ml-32">
+<div class=" mt-10 ml-20">
     <div class="mb-3">
         <p class="text-[24px] text-black font-[700]">Customer Info</p>
     </div>
@@ -9,7 +9,7 @@
         <div class="flex md:order-2">
             <form class="flex items-center">
                 <label for="simple-search" class="sr-only">Search</label>
-                <div class="relative w-full">
+                <div class="relative w-[190px]">
                     <div>
                         <button class="absolute inset-y-0 right-0 flex items-center pr-3 type=" submit"
                             class="p-2.5 ml-3 text-sm font-medium text-white bg-blue-700 rounded-[22px] border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 ">
@@ -131,7 +131,7 @@
                 </tr>
             </tbody>
         </table>
-        <div class="flex justify-center py-5">
+        <div class="flex justify-center py-5 mr-10">
             <nav aria-label="Page navigation example">
                 <ul class="flex list-style-none">
                     <li class="page-item disabled"><a
@@ -156,28 +156,6 @@
 
 </div>
 
-<div class="mt-10 ml-40">
-    <div class="bg-white shadow-[0px_8px_8px_rgba(0,0,0,0.5)] rounded-[20px] w-[1066px] py-5">
-        <div class="grid grid-flow-col gap-[687px]">
-            <div class="grid grid-flow-row">
-                <p class="text-black/70 font-black text-2xl px-5">Sale This Month</p>
-                <p class="text-black/70 font-black text-2xl px-5">2,069</p>
-            </div>
-            <div class="inline-flex">
-                <p class="font-normal text-xl text-black/60 py-4">Daily</p>
-                <button id="topProducts" data-dropdown-toggle="topProductsTrigger">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="0.5"
-                        stroke="currentColor" class="w-5 h-5">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                    </svg>
-                </button>
-            </div>
-        </div>
-        <div class="py-5">
-            <div id="{!! $saleThisMonth->container() !!}"></div>
-        </div>
-    </div>
-</div>
 
 <!-- Marketing Overview Dropdown Menu -->
 <div id="topProductsTrigger" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 ">

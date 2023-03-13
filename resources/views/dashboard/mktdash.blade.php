@@ -4,7 +4,7 @@
 
 {{-- Overview --}}
 <div
-    class="w-[1024px] rounded-[13px] overflow-hidden ml-48 mt-10 bg-white border border-[#686868CF] shadow-[0px_8px_8px_rgba(0,0,0,0.5)]">
+    class="w-[1024px] rounded-[13px] overflow-hidden ml-40 mt-10 bg-white border border-[#686868CF] shadow-[0px_8px_8px_rgba(0,0,0,0.5)]">
     <div class="px-6 py-4">
         <div class="grid grid-flow-col gap-[580px]">
             <div class="font-bold text-2xl">Marketing Division Overview</div>
@@ -55,7 +55,7 @@
 </div>
 
 {{-- Top Product --}}
-<div class="mt-14 ml-48">
+<div class="mt-14 ml-40">
     <div
         class="inline-block p-6 bg-white border border-gray-200 rounded-xl  hover:bg-gray-100 shadow-2xl w-[1024px] h-[700px]">
         <div class="grid grid-flow-col gap-[690px]">
@@ -170,8 +170,8 @@
 </div>
 
 
-
-<div class="ml-48 mt-10 p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-24 ">
+{{-- Order Stats & User Activity --}}
+<div class="ml-36 mt-10 p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-24 ">
     <div
         class="inline-block p-6 bg-white border border-gray-200 rounded-xl  hover:bg-gray-100 shadow-2xl w-[384px] h-[450px]">
         <div class="grid grid-flow-col gap-40">
@@ -208,7 +208,7 @@
 </div>
 
 {{-- Sales Analytics --}}
-<div class="mt-14 ml-48">
+<div class="mt-14 ml-40">
     <div
         class="h-fit w-[845px] sm:w-[845px] md:w-[845px] lg:w-[845px] xl:w-[1026px]  bg-white border-[1px] shadow-[0px_4px_4px_rgba(0,0,0,0.25)] border-[#686868cf] rounded-[13px]">
         <div class="grid grid-flow-col gap-[693px]">
@@ -232,7 +232,7 @@
 </div>
 
 {{-- Summary Orders & Targets --}}
-<div class="mt-14 ml-48">
+<div class="mt-14 ml-40">
     <div
         class="inline-block p-6 bg-white border border-gray-200 rounded-xl  hover:bg-gray-100 shadow-2xl w-[1024px] h-[980px]">
         <div class="inline-flex absolute">
@@ -297,8 +297,8 @@
 
             <div class="grid grid-flow-row gap-7">
                 <div
-                    class="inline-flex mt-20 ml-5 bg-white border-2 border-gray-200 rounded-2xl shadow-xl w-[390px] h-[200px]">
-                    <h5 class="text-xl font-semibold tracking-tight text-gray-900  mt-3">Daily Target</h5>
+                    class="inline-flex mt-20 ml-10 bg-white border-2 border-gray-200 rounded-2xl shadow-xl w-[390px] h-[200px]">
+                    <h5 class="text-xl font-semibold tracking-tight text-gray-900 ml-5 mt-3">Daily Target</h5>
                     <div class="inline-flex absolute mt-32 mr-16">
                         <h5 class="text-4xl font-bold tracking-tight text-gray-900 ml-5 mt-3">IDR 27 M</h5>
                         <p class="ml-14 mt-7 text-gray-700/75">Today : 27 May 2023</p>
@@ -363,7 +363,7 @@
     </div>
 
     {{-- Top Customer --}}
-    <div class="px-1 mt-10 p-10">
+    <div class="px-0 mt-10 p-10">
         <div class=" max-w-5xl h-[480px] p-6 bg-white border border-gray-200 rounded-xl  hover:bg-gray-100 shadow-2xl">
             <h5 class="inline-flex absolute mb-2 text-2xl font-bold tracking-tight  text-gray-900 ">Top Customers</h5>
             <div class="inline-flex ml-[900px]">

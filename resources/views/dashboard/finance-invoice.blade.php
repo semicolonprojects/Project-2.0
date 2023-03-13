@@ -1,7 +1,7 @@
 @extends('dashboard.layout.main')
 @section('mainContent')
 {{-- Template Invoice --}}
-<div class="ml-20 mt-10 p-10">
+<div class="ml-14 mt-10 p-10">
   <div class="inline-block p-6 bg-white border border-gray-200 rounded-xl  hover:bg-gray-100 shadow-2xl w-[1153px] h-[791px]">
       <div class="grid grid-flow-col">
         <h1 class="ml-44 mb-2 text-2xl font-semibold tracking-tight text-gray-900">INVOICE NUMBER :</h1>

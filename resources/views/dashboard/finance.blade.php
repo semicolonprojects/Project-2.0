@@ -2,9 +2,9 @@
 
 @section('mainContent')
 
-<div class="ml-40 mt-10">
+<div class="ml-28 mt-10">
     <div
-        class="bg-[#d9d9d91f] shadow-[0px_4px_4px_rgba(0,0,0,0.25)] rounded-[10px] sm:w-[556px] md:w-[556px] lg:w-[847px] xl:w-[1088px] 2xl:w-[1088px]">
+        class="bg-[#d9d9d91f] shadow-[0px_4px_4px_rgba(0,0,0,0.25)] rounded-[10px] sm:w-[556px] md:w-[556px] lg:w-[847px] xl:w-[1088px] 2xl:w-[1088px] p-5">
         <div
             class="grid grid-flow-col sm:gap-[410px] md:gap-[410px] lg:gap-[679px] xl:gap-[928px] 2xl:gap-[928px] px-5">
             <p class="text-black text-base font-bold">Revenue</p>
@@ -38,7 +38,7 @@
 </div>
 
 {{-- Daily Sales Stats --}}
-<div class="ml-20 mt-10 p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-20 ">
+<div class="ml-5 mt-10 p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-20 ">
     <div
         class="inline-block p-6 bg-white border border-gray-200 rounded-xl  hover:bg-gray-100 shadow-2xl w-[550px] h-[634px]">
         <div class="grid grid-flow-col gap-70">
@@ -127,7 +127,8 @@
     </div>
 </div>
 
-<div id="accordion-collapse" class="ml-40" data-accordion="open">
+{{-- Tabel Invoice --}}
+<div id="accordion-collapse" class="ml-28" data-accordion="open">
     <table class=" w-[1070px] table-fixed text-sm text-left text-gray-500 dark:text-gray-400 ">
 
         <div
@@ -406,7 +407,7 @@
         </td>
 
     </table>
-    <div class="flex justify-center py-5">
+    <div class="flex justify-center mr-32 py-5">
         <nav aria-label="Page navigation example">
             <ul class="flex list-style-none">
                 <li class="page-item disabled"><a
@@ -430,8 +431,8 @@
 </div>
 
 {{-- Summary Per Day --}}
-<div class="ml-28 mt-16">
-    <p class="text-black text-[32px] font-bold text-center">Summary Per Day</p>
+<div class="ml-24 mt-16">
+    <p class="text-black text-[32px] font-bold text-center mr-28">Summary Per Day</p>
     <div class="py-5 sm:ml-[422px] md: lg:ml-[670px] xl:ml-[928px] 2xl:ml-[928px]">
         <button type="button"
             class="text-white bg-[#22DB66] font-medium rounded-[22px] text-[13px] px-3 py-2.5 inline-flex items-center">

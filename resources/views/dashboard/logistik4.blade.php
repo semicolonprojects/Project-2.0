@@ -4,7 +4,7 @@
 
 {{-- TANGGAL PRODUKSI BARANG --}}
 <div class="absolute ml-36 mt-20">
-                <div class="grid grid-flow-col gap-[640px] mb-3 px-5">
+                <div class="grid grid-flow-col gap-[560px] mb-3 px-5">
                     <div class="flex md:order-2">
                         <form class="flex items-center">
                             <label for="simple-search" class="sr-only">Search</label>
@@ -34,14 +34,14 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                                 </svg>
                             </div>
-                            Add New Order
+                            Add Tanggal Produksi Barang
                         </button>
                     </div>
                 </div>
             </div>
     
             
-      <div class="w-[1024px] h-[570px] rounded-[13px] overflow-hidden ml-40 mt-36 bg-white border border-[#686868CF] shadow-[0px_8px_8px_rgba(0,0,0,0.5)]">
+      <div class="w-[1024px] h-[590px] rounded-[13px] overflow-hidden ml-40 mt-36 bg-white border border-[#686868CF] shadow-[0px_8px_8px_rgba(0,0,0,0.5)]">
         <div class="absolute ml-3 mt-5">
             <div class="grid grid-flow-col gap-[620px]">
               <h5 class="text-2xl font-bold tracking-tight text-gray-900 ">Tanggal Produksi Barang</h5>

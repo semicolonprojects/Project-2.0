@@ -3,7 +3,7 @@
 @section('mainContent')
 
 {{-- Tabel Gaji --}}
-<div class="mt-20 ml-40">
+<div class="mt-20 ml-28">
   <table class="w-[1100px] table-auto text-sm text-left border border-t-0 text-gray-500 dark:text-gray-400 bg-[#EEEE]">
                             <tr>
                                 <th class="px-10 py-5">Gaji</th>
@@ -29,7 +29,7 @@
 </div>
 
 {{-- Tabel Sewa Toko --}}
-<div class="mt-20 ml-40">
+<div class="mt-20 ml-28">
   <table class="w-[1100px] table-auto text-sm text-left border border-t-0 text-gray-500 dark:text-gray-400 bg-[#EEEE]">
                             <tr>
                                 <th class="px-10 py-5">Sewa Toko</th>
@@ -52,7 +52,7 @@
 </div>
 
 {{-- Tabel Kulak --}}
-<div class="mt-20 ml-40">
+<div class="mt-20 ml-28">
   <table class="w-[1100px] table-auto text-sm text-left border border-t-0 text-gray-500 dark:text-gray-400 bg-[#EEEE]">
                             <tr>
                                 <th class="px-10 py-5">Kulak</th>
@@ -75,7 +75,7 @@
 </div>
 
 {{-- Tabel Logistik --}}
-<div class="mt-20 ml-40">
+<div class="mt-20 ml-28">
   <table class="w-[1100px] table-auto text-sm text-left border border-t-0 text-gray-500 dark:text-gray-400 bg-[#EEEE]">
                             <tr>
                                 <th class="px-10 py-5">Logistik</th>
@@ -98,7 +98,7 @@
 </div>
 
 {{-- Tabel Marketing --}}
-<div class="mt-20 ml-40">
+<div class="mt-20 ml-28">
   <table class="w-[1100px] table-auto text-sm text-left border border-t-0 text-gray-500 dark:text-gray-400 bg-[#EEEE]">
                             <tr>
                                 <th class="px-10 py-5">Marketing</th>
@@ -121,7 +121,7 @@
 </div>
 
 {{-- Tabel Pajak --}}
-<div class="mt-20 ml-40">
+<div class="mt-20 ml-28">
   <table class="w-[1100px] table-auto text-sm text-left border border-t-0 text-gray-500 dark:text-gray-400 bg-[#EEEE]">
                             <tr>
                                 <th class="px-10 py-5">Pajak</th>
@@ -146,7 +146,7 @@
 </div>
 
 {{-- Tabel Ongkir Bisnis --}}
-<div class="mt-20 ml-40">
+<div class="mt-20 ml-28">
   <table class="w-[1100px] table-auto text-sm text-left border border-t-0 text-gray-500 dark:text-gray-400 bg-[#EEEE]">
                             <tr>
                                 <th class="px-10 py-5">Ongkir Bisnis</th>
@@ -168,7 +168,7 @@
 </div>
 
 {{-- Tabel Wifi --}}
-<div class="mt-20 ml-40">
+<div class="mt-20 ml-28">
   <table class="w-[1100px] table-auto text-sm text-left border border-t-0 text-gray-500 dark:text-gray-400 bg-[#EEEE]">
                             <tr>
                                 <th class="px-10 py-5">Wifi</th>
@@ -190,7 +190,7 @@
 </div>
 
 {{-- Tabel Kas Toko --}}
-<div class="mt-20 ml-40">
+<div class="mt-20 ml-28">
   <table class="w-[1100px] table-auto text-sm text-left border border-t-0 text-gray-500 dark:text-gray-400 bg-[#EEEE]">
                             <tr>
                                 <th class="px-10 py-5">Kas Toko</th>
@@ -214,7 +214,7 @@
 </div>
 
 {{-- Tabel Reward --}}
-<div class="mt-20 ml-40">
+<div class="mt-20 ml-28">
   <table class="w-[1100px] table-auto text-sm text-left border border-t-0 text-gray-500 dark:text-gray-400 bg-[#EEEE]">
                             <tr>
                                 <th class="px-10 py-5">Reward</th>
