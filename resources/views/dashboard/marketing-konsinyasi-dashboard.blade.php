@@ -54,29 +54,26 @@
     </div>
 </div>
 
-{{-- Order Stats --}}
-<div class=" ml-32 mt-14 grid grid-flow-col gap-[602px]">
-    <h5 class="mb-2 ml-5 text-2xl font-bold tracking-tight text-gray-900 ">Order Stats</h5>
-    <button id="orderStats" data-dropdown-toggle="orderStatsTrigger">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-            class="w-8 h-8">
-            <path stroke-linecap="round" stroke-linejoin="round"
-                d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
-        </svg>
-    </button>
-</div>
+{{-- Revenue --}}
 <div
-    class="inline-block p-6 bg-white border border-gray-200 rounded-xl ml-36 hover:bg-gray-100 shadow-2xl w-[1070px] h-[600px]">
-    <div class="grid grid-flow-col justify-end mb-8 mr-1 gap-2">
-
-        <button class="grid grid-flow-col gap-2 " id="sortBy" data-dropdown-toggle="sortBytrigger">Sort by
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="0.5"
-                stroke="currentColor" class="w-5 h-5 mt-1">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-            </svg>
-        </button>
+    class="w-[1024px] rounded-[13px] overflow-hidden ml-40 mt-10 bg-white border border-[#686868CF] shadow-[0px_8px_8px_rgba(0,0,0,0.5)]">
+    <div class="px-6 py-4">
+        <div class="grid grid-flow-col gap-[690px]">
+            <h5 class="text-2xl font-bold tracking-tight text-gray-900 ">Revenue</h5>
+            <div class="inline-flex">
+                <p class="font-normal text-xl text-black/60">Daily</p>
+                <button id="topProducts" data-dropdown-toggle="topProductsTrigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="0.5"
+                        stroke="currentColor" class="w-5 h-5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div>
+            <div id="{!! $revenueKonsinyasi->container() !!}" width="1028px" height="283px"></div>
+        </div>
     </div>
-    <div class='' id="{!! $saleThisMonth->container()  !!}"></div>
 </div>
 
 {{-- Top Product --}}
@@ -352,7 +349,8 @@
     {{-- Top Customer --}}
     <div class="px-0 mt-10 p-10">
         <div class=" max-w-5xl h-[480px] p-6 bg-white border border-gray-200 rounded-xl  hover:bg-gray-100 shadow-2xl">
-            <h5 class="inline-flex absolute mb-2 text-2xl font-bold tracking-tight  text-gray-900 ">Top Customers</h5>
+            <h5 class="inline-flex absolute mb-2 text-2xl font-bold tracking-tight  text-gray-900 ">Top Customers
+            </h5>
             <div class="inline-flex ml-[900px]">
                 <p class="font-normal text-xl text-black/60">Daily</p>
                 <button id="topProducts" data-dropdown-toggle="topProductsTrigger">
@@ -502,14 +500,14 @@
     </div>
 
 
-    <script src="{{ $orderStats->cdn() }}"></script>
+    <script src="{{ $userActivity->cdn() }}"></script>
 
-    {{ $orderStats->script() }}
     {{ $userActivity->script() }}
     {{ $salesAnalytics->script() }}
     {{ $dailyOrderStats->script() }}
     {{ $dailyTargetStats->script() }}
     {{ $saleThisMonth->script() }}
+    {{ $revenueKonsinyasi->script() }}
 
     @vite(['resources/css/app.css','resources/js/app.js'])
 

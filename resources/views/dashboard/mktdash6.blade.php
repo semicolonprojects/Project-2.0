@@ -42,11 +42,14 @@
             </div>
         </div>
         <div id="accordion-collapse" data-accordion="open">
-            <table class=" w-[1070px] table-fixed text-sm text-left text-gray-500 dark:text-gray-400 ">
+            <table class=" w-[1150px] table-fixed text-sm text-left text-gray-500 dark:text-gray-400 ">
                 <thead class=" text-xs text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
                         <th scope="col" class="px-6 py-3">
                             Order Id
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Customer Id
                         </th>
                         <th scope="col" class="px-6 py-3">
                             Date
@@ -78,6 +81,9 @@
                     data-accordion-target="#accordion-color-1">
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                         #SRMK14045
+                    </th>
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        #RS006
                     </th>
                     <td class="mt-2 px-4 align-center">
                         10.02.2022 18:38
@@ -168,6 +174,9 @@
                     data-accordion-target="#accordion-color-2">
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                         #SRMK14045
+                    </th>
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        #RS008
                     </th>
                     <td class="mt-2 px-4 align-center">
                         10.02.2022 18:38

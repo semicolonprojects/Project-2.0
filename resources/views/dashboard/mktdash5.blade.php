@@ -49,6 +49,9 @@
                             Order Id
                         </th>
                         <th scope="col" class="px-6 py-3">
+                            Customer Id
+                        </th>
+                        <th scope="col" class="px-6 py-3">
                             Date
                         </th>
                         <th scope="col" class="px-6 py-3">
@@ -73,6 +76,9 @@
                         data-accordion-target="#orderStats">
                         <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             #SRMK14045
+                        </th>
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            #RS003
                         </th>
                         <td class="mt-2 px-4 align-center">
                             10.02.2022 18:38

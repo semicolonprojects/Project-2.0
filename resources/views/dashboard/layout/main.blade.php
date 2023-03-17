@@ -25,7 +25,7 @@
                             </path>
                         </svg>
                     </button>
-                    <img src='{{asset('Assets/images/Madukuy CMYK Logo.png')}}'
+                    <img src='{{asset(' Assets/images/Madukuy CMYK Logo.png')}}'
                         class="h-15 w-16  inset-y-0 flex-items-center ml-5" />
                 </div>
                 <div class="flex justify-items-center">
@@ -44,8 +44,8 @@
                                 </button>
                             </div>
                             <input type="text" id="simple-search"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-yellow-300 focus:border-yellow-300 block w-full pl-10 p-2.5  "
-                                placeholder="Search" required>
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-yellow-300 focus:border-yellow-300 block w-full pl-10 p-2.5"
+                                placeholder="Search" required />
                         </div>
                 </div>
                 <div class="flex justify-items-end">
@@ -241,9 +241,9 @@
                 </ul>
             </ul>
             <div class="px-9">
-            <h3 class="absolute bottom-3 font-semibold text-xs text-gray-500">© 2023 Semicolon
-                Projects;
-            </h3>
+                <h3 class="absolute bottom-3 font-semibold text-xs text-gray-500">© 2023 Semicolon
+                    Projects;
+                </h3>
             </div>
         </div>
     </div>

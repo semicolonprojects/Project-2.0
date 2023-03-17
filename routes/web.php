@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\FinanceController;
 use App\Http\Controllers\LogistikController;
+use App\Http\Controllers\MarketingKonsinyasiDashboard;
 use App\Http\Controllers\Mktdash2Controller;
 use App\Http\Controllers\Mktdash4Controller;
 use App\Http\Controllers\MktdashController;
@@ -93,4 +94,14 @@ Route::get('/finance/outcome-e', function () {
 
 Route::get('/sidebar', function () {
     return view('sidebar');
+});
+
+Route::get('/marketing-k', [MarketingKonsinyasiDashboard::class, 'index']);
+
+Route::get('/konsinyasi', function () {
+    return view('dashboard.marketing-konsinyasi');
+});
+
+Route::get('/marketing-konsinyasi-detail', function () {
+    return view('dashboard.marketing-konsinyasi-detail');
 });

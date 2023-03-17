@@ -2,16 +2,16 @@
 
 @section('mainContent')
 
-<div class="ml-32 mt-16">
+<div class="ml-24 mt-16">
     <div class="mb-10">
         <p class="text-[24px] text-black font-[700]">Payment Stats</p>
     </div>
-    <div class="w-fit bg-[#FFFFFF] shadow-[0px_8px_8px_rgba(0,0,0,0.5)] rounded-[22px]">
+    <div class="w-[1250px]  bg-[#FFFFFF] shadow-[0px_8px_8px_rgba(0,0,0,0.5)] rounded-[22px]">
         <div class="grid grid-flow-col gap-[640px] mb-3 px-5 py-8">
             <div class="flex md:order-2">
                 <form class="flex items-center">
                     <label for="simple-search" class="sr-only">Search</label>
-                    <div class="relative w-full">
+                    <div class="relative ml-48 w-fit">
                         <div>
                             <button class="absolute inset-y-0 right-0 flex items-center pr-3 type=" submit"
                                 class="p-2.5 ml-3 text-sm font-medium text-white bg-blue-700 rounded-[22px] border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 ">
@@ -43,11 +43,14 @@
 
         </div>
         <div id="accordion-collapse" data-accordion="collapse" ">
-        <table class=" w-[1070px] table-fixed text-sm text-left text-gray-500 dark:text-gray-400 ">
+        <table class=" w-[1250px] table-fixed text-sm text-left text-gray-500 dark:text-gray-400 ">
             <thead class=" text-xs text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
                 <th scope="col" class="px-6 py-3">
                     Order Id
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Customer Id
                 </th>
                 <th scope="col" class="px-6 py-3">
                     Date
@@ -81,13 +84,16 @@
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                         #SRMK14045
                     </th>
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        #RS001
+                    </th>
                     <td class="mt-2 px-4 align-center">
                         10.02.2022 18:38
 
                     </td>
                     <td class="mt-2 px-4 align-center">
                         <button disabled type="button"
-                            class="text-white bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300 text-xs font-medium rounded-full px-1 py-0.5 text-center mr-2 mb-2 ">In
+                            class="text-white bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300 text-xs font-medium rounded-full px-0.5 py-0.5 text-center mr-2 mb-2 ">In
                             Progress</button>
 
                     </td>
@@ -172,6 +178,9 @@
                     data-accordion-target="#accordion-color-body-2">
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                         #SRMK14045
+                    </th>
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        #RS001
                     </th>
                     <td class="mt-2 px-4 align-center">
                         10.02.2022 18:38

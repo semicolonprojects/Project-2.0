@@ -68,6 +68,9 @@
                     Order Id
                 </th>
                 <th scope="col" class="px-6 py-3">
+                    Customer Id
+                </th>
+                <th scope="col" class="px-6 py-3">
                     Status
                 </th>
                 <th scope="col" class="px-6 py-3">
@@ -85,6 +88,9 @@
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                     #SRMK14045
+                </th>
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    #RS007
                 </th>
                 <td class="mt-2 px-4 align-center">
                     <button disabled type="button"
@@ -129,6 +135,9 @@
                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                     #SRMK14045
                 </th>
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    #RS007
+                </th>
                 <td class="mt-2 px-4 align-center">
                     <button disabled type="button"
                         class="text-white bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300 text-xs font-medium rounded-full px-1 py-0.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 ">In
@@ -170,6 +179,9 @@
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                     #SRMK14045
+                </th>
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    #RS007
                 </th>
                 <td class="mt-2 px-4 align-center">
                     <button disabled type="button"
@@ -214,7 +226,7 @@
 </div>
 
 {{-- Order Stats --}}
-<div class=" ml-32 mt-14 grid grid-flow-col gap-[795px]">
+<div class=" ml-32 mt-14 grid grid-flow-col gap-[602px]">
     <h5 class="mb-2 ml-5 text-2xl font-bold tracking-tight text-gray-900 ">Order Stats</h5>
     <button id="orderStats" data-dropdown-toggle="orderStatsTrigger">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
@@ -235,7 +247,6 @@
             </svg>
         </button>
     </div>
-
 
     <div class='' id="{!! $saleThisMonth->container()  !!}"></div>
 
@@ -329,7 +340,8 @@
 </div>
 
 {{-- Table Stok Produk --}}
-<div class="max-w-5xl bg-white border border-black rounded-lg shadow-[0px_8px_8px_rgba(0,0,0,0.5)] mt-28 mb-10 ml-[169px]">
+<div
+    class="max-w-5xl bg-white border border-black rounded-lg shadow-[0px_8px_8px_rgba(0,0,0,0.5)] mt-28 mb-10 ml-[169px]">
     <a href="#">
         <img class="rounded-t-lg" src="/docs/images/blog/image-1.jpg" alt="" />
     </a>
@@ -343,6 +355,9 @@
                     <tr>
                         <th scope="col" class="px-3 py-3">
                             Produk
+                        </th>
+                        <th scope="col" class="px-3 py-3">
+                            Kode Barang
                         </th>
                         <th scope="col" class="px-3 py-3">
                             Ammount
@@ -372,31 +387,8 @@
                         <th scope="row" class="px-3 py-4 font-light text-[#464D51]">
                             Madu Durian
                         </th>
-                        <td class="px-3 py-4">
-                            92
-                        </td>
-                        <td class="px-3 py-4">
-                            11
-                        </td>
-                        <td class="px-3 py-4">
-                            72
-                        </td>
-                        <td class="px-3 py-4">
-                            IDR 5,000
-                        </td>
-                        <td class="px-3 py-4">
-                            IDR 5,000
-                        </td>
-                        <td class="px-3 py-4">
-                            IDR 5,000
-                        </td>
-                        <td class="px-3 py-4">
-                            IDR 5,000
-                        </td>
-                    </tr>
-                    <tr class="">
                         <th scope="row" class="px-3 py-4 font-light text-[#464D51]">
-                            Madu Durian
+                            1
                         </th>
                         <td class="px-3 py-4">
                             92
@@ -423,6 +415,38 @@
                     <tr class="">
                         <th scope="row" class="px-3 py-4 font-light text-[#464D51]">
                             Madu Durian
+                        </th>
+                        <th scope="row" class="px-3 py-4 font-light text-[#464D51]">
+                            1
+                        </th>
+                        <td class="px-3 py-4">
+                            92
+                        </td>
+                        <td class="px-3 py-4">
+                            11
+                        </td>
+                        <td class="px-3 py-4">
+                            72
+                        </td>
+                        <td class="px-3 py-4">
+                            IDR 5,000
+                        </td>
+                        <td class="px-3 py-4">
+                            IDR 5,000
+                        </td>
+                        <td class="px-3 py-4">
+                            IDR 5,000
+                        </td>
+                        <td class="px-3 py-4">
+                            IDR 5,000
+                        </td>
+                    </tr>
+                    <tr class="">
+                        <th scope="row" class="px-3 py-4 font-light text-[#464D51]">
+                            Madu Durian
+                        </th>
+                        <th scope="row" class="px-3 py-4 font-light text-[#464D51]">
+                            1
                         </th>
                         <td class="px-3 py-4">
                             92
@@ -493,6 +517,9 @@
                             Produk
                         </th>
                         <th scope="col" class="px-6 py-3">
+                            Kode Barang
+                        </th>
+                        <th scope="col" class="px-6 py-3">
                             Ammount
                         </th>
                         <th scope="col" class="px-6 py-3">
@@ -514,25 +541,8 @@
                         <th scope="row" class="px-6 py-4 font-light text-[#464D51]">
                             Madu Durian
                         </th>
-                        <td class="px-6 py-4">
-                            92
-                        </td>
-                        <td class="px-6 py-4">
-                            11
-                        </td>
-                        <td class="px-6 py-4">
-                            72
-                        </td>
-                        <td class="px-6 py-4">
-                            IDR 5,000
-                        </td>
-                        <td class="px-6 py-4">
-                            IDR 5,000
-                        </td>
-                    </tr>
-                    <tr class="">
                         <th scope="row" class="px-6 py-4 font-light text-[#464D51]">
-                            Madu Durian
+                            1
                         </th>
                         <td class="px-6 py-4">
                             92
@@ -554,25 +564,8 @@
                         <th scope="row" class="px-6 py-4 font-light text-[#464D51]">
                             Madu Durian
                         </th>
-                        <td class="px-6 py-4">
-                            92
-                        </td>
-                        <td class="px-6 py-4">
-                            11
-                        </td>
-                        <td class="px-6 py-4">
-                            72
-                        </td>
-                        <td class="px-6 py-4">
-                            IDR 5,000
-                        </td>
-                        <td class="px-6 py-4">
-                            IDR 5,000
-                        </td>
-                    </tr>
-                    <tr class="">
                         <th scope="row" class="px-6 py-4 font-light text-[#464D51]">
-                            Madu Durian
+                            2
                         </th>
                         <td class="px-6 py-4">
                             92
@@ -593,6 +586,55 @@
                     <tr class="">
                         <th scope="row" class="px-6 py-4 font-light text-[#464D51]">
                             Madu Durian
+                        </th>
+                        <th scope="row" class="px-6 py-4 font-light text-[#464D51]">
+                            3
+                        </th>
+                        <td class="px-6 py-4">
+                            92
+                        </td>
+                        <td class="px-6 py-4">
+                            11
+                        </td>
+                        <td class="px-6 py-4">
+                            72
+                        </td>
+                        <td class="px-6 py-4">
+                            IDR 5,000
+                        </td>
+                        <td class="px-6 py-4">
+                            IDR 5,000
+                        </td>
+                    </tr>
+                    <tr class="">
+                        <th scope="row" class="px-6 py-4 font-light text-[#464D51]">
+                            Madu Durian
+                        </th>
+                        <th scope="row" class="px-6 py-4 font-light text-[#464D51]">
+                            4
+                        </th>
+                        <td class="px-6 py-4">
+                            92
+                        </td>
+                        <td class="px-6 py-4">
+                            11
+                        </td>
+                        <td class="px-6 py-4">
+                            72
+                        </td>
+                        <td class="px-6 py-4">
+                            IDR 5,000
+                        </td>
+                        <td class="px-6 py-4">
+                            IDR 5,000
+                        </td>
+                    </tr>
+                    <tr class="">
+                        <th scope="row" class="px-6 py-4 font-light text-[#464D51]">
+                            Madu Durian
+                        </th>
+                        <th scope="row" class="px-6 py-4 font-light text-[#464D51]">
+                            5
                         </th>
                         <td class="px-6 py-4">
                             92
@@ -801,6 +843,7 @@
         </path>
     </svg>
 </button>
+
 <!-- Dropdown menu -->
 <div id="orderStatsTrigger" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 ">
     <ul class="py-2 text-sm text-gray-700 " aria-labelledby="orderStats">

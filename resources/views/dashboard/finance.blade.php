@@ -661,5 +661,4 @@
 {{ $dailyRevenue2->script() }}
 {{ $profit->script() }}
 {{ $orderSize->script() }}
-
 @endsection
