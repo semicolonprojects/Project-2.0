@@ -15,6 +15,6 @@ class MarketingKonsinyasiDashboard extends Controller
 {
     public function index(UserActivity $userActivity, SalesAnalytics $salesAnalytics, DailyTargetStats $dailyTargetStats, DailyOrderStats $dailyOrderStats, SaleThisMonth $saleThisMonth, RevenueKonsinyasi $revenueKonsinyasi)
     {
-        return view('dashboard.marketing-konsinyasi-dashboard', ['userActivity' => $userActivity->build(), 'salesAnalytics' => $salesAnalytics->build(), 'dailyTargetStats' => $dailyTargetStats->build(), 'dailyOrderStats' => $dailyOrderStats->build(), 'saleThisMonth' => $saleThisMonth->build(), 'revenueKonsinyasi' => $revenueKonsinyasi->build()]);
+        return view('dashboard.marketing-konsinyasi.marketing-konsinyasi-dashboard', ['userActivity' => $userActivity->build(), 'salesAnalytics' => $salesAnalytics->build(), 'dailyTargetStats' => $dailyTargetStats->build(), 'dailyOrderStats' => $dailyOrderStats->build(), 'saleThisMonth' => $saleThisMonth->build(), 'revenueKonsinyasi' => $revenueKonsinyasi->build()]);
     }
 }

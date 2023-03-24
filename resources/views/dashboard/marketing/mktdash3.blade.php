@@ -2,11 +2,11 @@
 
 @section('mainContent')
 
-<div class="ml-24 mt-16">
+<div class="ml-[42px] mt-16">
     <div class="mb-10">
         <p class="text-[24px] text-black font-[700]">Payment Stats</p>
     </div>
-    <div class="w-[1250px]  bg-[#FFFFFF] shadow-[0px_8px_8px_rgba(0,0,0,0.5)] rounded-[22px]">
+    <div class="w-[1250px] bg-[#FFFFFF] shadow-[0px_8px_8px_rgba(0,0,0,0.5)] rounded-[22px]">
         <div class="grid grid-flow-col gap-[640px] mb-3 px-5 py-8">
             <div class="flex md:order-2">
                 <form class="flex items-center">
@@ -42,7 +42,7 @@
             </div>
 
         </div>
-        <div id="accordion-collapse" data-accordion="collapse" ">
+        <div id="accordion-collapse" data-accordion="open" ">
         <table class=" w-[1250px] table-fixed text-sm text-left text-gray-500 dark:text-gray-400 ">
             <thead class=" text-xs text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>

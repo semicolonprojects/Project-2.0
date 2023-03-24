@@ -5,12 +5,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+        integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     @vite('resources/css/app.css', 'resources/js/app.js')
 </head>
 
 <body>
+
     <nav class="fixed top-0 z-50 w-full bg-white shadow-md shadow-gray-200">
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
+        @if (session()->has('success'))
+        <div id="alert-border-2" class="flex p-4 mb-4 text-red-800 border-t-4 bg-red-50" role="alert">
+            <svg class="flex-shrink-0 w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                    clip-rule="evenodd"></path>
+            </svg>
+            <div class="ml-3 text-sm font-medium">
+                {{ session('success') }}
+            </div>
+            <button type="button"
+                class="ml-auto -mx-1.5 -my-1.5 bg-red-50 text-red-500 rounded-lg focus:ring-2 focus:ring-red-400 p-1.5 hover:bg-red-200 inline-flex h-8 w-8 dark:bg-gray-800 dark:text-red-400 dark:hover:bg-gray-700"
+                data-dismiss-target="#alert-border-2" aria-label="Close">
+                <span class="sr-only">Dismiss</span>
+                <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                        clip-rule="evenodd"></path>
+                </svg>
+            </button>
+        </div>
+
+        @endif
         <div class="px-3 py-3 lg:px-5 lg:pl-3">
             <div class="flex items-center justify-between">
                 <div class="flex items-center justify-start">
@@ -25,7 +62,7 @@
                             </path>
                         </svg>
                     </button>
-                    <img src='{{asset(' Assets/images/Madukuy CMYK Logo.png')}}'
+                    <img src='{{ asset(' \Assets\images\Madukuy CMYK Logo.png') }}'
                         class="h-15 w-16  inset-y-0 flex-items-center ml-5" />
                 </div>
                 <div class="flex justify-items-center">
@@ -45,7 +82,7 @@
                             </div>
                             <input type="text" id="simple-search"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-yellow-300 focus:border-yellow-300 block w-full pl-10 p-2.5"
-                                placeholder="Search" required />
+                                placeholder="Search" />
                         </div>
                 </div>
                 <div class="flex justify-items-end">
@@ -72,10 +109,10 @@
                             id="dropdown-user">
                             <div class="px-4 py-3" role="none">
                                 <p class="text-sm text-gray-900 dark:text-white" role="none">
-                                    Neil Sims
+                                    {{ auth()->user()->username }}
                                 </p>
                                 <p class="text-sm font-medium text-gray-900 truncate dark:text-gray-300" role="none">
-                                    neil.sims@flowbite.com
+                                    {{ auth()->user()->role }}
                                 </p>
                             </div>
                             <ul class="py-1" role="none">
@@ -100,7 +137,7 @@
 
                                 </li>
                                 <li>
-                                    <a href="#"
+                                    <a href="/logout"
                                         class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
                                         role="menuitem">Sign out</a>
                                 </li>
@@ -115,7 +152,7 @@
     </nav>
 
     <div id="drawer-navigation"
-        class="fixed top-0 left-0 z-40 w-64 h-screen p-4 overflow-y-auto transition-transform -translate-x-full bg-white dark:bg-gray-800"
+        class="fixed top-0 left-0 z-40 w-64 h-screen p-4 overflow-y-scroll transition-transform -translate-x-full bg-white dark:bg-gray-800"
         tabindex="-1" aria-labelledby="drawer-navigation-label">
         <h5 id="drawer-navigation-label" class="text-base font-semibold text-gray-500 uppercase dark:text-gray-400">
             Menu</h5>
@@ -145,6 +182,7 @@
                         <span class="ml-3 font-bold">Dashboard</span>
                     </a>
                 </li>
+
                 <li>
                     <button type="button"
                         class="flex items-center w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
@@ -248,11 +286,44 @@
         </div>
     </div>
 
+
+
+    <div class="mt-16">
+        @if (session()->has('access'))
+        <div id="alert-border-2"
+            class="flex p-4 mb-4 text-red-800 border-t-4 border-red-300 bg-red-50 dark:text-red-400 dark:bg-gray-800 dark:border-red-800"
+            role="alert">
+            <svg class="flex-shrink-0 w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                    clip-rule="evenodd"></path>
+            </svg>
+            <div class="ml-3 text-sm font-medium">
+                {{ session('access') }}
+            </div>
+            <button type="button"
+                class="ml-auto -mx-1.5 -my-1.5 bg-red-50 text-red-500 rounded-lg focus:ring-2 focus:ring-red-400 p-1.5 hover:bg-red-200 inline-flex h-8 w-8 dark:bg-gray-800 dark:text-red-400 dark:hover:bg-gray-700"
+                data-dismiss-target="#alert-border-2" aria-label="Close">
+                <span class="sr-only">Dismiss</span>
+                <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                        clip-rule="evenodd"></path>
+                </svg>
+            </button>
+        </div>
+        @endif
+
+    </div>
+
     {{-- Absensi, Cuti & Izin --}}
     <div class="ml-10 mt-36 sm:ml-16 md:ml-20 xl:ml-48">
         <div class="inline-flex ml-16 sm:ml-16 md:ml-20 xl:ml-72">
             <button type="button"
-                class="text-black  bg-background hover:bg-gradient-to-bl from-yellow-200 to-bg-yellow-300 focus:ring-4 focus:outline-none focus:ring-yellow-400 font-medium rounded-full text-sm p-4 text-center inline-flex items-center ml-8  ">
+                class="text-black  bg-background hover:bg-gradient-to-bl from-yellow-200 to-bg-yellow-300 focus:ring-4 focus:outline-none focus:ring-yellow-400 font-medium rounded-full text-sm p-4 text-center inline-flex items-center ml-8"
+                data-modal-target="authentication-modal" data-modal-toggle="authentication-modal">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
@@ -263,7 +334,8 @@
                 </svg>
             </button>
             <button type="button"
-                class="text-black  bg-background hover:bg-gradient-to-bl from-yellow-200 to-bg-yellow-300 focus:ring-4 focus:outline-none focus:ring-yellow-400 font-medium rounded-full text-sm p-4 text-center inline-flex items-center ml-8 ">
+                class="text-black  bg-background hover:bg-gradient-to-bl from-yellow-200 to-bg-yellow-300 focus:ring-4 focus:outline-none focus:ring-yellow-400 font-medium rounded-full text-sm p-4 text-center inline-flex items-center ml-8"
+                data-modal-target="authentication-modal-2" data-modal-toggle="authentication-modal-2">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2" stroke-line p="round" stroke-linejoin="round">
                     <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
@@ -273,7 +345,8 @@
                 </svg>
             </button>
             <button type="button"
-                class="text-black  bg-background hover:bg-gradient-to-bl from-yellow-200 to-bg-yellow-300 focus:ring-4 focus:outline-none focus:ring-yellow-400 font-medium rounded-full text-sm p-4 text-center inline-flex items-center ml-8  ">
+                class="text-black  bg-background hover:bg-gradient-to-bl from-yellow-200 to-bg-yellow-300 focus:ring-4 focus:outline-none focus:ring-yellow-400 font-medium rounded-full text-sm p-4 text-center inline-flex items-center ml-8"
+                data-modal-target="authentication-modal-3" data-modal-toggle="authentication-modal-3">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
@@ -286,7 +359,8 @@
                 <span class="sr-only">Icon description</span>
             </button>
             <button type="button"
-                class="text-black  bg-background hover:bg-gradient-to-bl from-yellow-200 to-bg-yellow-300 focus:ring-4 focus:outline-none focus:ring-yellow-400 font-medium rounded-full text-sm p-4 text-center inline-flex items-center ml-8  ">
+                class="text-black  bg-background hover:bg-gradient-to-bl from-yellow-200 to-bg-yellow-300 focus:ring-4 focus:outline-none focus:ring-yellow-400 font-medium rounded-full text-sm p-4 text-center inline-flex items-center ml-8"
+                data-modal-target="authentication-modal-4" data-modal-toggle="authentication-modal-4">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
@@ -315,9 +389,230 @@
         </div>
     </div>
 
+    <div id="authentication-modal" tabindex="-1" aria-hidden="true"
+        class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] md:h-full">
+        <div class="relative w-full h-full max-w-md md:h-auto">
+            <!-- Modal content -->
+
+            <!-- Masuk -->
+            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                <button type="button"
+                    class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
+                    data-modal-hide="authentication-modal">
+                    <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                    <span class="sr-only">Close modal</span>
+                </button>
+                <div class="px-6 py-6 lg:px-8">
+                    <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Masuk</h3>
+                    <form class="space-y-6" action="absen" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <div>
+                            <label for="username"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Username</label>
+                            <select id="username"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                name="user_id">
+                                <option selected>Login User</option>
+                                @foreach($user as $user)
+                                <option value="{{ $user->id }}">{{ $user->username }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="mt-6">
+                            <label for="latitude"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Latitude</label>
+                            <input type="latitude" name="lat" id="latitude"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
+                        </div>
+                        <div class="mt-2">
+                            <label for="longitude"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Longitude</label>
+                            <input type="longitude" name="long" id="longitude"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
+                        </div>
+                        <div class="mt-4">
+                            <button type="submit"
+                                class="w-max text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="">
+                    <div id="map" style="width:400px;height:300px" class="flex justify-center"></div>
+                    <div>
+                        <ul id="status" class="progressing">
+                            <li>Find accurate position … (Desired accuracy: 20)</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div id="authentication-modal-2" tabindex="-1" aria-hidden="true"
+        class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] md:h-full">
+        <div class="relative w-full h-full max-w-md md:h-auto">
+            <!-- Modal content -->
+            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                <button type="button"
+                    class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
+                    data-modal-hide="authentication-modal-2">
+                    <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                    <span class="sr-only">Close modal</span>
+                </button>
+                <div class="px-6 py-6 lg:px-8">
+                    <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Keluar</h3>
+                    <form class="space-y-6" action="#">
+                        <div>
+                            <label for="email"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
+                            <input type="email" name="email" id="email"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                placeholder="name@company.com" required>
+                        </div>
+                        <div class="mt-6">
+                            <label for="password"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Latitude</label>
+                            <input type="password" name="password" id="password" placeholder="••••••••"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                required>
+                        </div>
+                        <div class="mt-2">
+                            <label for="password"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Longtitude</label>
+                            <input type="password" name="password" id="password" placeholder="••••••••"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                required>
+                        </div>
+                        <div class="mt-4">
+                            <button type="submit"
+                                class="w-max text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="authentication-modal-3" tabindex="-1" aria-hidden="true"
+        class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] md:h-full">
+        <div class="relative w-full h-full max-w-md md:h-auto">
+            <!-- Modal content -->
+            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                <button type="button"
+                    class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
+                    data-modal-hide="authentication-modal-3">
+                    <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                    <span class="sr-only">Close modal</span>
+                </button>
+                <div class="px-6 py-6 lg:px-8">
+                    <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Ijin</h3>
+                    <form class="space-y-6" action="#">
+                        <div>
+                            <label for="email"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
+                            <input type="email" name="email" id="email"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                placeholder="name@company.com" required>
+                        </div>
+                        <div class="mt-6">
+                            <label for="password"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Latitude</label>
+                            <input type="text" name="password" id="latitude"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                required readonly>
+                        </div>
+                        <div class="mt-2">
+                            <label for="password"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Longtitude</label>
+                            <input type="text" name="password" id="longtitude"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                required readonly>
+                        </div>
+                        <div class="mt-4">
+                            <button type="submit"
+                                class="w-max text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="authentication-modal-4" tabindex="-1" aria-hidden="true"
+        class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] md:h-full">
+        <div class="relative w-full h-full max-w-md md:h-auto">
+            <!-- Modal content -->
+            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                <button type="button"
+                    class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
+                    data-modal-hide="authentication-modal-4">
+                    <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                    <span class="sr-only">Close modal</span>
+                </button>
+                <div class="px-6 py-6 lg:px-8">
+                    <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Cuti</h3>
+                    <form class="space-y-6" action="#">
+                        <div>
+                            <label for="email"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
+                            <input type="email" name="email" id="email"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                placeholder="name@company.com" required>
+                        </div>
+                        <div class="mt-6">
+                            <label for="password"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Latitude</label>
+                            <input type="password" name="password" id="password" placeholder="••••••••"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                required>
+                        </div>
+                        <div class="mt-2">
+                            <label for="password"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Longtitude</label>
+                            <input type="password" name="password" id="password" placeholder="••••••••"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                required>
+                        </div>
+                        <div class="mt-4">
+                            <button type="submit"
+                                class="w-max text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="py-10">
         @yield('mainContent')
     </div>
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+        integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
 
     @vite(['resources/css/app.css','resources/js/app.js'])
 </body>

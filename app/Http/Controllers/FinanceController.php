@@ -14,6 +14,6 @@ class FinanceController extends Controller
 {
     public function index(DailyFinancialStatsRevenue $dailyRevenue, DailySalesStats $dailyStats, DailyFinancialStatsRevenue2 $dailyRevenue2, DailyFinancialStatsProfit $profit, DailyFinancialStatsOrderSize $orderSize)
     {
-        return view('dashboard.finance', ['dailyRevenue' => $dailyRevenue->build(), 'dailyStats' => $dailyStats->build(), 'dailyRevenue2' => $dailyRevenue2->build(), 'profit' => $profit->build(), 'orderSize' => $orderSize->build()]);
+        return view('dashboard.finance.finance', ['dailyRevenue' => $dailyRevenue->build(), 'dailyStats' => $dailyStats->build(), 'dailyRevenue2' => $dailyRevenue2->build(), 'profit' => $profit->build(), 'orderSize' => $orderSize->build()]);
     }
 }

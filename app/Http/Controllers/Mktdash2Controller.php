@@ -10,6 +10,6 @@ class Mktdash2Controller extends Controller
 {
     public function index(HengkiOrderChart $hengkiOrder)
     {
-        return view('dashboard.mktdash2', ['hengkiOrder' => $hengkiOrder->build()]);
+        return view('dashboard.marketing.mktdash2', ['hengkiOrder' => $hengkiOrder->build()]);
     }
 }

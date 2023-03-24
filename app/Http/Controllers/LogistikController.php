@@ -10,6 +10,6 @@ class LogistikController extends Controller
 {
     public function index(BestSeller $bestSeller)
     {
-        return view('dashboard.logistik', ['bestSeller' => $bestSeller->build()]);
+        return view('dashboard.logistik.logistik', ['bestSeller' => $bestSeller->build()]);
     }
 }

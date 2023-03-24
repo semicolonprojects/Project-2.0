@@ -10,6 +10,6 @@ class Mktdash4Controller extends Controller
 {
     public function index(SaleThisMonth $saleThisMonth)
     {
-        return view('dashboard.mktdash4', ['saleThisMonth' => $saleThisMonth->build()]);
+        return view('dashboard.marketing.mktdash4', ['saleThisMonth' => $saleThisMonth->build()]);
     }
 }
