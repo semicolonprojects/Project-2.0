@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CutiController;
+use App\Http\Controllers\DataAbsenController;
 use App\Http\Controllers\FinanceController;
 use App\Http\Controllers\IzinController;
 use App\Http\Controllers\KeluarController;
@@ -123,6 +124,4 @@ Route::get('/marketing-k/innout', function () {
     return view('dashboard.marketing-konsinyasi.marketing-konsinyasi-innout');
 });
 
-Route::get('/data-absen', function () {
-    return view('dashboard.layout.data-absen');
-});
+Route::get('/data-absen', [DataAbsenController::class, 'index']);

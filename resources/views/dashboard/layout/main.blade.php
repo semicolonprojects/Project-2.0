@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
         integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
-        <link rel="icon" type="image/x-icon" href="\Assets\images\Madukuy RGB Logogram.ico">
+    <link rel="icon" type="image/x-icon" href="\Assets\images\Madukuy RGB Logogram.ico">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     @vite('resources/css/app.css', 'resources/js/app.js')
 </head>
@@ -84,7 +84,7 @@
                             </path>
                         </svg>
                     </button>
-                    <img src='{{ asset('\Assets\images\Madukuy CMYK Logo.png') }}'
+                    <img src='{{ asset(' \Assets\images\Madukuy CMYK Logo.png') }}'
                         class="h-15 w-16  inset-y-0 flex-items-center ml-5" />
                 </div>
                 <div class="flex justify-items-center">
@@ -159,7 +159,7 @@
 
                                 </li>
                                 <li>
-                                    <a href=""
+                                    <a href="/data-absen"
                                         class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
                                         role="menuitem">Data Absensi</a>
                                 </li>
@@ -438,32 +438,6 @@
                     <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Masuk</h3>
                     <form class="space-y-6" action="{{ route('absen.store') }}" method="POST" id="login">
                         @csrf
-                        {{-- <div>
-                            <label for="username"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">username</label>
-                            <select form="login" name="user_id"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
-                                @foreach($user as $user)
-                                <option value="{{ $user->id }}">{{ $user->username }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="mt-6">
-                            <label for="latitude"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Latitude</label>
-                            <input type="text" name="lat" id="latitude"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
-                        </div>
-                        <div class="mt-2">
-                            <label for="longitude"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Longitude</label>
-                            <input type="text" name="long" id="longitude"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
-                        </div>
-                        <div class="mt-4">
-                            <button type="submit"
-                                class="w-max text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Submit</button>
-                        </div> --}}
                     </form>
                     <form action="{{ route('absen.store') }}" method="POST" class="space-y-6">
                         @csrf
