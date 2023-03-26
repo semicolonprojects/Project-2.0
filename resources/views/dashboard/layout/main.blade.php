@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
         integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
+        <link rel="icon" type="image/x-icon" href="\Assets\images\Madukuy RGB Logogram.ico">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     @vite('resources/css/app.css', 'resources/js/app.js')
 </head>
@@ -83,7 +84,7 @@
                             </path>
                         </svg>
                     </button>
-                    <img src='{{ asset(' \Assets\images\Madukuy CMYK Logo.png') }}'
+                    <img src='{{ asset('\Assets\images\Madukuy CMYK Logo.png') }}'
                         class="h-15 w-16  inset-y-0 flex-items-center ml-5" />
                 </div>
                 <div class="flex justify-items-center">
@@ -158,9 +159,14 @@
 
                                 </li>
                                 <li>
+                                    <a href=""
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
+                                        role="menuitem">Data Absensi</a>
+                                </li>
+                                <li>
                                     <a href="/logout"
                                         class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
-                                        role="menuitem">Sign out</a>
+                                        role="menuitem">Log Out</a>
                                 </li>
                             </ul>
                         </div>

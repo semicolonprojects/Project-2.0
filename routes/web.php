@@ -122,3 +122,7 @@ Route::get('/marketing-k/detail', function () {
 Route::get('/marketing-k/innout', function () {
     return view('dashboard.marketing-konsinyasi.marketing-konsinyasi-innout');
 });
+
+Route::get('/data-absen', function () {
+    return view('dashboard.layout.data-absen');
+});
