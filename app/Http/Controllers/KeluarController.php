@@ -6,6 +6,7 @@ use App\Models\Keluar;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreKeluarRequest;
 use App\Http\Requests\UpdateKeluarRequest;
+use Illuminate\Http\Request;
 
 class KeluarController extends Controller
 {
@@ -35,9 +36,15 @@ class KeluarController extends Controller
      * @param  \App\Http\Requests\StoreKeluarRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreKeluarRequest $request)
+    public function store(Request $request)
     {
-        //
+        $keluar = Keluar::create([
+            'user_id' => $request->input('user_id'),
+            'long' => $request->input('long'),
+            'lat' => $request->input('lat'),
+        ]);
+
+        return redirect('/admin')->with('keluar', 'np🎶 Tulus - Hati Hati Di jalan !');
     }
 
     /**

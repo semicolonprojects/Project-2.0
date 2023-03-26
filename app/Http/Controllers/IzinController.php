@@ -6,6 +6,8 @@ use App\Models\Izin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreIzinRequest;
 use App\Http\Requests\UpdateIzinRequest;
+use App\Models\User;
+use Illuminate\Http\Request;
 
 class IzinController extends Controller
 {
@@ -16,7 +18,8 @@ class IzinController extends Controller
      */
     public function index()
     {
-        //
+        $user = User::all();
+        return view('dashboard.layout.main', compact('user'));
     }
 
     /**
@@ -24,9 +27,12 @@ class IzinController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+
+        return view('dashboard.layout.main', [
+            'user' => User::all()
+        ]);
     }
 
     /**
@@ -35,9 +41,14 @@ class IzinController extends Controller
      * @param  \App\Http\Requests\StoreIzinRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreIzinRequest $request)
+    public function store(Request $request)
     {
-        //
+        $izin = Izin::create([
+            'user_id' => $request->input('user_id'),
+            'keterangan' => $request->input('keterangan'),
+        ]);
+
+        return redirect('/admin')->with('keluar', 'np🎶 Tulus - Hati Hati Di jalan !');
     }
 
     /**

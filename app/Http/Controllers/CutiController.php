@@ -6,6 +6,7 @@ use App\Models\Cuti;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreCutiRequest;
 use App\Http\Requests\UpdateCutiRequest;
+use Illuminate\Http\Request;
 
 class CutiController extends Controller
 {
@@ -35,9 +36,16 @@ class CutiController extends Controller
      * @param  \App\Http\Requests\StoreCutiRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreCutiRequest $request)
+    public function store(Request $request)
     {
-        //
+        $cuti = Cuti::create([
+            'user_id' => $request->input('user_id'),
+            'keterangan_cuti' => $request->input('keterangan_cuti'),
+            'mulai_cuti' => $request->input('mulai_cuti'),
+            'akhir_cuti' => $request->input('akhir_cuti'),
+        ]);
+
+        return redirect('/admin')->with('keluar', 'np🎶 Tulus - Hati Hati Di jalan !');
     }
 
     /**

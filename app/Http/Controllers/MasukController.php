@@ -29,7 +29,9 @@ class MasukController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.layout.main', [
+            'user' => User::all()
+        ]);
     }
 
     /**
@@ -40,14 +42,14 @@ class MasukController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
+
         $masuk = Masuk::create([
             'user_id' => $request->input('user_id'),
             'long' => $request->input('long'),
             'lat' => $request->input('lat'),
         ]);
 
-        return view('dashboard.layout.main', compact('user'));
+        return redirect('/admin')->with('success', 'Berhasil Absen !');
     }
 
     /**

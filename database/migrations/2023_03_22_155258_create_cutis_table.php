@@ -17,10 +17,10 @@ return new class extends Migration
             $table->id();
             $table->BigInteger('user_id')->unsigned()->nullable();
             $table->string('keterangan_cuti');
-            $table->date('mulai_cuti');
-            $table->date('akhir_cuti');
+            $table->text('mulai_cuti');
+            $table->text('akhir_cuti');
             $table->timestamp('tanggal_pengajuan');
-            $table->date('tanggal_diterima');
+            $table->date('tanggal_diterima')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

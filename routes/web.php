@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\CutiController;
 use App\Http\Controllers\FinanceController;
+use App\Http\Controllers\IzinController;
+use App\Http\Controllers\KeluarController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogistikController;
 use App\Http\Controllers\MarketingKonsinyasiDashboard;
@@ -27,6 +30,12 @@ Route::get('/', [LoginController::class, 'index'])->name('login')->middleware('g
 Route::post('/', [LoginController::class, 'authenticate']);
 
 Route::resource('absen', MasukController::class);
+
+Route::resource('keluar', KeluarController::class);
+
+Route::resource('izin', IzinController::class);
+
+Route::resource('cuti', CutiController::class);
 
 Route::get('/logout', [LoginController::class, 'logout']);
 

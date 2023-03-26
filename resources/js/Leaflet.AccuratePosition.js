@@ -113,6 +113,8 @@ L.Map.include({
 
         document.getElementById("latitude").value = lat;
         document.getElementById("longitude").value = lng;
+        document.getElementById("latitude_keluar").value = lat;
+        document.getElementById("longitude_keluar").value = lng;
         return data;
     },
 

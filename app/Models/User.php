@@ -43,4 +43,19 @@ class User extends Authenticatable
     {
         return $this->hasMany(Masuk::class);
     }
+
+    public function keluar()
+    {
+        return $this->hasMany(Keluar::class);
+    }
+
+    public function izin()
+    {
+        return $this->hasMany(Keluar::class);
+    }
+
+    public function cuti()
+    {
+        return $this->hasMany(Keluar::class);
+    }
 }
