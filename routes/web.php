@@ -12,6 +12,7 @@ use App\Http\Controllers\MasukController;
 use App\Http\Controllers\Mktdash2Controller;
 use App\Http\Controllers\Mktdash4Controller;
 use App\Http\Controllers\MktdashController;
+use App\Http\Controllers\ProdukJadiController;
 use App\Http\Controllers\SuperAdminController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,9 +27,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [LoginController::class, 'index'])->name('login')->middleware('guest');
+Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 
-Route::post('/', [LoginController::class, 'authenticate']);
+Route::post('/login', [LoginController::class, 'authenticate']);
 
 Route::resource('absen', MasukController::class);
 
@@ -37,6 +38,8 @@ Route::resource('keluar', KeluarController::class);
 Route::resource('izin', IzinController::class);
 
 Route::resource('cuti', CutiController::class);
+
+Route::resource('stock', ProdukJadiController::class);
 
 Route::get('/logout', [LoginController::class, 'logout']);
 

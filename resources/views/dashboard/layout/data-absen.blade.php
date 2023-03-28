@@ -44,6 +44,7 @@
           <th class="px-10 py-5">Longitude</th>
           <th class="px-10 py-5">Latitude</th>
           <th class="px-10 py-5">Waktu Masuk</th>
+          <th class="px-10 py-5">Action</th>
         </tr>
         @foreach ($masuk as $masuk)
         <tr>
@@ -51,6 +52,34 @@
           <td class="px-10 py-5">{{ $masuk->long }}</td>
           <td class="px-6">{{ $masuk->lat }}</td>
           <td class="px-6">{{ $masuk->waktu_masuk }}</td>
+          <td class="px-6">
+            <button>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path>
+                    <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+            </button>
+            <button>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M12 20h9"></path>
+                    <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+                </svg>
+            </button>
+            <button>
+                <button>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M20 5H9l-7 7 7 7h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2Z"></path>
+                        <line x1="18" y1="9" x2="12" y2="15"></line>
+                        <line x1="12" y1="9" x2="18" y2="15"></line>
+                    </svg>
+                </button>
+        </td>
         </tr>
         @endforeach
       </table>
@@ -67,6 +96,7 @@
           <th class="px-10 py-5">Longitude</th>
           <th class="px-10 py-5">Latitude</th>
           <th class="px-10 py-5">Waktu Keluar</th>
+          <th class="px-10 py-5">Action</th>
         </tr>
         @foreach ($keluar as $keluar)
         <tr>
@@ -74,6 +104,34 @@
           <td class="px-10 py-5">{{ $keluar->long }}</td>
           <td class="px-6">{{ $keluar->lat }}</td>
           <td class="px-6">{{ $keluar->waktu_keluar }}</td>
+          <td class="px-6">
+            <button>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path>
+                    <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+            </button>
+            <button>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M12 20h9"></path>
+                    <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+                </svg>
+            </button>
+            <button>
+                <button>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M20 5H9l-7 7 7 7h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2Z"></path>
+                        <line x1="18" y1="9" x2="12" y2="15"></line>
+                        <line x1="12" y1="9" x2="18" y2="15"></line>
+                    </svg>
+                </button>
+        </td>
         </tr>
         @endforeach
       </table>
@@ -90,6 +148,7 @@
           <th class="px-10 py-5">Keterangan</th>
           <th class="px-10 py-5">Tanggal</th>
           <th class="px-10 py-5">Status</th>
+          <th class="px-10 py-5">Action</th>
         </tr>
         @foreach($izin as $izin)
         <tr>
@@ -97,6 +156,34 @@
           <td class="px-10 py-5">{{ $izin->keterangan }}</td>
           <td class="px-6">{{ $izin->tanggal }}</td>
           <td class="px-6">{{ $izin->status }}</td>
+          <td class="px-6">
+            <button>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path>
+                    <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+            </button>
+            <button>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M12 20h9"></path>
+                    <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+                </svg>
+            </button>
+            <button>
+                <button>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M20 5H9l-7 7 7 7h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2Z"></path>
+                        <line x1="18" y1="9" x2="12" y2="15"></line>
+                        <line x1="12" y1="9" x2="18" y2="15"></line>
+                    </svg>
+                </button>
+        </td>
         </tr>
         @endforeach
       </table>
@@ -115,6 +202,7 @@
           <th class="px-10 py-5">Akhir Cuti</th>
           <th class="px-10 py-5">Tanggal Pengajuan</th>
           <th class="px-10 py-5">Tanggal Diterima</th>
+          <th class="px-10 py-5">Action</th>
         </tr>
 
         @foreach ($cuti as $cuti)
@@ -125,6 +213,34 @@
           <td class="px-6">{{ $cuti->akhir_cuti }}</td>
           <td class="px-6">{{ date('d/m/Y', strtotime($cuti->tanggal_pengajuan)) }}</td>
           <td class="px-6">{{ $cuti->tanggal_diterima ? date('d/m/Y', strtotime($cuti->tanggal_diterima)) : NULL }}</td>
+          <td class="px-6">
+            <button>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path>
+                    <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+            </button>
+            <button>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M12 20h9"></path>
+                    <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+                </svg>
+            </button>
+            <button>
+                <button>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M20 5H9l-7 7 7 7h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2Z"></path>
+                        <line x1="18" y1="9" x2="12" y2="15"></line>
+                        <line x1="12" y1="9" x2="18" y2="15"></line>
+                    </svg>
+                </button>
+        </td>
         </tr>
         @endforeach
       </table>
