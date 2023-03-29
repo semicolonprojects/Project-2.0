@@ -55,18 +55,19 @@
 </div>
 
 {{-- Order Stats --}}
-<div class=" ml-32 mt-14 grid grid-flow-col gap-[602px]">
-    <h5 class="mb-2 ml-5 text-2xl font-bold tracking-tight text-gray-900 ">Order Stats</h5>
-    <button id="orderStats" data-dropdown-toggle="orderStatsTrigger">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-            class="w-8 h-8">
-            <path stroke-linecap="round" stroke-linejoin="round"
-                d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
-        </svg>
-    </button>
-</div>
+
 <div
-    class="inline-block p-6 bg-white border border-gray-200 rounded-xl ml-36 hover:bg-gray-100 shadow-2xl w-[1070px] h-[600px]">
+    class="inline-block p-6 bg-white border border-gray-200 rounded-xl mt-10 ml-32 hover:bg-gray-100 shadow-2xl w-[1070px] h-[700px]">
+    <div class="grid grid-flow-col gap-[842px] mb-3">
+        <h5 class="mb-2 ml-5 text-2xl font-bold tracking-tight text-gray-900 ">Order Stats</h5>
+        <button id="orderStats" data-dropdown-toggle="orderStatsTrigger">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                class="w-8 h-8">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+            </svg>
+        </button>
+    </div>
     <div class="grid grid-flow-col justify-end mb-8 mr-1 gap-2">
 
         <button class="grid grid-flow-col gap-2 " id="sortBy" data-dropdown-toggle="sortBytrigger">Sort by

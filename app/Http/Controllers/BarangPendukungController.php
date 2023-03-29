@@ -37,7 +37,17 @@ class BarangPendukungController extends Controller
      */
     public function store(StoreBarangPendukungRequest $request)
     {
-        //
+        $barangPendukung = BarangPendukung::create([
+            'kode_barang' => $request->input('kode_barang'),
+            'nama_barang' => $request->input('nama_barang'),
+            'size' =>$request->input('size'),
+            'min_ammount' =>$request->input('min_ammount'),
+            'stock_akhir' =>$request->input('stock_akhir'),
+            'entry_price' =>$request->input('entry_price'),
+            'price' =>$request->input('price')
+        ]);
+
+        return redirect('/logistik')->with('pendukung', 'Pendukung berhasil dimasukkan');
     }
 
     /**
