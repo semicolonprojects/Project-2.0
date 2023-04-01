@@ -53,9 +53,10 @@ class KeluarController extends Controller
      * @param  \App\Models\Keluar  $keluar
      * @return \Illuminate\Http\Response
      */
-    public function show(Keluar $keluar)
+    public function show(Request $request, $id)
     {
-        //
+        $keluar = Keluar::find($id);
+        return view('keluar', compact('keluar'));
     }
 
     /**
@@ -76,9 +77,14 @@ class KeluarController extends Controller
      * @param  \App\Models\Keluar  $keluar
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateKeluarRequest $request, Keluar $keluar)
+    public function update(Request $request, $id)
     {
-        //
+        $keluar = Keluar::find($id);
+        $keluar->user_id = $request->user_id;
+        $keluar->long = $request->long;
+        $keluar->lat = $request->lat;
+        $keluar->save();
+        return redirect('/data-absen')->with('update', 'Berhasil Update');
     }
 
     /**
@@ -87,8 +93,10 @@ class KeluarController extends Controller
      * @param  \App\Models\Keluar  $keluar
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Keluar $keluar)
+    public function destroy($id)
     {
-        //
+        $masuk = Keluar::find($id);
+        $masuk->delete();
+        return redirect('/data-absen')->with('delete', 'Berhasil Hapus');
     }
 }

@@ -13,6 +13,7 @@ class BarangPendukung extends Model
         'kode_barang',
         'nama_barang',
         'size',
+        'stock',
         'min_ammount',
         'stock_akhir',
         'entry_price',

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Charts\BestSeller;
 use App\Http\Controllers\Controller;
+use App\Models\BarangPendukung;
 use App\Models\ProdukJadi;
 use Illuminate\Http\Request;
 
@@ -15,6 +16,7 @@ class LogistikController extends Controller
         $stok = ProdukJadi::all();
         $stok2 = ProdukJadi::all();
         $stok3 = ProdukJadi::all();
-        return view('dashboard.logistik.logistik', ['bestSeller' => $bestSeller->build()], compact('stok', 'stok2', 'stok3'));
+        $barangPendukung = BarangPendukung::all();
+        return view('dashboard.logistik.logistik', ['bestSeller' => $bestSeller->build()], compact('stok', 'stok2', 'stok3', 'barangPendukung'));
     }
 }

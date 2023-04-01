@@ -7,7 +7,9 @@ use App\Models\Cuti;
 use App\Models\Izin;
 use App\Models\Keluar;
 use App\Models\Masuk;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class DataAbsenController extends Controller
 {
@@ -19,10 +21,15 @@ class DataAbsenController extends Controller
     public function index()
     {
         $masuk = Masuk::all();
+        $masukModal = Masuk::all();
         $keluar = Keluar::all();
+        $keluarModal = Keluar::all();
         $izin = Izin::all();
+        $izinModal = Izin::all();
         $cuti = Cuti::all();
-        return view('dashboard.layout.data-absen', compact('masuk', 'keluar', 'izin', 'cuti'));
+        $cutiModal = Cuti::all();
+
+        return view('dashboard.layout.data-absen', compact('masuk', 'keluar', 'izin', 'cuti', 'masukModal', 'keluarModal', 'izinModal', 'cutiModal'));
     }
 
     /**

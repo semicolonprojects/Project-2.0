@@ -53,33 +53,35 @@
           <td class="px-6">{{ $masuk->lat }}</td>
           <td class="px-6">{{ $masuk->waktu_masuk }}</td>
           <td class="px-6">
-            <button>
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round">
-                    <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path>
-                    <circle cx="12" cy="12" r="3"></circle>
+            <a href="{{ route('absen.show', ['absen' => $masuk->id]) }}">
+              <button>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path>
+                  <circle cx="12" cy="12" r="3"></circle>
                 </svg>
+              </button>
+            </a>
+            <button data-modal-target="defaultModal-{{ $masuk->id }}" data-modal-toggle="defaultModal-{{ $masuk->id }}">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 20h9"></path>
+                <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+              </svg>
             </button>
-            <button>
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round">
-                    <path d="M12 20h9"></path>
-                    <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+            <form class="inline" action="{{ route('absen.destroy', ['absen' => $masuk->id]) }}" method="POST">
+              <button onclick="return confirm('Are you sure?')">
+                @csrf
+                @method('delete')
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 5H9l-7 7 7 7h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2Z"></path>
+                  <line x1="18" y1="9" x2="12" y2="15"></line>
+                  <line x1="12" y1="9" x2="18" y2="15"></line>
                 </svg>
-            </button>
-            <button>
-                <button>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path d="M20 5H9l-7 7 7 7h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2Z"></path>
-                        <line x1="18" y1="9" x2="12" y2="15"></line>
-                        <line x1="12" y1="9" x2="18" y2="15"></line>
-                    </svg>
-                </button>
-        </td>
+              </button>
+            </form>
+          </td>
         </tr>
         @endforeach
       </table>
@@ -105,33 +107,36 @@
           <td class="px-6">{{ $keluar->lat }}</td>
           <td class="px-6">{{ $keluar->waktu_keluar }}</td>
           <td class="px-6">
-            <button>
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round">
-                    <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path>
-                    <circle cx="12" cy="12" r="3"></circle>
+            <a href="{{ route('keluar.show', ['keluar' => $keluar->id]) }}">
+              <button>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path>
+                  <circle cx="12" cy="12" r="3"></circle>
                 </svg>
+              </button>
+            </a>
+            <button data-modal-target="defaultModal-keluar-{{ $keluar->id }}"
+              data-modal-toggle="defaultModal-keluar-{{ $keluar->id }}">
+              <svg xmlns=" http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 20h9"></path>
+                <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+              </svg>
             </button>
-            <button>
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round">
-                    <path d="M12 20h9"></path>
-                    <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+            <form class="inline" action="{{ route('keluar.destroy', ['keluar' => $keluar->id]) }}" method="POST">
+              <button onclick="return confirm('Are you sure?')">
+                @csrf
+                @method('delete')
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 5H9l-7 7 7 7h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2Z"></path>
+                  <line x1="18" y1="9" x2="12" y2="15"></line>
+                  <line x1="12" y1="9" x2="18" y2="15"></line>
                 </svg>
-            </button>
-            <button>
-                <button>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path d="M20 5H9l-7 7 7 7h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2Z"></path>
-                        <line x1="18" y1="9" x2="12" y2="15"></line>
-                        <line x1="12" y1="9" x2="18" y2="15"></line>
-                    </svg>
-                </button>
-        </td>
+              </button>
+            </form>
+          </td>
         </tr>
         @endforeach
       </table>
@@ -153,37 +158,39 @@
         @foreach($izin as $izin)
         <tr>
           <td class="px-10 py-5">{{ $izin->user->username }}</td>
-          <td class="px-10 py-5">{{ $izin->keterangan }}</td>
-          <td class="px-6">{{ $izin->tanggal }}</td>
+          <td class="px-10 py-5">{{ \Illuminate\Support\Str::limit($izin->keterangan, 20, ('...')) }}</td>
+          <td class="px-6">{{ date('l , d/m/Y', strtotime($izin->tanggal)) }}</td>
           <td class="px-6">{{ $izin->status }}</td>
           <td class="px-6">
-            <button>
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round">
-                    <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path>
-                    <circle cx="12" cy="12" r="3"></circle>
-                </svg>
+            <button data-modal-target="defaultModal-izin-{{ $izin->id }}"
+              data-modal-toggle="defaultModal-izin-{{ $izin->id }}">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>
             </button>
-            <button>
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round">
-                    <path d="M12 20h9"></path>
-                    <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
-                </svg>
+            <button data-modal-target="defaultModal-izin-{{ $izin->id }}"
+              data-modal-toggle="defaultModal-izin-{{ $izin->id }}">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 20h9"></path>
+                <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+              </svg>
             </button>
-            <button>
-                <button>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path d="M20 5H9l-7 7 7 7h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2Z"></path>
-                        <line x1="18" y1="9" x2="12" y2="15"></line>
-                        <line x1="12" y1="9" x2="18" y2="15"></line>
-                    </svg>
-                </button>
-        </td>
+            <form class="inline " action="{{ route('izin.destroy', ['izin' => $izin->id]) }}" method="POST">
+              <button onclick="return confirm('Are you sure?')">
+                @csrf
+                @method('delete')
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 5H9l-7 7 7 7h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2Z"></path>
+                  <line x1="18" y1="9" x2="12" y2="15"></line>
+                  <line x1="12" y1="9" x2="18" y2="15"></line>
+                </svg>
+              </button>
+            </form>
+          </td>
         </tr>
         @endforeach
       </table>
@@ -208,44 +215,283 @@
         @foreach ($cuti as $cuti)
         <tr>
           <td class="px-10 py-5">{{ $cuti->user->username }}</td>
-          <td class="px-10 py-5">{{ $cuti->keterangan_cuti }}</td>
-          <td class="px-6">{{ $cuti->mulai_cuti }}</td>
-          <td class="px-6">{{ $cuti->akhir_cuti }}</td>
-          <td class="px-6">{{ date('d/m/Y', strtotime($cuti->tanggal_pengajuan)) }}</td>
-          <td class="px-6">{{ $cuti->tanggal_diterima ? date('d/m/Y', strtotime($cuti->tanggal_diterima)) : NULL }}</td>
+          <td class="px-10 py-5">{{ \Illuminate\Support\Str::limit($cuti->keterangan_cuti, 20, ('...')) }}</td>
+          <td class="px-6">{{ date('l , d/m/Y', strtotime($cuti->mulai_cuti)) }}</td>
+          <td class="px-6">{{ date('l , d/m/Y', strtotime($cuti->akhir_cuti)) }}</td>
+          <td class="px-6">{{ date('l , d/m/Y', strtotime($cuti->tanggal_pengajuan)) }}</td>
+          <td class="px-6">{{ $cuti->tanggal_diterima ? date('l d/m/Y', strtotime($cuti->tanggal_diterima)) : 'Belum
+            Diterima' }}</td>
           <td class="px-6">
-            <button>
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round">
-                    <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path>
-                    <circle cx="12" cy="12" r="3"></circle>
-                </svg>
+            <button data-modal-target="defaultModal-cuti{{ $cuti->id }}"
+              data-modal-toggle="defaultModal-cuti{{ $cuti->id }}">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>
             </button>
             <button>
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round">
-                    <path d="M12 20h9"></path>
-                    <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
-                </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 20h9"></path>
+                <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+              </svg>
             </button>
             <button>
-                <button>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path d="M20 5H9l-7 7 7 7h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2Z"></path>
-                        <line x1="18" y1="9" x2="12" y2="15"></line>
-                        <line x1="12" y1="9" x2="18" y2="15"></line>
-                    </svg>
-                </button>
-        </td>
+              <button>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 5H9l-7 7 7 7h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2Z"></path>
+                  <line x1="18" y1="9" x2="12" y2="15"></line>
+                  <line x1="12" y1="9" x2="18" y2="15"></line>
+                </svg>
+              </button>
+          </td>
         </tr>
         @endforeach
       </table>
     </div>
   </div>
 </div>
+
+<!-- Modal Edit Masuk -->
+@foreach ($masukModal as $masuk)
+<div id="defaultModal-{{ $masuk->id }}" tabindex="-1" aria-hidden="true"
+  class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] md:h-full">
+  <div class="relative w-full h-full max-w-2xl md:h-auto">
+    <!-- Modal content -->
+    <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+      <!-- Modal header -->
+      <div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
+        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+          Masuk {{ $masuk->user->username }}
+        </h3>
+        <button type="button"
+          class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
+          data-modal-hide="defaultModal-{{ $masuk->id }}">
+          <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+              d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+              clip-rule="evenodd"></path>
+          </svg>
+          <span class="sr-only">Close modal</span>
+        </button>
+      </div>
+      <!-- Modal body -->
+      <div class="px-6 py-6 lg:px-8">
+        <form class="space-y-6" action="{{ route('absen.update', ['absen' => $masuk->id]) }}" method="POST">
+          @csrf
+          @method('PUT')
+          <div>
+            <input name="user_id" value="{{ $masuk->id }}" hidden>
+            <input type="text"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+              value="{{ $masuk->user->username }}" required>
+          </div>
+          <div>
+            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Longitude</label>
+            <input type="text" name="long" value="{{ $masuk->long }}"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+              required>
+          </div>
+          <div>
+            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Latitude</label>
+            <input type="text" name="lat" value="{{ $masuk->lat }}"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+              required>
+          </div>
+          <button type="submit"
+            class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Login
+            to your account</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+@endforeach
+
+<!-- Modal Edit Keluar -->
+@foreach ($keluarModal as $keluar)
+<div id="defaultModal-keluar-{{ $keluar->id }}" tabindex="-1" aria-hidden="true"
+  class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] md:h-full">
+  <div class="relative w-full h-full max-w-2xl md:h-auto">
+    <!-- Modal content -->
+    <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+      <!-- Modal header -->
+      <div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
+        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+          Keluar {{ $keluar->user->username }}
+        </h3>
+        <button type="button"
+          class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
+          data-modal-hide="defaultModal-keluar-{{ $keluar->id }}">
+          <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+              d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+              clip-rule="evenodd"></path>
+          </svg>
+          <span class="sr-only">Close modal</span>
+        </button>
+      </div>
+      <!-- Modal body -->
+      <div class="px-6 py-6 lg:px-8">
+        <form class="space-y-6" action="{{ route('keluar.update', ['keluar' => $keluar->id]) }}" method="POST">
+          @csrf
+          @method('PUT')
+          <div>
+            <input name="user_id" value="{{ $keluar->id }}" hidden>
+            <input type="text"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+              value="{{ $keluar->user->username }}" required>
+          </div>
+          <div>
+            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Longitude</label>
+            <input type="text" name="long" value="{{ $keluar->long }}"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+              required>
+          </div>
+          <div>
+            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Latitude</label>
+            <input type="text" name="lat" value="{{ $keluar->lat }}"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+              required>
+          </div>
+          <button type="submit"
+            class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+@endforeach
+
+<!-- Modal Edit + Detail Izin-->
+@foreach ($izinModal as $izinModal)
+<div id="defaultModal-izin-{{ $izinModal->id }}" tabindex="-1" aria-hidden="true"
+  class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] md:h-full">
+  <div class="relative w-full h-full max-w-2xl md:h-auto">
+    <!-- Modal content -->
+    <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+      <!-- Modal header -->
+      <div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
+        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+          Izin {{ $izinModal->user->username }}
+        </h3>
+        <button type="button"
+          class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
+          data-modal-hide="defaultModal-izin-{{ $izinModal->id }}">
+          <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+              d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+              clip-rule="evenodd"></path>
+          </svg>
+          <span class="sr-only">Close modal</span>
+        </button>
+      </div>
+      <!-- Modal body -->
+      <div class="px-6 py-6 lg:px-8">
+        <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+          {{ $izinModal->keterangan }}
+        </p>
+        <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+          Tanggal Pengajuan : {{ date('l , d/m/Y', strtotime($izinModal->tanggal)) }}
+        </p>
+      </div>
+
+      <!-- Modal footer -->
+      <form action="{{ route('izin.update', ['izin' => $izinModal->id]) }}" method="POST">
+        @csrf
+        @method('PUT')
+        <div class="grid gap-6 mb-6 md:grid-cols-2 px-8">
+          <div>
+            <label for="first_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Status</label>
+            <input type="text" name="status"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              required value="{{ $izinModal->status }}">
+            <input name="user_id" value="{{ $izinModal->user_id }}" hidden>
+            <input name="keterangan" value="{{ $izinModal->keterangan }}" hidden>
+          </div>
+        </div>
+
+        <div class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
+          <button type="submit"
+            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            Accept</button>
+          <button data-modal-hide="defaultModal-{{ $izinModal->id }}" type="button"
+            class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Decline</button>
+        </div>
+      </form>
+
+
+    </div>
+  </div>
+</div>
+@endforeach
+
+<!-- Modal Edit + Detail Cuti-->
+@foreach ($cutiModal as $cutiModal)
+<div id="defaultModal-cuti{{ $cutiModal->id }}" tabindex="-1" aria-hidden="true"
+  class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] md:h-full">
+  <div class="relative w-full h-full max-w-2xl md:h-auto">
+    <!-- Modal content -->
+    <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+      <!-- Modal header -->
+      <div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
+        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+          Cuti {{ $cutiModal->user->username }}
+        </h3>
+        <button type="button"
+          class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
+          data-modal-hide="defaultModal-cuti{{ $cutiModal->id }}">
+          <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+              d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+              clip-rule="evenodd"></path>
+          </svg>
+          <span class="sr-only">Close modal</span>
+        </button>
+      </div>
+      <!-- Modal body -->
+      <div class="px-6 py-6 lg:px-8">
+        <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+          {{ $cutiModal->keterangan_cuti }}
+        </p>
+        <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+          Tanggal Cuti : {{ date('l , d/m/Y', strtotime($cutiModal->mulai_cuti)) }} - {{ date('l , d/m/Y',
+          strtotime($cutiModal->akhir_cuti)) }}
+        </p>
+      </div>
+
+      <!-- Modal footer -->
+      <form action="{{ route('cuti.update', ['cuti' => $cutiModal->id]) }}" method="POST">
+        @csrf
+        @method('PUT')
+        <div class="grid gap-6 mb-6 md:grid-cols-2 px-8">
+          <div>
+            <label>Tanggal Diterima</label>
+            <input type="date" name="tanggal_diterima">
+            <input name="user_id" value="{{ $cutiModal->user_id }}" hidden>
+            <input name="keterangan_cuti" value="{{ $cutiModal->keterangan_cuti }}" hidden>
+          </div>
+        </div>
+
+        <div class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
+          <button type="submit"
+            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            Accept</button>
+          <button data-modal-hide="defaultModal-{{ $cutiModal->id }}" type="button"
+            class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Decline</button>
+        </div>
+      </form>
+
+
+    </div>
+  </div>
+</div>
+@endforeach
 
 @endsection

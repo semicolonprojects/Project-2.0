@@ -1,6 +1,6 @@
 import "./Leaflet.AccuratePosition";
 
-var map = L.map("map").setView([40.44695, -345.23437], 20);
+var map = L.map("map").setView([40.44695, -345.23437], 13);
 
 L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png", {
     attribution:

@@ -77,9 +77,14 @@ class CutiController extends Controller
      * @param  \App\Models\Cuti  $cuti
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateCutiRequest $request, Cuti $cuti)
+    public function update(Request $request, $id)
     {
-        //
+        $cuti = Cuti::find($id);
+        $cuti->user_id = $request->user_id;
+        $cuti->keterangan_cuti = $request->keterangan_cuti;
+        $cuti->tanggal_diterima = $request->tanggal_diterima;
+        $cuti->save();
+        return redirect('/data-absen')->with('update', 'Berhasil Update');
     }
 
     /**

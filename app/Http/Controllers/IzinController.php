@@ -80,9 +80,14 @@ class IzinController extends Controller
      * @param  \App\Models\Izin  $izin
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateIzinRequest $request, Izin $izin)
+    public function update(Request $request, $id)
     {
-        //
+        $izin = Izin::find($id);
+        $izin->user_id = $request->user_id;
+        $izin->keterangan = $request->keterangan;
+        $izin->status = $request->status;
+        $izin->save();
+        return redirect('/data-absen')->with('update', 'Berhasil Update');
     }
 
     /**
@@ -91,8 +96,10 @@ class IzinController extends Controller
      * @param  \App\Models\Izin  $izin
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Izin $izin)
+    public function destroy($id)
     {
-        //
+        $izin = Izin::find($id);
+        $izin->delete();
+        return redirect('/data-absen')->with('delete', 'Berhasil Hapus');
     }
 }

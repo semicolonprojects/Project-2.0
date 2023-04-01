@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\BarangPendukungController;
 use App\Http\Controllers\CutiController;
 use App\Http\Controllers\DataAbsenController;
 use App\Http\Controllers\FinanceController;
+use App\Http\Controllers\InOutController;
 use App\Http\Controllers\IzinController;
 use App\Http\Controllers\KeluarController;
 use App\Http\Controllers\LoginController;
@@ -41,6 +43,10 @@ Route::resource('cuti', CutiController::class);
 
 Route::resource('stock', ProdukJadiController::class);
 
+Route::resource('in_out', InOutController::class);
+
+Route::resource('barang_pendukung', BarangPendukungController::class);
+
 Route::get('/logout', [LoginController::class, 'logout']);
 
 Route::get('/admin', [MasukController::class, 'index']);
@@ -71,9 +77,7 @@ Route::get('/logistik/datasupplier', function () {
     return view('dashboard.logistik.logistik2');
 })->middleware('logistik', 'auth');
 
-Route::get('/logistik/innout', function () {
-    return view('dashboard.logistik.logistik3');
-})->middleware('logistik', 'auth');
+Route::get('/logistik/innout', [InOutController::class, 'index'])->middleware('logistik', 'auth');
 
 Route::get('/logistik/tanggalprod', function () {
     return view('dashboard.logistik.logistik4');

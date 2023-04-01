@@ -57,9 +57,16 @@ class ProdukJadiController extends Controller
      * @param  \App\Models\ProdukJadi  $produkJadi
      * @return \Illuminate\Http\Response
      */
-    public function show(ProdukJadi $produkJadi)
+    public function show($id)
     {
-        //
+        $barangJadi = ProdukJadi::findOrFail($id);
+        $stock = $barangJadi->stock;
+        $size = $barangJadi->size;
+
+        return response()->json([
+            'stock' => $stock,
+            'size' => $size,
+        ]);
     }
 
     /**

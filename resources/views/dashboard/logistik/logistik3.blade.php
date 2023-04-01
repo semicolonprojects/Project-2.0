@@ -24,11 +24,12 @@
                         </div>
                         <input type="text" id="search"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-yellow-300 focus:border-yellow-300 block w-full pl-10 p-2.5  "
-                            placeholder="Search" required>
+                            placeholder="Search">
                     </div>
             </div>
             <div>
-                <button onclick="myFunction()" type="button"
+                <button data-modal-target="authentication-modal-inout" data-modal-toggle="authentication-modal-inout"
+                    type="button"
                     class="text-white bg-[#22DB66] font-medium rounded-[22px] text-[13px] px-3 py-2.5 inline-flex items-center">
                     <div class="px-2">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -36,7 +37,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                         </svg>
                     </div>
-                    Add New Order
+                    Add New In Out
                 </button>
             </div>
         </div>
@@ -50,9 +51,6 @@
                                 onclick="toggle(this);">
                             <label for="checkbox-all" class="sr-only">checkbox</label>
                         </div>
-                    </th>
-                    <th scope="col" class="px-2 py-3">
-                        Order Id
                     </th>
                     <th scope="col" class="px-6 py-3">
                         Produk
@@ -77,8 +75,9 @@
                     </th>
                     </tr>
                 </thead>
+                @foreach ($stock as $stock)
                 <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
-                    data-accordion-target="#accordion-color-stock">
+                    data-accordion-target="#accordion-color-stock-{{ $stock->kode_barang }}">
                     <th>
                         <div class="flex items-center">
                             <input id="checkbox-all" type="checkbox"
@@ -86,29 +85,24 @@
                             <label for="checkbox-all" class="sr-only">checkbox</label>
                         </div>
                     </th>
-                    <th scope="row" class="py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        #SRMK14045
-                    </th>
                     <td class="mt-2 px-4 align-center">
-                        Madu Durian
+                        {{$stock->produkJadi->nama_barang}}
 
                     </td>
                     <td class="mt-2 px-4 align-center">
-                        500ML
-
+                        {{$stock->produkJadi->size}}
                     </td>
                     <td class="px-6 py-4">
-                        30
+                        {{$stock->total_barang_masuk}}
                     </td>
                     <td class="mt-2 px-8 align-center">
-                        1
-
+                        {{$stock->total_barang_keluar}}
                     </td>
                     <td class="px-6 py-4">
-                        10.2.2022/18:38
+                        {{ $stock->latest_date_in ? date('l d/m/Y', strtotime($stock->latest_date_in )) : NULL }}
                     </td>
                     <td class="px-6 py-4">
-                        10.2.2022/18:38
+                        {{ $stock->latest_date_in ? date('l d/m/Y', strtotime($stock->latest_date_in )) : NULL }}
                     </td>
                     <td class="px-4 py-4">
                         <button>
@@ -128,7 +122,6 @@
                             </svg>
                         </button>
                         <button>
-
                             <button>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -140,33 +133,46 @@
                             </button>
                     </td>
                 </tr>
+                @endforeach
+                @foreach($detail as $index => $inout)
                 <td class="inline-table">
-                    <div id="accordion-color-stock" class="hidden">
+                    <div id="accordion-color-stock-{{ $inout->kode_barang }}" class="hidden">
+                        @endforeach
                         <table
                             class="w-[1070px] table-fixed text-sm text-left border border-t-0 text-gray-500 dark:text-gray-400">
                             <thead>
                                 <tr>
-                                    <th>
-                                        <p class="ml-10">Date Out</p>
-                                    </th>
-                                    <th>Detail</th>
+                                    <th>Tanggal Masuk</th>
+                                    <th>Barang Masuk</th>
+                                    <th>Tanggal Keluar</th>
+                                    <th>Barang Keluar</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <td>
-                                    <p class="ml-10">10.02.2022/18:38</p>
-                                </td>
-                                <td>
-                                    5 pcs
-                                </td>
-                            </tbody>
-                            <tbody>
-                                <td>
-                                    <p class="ml-10">10.02.2022/18:38</p>
-                                </td>
-                                <td>
-                                    5 pcs
-                                </td>
+                                @foreach($detail as $index => $inout)
+                                <tr>
+                                    <td>
+                                        @foreach($inout->date_in as $date_in)
+                                        <p>{{ $date_in }}</p>
+                                        @endforeach
+                                    </td>
+                                    <td>
+                                        @foreach($inout->barang_masuk as $barang_masuk)
+                                        <p>{{ $barang_masuk }} pcs</p>
+                                        @endforeach
+                                    </td>
+                                    <td>
+                                        @foreach($inout->date_out as $date_out)
+                                        <p>{{ $date_out }}</p>
+                                        @endforeach
+                                    </td>
+                                    <td>
+                                        @foreach($inout->barang_keluar as $barang_keluar)
+                                        <p>{{ $barang_keluar }} pcs</p>
+                                        @endforeach
+                                    </td>
+                                </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -174,6 +180,96 @@
         </div>
     </div>
 </div>
+
+<!-- Modal Add In Out -->
+<div id="authentication-modal-inout" tabindex="-1" aria-hidden="true"
+    class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] md:h-full">
+    <div class="relative w-full h-full max-w-md md:h-auto">
+        <!-- Modal content -->
+        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+            <button type="button"
+                class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
+                data-modal-hide="authentication-modal-inout">
+                <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                        clip-rule="evenodd"></path>
+                </svg>
+                <span class="sr-only">Close modal</span>
+            </button>
+            <div class="px-6 py-6 lg:px-8">
+                <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Add Barang Keluar Masuk</h3>
+                <form class="space-y-6" action="{{ route('in_out.store') }}" method="POST">
+                    @csrf</form>
+                <form class="space-y-6" action="{{ route('in_out.store') }}" method="POST">
+                    @csrf
+                    <div>
+                        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Produk</label>
+                        <select id="produk-select" name="kode_barang"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <option selected>Pilih Produk</option>
+                            @foreach($barangJadi as $barangJadi)
+                            <option value="{{ $barangJadi->kode_barang }}">{{ $barangJadi->nama_barang }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div>
+                        <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Ready
+                            Stock</label>
+                        <div id="stock-barang"></div>
+                    </div>
+                    <div>
+                        <label for="email"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Masuk</label>
+                        <input type="number" name="barang_masuk"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
+                    </div>
+                    <div>
+                        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tanggal
+                            Masuk</label>
+                        <input type="date" name="date_in"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
+                    </div>
+                    <div>
+                        <label for="email"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Keluar</label>
+                        <input type="number" name="barang_keluar"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
+                    </div>
+                    <div>
+                        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tanggal
+                            Keluar</label>
+                        <input type="date" name="date_out"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
+                    </div><br>
+                    <button type="submit"
+                        class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Simpan</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        $('#produk-select').change(function() {
+            var kode_barang = $(this).val();
+            if (kode_barang) {
+                $.ajax({
+                    url: "{{ route('stock.show', ':id') }}".replace(':id', kode_barang),
+                    type: "GET",
+                    dataType: "json",
+                    success:function(data) {
+                        $('#stock-barang').html('Stock: ' + data.stock + ', Size : ' + data.size);
+                    }
+                });
+            } else {
+                $('#stock-barang').empty();
+            }
+        });
+    });
+</script>
 
 <script>
     function toggle(source) {

@@ -6,6 +6,8 @@ use App\Models\InOut;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreInOutRequest;
 use App\Http\Requests\UpdateInOutRequest;
+use App\Models\ProdukJadi;
+use Illuminate\Http\Request;
 
 class InOutController extends Controller
 {
@@ -16,7 +18,11 @@ class InOutController extends Controller
      */
     public function index()
     {
-        //
+        $barangJadi = ProdukJadi::all();
+        $inOut = new InOut();
+        $stock = $inOut->getOrderShow();
+        $detail = $inOut->accordionInOut();
+        return view('dashboard.logistik.logistik3', compact('barangJadi', 'stock', 'detail'));
     }
 
     /**
@@ -35,9 +41,27 @@ class InOutController extends Controller
      * @param  \App\Http\Requests\StoreInOutRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreInOutRequest $request)
+    public function store(Request $request)
     {
-        //
+
+        // Mengambil data produk dari database berdasarkan kode_barang
+        $produk = ProdukJadi::where('kode_barang', $request->input('kode_barang'))->firstOrFail();
+
+        // Menghitung stok akhir dari produk setelah barang masuk dan keluar
+        $stokAkhir = $produk->stock + $request->input('barang_masuk') - $request->input('barang_keluar');
+
+        // Memperbarui data stok di database
+        $produk->update(['stock' => $stokAkhir]);
+
+        $produk = InOut::create([
+            'kode_barang' => $request->input('kode_barang'),
+            'barang_masuk' => $request->input('barang_masuk'),
+            'barang_keluar' => $request->input('barang_keluar'),
+            'date_in' => $request->input('date_in'),
+            'date_out' => $request->input('date_out'),
+        ]);
+
+        return redirect('/logistik/innout')->with('stok', 'Stok Berhasil Ditambah');
     }
 
     /**
@@ -46,9 +70,11 @@ class InOutController extends Controller
      * @param  \App\Models\InOut  $inOut
      * @return \Illuminate\Http\Response
      */
-    public function show(InOut $inOut)
+    public function show($id)
     {
-        //
+        $produk = InOut::find($id);
+        dd($produk);
+        return view('/logistik/innout', compact('produk'));
     }
 
     /**

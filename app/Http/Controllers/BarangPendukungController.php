@@ -6,6 +6,7 @@ use App\Models\BarangPendukung;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreBarangPendukungRequest;
 use App\Http\Requests\UpdateBarangPendukungRequest;
+use Illuminate\Http\Request;
 
 class BarangPendukungController extends Controller
 {
@@ -35,19 +36,19 @@ class BarangPendukungController extends Controller
      * @param  \App\Http\Requests\StoreBarangPendukungRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreBarangPendukungRequest $request)
+    public function store(Request $request)
     {
         $barangPendukung = BarangPendukung::create([
             'kode_barang' => $request->input('kode_barang'),
             'nama_barang' => $request->input('nama_barang'),
-            'size' =>$request->input('size'),
-            'min_ammount' =>$request->input('min_ammount'),
-            'stock_akhir' =>$request->input('stock_akhir'),
-            'entry_price' =>$request->input('entry_price'),
-            'price' =>$request->input('price')
+            'size' => $request->input('size'),
+            'stock' => $request->input('stock'),
+            'min_ammount' => $request->input('min_ammount'),
+            'stock_akhir' => $request->input('stock_akhir'),
+            'entry_price' => $request->input('entry_price'),
+            'price' => $request->input('price')
         ]);
-
-        return redirect('/logistik')->with('pendukung', 'Pendukung berhasil dimasukkan');
+        return redirect('/logistik')->with('success', 'Pendukung berhasil dimasukkan');
     }
 
     /**

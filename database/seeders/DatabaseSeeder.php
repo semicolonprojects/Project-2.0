@@ -5,6 +5,9 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 use App\Models\BarangPendukung;
+use App\Models\Cuti;
+use App\Models\Izin;
+use App\Models\Keluar;
 use App\Models\Masuk;
 use App\Models\ProdukCurah;
 use App\Models\ProdukJadi;
@@ -47,6 +50,24 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Masuk::factory()->create([
+            'user_id' => 1,
+            'lat' => '-7.9593472',
+            'long' => '112.6301696'
+        ]);
+
+        Izin::factory()->create([
+            'user_id' => 1,
+            'keterangan' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus harum recusandae in.',
+        ]);
+
+        Cuti::factory()->create([
+            'user_id' => 1,
+            'keterangan_cuti' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus harum recusandae in.',
+            'mulai_cuti' => '2023-09-21',
+            'akhir_cuti' => '2023-10-21',
+        ]);
+
+        Keluar::factory()->create([
             'user_id' => 1,
             'lat' => '-7.9593472',
             'long' => '112.6301696'

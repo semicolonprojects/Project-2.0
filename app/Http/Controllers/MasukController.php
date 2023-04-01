@@ -58,9 +58,10 @@ class MasukController extends Controller
      * @param  \App\Models\Masuk  $masuk
      * @return \Illuminate\Http\Response
      */
-    public function show(Masuk $masuk)
+    public function show(Request $request, $id)
     {
-        //
+        $masuk = Masuk::find($id);
+        return view('masuk', compact('masuk'));
     }
 
     /**
@@ -81,9 +82,14 @@ class MasukController extends Controller
      * @param  \App\Models\Masuk  $masuk
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateMasukRequest $request, Masuk $masuk)
+    public function update(Request $request, $id)
     {
-        //
+        $masuk = Masuk::find($id);
+        $masuk->user_id = $request->user_id;
+        $masuk->long = $request->long;
+        $masuk->lat = $request->lat;
+        $masuk->save();
+        return redirect('/data-absen')->with('update', 'Berhasil Update');
     }
 
     /**
@@ -92,8 +98,10 @@ class MasukController extends Controller
      * @param  \App\Models\Masuk  $masuk
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Masuk $masuk)
+    public function destroy($id)
     {
-        //
+        $masuk = Masuk::find($id);
+        $masuk->delete();
+        return redirect('/data-absen')->with('delete', 'Berhasil Hapus');
     }
 }
