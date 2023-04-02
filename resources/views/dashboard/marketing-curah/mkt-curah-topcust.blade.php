@@ -191,12 +191,12 @@
   <div class="inline-block p-6 bg-white border border-gray-200 rounded-xl  hover:bg-gray-100 shadow-2xl shadow-background w-[1122px]">
     <p class="text-center text-[24px] text-black">Hengki's Order Chart </p>
     <div>
-      <div id="{!! $hengkiOrder->container() !!}"></div>
+      
     </div>
   </div>
 </div>
 
-<script src="{{$hengkiOrder->cdn() }}"></script>
 
-{{ $hengkiOrder -> script() }}
+
+
 @endsection
