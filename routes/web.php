@@ -131,4 +131,33 @@ Route::get('/marketing-k/innout', function () {
     return view('dashboard.marketing-konsinyasi.marketing-konsinyasi-innout');
 });
 
+Route::get('/curah', function () {
+    return view('dashboard.marketing-curah.mkt-curah-customer-info');
+});
+
+Route::get('/curah/dashboard', function () {
+    return view('dashboard.marketing-curah.mkt-curah-dashboard');
+});
+
+Route::get('/curah/innout', function () {
+    return view('dashboard.marketing-curah.mkt-curah-innout');
+});
+
+Route::get('/curah/detailtermin', function () {
+    return view('dashboard.marketing-curah.mkt-curah-detail-termin');
+});
+
+Route::get('/curah/paymentstats', function () {
+    return view('dashboard.marketing-curah.mkt-curah-payment-stats');
+});
+
+Route::get('/curah/topcust', function () {
+    return view('dashboard.marketing-curah.mkt-curah-topcust');
+});
+
+
+
+
+
+
 Route::get('/data-absen', [DataAbsenController::class, 'index']);
