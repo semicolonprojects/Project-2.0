@@ -61,7 +61,7 @@ class InOutController extends Controller
             'date_out' => $request->input('date_out'),
         ]);
 
-        return redirect('/logistik/innout')->with('stok', 'Stok Berhasil Ditambah');
+        return view('dashboard.logistik.logistik3')->with('stok', 'Stok Berhasil Ditambah');
     }
 
     /**
@@ -73,7 +73,6 @@ class InOutController extends Controller
     public function show($id)
     {
         $produk = InOut::find($id);
-        dd($produk);
         return view('/logistik/innout', compact('produk'));
     }
 

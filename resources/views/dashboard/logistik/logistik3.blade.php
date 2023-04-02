@@ -62,10 +62,10 @@
                         In
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Out
+                       Date In
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Date In
+                      Out
                     </th>
                     <th scope="col" class="px-6 py-3">
                         Date Out
@@ -182,11 +182,11 @@
 </div>
 
 <!-- Modal Add In Out -->
-<div id="authentication-modal-inout" tabindex="-1" aria-hidden="true"
-    class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] md:h-full">
+<div id="authentication-modal-inout" tabindex="1" aria-hidden="true"
+    class="fixed z-50 hidden w-full my-10 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] md:h-full">
     <div class="relative w-full h-full max-w-md md:h-auto">
         <!-- Modal content -->
-        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700 ">
             <button type="button"
                 class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
                 data-modal-hide="authentication-modal-inout">
@@ -210,7 +210,7 @@
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             <option selected>Pilih Produk</option>
                             @foreach($barangJadi as $barangJadi)
-                            <option value="{{ $barangJadi->kode_barang }}">{{ $barangJadi->nama_barang }}</option>
+                            <option value="{{ $barangJadi->id }}">{{ $barangJadi->nama_barang }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -219,29 +219,33 @@
                             Stock</label>
                         <div id="stock-barang"></div>
                     </div>
-                    <div>
+                    <div class="grid grid-flow-col gap-4">
+                        <div>
                         <label for="email"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Masuk</label>
                         <input type="number" name="barang_masuk"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
-                    </div>
-                    <div>
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[90%] p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
+                        </div>
+                        <div>
                         <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tanggal
-                            Masuk</label>
+                                    Masuk</label>
                         <input type="date" name="date_in"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
+                            </div>
                     </div>
-                    <div>
-                        <label for="email"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Keluar</label>
-                        <input type="number" name="barang_keluar"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
-                    </div>
-                    <div>
-                        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tanggal
-                            Keluar</label>
-                        <input type="date" name="date_out"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
+                    <div class="grid grid-flow-col gap-4">
+                        <div>
+                            <label for="email"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Keluar</label>
+                            <input type="number" name="barang_keluar"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[90%] p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
+                        </div>
+                        <div>
+                            <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tanggal
+                                Keluar</label>
+                            <input type="date" name="date_out"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
+                        </div>
                     </div><br>
                     <button type="submit"
                         class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Simpan</button>
@@ -254,10 +258,10 @@
 <script>
     $(document).ready(function() {
         $('#produk-select').change(function() {
-            var kode_barang = $(this).val();
-            if (kode_barang) {
+            var id = $(this).val();
+            if (id) {
                 $.ajax({
-                    url: "{{ route('stock.show', ':id') }}".replace(':id', kode_barang),
+                    url: "{{ route('stock.show', ':id') }}".replace(':id', id),
                     type: "GET",
                     dataType: "json",
                     success:function(data) {
