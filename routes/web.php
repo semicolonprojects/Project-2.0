@@ -43,9 +43,19 @@ Route::resource('cuti', CutiController::class);
 
 Route::resource('stock', ProdukJadiController::class);
 
+Route::resource('curah', ProdukCurahController::class);
+
 Route::resource('in_out', InOutController::class);
 
+Route::resource('in_out_curah', InOutCurahController::class);
+
+Route::resource('in_out_pendukung', InOutPendukungController::class);
+
 Route::resource('barang_pendukung', BarangPendukungController::class);
+
+Route::resource('data_supplier', DataSupplierController::class);
+
+Route::resource('data_supplier_curah', SupplierCurahController::class);
 
 Route::get('/logout', [LoginController::class, 'logout']);
 
