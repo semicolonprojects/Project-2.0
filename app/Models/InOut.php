@@ -12,6 +12,7 @@ class InOut extends Model
 
     protected $fillable = [
         'kode_barang',
+        'user_id',
         'barang_masuk',
         'barang_keluar',
         'date_in',
@@ -21,6 +22,11 @@ class InOut extends Model
     public function produkJadi()
     {
         return $this->belongsTo(ProdukJadi::class, 'kode_barang');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     public function getOrderShow()

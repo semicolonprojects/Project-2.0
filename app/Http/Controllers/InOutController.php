@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreInOutRequest;
 use App\Http\Requests\UpdateInOutRequest;
 use App\Models\ProdukJadi;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class InOutController extends Controller
@@ -19,10 +20,11 @@ class InOutController extends Controller
     public function index()
     {
         $barangJadi = ProdukJadi::all();
+        $user = User::all();
         $inOut = new InOut();
         $stock = $inOut->getOrderShow();
         $detail = $inOut->accordionInOut();
-        return view('dashboard.logistik.logistik3', compact('barangJadi', 'stock', 'detail'));
+        return view('dashboard.logistik.logistik3', compact('barangJadi', 'stock', 'detail', 'user'));
     }
 
     /**
@@ -56,12 +58,13 @@ class InOutController extends Controller
         $produk = InOut::create([
             'kode_barang' => $request->input('kode_barang'),
             'barang_masuk' => $request->input('barang_masuk'),
+            'user_id' => $request->input('user_id'),
             'barang_keluar' => $request->input('barang_keluar'),
             'date_in' => $request->input('date_in'),
             'date_out' => $request->input('date_out'),
         ]);
 
-        return view('dashboard.logistik.logistik3')->with('stok', 'Stok Berhasil Ditambah');
+        return redirect('/logistik/innout')->with('stok', 'Stok Berhasil Ditambah');
     }
 
     /**
