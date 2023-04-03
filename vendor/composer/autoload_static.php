@@ -528,7 +528,9 @@ class ComposerStaticInitd7a2a3b4d763ae1fb96739d3bf1286f2
         'App\\Factories\\ConfigurationResolverFactory' => __DIR__ . '/..' . '/laravel/pint/app/Factories/ConfigurationResolverFactory.php',
         'App\\Fixers\\LaravelPhpdocAlignmentFixer' => __DIR__ . '/..' . '/laravel/pint/app/Fixers/LaravelPhpdocAlignmentFixer.php',
         'App\\Http\\Controllers\\BarangPendukungController' => __DIR__ . '/../..' . '/app/Http/Controllers/BarangPendukungController.php',
+        'App\\Http\\Controllers\\ChannelController' => __DIR__ . '/../..' . '/app/Http/Controllers/ChannelController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+        'App\\Http\\Controllers\\CustomerController' => __DIR__ . '/../..' . '/app/Http/Controllers/CustomerController.php',
         'App\\Http\\Controllers\\CutiController' => __DIR__ . '/../..' . '/app/Http/Controllers/CutiController.php',
         'App\\Http\\Controllers\\DataAbsenController' => __DIR__ . '/../..' . '/app/Http/Controllers/DataAbsenController.php',
         'App\\Http\\Controllers\\DataSupplierController' => __DIR__ . '/../..' . '/app/Http/Controllers/DataSupplierController.php',
@@ -587,6 +589,8 @@ class ComposerStaticInitd7a2a3b4d763ae1fb96739d3bf1286f2
         'App\\Http\\Requests\\UpdateProdukJadiRequest' => __DIR__ . '/../..' . '/app/Http/Requests/UpdateProdukJadiRequest.php',
         'App\\Kernel' => __DIR__ . '/..' . '/laravel/pint/app/Kernel.php',
         'App\\Models\\BarangPendukung' => __DIR__ . '/../..' . '/app/Models/BarangPendukung.php',
+        'App\\Models\\Channel' => __DIR__ . '/../..' . '/app/Models/Channel.php',
+        'App\\Models\\Customer' => __DIR__ . '/../..' . '/app/Models/Customer.php',
         'App\\Models\\Cuti' => __DIR__ . '/../..' . '/app/Models/Cuti.php',
         'App\\Models\\DataSupplier' => __DIR__ . '/../..' . '/app/Models/DataSupplier.php',
         'App\\Models\\InOut' => __DIR__ . '/../..' . '/app/Models/InOut.php',
@@ -597,7 +601,11 @@ class ComposerStaticInitd7a2a3b4d763ae1fb96739d3bf1286f2
         'App\\Models\\Masuk' => __DIR__ . '/../..' . '/app/Models/Masuk.php',
         'App\\Models\\ProdukCurah' => __DIR__ . '/../..' . '/app/Models/ProdukCurah.php',
         'App\\Models\\ProdukJadi' => __DIR__ . '/../..' . '/app/Models/ProdukJadi.php',
+<<<<<<< HEAD
         'App\\Models\\SupplierCurah' => __DIR__ . '/../..' . '/app/Models/SupplierCurah.php',
+=======
+        'App\\Models\\TargetKaryawan' => __DIR__ . '/../..' . '/app/Models/TargetKaryawan.php',
+>>>>>>> 272f5334affc60c17034058bcb4876455d7c9f4b
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Output\\Concerns\\InteractsWithSymbols' => __DIR__ . '/..' . '/laravel/pint/app/Output/Concerns/InteractsWithSymbols.php',
         'App\\Output\\ProgressOutput' => __DIR__ . '/..' . '/laravel/pint/app/Output/ProgressOutput.php',
