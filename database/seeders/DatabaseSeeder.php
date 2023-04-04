@@ -6,6 +6,7 @@ namespace Database\Seeders;
 
 use App\Models\BarangPendukung;
 use App\Models\Cuti;
+use App\Models\DataSupplier;
 use App\Models\Izin;
 use App\Models\Keluar;
 use App\Models\Masuk;
@@ -101,6 +102,14 @@ class DatabaseSeeder extends Seeder
             'stock' => 800,
             'entry_price' => 6000,
             'price' => 10000,
+        ]);
+
+        DataSupplier::factory()->create([
+            'supplier_name' => 'Andi Peci',
+            'supplier_type' => 'Madu',
+            'phone' => '+628112345678',
+            'email' => 'andipeci@email.com',
+            'address' => 'Jl Sindanglaya II, Dki Jakarta, 10311',
         ]);
     }
 }

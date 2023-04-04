@@ -8,7 +8,7 @@
 
 <div class="ml-24 mb-10 inline-block p-6 bg-white border border-gray-200 rounded-xl shadow-2xl w-[1070px] h-[700px]">
     <div class="border-b border-gray-200 pb-4 mb-4">
-        <p class="text-4xl text-black font-[700]">Produk Jadi </p>
+        <p class="text-4xl text-black font-[700]">Produk Pendukung </p>
     </div>
     <div class="grid grid-flow-col gap-[640px] mt-8 mb-3 ">
         <div class="flex md:order-2">
@@ -93,11 +93,10 @@
                     </div>
                 </th>
                 <td class="mt-2 px-4 align-center">
-                    {{$stock->produkJadi->nama_barang}}
-
+                    {{ $stock->kode_barang }}
                 </td>
                 <td class="mt-2 px-4 align-center">
-                    {{$stock->produkJadi->size}}
+
                 </td>
                 <td class="px-6 py-4">
                     {{$stock->total_barang_masuk}}
@@ -120,15 +119,13 @@
                         </svg>
                     </button>
                     <button>
-                        <button>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <path d="M20 5H9l-7 7 7 7h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2Z"></path>
-                                <line x1="18" y1="9" x2="12" y2="15"></line>
-                                <line x1="12" y1="9" x2="18" y2="15"></line>
-                            </svg>
-                        </button>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 5H9l-7 7 7 7h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2Z"></path>
+                            <line x1="18" y1="9" x2="12" y2="15"></line>
+                            <line x1="12" y1="9" x2="18" y2="15"></line>
+                        </svg>
+                    </button>
                 </td>
                 <td class="px-9 py-4">
                     <button data-accordion-target=" #accordion-color-stock-{{ $stock->kode_barang }}">
@@ -231,17 +228,16 @@
             </button>
             <div class="px-6 py-6 lg:px-8">
                 <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Add Barang Keluar Masuk</h3>
-                <form class="space-y-6" action="{{ route('in_out.store') }}" method="POST">
-                    @csrf</form>
-                <form class="space-y-6" action="{{ route('in_out.store') }}" method="POST">
+                <form class="space-y-6" action="/logistik/innout-pendukung" method="POST">
                     @csrf
                     <div>
                         <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Produk</label>
                         <select id="produk-select" name="kode_barang"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             <option selected>Pilih Produk</option>
-                            @foreach($barangJadi as $barangJadi)
-                            <option value="{{ $barangJadi->id }}">{{ $barangJadi->nama_barang }}</option>
+                            @foreach($barangPendukung as $barangPendukung)
+                            <option value="{{ $barangPendukung->id }}">{{ $barangPendukung->nama_barang }}
+                            </option>
                             @endforeach
                         </select>
                     </div>
@@ -251,7 +247,7 @@
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             <option selected>Approved By</option>
                             @foreach($user as $user)
-                            <option value="{{ $user->id }}">{{ $user->username }}</option>
+                            <option value="{{ $user->id}}">{{ $user->username}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -304,7 +300,7 @@
             var id = $(this).val();
             if (id) {
                 $.ajax({
-                    url: "{{ route('stock.show', ':id') }}".replace(':id', id),
+                    url: "{{ route('in_out_pendukung.show', ':id') }}".replace(':id', id),
                     type: "GET",
                     dataType: "json",
                     success:function(data) {
