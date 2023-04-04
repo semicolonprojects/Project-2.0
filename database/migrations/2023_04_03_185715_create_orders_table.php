@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('tipe_pesanan');
             $table->decimal('total_pembelian', 15,2);
             $table->integer('total_order');
-            $table->float('diskon');
+            $table->float('diskon')->nullable();
             $table->decimal('ongkir', 15,2);
             $table->string('status_barang');
             $table->string('note');

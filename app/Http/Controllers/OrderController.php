@@ -4,7 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use App\Http\Controllers\Controller;
+use App\Models\Channel;
 use Illuminate\Http\Request;
+use App\Models\Customer;
+use App\Models\ProdukJadi;
+
 
 class OrderController extends Controller
 {
@@ -36,7 +40,23 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'order_id'=> 'required|max:255|unique',
+            'customer_id'=>'required',
+            'user_id'=>'required',
+            'kode_barang'=>'required',
+            'status_pembayaran'=>'required|max:255',
+            'tipe_pesanan'=>'required|max:255',
+            'total_pembelian'=>'required',
+            'total_order'=>'required',
+            'diskon'=>'nullable',
+            'ongkir'=>'required',
+            'status_barang'=>'required',
+            'note'=>'nullable|max:255'
+
+        ]);
+
+        Order::create($validatedData);
     }
 
     /**
@@ -70,7 +90,16 @@ class OrderController extends Controller
      */
     public function update(Request $request, Order $order)
     {
-        //
+        $rules = [
+            'status_pembayaran'=> 'required|max:255',
+            'total_pembelian'=> 'required',
+            'total_order'=>'required',
+            'status_barang'=>'required',
+        ];
+
+        $validatedData = $request->validate($rules); 
+        Order::where('id', $order->id)
+        ->update($validatedData);
     }
 
     /**
