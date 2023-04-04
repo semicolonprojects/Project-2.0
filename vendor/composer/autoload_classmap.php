@@ -52,7 +52,8 @@ return array(
     'App\\Http\\Controllers\\ProdukCurahController' => $baseDir . '/app/Http/Controllers/ProdukCurahController.php',
     'App\\Http\\Controllers\\ProdukJadiController' => $baseDir . '/app/Http/Controllers/ProdukJadiController.php',
     'App\\Http\\Controllers\\SuperAdminController' => $baseDir . '/app/Http/Controllers/SuperAdminController.php',
-    'App\\Http\\Controllers\\TanggalProduksiBarangController' => $baseDir . '/app/Http/Controllers/TanggalProduksiBarangController.php',
+    'App\\Http\\Controllers\\TanggalProduksiBarangController' => $baseDir . '/app/Http/Controllers/TanggalProduksiBarangController.php' ,
+    'App\\Http\\Controllers\\TargetKaryawanController' => $baseDir . '/app/Http/Controllers/TargetKaryawanController.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'App\\Http\\Middleware\\Authenticate' => $baseDir . '/app/Http/Middleware/Authenticate.php',
     'App\\Http\\Middleware\\EncryptCookies' => $baseDir . '/app/Http/Middleware/EncryptCookies.php',
@@ -101,6 +102,7 @@ return array(
     'App\\Models\\Izin' => $baseDir . '/app/Models/Izin.php',
     'App\\Models\\Keluar' => $baseDir . '/app/Models/Keluar.php',
     'App\\Models\\Masuk' => $baseDir . '/app/Models/Masuk.php',
+    'App\\Models\\Order' => $baseDir . '/app/Models/Order.php',
     'App\\Models\\ProdukCurah' => $baseDir . '/app/Models/ProdukCurah.php',
     'App\\Models\\ProdukJadi' => $baseDir . '/app/Models/ProdukJadi.php',
 <<<<<<< HEAD
