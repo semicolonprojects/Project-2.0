@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 use App\Models\BarangPendukung;
+use App\Models\Channel;
 use App\Models\Cuti;
 use App\Models\DataSupplier;
 use App\Models\Izin;
@@ -110,6 +111,11 @@ class DatabaseSeeder extends Seeder
             'phone' => '+628112345678',
             'email' => 'andipeci@email.com',
             'address' => 'Jl Sindanglaya II, Dki Jakarta, 10311',
+        ]);
+
+        Channel::factory()->create([
+            'nama_channel' => 'Tokopedia',
+            'target_bulanan' => 5000000,
         ]);
     }
 }

@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\BarangPendukungController;
+use App\Http\Controllers\ChannelController;
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\CutiController;
 use App\Http\Controllers\DataAbsenController;
 use App\Http\Controllers\FinanceController;
@@ -57,6 +59,8 @@ Route::resource('data_supplier', DataSupplierController::class);
 
 Route::resource('data_supplier_curah', SupplierCurahController::class);
 
+Route::resource('channel', ChannelController::class);
+
 Route::get('/logout', [LoginController::class, 'logout']);
 
 Route::get('/admin', [MasukController::class, 'index']);
@@ -67,11 +71,13 @@ Route::get('/marketing', [MktdashController::class, 'index'])->middleware('marke
 
 Route::get('/marketing/topcust', [Mktdash2Controller::class, 'index'])->middleware('marketing', 'auth');
 
+Route::get('/marketing/channel', [ChannelController::class, 'index'])->middleware('marketing', 'auth');
+
 Route::get('/marketing/paymentstats', function () {
     return view('dashboard.marketing.mktdash3');
 })->middleware('marketing', 'auth');
 
-Route::get('/marketing/customerinfo', [Mktdash4Controller::class, 'index'])->middleware('marketing', 'auth');
+Route::get('/marketing/customerinfo', [CustomerController::class, 'index'])->middleware('marketing', 'auth');
 
 Route::get('/marketing/orderstats', function () {
     return view('dashboard.marketing.mktdash5');
@@ -164,10 +170,5 @@ Route::get('/curah/paymentstats', function () {
 Route::get('/curah/topcust', function () {
     return view('dashboard.marketing-curah.mkt-curah-topcust');
 });
-
-
-
-
-
 
 Route::get('/data-absen', [DataAbsenController::class, 'index']);

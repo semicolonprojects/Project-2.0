@@ -15,7 +15,7 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        //  
+        return view('dashboard.marketing.mktdash4');
     }
 
     /**
@@ -37,13 +37,13 @@ class CustomerController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'nama_lengkap'=> 'required|max:255|unique:customers',
-            'no_telepon'=> 'required|max:255|unique:customers',
-            'email'=> 'required|max:255|unique:customers',
-            'TTL'=> 'required'
+            'nama_lengkap' => 'required|max:255|unique:customers',
+            'no_telepon' => 'required|max:255|unique:customers',
+            'email' => 'required|max:255|unique:customers',
+            'TTL' => 'required'
         ]);
-        
-        $validatedData['user_id']=auth()->user()->id;
+
+        $validatedData['user_id'] = auth()->user()->id;
         Customer::create($validatedData);
     }
 

@@ -12,6 +12,12 @@ class TargetKaryawan extends Model
     protected $fillable = [
         'target',
         'total_tercapai',
-        'deadline_target'
+        'deadline_target',
+        'user_id'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

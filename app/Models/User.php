@@ -73,4 +73,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(InOutPendukung::class);
     }
+
+    public function targetKaryawan()
+    {
+        return $this->hasMany(TargetKaryawan::class);
+    }
 }
