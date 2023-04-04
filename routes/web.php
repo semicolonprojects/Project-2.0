@@ -61,6 +61,9 @@ Route::resource('data_supplier_curah', SupplierCurahController::class);
 
 Route::resource('channel', ChannelController::class);
 
+Route::resource('customer', CustomerController::class);
+
+
 Route::get('/logout', [LoginController::class, 'logout']);
 
 Route::get('/admin', [MasukController::class, 'index']);
@@ -85,6 +88,14 @@ Route::get('/marketing/orderstats', function () {
 
 Route::get('/marketing/detailtermin', function () {
     return view('dashboard.marketing.mktdash6');
+})->middleware('marketing', 'auth');
+
+Route::get('/marketing/customerinfo-create', function () {
+    return view('dashboard.marketing.mkt-ci-create');
+})->middleware('marketing', 'auth');
+
+Route::patch('/marketing/customerinfo-update', function () {
+    return view('dashboard.marketing.mkt-ci-update');
 })->middleware('marketing', 'auth');
 
 Route::get('/logistik', [LogistikController::class, 'index'])->middleware('logistik', 'auth');

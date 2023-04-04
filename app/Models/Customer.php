@@ -14,7 +14,8 @@ class Customer extends Model
         'alamat',
         'no_telepon',
         'email',
-        'TTL',
+        'tempat',
+        'tanggal_lahir',
         'customer_id'
     ];
 }
