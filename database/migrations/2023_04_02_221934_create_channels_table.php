@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('nama_channel');
             $table->decimal('target_bulanan', 15, 2);
-            $table->decimal('total_tercapai', 15, 2);
+            $table->decimal('total_tercapai', 15, 2)->nullable();
             $table->timestamps();
         });
     }

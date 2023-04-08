@@ -1,11 +1,11 @@
 @extends('dashboard.layout.main')
 @section('mainContent')
 
-<div class=" mt-10 ml-14">
+<div class=" mt-10 ml-5">
     <div class="mb-3">
         <p class="text-[24px] text-black font-[700]">Customer Info</p>
     </div>
-    <div class="w-[1300px] bg-[#FFFFFF] shadow-[0px_8px_8px_rgba(0,0,0,0.5)] rounded-[22px]">
+    <div class="w-[1290px] bg-[#FFFFFF] shadow-[0px_8px_8px_rgba(0,0,0,0.5)] rounded-[22px]">
         <div class="grid grid-flow-col gap-[640px] mb-3 px-5">
             <div class="flex md:order-2 mt-6 ml-64">
                 <form class="flex items-center">
@@ -24,26 +24,28 @@
                         </div>
                         <input type="text" id="simple-search"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-yellow-300 focus:border-yellow-300 block w-full pl-10 p-2.5  "
-                            placeholder="Search" required>
+                            placeholder="Search" >
                     </div>
+                </form>
             </div>
             <div class="mt-6">
+                <a href="/marketing/customerinfo-create">
                 <button type="button"
-                    class="text-white bg-[#22DB66] font-medium rounded-[22px] text-[13px] px-3 py-2.5 inline-flex items-center">
+                    class="text-white bg-[#22DB66] font-medium rounded-[22px] text-[13px] w-full m-3 py-3 inline-flex items-center">
                     <div class="px-2">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="w-6 h-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                         </svg>
                     </div>
-                    Add New Order
+                    Add New Customer
                 </button>
+            </a>
             </div>
-
         </div>
 
         <div class="relative overflow-x-auto">
-            <table class="w-[1300px] mt-10 text-[14px] text-left text-gray-500">
+            <table class="w-[1250px] mt-10 text-[14px] text-left text-gray-500">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                     <tr>
                         <th scope="col" class="px-6 py-3">
@@ -57,9 +59,6 @@
                         </th>
                         <th scope="col" class="px-6 py-3">
                             Wallet Balance
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            Role
                         </th>
                         <th scope="col" class="px-6 py-3">
                             Platform
@@ -76,39 +75,34 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach ($customer as $customers)
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                         <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            Bangkit
+                            {{ $customers->nama_lengkap }}
                         </th>
                         <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            #RS002
+                            {{ $customers->customer_id }}
                         </th>
                         <td class="px-6 py-4">
-                            081252123333 <br>
-                            bangkit@email.com
+                            {{ $customers->no_telepon }} <br>
+                            {{ $customers->email }}
                         </td>
                         <td class="px-6 py-4">
                             IDR 500,000
                         </td>
-                        <td class="px-6 py-4">
-                            <button class="bg-[#B21E1E] text-white  font-bold relative py-1 px-4 rounded-[26px]"
-                                disabled>
-
-                                HOT LEAD
-                            </button>
-                        </td>
-                        <td class="px-6 py-4">
+                        <td class="px-1 py-4">
                             <button class="bg-[#22DB66] text-white font-bold py-2 px-4 rounded-[22px]" disabled>
                                 TOKOPEDIA
                             </button>
                         </td>
                         <td class="px-6 py-4">
-                            Jl Sindanglaya II, Dki Jakarta, 10311
+                            {{ $customers->alamat }}
                         </td>
                         <td class="px-6 py-4">
-                            06 Oct, 2021
+                            {{ $customers->tempat }}, {{ $customers->tanggal_lahir }}
                         </td>
                         <td>
+                            <a href=""> 
                             <button>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -117,6 +111,8 @@
                                     <circle cx="12" cy="12" r="3"></circle>
                                 </svg>
                             </button>
+                            </a>
+                            <a href="{{ route('customer.edit', ['customer' => $customers->id]) }}"> 
                             <button>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -125,9 +121,13 @@
                                     <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
                                 </svg>
                             </button>
+                            </a>
                             <button>
-
-                                <button>
+                                <form class="inline " action="{{ route('customer.destroy', ['customer' => $customers->id]) }}"
+                                    method="POST">
+                                    <button onclick="return confirm('Are you sure?')">
+                                        @csrf
+                                        @method('delete')
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                         stroke-linejoin="round">
@@ -136,8 +136,10 @@
                                         <line x1="12" y1="9" x2="18" y2="15"></line>
                                     </svg>
                                 </button>
+                            </form>
                         </td>
                     </tr>
+                    @endforeach
                 </tbody>
             </table>
             <div class="flex justify-center py-5 mr-10">
@@ -182,8 +184,6 @@
         </ul>
     </div>
 
-    <script src="{{ $saleThisMonth->cdn() }}"></script>
-
-    {{ $saleThisMonth->script() }}
+    
 
     @endsection

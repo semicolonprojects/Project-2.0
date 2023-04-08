@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Customer;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class CustomerController extends Controller
 {
@@ -15,7 +16,8 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        //  
+        $customer = Customer::all();
+        return view('dashboard.marketing.mktdash4',compact('customer'));
     }
 
     /**
@@ -37,14 +39,18 @@ class CustomerController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'nama_lengkap'=> 'required|max:255|unique:customers',
-            'no_telepon'=> 'required|max:255|unique:customers',
-            'email'=> 'required|max:255|unique:customers',
-            'TTL'=> 'required'
+            'customer_id'=> 'required|max:255|unique:customers',
+            'nama_lengkap' => 'required|max:255|unique:customers',
+            'alamat'=>'required|max:255',
+            'no_telepon' => 'required|max:255|unique:customers',
+            'email' => 'required|max:255|unique:customers',
+            'tempat'=> 'required|max:255',
+            'tanggal_lahir' => 'required'
         ]);
-        
-        $validatedData['user_id']=auth()->user()->id;
+
+        $validatedData['user_id'] = auth()->user()->id;
         Customer::create($validatedData);
+        return redirect('/marketing/customerinfo')->with('success', 'Customer added successfully.');
     }
 
     /**
@@ -66,7 +72,10 @@ class CustomerController extends Controller
      */
     public function edit(Customer $customer)
     {
-        //
+        return view('dashboard.marketing.mkt-ci-update',[
+            'customer'=> $customer,
+            'id'=>$customer->id
+        ]);
     }
 
     /**
@@ -76,9 +85,20 @@ class CustomerController extends Controller
      * @param  \App\Models\Customer  $customer
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Customer $customer)
+    public function update(Request $request, $id)
     {
-        //
+        $customer = Customer::find($id);
+        $customer->customer_id = $request->customer_id;
+        $customer->nama_lengkap = $request->nama_lengkap;
+        $customer->alamat = $request->alamat;
+        $customer->no_telepon = $request->no_telepon;
+        $customer->email = $request->email;
+        $customer->tempat = $request->tempat;
+        $customer->tanggal_lahir = $request->tanggal_lahir;
+
+        $customer->save();
+        return redirect('/marketing/customerinfo')->with('update', 'Customer updated successfully.');
+
     }
 
     /**
@@ -87,8 +107,11 @@ class CustomerController extends Controller
      * @param  \App\Models\Customer  $customer
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Customer $customer)
+    public function destroy($id)
     {
-        //
+        $customer = Customer::find($id);
+        $customer->delete();
+        return redirect('/marketing/customerinfo')->with('delete', 'Customer deleted successfully.');
+
     }
 }

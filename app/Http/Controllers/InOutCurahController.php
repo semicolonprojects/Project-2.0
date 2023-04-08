@@ -6,6 +6,9 @@ use App\Models\InOutCurah;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreInOutCurahRequest;
 use App\Http\Requests\UpdateInOutCurahRequest;
+use App\Models\ProdukCurah;
+use App\Models\User;
+use Illuminate\Http\Request;
 
 class InOutCurahController extends Controller
 {
@@ -16,7 +19,12 @@ class InOutCurahController extends Controller
      */
     public function index()
     {
-        //
+        $barangCurah = ProdukCurah::all();
+        $user = User::all();
+        $inOut = new InOutCurah();
+        $stock = $inOut->getOrderShow();
+        $detail = $inOut->accordionInOut();
+        return view('dashboard.logistik.logistik7', compact('barangCurah', 'stock', 'detail', 'user'));
     }
 
     /**
@@ -35,9 +43,27 @@ class InOutCurahController extends Controller
      * @param  \App\Http\Requests\StoreInOutCurahRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreInOutCurahRequest $request)
+    public function store(Request $request)
     {
-        //
+        // Mengambil data produk dari database berdasarkan kode_barang
+        $produk = ProdukCurah::where('kode_barang', $request->input('kode_barang'))->firstOrFail();
+
+        // Menghitung stok akhir dari produk setelah barang masuk dan keluar
+        $stokAkhir = $produk->stock + $request->input('barang_masuk') - $request->input('barang_keluar');
+
+        // Memperbarui data stok di database
+        $produk->update(['stock' => $stokAkhir]);
+
+        $produk = InOutCurah::create([
+            'kode_barang' => $request->input('kode_barang'),
+            'barang_masuk' => $request->input('barang_masuk'),
+            'barang_keluar' => $request->input('barang_keluar'),
+            'date_in' => $request->input('date_in'),
+            'user_id' => $request->input('user_id'),
+            'date_out' => $request->input('date_out'),
+        ]);
+
+        return redirect('/logistik/innout-curah')->with('stok', 'Stok Berhasil Ditambah');
     }
 
     /**

@@ -15,7 +15,9 @@ class ChannelController extends Controller
      */
     public function index()
     {
-        //
+        $channel = Channel::all();
+        $channel2 = Channel::all();
+        return view('dashboard.marketing.mkt-channel-info', compact('channel', 'channel2'));
     }
 
     /**
@@ -36,7 +38,19 @@ class ChannelController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nama_channel' => 'required',
+            'target_bulanan' => 'required|numeric',
+            'total_tercapai' => 'numeric|nullable',
+        ]);
+
+        $channel = new Channel;
+        $channel->nama_channel = $request->nama_channel;
+        $channel->target_bulanan = $request->target_bulanan;
+        $channel->total_tercapai = $request->total_tercapai;
+        $channel->save();
+
+        return redirect()->route('channel.index')->with('success', 'Channel has been created.');
     }
 
     /**
@@ -45,10 +59,15 @@ class ChannelController extends Controller
      * @param  \App\Models\Channel  $channel
      * @return \Illuminate\Http\Response
      */
-    public function show(Channel $channel)
+    public function show($id)
     {
-        //
+        // logika untuk menampilkan data channel yang dipilih
+        $channel = Channel::findOrFail($id);
+
+        // tampilkan view yang diinginkan dengan data channel
+        return view('dashboard.marketing.mkt-channel-detail', compact('channel'));
     }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -68,9 +87,14 @@ class ChannelController extends Controller
      * @param  \App\Models\Channel  $channel
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Channel $channel)
+    public function update(Request $request, $id)
     {
-        //
+        $channel = Channel::find($id);
+        $channel->nama_channel = $request->nama_channel;
+        $channel->target_bulanan = $request->target_bulanan;
+        $channel->total_tercapai = $request->total_tercapai;
+        $channel->save();
+        return redirect('/marketing/channel')->with('update', 'Berhasil Update');
     }
 
     /**
@@ -79,8 +103,10 @@ class ChannelController extends Controller
      * @param  \App\Models\Channel  $channel
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Channel $channel)
+    public function destroy($id)
     {
-        //
+        $channel = Channel::find($id);
+        $channel->delete();
+        return redirect('/marketing/channel')->with('delete', 'Berhasil Hapus');
     }
 }

@@ -57,9 +57,8 @@ class BarangPendukungController extends Controller
      * @param  \App\Models\BarangPendukung  $barangPendukung
      * @return \Illuminate\Http\Response
      */
-    public function show(BarangPendukung $barangPendukung)
+    public function show()
     {
-        //
     }
 
     /**
@@ -80,9 +79,19 @@ class BarangPendukungController extends Controller
      * @param  \App\Models\BarangPendukung  $barangPendukung
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateBarangPendukungRequest $request, BarangPendukung $barangPendukung)
+    public function update(Request $request, $id)
     {
-        //
+        $produk = BarangPendukung::find($id);
+        $produk->kode_barang = $request->kode_barang;
+        $produk->nama_barang = $request->nama_barang;
+        $produk->size = $request->size;
+        $produk->stock = $request->stock;
+        $produk->stock_akhir = $request->stock_akhir;
+        $produk->price = $request->price;
+        $produk->entry_price = $request->entry_price;
+        $produk->save();
+
+        return redirect('logistik')->with('update', 'Berhasil Update');
     }
 
     /**
@@ -91,8 +100,10 @@ class BarangPendukungController extends Controller
      * @param  \App\Models\BarangPendukung  $barangPendukung
      * @return \Illuminate\Http\Response
      */
-    public function destroy(BarangPendukung $barangPendukung)
+    public function destroy($id)
     {
-        //
+        $produk = BarangPendukung::find($id);
+        $produk->delete();
+        return redirect('logistik')->with('delete', 'Berhasil Hapus');
     }
 }

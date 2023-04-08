@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use App\Charts\BestSeller;
 use App\Http\Controllers\Controller;
 use App\Models\BarangPendukung;
+use App\Models\InOut;
+use App\Models\ProdukCurah;
 use App\Models\ProdukJadi;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class LogistikController extends Controller
@@ -17,6 +20,12 @@ class LogistikController extends Controller
         $stok2 = ProdukJadi::all();
         $stok3 = ProdukJadi::all();
         $barangPendukung = BarangPendukung::all();
-        return view('dashboard.logistik.logistik', ['bestSeller' => $bestSeller->build()], compact('stok', 'stok2', 'stok3', 'barangPendukung'));
+        $barangPendukung2 = BarangPendukung::all();
+        $barangPendukung3 = BarangPendukung::all();
+        $produkCurah = ProdukCurah::all();
+        $produkCurah2 = ProdukCurah::all();
+        $produkCurah3 = ProdukCurah::all();
+        $inout = InOut::all();
+        return view('dashboard.logistik.logistik', ['bestSeller' => $bestSeller->build()], compact('stok', 'stok2', 'stok3', 'barangPendukung', 'barangPendukung2', 'barangPendukung3', 'produkCurah', 'inout', 'produkCurah2', 'produkCurah3'));
     }
 }

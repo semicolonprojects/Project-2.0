@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('in_out_pendukungs', function (Blueprint $table) {
             $table->id();
             $table->foreignId('kode_barang')->constrained('barang_pendukungs')->onDelete('cascade');
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->integer('barang_masuk')->nullable();
             $table->integer('barang_keluar')->nullable();
             $table->date('date_in')->nullable();

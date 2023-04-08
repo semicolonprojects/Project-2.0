@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('target_karyawans', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->decimal('target', 15, 2);
             $table->decimal('total_tercapai', 15, 2);
             $table->date('deadline_target');
