@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\TargetKaryawan;
 use App\Http\Controllers\Controller;
+use App\Models\Customer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 class TargetKaryawanController extends Controller
 {
@@ -15,7 +18,8 @@ class TargetKaryawanController extends Controller
      */
     public function index()
     {
-        //
+        $targetKaryawan = Auth::user();
+        return view('dashboard.marketing.mktdash',compact('targetKaryawan'));
     }
 
     /**
@@ -25,7 +29,7 @@ class TargetKaryawanController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.marketing.mkt-targetk-create',);   
     }
 
     /**
@@ -36,7 +40,17 @@ class TargetKaryawanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'target'=> 'required',
+            'total_tercapai' => 'nullable',
+            'deadline_target'=>'required',
+            'user_id'=>'required',
+            'order_id'=>'nullable'
+        ]);
+
+        $validatedData['user_id'] = auth()->user()->id;
+        TargetKaryawan::create($validatedData);
+        return redirect('/marketing')->with('success', 'Target added successfully.');
     }
 
     /**
@@ -58,7 +72,10 @@ class TargetKaryawanController extends Controller
      */
     public function edit(TargetKaryawan $targetKaryawan)
     {
-        //
+        return view('dashboard.marketing.mkt-targetk-edit',[
+            'targetKaryawan'=>$targetKaryawan,
+            'id'=>$targetKaryawan->id
+        ]);
     }
 
     /**
@@ -68,9 +85,16 @@ class TargetKaryawanController extends Controller
      * @param  \App\Models\TargetKaryawan  $targetKaryawan
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, TargetKaryawan $targetKaryawan)
+    public function update(Request $request, $id)
     {
-        //
+        $targetKaryawan = TargetKaryawan::findOrFail($id);
+        $targetKaryawan->user_id = $request->user_id;
+        $targetKaryawan->target = $request->target;
+        $targetKaryawan->deadline_target = $request->deadline_target;
+
+        $targetKaryawan->save();
+        return redirect('/marketing')->with('update', 'Target updated successfully.');
+
     }
 
     /**
@@ -79,8 +103,11 @@ class TargetKaryawanController extends Controller
      * @param  \App\Models\TargetKaryawan  $targetKaryawan
      * @return \Illuminate\Http\Response
      */
-    public function destroy(TargetKaryawan $targetKaryawan)
+    public function destroy($id)
     {
-        //
+        $targetKaryawan = Auth::user()->targetKaryawan;
+        $targetKaryawan = TargetKaryawan::findOrFail($id);
+        $targetKaryawan->delete();
+        return redirect('/marketing')->with('delete', 'Target Deleted Successfully.');
     }
 }

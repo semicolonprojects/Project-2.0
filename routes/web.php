@@ -19,6 +19,7 @@ use App\Http\Controllers\MktdashController;
 use App\Http\Controllers\ProdukJadiController;
 use App\Http\Controllers\SuperAdminController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TargetKaryawanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -63,6 +64,9 @@ Route::resource('channel', ChannelController::class);
 
 Route::resource('customer', CustomerController::class);
 
+Route::resource('targetKaryawan', TargetKaryawanController::class);
+
+
 
 Route::get('/logout', [LoginController::class, 'logout']);
 
@@ -96,6 +100,14 @@ Route::get('/marketing/customerinfo-create', function () {
 
 Route::patch('/marketing/customerinfo-update', function () {
     return view('dashboard.marketing.mkt-ci-update');
+})->middleware('marketing', 'auth');
+
+Route::get('/marketing/targetkaryawan-create', function () {
+    return view('dashboard.marketing.mkt-targetk-create');
+})->middleware('marketing', 'auth');
+
+Route::patch('/marketing/targetkaryawan-edit', function () {
+    return view('dashboard.marketing.mkt-targetk-edit');
 })->middleware('marketing', 'auth');
 
 Route::get('/logistik', [LogistikController::class, 'index'])->middleware('logistik', 'auth');

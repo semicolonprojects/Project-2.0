@@ -10,15 +10,18 @@ use App\Charts\DailyOrderStats;
 use App\Charts\SaleThisMonth;
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\TargetKaryawan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class MktdashController extends Controller
 {
 
-    public function index(OrderStats $orderStats, UserActivity $userActivity, SalesAnalytics $salesAnalytics, DailyTargetStats $dailyTargetStats, DailyOrderStats $dailyOrderStats, SaleThisMonth $saleThisMonth)
+    public function index(OrderStats $orderStats, UserActivity $userActivity, SalesAnalytics $salesAnalytics, DailyTargetStats $dailyTargetStats, DailyOrderStats $dailyOrderStats, SaleThisMonth $saleThisMonth, TargetKaryawan $targetKaryawan)
     {
         $user = User::all();
+        $targetKaryawan = Auth::user()->targetKaryawan;
+        
 
         return view('dashboard.marketing.mktdash', [
 
@@ -29,6 +32,6 @@ class MktdashController extends Controller
             'dailyOrderStats' => $dailyOrderStats->build(),
             'saleThisMonth' => $saleThisMonth->build()
 
-        ], compact('user'));
+        ], compact('user','targetKaryawan'));
     }
 }
