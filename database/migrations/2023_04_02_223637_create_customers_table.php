@@ -20,7 +20,8 @@ return new class extends Migration
             $table->string('alamat');
             $table->string('no_telepon');
             $table->string('email');
-            $table->date('TTL');
+            $table->string('tempat');
+            $table->date('tanggal_lahir');
             $table->timestamps();
         });
     }

@@ -24,6 +24,7 @@ use App\Http\Controllers\SuperAdminController;
 use App\Http\Controllers\DataSupplierController;
 use App\Http\Controllers\SupplierCurahController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TargetKaryawanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -68,6 +69,11 @@ Route::resource('data_supplier_curah', SupplierCurahController::class);
 
 Route::resource('channel', ChannelController::class);
 
+Route::resource('customer', CustomerController::class);
+
+Route::resource('targetKaryawan', TargetKaryawanController::class);
+
+
 Route::resource('order', OrderController::class);
 
 Route::get('orders/{order_id}', [OrderController::class, 'show']);
@@ -94,6 +100,22 @@ Route::get('/marketing/orderstats', [OrderController::class, 'index'])->middlewa
 
 Route::get('/marketing/detailtermin', function () {
     return view('dashboard.marketing.mktdash6');
+})->middleware('marketing', 'auth');
+
+Route::get('/marketing/customerinfo-create', function () {
+    return view('dashboard.marketing.mkt-ci-create');
+})->middleware('marketing', 'auth');
+
+Route::patch('/marketing/customerinfo-update', function () {
+    return view('dashboard.marketing.mkt-ci-update');
+})->middleware('marketing', 'auth');
+
+Route::get('/marketing/targetkaryawan-create', function () {
+    return view('dashboard.marketing.mkt-targetk-create');
+})->middleware('marketing', 'auth');
+
+Route::patch('/marketing/targetkaryawan-edit', function () {
+    return view('dashboard.marketing.mkt-targetk-edit');
 })->middleware('marketing', 'auth');
 
 Route::get('/logistik', [LogistikController::class, 'index'])->middleware('logistik', 'auth');

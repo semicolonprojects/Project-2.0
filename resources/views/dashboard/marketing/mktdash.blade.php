@@ -227,7 +227,7 @@
             <h5 class="text-2xl font-bold tracking-tight text-gray-900 ">Summary Order & Target </h5>
         </div>
         <div class="inline-flex absolute ml-[920px]">
-            <button id="orderStats" data-dropdown-toggle="orderStatsTrigger">
+            <button id="target" data-dropdown-toggle="targetTrigger">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" class="w-8 h-8">
                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -239,10 +239,15 @@
             <div class="grid grid-flow-row gap-7 ">
                 <div
                     class="inline-flex mt-20 ml-10 bg-white border-2 border-gray-200 rounded-2xl shadow-xl w-[390px] h-[200px]">
-                    <h5 class="text-xl font-semibold tracking-tight text-gray-900 ml-5 mt-3">Total Order</h5>
+                    <h5 class="text-xl font-semibold tracking-tight text-gray-900 ml-5 mt-3">Total Target</h5>
                     <div class="inline-flex absolute mt-32 mr-16">
-                        <h5 class="text-4xl font-bold tracking-tight text-gray-900 ml-5 mt-3">IDR 27 M</h5>
-                        <p class="ml-14 mt-7 text-gray-700/75">Today : 27 May 2023</p>
+                        @forelse ($targetKaryawan as $targetKaryawans)
+                        <h5 class="text-3xl font-bold tracking-tight text-gray-900 ml-3 mt-3">Rp {{ number_format(($targetKaryawans->target)) }}</h5>
+                        <p class="text-sm ml-5 mt-[27px] text-gray-700/75">Deadline : {{ $targetKaryawans->deadline_target }}</p>
+                        @empty
+                        <h5 class="text-3xl font-bold tracking-tight text-gray-900 ml-3 mt-3">Rp. 0,00</h5>
+                        <p class="text-sm ml-5 mt-[27px] text-gray-700/75">Deadline : </p>   
+                        @endforelse ($targetKaryawan as $targetKaryawans)
                     </div>
                     <div
                         class="inline-flex absolute ml-80 mt-3 bg-[#22DB6636] text-[#25D466F7] rounded-xl  w-[50px] h-[50px]">
@@ -284,12 +289,18 @@
             </div>
 
             <div class="grid grid-flow-row gap-7">
+
                 <div
                     class="inline-flex mt-20 ml-10 bg-white border-2 border-gray-200 rounded-2xl shadow-xl w-[390px] h-[200px]">
                     <h5 class="text-xl font-semibold tracking-tight text-gray-900 ml-5 mt-3">Daily Target</h5>
                     <div class="inline-flex absolute mt-32 mr-16">
-                        <h5 class="text-4xl font-bold tracking-tight text-gray-900 ml-5 mt-3">IDR 27 M</h5>
-                        <p class="ml-14 mt-7 text-gray-700/75">Today : 27 May 2023</p>
+                        @forelse($targetKaryawan as $targetKaryawan)
+                        <h5 class="text-3xl font-bold tracking-tight text-gray-900 ml-3 mt-3">Rp {{ number_format(($targetKaryawan->target/30*Date('d'))) }}</h5>
+                        <p class="text-sm ml-5 mt-[27px] text-gray-700/75">Today : {{ now("Asia/Bangkok")->toDateString() }}</p>
+                        @empty
+                        <h5 class="text-3xl font-bold tracking-tight text-gray-900 ml-3 mt-3">Rp. 0,00</h5>
+                        <p class="text-sm ml-5 mt-[27px] text-gray-700/75">Today : {{ now("Asia/Bangkok")->toDateString() }}</p>
+                        @endforelse ($targetKaryawan as $targetKaryawan)
                     </div>
                     <div
                         class="inline-flex absolute ml-80 mt-3 bg-[#22DB6636] text-[#25D466F7] rounded-xl  w-[50px] h-[50px]">
@@ -330,8 +341,8 @@
         </div>
         <div class="py-7 border-b-[1px] border-black "></div>
         <div class="grid grid-flow-col gap-7">
-            <div class="inline-flex absolute mt-3">
-                <h5 class="text-2xl font-bold tracking-tight text-gray-900">Daily Order Stats</h5>
+            <div class="inline-flex absolute mt-3 ">
+                <h5 class="text-2xl font-bold tracking-tight text-gray-900 ml-4 ">Daily Order Stats</h5>
                 <div class="mt-20 mr-16 absolute">
                     <div>
                         <div id="{!! $dailyOrderStats->container() !!}" width=" 350px" height="200px"></div>
@@ -339,9 +350,9 @@
                 </div>
             </div>
 
-            <div class="inline-flex absolute mt-3 ml-[507px]">
+            <div class="inline-flex absolute mt-3 ml-[495px]">
                 <h5 class="absolute text-2xl font-bold tracking-tight text-gray-900">Daily Target Stats</h5>
-                <div class="mb-7 w-96">
+                <div class="mt-3 mb-7 w-96">
                     <div class='py-10' id="{!! $dailyTargetStats->container() !!}" width="280px">
                     </div>
                 </div>
@@ -349,6 +360,30 @@
             <div class="py-48 mr-[503px] border-r-[1px] border-black"></div>
         </div>
     </div>
+    <div id="targetTrigger" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 ">
+        <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="topProducts">
+            @if (isset($targetKaryawan->id))
+            <li>
+                <a href="{{ route('targetKaryawan.edit', ['targetKaryawan' => $targetKaryawan->id]) }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 ">Edit Target</a>
+            </li>
+            <li>
+                <form class="" action="{{ route('targetKaryawan.destroy', ['targetKaryawan' => $targetKaryawan->id]) }}"
+                    method="POST">
+                    <button onclick="return confirm('Are you sure?')"class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 ">Hapus Target
+                        @csrf
+                        @method('delete')
+                </button>
+            </li>
+        </form>
+            @else
+            <li>
+                <a href="/marketing/targetkaryawan-create" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 ">Tambahkan Target</a>
+            </li>
+        @endif
+            </ul>
+    </div>
+    
+    
 
     {{-- Top Customer --}}
     <div class="px-0 mt-10 p-10">
@@ -502,6 +537,8 @@
         </div>
     </div>
 
+   
+
 
     <script src="{{ $orderStats->cdn() }}"></script>
 
@@ -513,6 +550,5 @@
     {{ $saleThisMonth->script() }}
 
     @vite(['resources/css/app.css','resources/js/app.js'])
-
 
     @endsection
