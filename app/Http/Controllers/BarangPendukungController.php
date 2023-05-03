@@ -27,7 +27,7 @@ class BarangPendukungController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.logistik.create-pendukung');
     }
 
     /**
@@ -57,8 +57,16 @@ class BarangPendukungController extends Controller
      * @param  \App\Models\BarangPendukung  $barangPendukung
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show($id)
     {
+        $barangJadi = BarangPendukung::findOrFail($id);
+        $stock = $barangJadi->stock;
+        $size = $barangJadi->size;
+
+        return response()->json([
+            'stock' => $stock,
+            'size' => $size,
+        ]);
     }
 
     /**
@@ -67,9 +75,10 @@ class BarangPendukungController extends Controller
      * @param  \App\Models\BarangPendukung  $barangPendukung
      * @return \Illuminate\Http\Response
      */
-    public function edit(BarangPendukung $barangPendukung)
+    public function edit(Request $request, $id)
     {
-        //
+        $produk = BarangPendukung::find($id);
+        return view('dashboard.logistik.edit-pendukung', compact('produk'));
     }
 
     /**

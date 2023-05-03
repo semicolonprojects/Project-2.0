@@ -9,6 +9,7 @@ use App\Models\InOut;
 use App\Models\ProdukCurah;
 use App\Models\ProdukJadi;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class LogistikController extends Controller

@@ -8,7 +8,7 @@
 
 <div class="ml-24 mb-10 inline-block p-6 bg-white border border-gray-200 rounded-xl shadow-2xl w-[1070px] h-[700px]">
     <div class="border-b border-gray-200 pb-4 mb-4">
-        <p class="text-4xl text-black font-[700]">Produk Pendukung </p>
+        <p class="text-4xl text-black font-[700]">Barang Pendukung</p>
     </div>
     <div class="grid grid-flow-col gap-[640px] mt-8 mb-3 ">
         <div class="flex md:order-2">
@@ -46,167 +46,81 @@
             </button>
         </div>
     </div>
-    <div id="accordion-collapse" data-accordion="open">
-        <table class=" w-[1020px]  table-fixed text-sm text-left text-gray-500 dark:text-gray-400 ml-2 mt-10">
-            <thead class=" text-xs text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                <th>
-                    <div class="flex items-center">
-                        <input id="checkbox-all" type="checkbox"
-                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                            onclick="toggle(this);">
-                        <label for="checkbox-all" class="sr-only">checkbox</label>
-                    </div>
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Produk
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Size
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    In
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Date In
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Out
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Date Out
-                </th>
-                <th scope="col" class="px-8 py-3">
-                    Action
-                </th>
-                <th scope="col" class="px-8 py-3">
-                    Detail
-                </th>
-                </tr>
-            </thead>
-            @foreach ($stock as $stock)
-            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                <th>
-                    <div class="flex items-center">
-                        <input id="checkbox-all" type="checkbox"
-                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                        <label for="checkbox-all" class="sr-only">checkbox</label>
-                    </div>
-                </th>
-                <td class="mt-2 px-4 align-center">
-                    {{ $stock->kode_barang }}
-                </td>
-                <td class="mt-2 px-4 align-center">
-
-                </td>
-                <td class="px-6 py-4">
-                    {{$stock->total_barang_masuk}}
-                </td>
-                <td class="mt-2 px-8 align-center">
-                    {{$stock->total_barang_keluar}}
-                </td>
-                <td class="px-6 py-4">
-                    {{ $stock->latest_date_in ? date('l d/m/Y', strtotime($stock->latest_date_in )) : NULL }}
-                </td>
-                <td class="px-6 py-4">
-                    {{ $stock->latest_date_in ? date('l d/m/Y', strtotime($stock->latest_date_in )) : NULL }}
-                </td>
-                <td class="px-4 py-4">
+    <table class=" w-[1020px]  table-fixed text-sm text-left text-gray-500 dark:text-gray-400 ml-2 mt-10">
+        <thead class=" text-xs text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <th>
+                <div class="flex items-center">
+                    <input id="checkbox-all" type="checkbox"
+                        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                        onclick="toggle(this);">
+                    <label for="checkbox-all" class="sr-only">checkbox</label>
+                </div>
+            </th>
+            <th scope="col" class="px-6 py-3">
+                Produk
+            </th>
+            <th scope="col" class="px-6 py-3">
+                Size
+            </th>
+            <th scope="col" class="px-6 py-3">
+                In
+            </th>
+            <th scope="col" class="px-6 py-3">
+                Date In
+            </th>
+            <th scope="col" class="px-6 py-3">
+                Out
+            </th>
+            <th scope="col" class="px-6 py-3">
+                Date Out
+            </th>
+            <th scope="col" class="px-8 py-3">
+                Detail
+            </th>
+            </tr>
+        </thead>
+        @foreach ($stock as $stock)
+        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+            <th>
+                <div class="flex items-center">
+                    <input id="checkbox-all" type="checkbox"
+                        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                    <label for="checkbox-all" class="sr-only">checkbox</label>
+                </div>
+            </th>
+            <td class="mt-2 px-4 align-center">
+                {{$stock->produkPendukung->nama_barang}}
+            </td>
+            <td class="mt-2 px-4 align-center">
+                {{$stock->produkPendukung->size}}
+            </td>
+            <td class="px-6 py-4">
+                {{$stock->total_barang_masuk}}
+            </td>
+            <td class="px-6 py-4">
+                {{ $stock->latest_date_in ? date('l d/m/Y', strtotime($stock->latest_date_in )) : NULL }}
+            </td>
+            <td class="mt-2 px-8 align-center">
+                {{$stock->total_barang_keluar}}
+            </td>
+            <td class="px-6 py-4">
+                {{ $stock->latest_date_out ? date('l d/m/Y', strtotime($stock->latest_date_out )) : NULL }}
+            </td>
+            <td class="px-9 py-4">
+                <a href="{{ route('in_out_pendukung.show', ['in_out_pendukung' => $stock->kode_barang]) }}">
                     <button>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M12 20h9"></path>
-                            <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
-                        </svg>
-                    </button>
-                    <button>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M20 5H9l-7 7 7 7h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2Z"></path>
-                            <line x1="18" y1="9" x2="12" y2="15"></line>
-                            <line x1="12" y1="9" x2="18" y2="15"></line>
-                        </svg>
-                    </button>
-                </td>
-                <td class="px-9 py-4">
-                    <button data-accordion-target=" #accordion-color-stock-{{ $stock->kode_barang }}">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path>
                             <circle cx="12" cy="12" r="3"></circle>
                         </svg>
                     </button>
-                </td>
-            </tr>
-            @endforeach
-            @foreach($detail as $index => $inout)
-            <td class="inline-table">
-                <div id="accordion-color-stock-{{ $inout->kode_barang }}" class="hidden">
-                    @endforeach
-                    <table
-                        class="w-[1020px] table-fixed text-sm text-left border border-t-0 text-gray-500 dark:text-gray-400">
-                        <thead>
-                            <tr>
-                                <th>Tanggal Masuk</th>
-                                <th>Barang Masuk</th>
-                                <th>Tanggal Keluar</th>
-                                <th>Barang Keluar</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach($detail as $index => $inout)
-                            <tr>
-                                <td>
-                                    @foreach($inout->date_in as $date_in)
-                                    <p>{{ $date_in }}</p>
-                                    @endforeach
-                                </td>
-                                <td>
-                                    @foreach($inout->barang_masuk as $barang_masuk)
-                                    <p>{{ $barang_masuk }} pcs</p>
-                                    @endforeach
-                                </td>
-                                <td>
-                                    @foreach($inout->date_out as $date_out)
-                                    <p>{{ $date_out }}</p>
-                                    @endforeach
-                                </td>
-                                <td>
-                                    @foreach($inout->barang_keluar as $barang_keluar)
-                                    <p>{{ $barang_keluar }} pcs</p>
-                                    @endforeach
-                                </td>
-                                <td class="">
-                                    <button>
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                            stroke-linecap="round" stroke-linejoin="round">
-                                            <path d="M12 20h9"></path>
-                                            <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z">
-                                            </path>
-                                        </svg>
-                                    </button>
-                                    <button>
-                                        <button>
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                                stroke-linecap="round" stroke-linejoin="round">
-                                                <path d="M20 5H9l-7 7 7 7h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2Z"></path>
-                                                <line x1="18" y1="9" x2="12" y2="15"></line>
-                                                <line x1="12" y1="9" x2="18" y2="15"></line>
-                                            </svg>
-                                        </button>
-                                </td>
-                            </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
+                </a>
             </td>
-    </div>
+        </tr>
+        @endforeach
+    </table>
 </div>
-
-
 
 
 <!-- Modal Add In Out -->
@@ -228,16 +142,15 @@
             </button>
             <div class="px-6 py-6 lg:px-8">
                 <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Add Barang Keluar Masuk</h3>
-                <form class="space-y-6" action="/logistik/innout-pendukung" method="POST">
+                <form class="space-y-6" action="{{ route('in_out_pendukung.store') }}" method="POST">
                     @csrf
                     <div>
                         <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Produk</label>
                         <select id="produk-select" name="kode_barang"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             <option selected>Pilih Produk</option>
-                            @foreach($barangPendukung as $barangPendukung)
-                            <option value="{{ $barangPendukung->id }}">{{ $barangPendukung->nama_barang }}
-                            </option>
+                            @foreach($barangPendukung as $barangJadi)
+                            <option value="{{ $barangJadi->id }}">{{ $barangJadi->nama_barang }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -247,7 +160,7 @@
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             <option selected>Approved By</option>
                             @foreach($user as $user)
-                            <option value="{{ $user->id}}">{{ $user->username}}</option>
+                            <option value="{{ $user->id }}">{{ $user->username }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -300,7 +213,7 @@
             var id = $(this).val();
             if (id) {
                 $.ajax({
-                    url: "{{ route('in_out_pendukung.show', ':id') }}".replace(':id', id),
+                    url: "{{ route('pendukung.show', ':id') }}".replace(':id', id),
                     type: "GET",
                     dataType: "json",
                     success:function(data) {

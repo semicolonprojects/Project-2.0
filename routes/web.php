@@ -7,6 +7,8 @@ use App\Http\Controllers\CutiController;
 use App\Http\Controllers\DataAbsenController;
 use App\Http\Controllers\FinanceController;
 use App\Http\Controllers\InOutController;
+use App\Http\Controllers\InOutCurahController;
+use App\Http\Controllers\InOutPendukungController;
 use App\Http\Controllers\IzinController;
 use App\Http\Controllers\KeluarController;
 use App\Http\Controllers\LoginController;
@@ -14,10 +16,13 @@ use App\Http\Controllers\LogistikController;
 use App\Http\Controllers\MarketingKonsinyasiDashboard;
 use App\Http\Controllers\MasukController;
 use App\Http\Controllers\Mktdash2Controller;
-use App\Http\Controllers\Mktdash4Controller;
 use App\Http\Controllers\MktdashController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProdukJadiController;
+use App\Http\Controllers\ProdukCurahController;
 use App\Http\Controllers\SuperAdminController;
+use App\Http\Controllers\DataSupplierController;
+use App\Http\Controllers\SupplierCurahController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -47,6 +52,8 @@ Route::resource('stock', ProdukJadiController::class);
 
 Route::resource('curah', ProdukCurahController::class);
 
+Route::resource('pendukung', BarangPendukungController::class);
+
 Route::resource('in_out', InOutController::class);
 
 Route::resource('in_out_curah', InOutCurahController::class);
@@ -60,6 +67,10 @@ Route::resource('data_supplier', DataSupplierController::class);
 Route::resource('data_supplier_curah', SupplierCurahController::class);
 
 Route::resource('channel', ChannelController::class);
+
+Route::resource('order', OrderController::class);
+
+Route::get('orders/{order_id}', [OrderController::class, 'show']);
 
 Route::get('/logout', [LoginController::class, 'logout']);
 
@@ -79,9 +90,7 @@ Route::get('/marketing/paymentstats', function () {
 
 Route::get('/marketing/customerinfo', [CustomerController::class, 'index'])->middleware('marketing', 'auth');
 
-Route::get('/marketing/orderstats', function () {
-    return view('dashboard.marketing.mktdash5');
-})->middleware('marketing', 'auth');
+Route::get('/marketing/orderstats', [OrderController::class, 'index'])->middleware('marketing', 'auth');
 
 Route::get('/marketing/detailtermin', function () {
     return view('dashboard.marketing.mktdash6');
@@ -94,6 +103,10 @@ Route::get('/logistik/datasupplier', function () {
 })->middleware('logistik', 'auth');
 
 Route::get('/logistik/innout', [InOutController::class, 'index'])->middleware('logistik', 'auth');
+
+Route::get('/logistik/innout-curah', [InOutCurahController::class, 'index'])->middleware('logistik', 'auth');
+
+Route::get('/logistik/innout-pendukung', [InOutPendukungController::class, 'index'])->middleware('logistik', 'auth');
 
 Route::get('/logistik/tanggalprod', function () {
     return view('dashboard.logistik.logistik4');

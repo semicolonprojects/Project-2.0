@@ -17,4 +17,9 @@ class Customer extends Model
         'TTL',
         'customer_id'
     ];
+
+    public function order()
+    {
+        return $this->hasMany(Order::class);
+    }
 }

@@ -27,7 +27,8 @@ class ProdukCurahController extends Controller
      */
     public function create()
     {
-        //
+
+        return view('dashboard.logistik.create-curah');
     }
 
     /**
@@ -58,9 +59,9 @@ class ProdukCurahController extends Controller
      * @param  \App\Models\ProdukCurah  $produkCurah
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($kode_barang)
     {
-        $barangCurah = ProdukCurah::findOrFail($id);
+        $barangCurah = ProdukCurah::findOrFail($kode_barang);
         $stock = $barangCurah->stock;
         $size = $barangCurah->size;
 
@@ -78,6 +79,9 @@ class ProdukCurahController extends Controller
      */
     public function edit(Request $request, $id)
     {
+
+        $produk = ProdukCurah::find($id);
+        return view('dashboard.logistik.edit-curah', compact('produk'));
     }
 
     /**

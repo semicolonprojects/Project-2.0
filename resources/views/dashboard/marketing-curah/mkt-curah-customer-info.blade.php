@@ -182,8 +182,5 @@
         </ul>
     </div>
 
-    <script src="{{ $saleThisMonth->cdn() }}"></script>
-
-    {{ $saleThisMonth->script() }}
 
     @endsection

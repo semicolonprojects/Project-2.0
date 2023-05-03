@@ -29,7 +29,6 @@ class LoginController extends Controller
                 case 'superadmin':
                     return redirect()->intended('/superadmin');
                     break;
-
                 case 'marketing':
                     return redirect()->intended('/marketing');
                     break;
@@ -56,6 +55,6 @@ class LoginController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect('/login');
     }
 }
