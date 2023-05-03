@@ -73,7 +73,6 @@ Route::resource('customer', CustomerController::class);
 
 Route::resource('targetKaryawan', TargetKaryawanController::class);
 
-
 Route::resource('order', OrderController::class);
 
 Route::get('orders/{order_id}', [OrderController::class, 'show']);
