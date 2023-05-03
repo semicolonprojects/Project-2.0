@@ -21,8 +21,6 @@ class MktdashController extends Controller
     {
         $user = User::all();
         $targetKaryawan = Auth::user()->targetKaryawan;
-        
-
         return view('dashboard.marketing.mktdash', [
 
             'orderStats' => $orderStats->build(),
