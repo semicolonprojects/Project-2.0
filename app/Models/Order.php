@@ -27,8 +27,21 @@ class Order extends Model
 
     public function show()
     {
-        return Order::select('order_id', 'customer_id', 'user_id', 'tipe_pesanan', DB::raw('SUM(total_pembelian) as total_pembelian'), DB::raw('MIN(created_at) as date'))
+        return DB::table('produk_jadis')
+            ->join('orders', 'produk_jadis.id', '=', 'orders.kode_barang')
+            ->join('users', 'orders.user_id', '=', 'users.id')
+            ->join('customers', 'orders.customer_id', '=', 'customers.id')
+            ->select('produk_jadis.nama_barang', 'orders.order_id', 'users.username', 'customers.nama_lengkap', 'orders.status_pembayaran', 'orders.tipe_pesanan', 'orders.total_pembelian', DB::raw('(SUM(orders.total_order)*1/100) as total_order'), 'orders.diskon', 'orders.status_barang', 'orders.note', 'orders.customer_id', 'orders.created_at')
+            ->groupBy('orders.order_id', 'produk_jadis.nama_barang', 'customers.nama_lengkap', 'users.username', 'orders.status_pembayaran', 'orders.tipe_pesanan', 'orders.total_pembelian', 'orders.diskon', 'orders.status_barang', 'orders.note', 'orders.customer_id', 'orders.created_at')
+            ->get();
+    }
+
+    public function join()
+    {
+        return DB::table('orders')
+            ->select('orders.*', 'produk_jadis.nama_barang as nama_barang')
             ->groupBy('order_id', 'customer_id', 'user_id', 'tipe_pesanan')
+            ->join('produk_jadis', 'produk_jadis.id', '=', 'orders.kode_barang')
             ->get();
     }
 

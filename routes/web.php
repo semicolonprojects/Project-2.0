@@ -37,9 +37,9 @@ use App\Http\Controllers\TargetKaryawanController;
 |
 */
 
-Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
+Route::get('/', [LoginController::class, 'index'])->name('login')->middleware('guest');
 
-Route::post('/login', [LoginController::class, 'authenticate']);
+Route::post('/', [LoginController::class, 'authenticate']);
 
 Route::resource('absen', MasukController::class);
 
@@ -74,8 +74,6 @@ Route::resource('customer', CustomerController::class);
 Route::resource('targetKaryawan', TargetKaryawanController::class);
 
 Route::resource('order', OrderController::class);
-
-Route::get('orders/{order_id}', [OrderController::class, 'show']);
 
 Route::get('/logout', [LoginController::class, 'logout']);
 

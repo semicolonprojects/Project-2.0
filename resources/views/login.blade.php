@@ -101,7 +101,7 @@
                     <img class="w-[233px]" src="Assets\images\Madukuy CMYK Logo.png" alt="">
                 </div>
                 <h1 class="text-6xl font-extrabold text-center text-black">Selamat Datang</h1>
-                <form action="/login" class="mt-10" method="POST">
+                <form action="/" class="mt-10" method="POST">
                     @csrf
                     <div class="px-5">
                         <label for="username" class="block font-semibold text-sm text-gray-800 ">Username</label>
