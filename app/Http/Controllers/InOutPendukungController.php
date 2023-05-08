@@ -48,7 +48,7 @@ class InOutPendukungController extends Controller
     public function store(Request $request)
     {
         // Mengambil data produk dari database berdasarkan kode_barang
-        $produk = BarangPendukung::where('kode_barang', $request->input('kode_barang'))->firstOrFail();
+        $produk = BarangPendukung::where('id', $request->input('kode_barang'))->firstOrFail();
 
         // Menghitung stok akhir dari produk setelah barang masuk dan keluar
         $stokAkhir = $produk->stock + $request->input('barang_masuk') - $request->input('barang_keluar');
@@ -65,7 +65,7 @@ class InOutPendukungController extends Controller
             'date_out' => $request->input('date_out'),
         ]);
 
-        return view('dashboard.logistik.logistik8')->with('stok', 'Stok Berhasil Ditambah');
+        return redirect('/logistik/innout-pendukung')->with('stok', 'Stok Berhasil Ditambah');
     }
 
     /**
@@ -76,14 +76,8 @@ class InOutPendukungController extends Controller
      */
     public function show($id)
     {
-        $barangPendukung = BarangPendukung::findOrFail($id);
-        $stock = $barangPendukung->stock;
-        $size = $barangPendukung->size;
-
-        return response()->json([
-            'stock' => $stock,
-            'size' => $size,
-        ]);
+        $produkB = InOutPendukung::where('kode_barang', $id)->get();
+        return view('dashboard.logistik.detail-inout-pendukung', compact('produkB'));
     }
 
     /**
@@ -104,9 +98,40 @@ class InOutPendukungController extends Controller
      * @param  \App\Models\InOutPendukung  $inOutPendukung
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateInOutPendukungRequest $request, InOutPendukung $inOutPendukung)
+    public function update(Request $request, $id)
     {
-        //
+
+        // Validasi request
+        $request->validate([
+            'barang_masuk' => 'required|integer|min:0',
+            'barang_keluar' => 'required|integer|min:0',
+            'date_in' => 'required|date',
+            'user_id' => 'required|integer',
+            'date_out' => 'nullable|date'
+        ]);
+
+        // Mengambil data produk dari database berdasarkan kode_barang
+        $produk = BarangPendukung::where('id', $request->input('kode_barang'))->firstOrFail();
+
+        // Menghitung stok akhir dari produk setelah barang masuk dan keluar
+        $stokAkhir = $produk->stock + $request->input('barang_masuk') - $request->input('barang_keluar');
+
+        // Memperbarui data stok di database
+        $produk->update(['stock' => $stokAkhir]);
+
+        // Mengambil data in_out_curah dari database berdasarkan id
+        $inOutCurah = InOutPendukung::findOrFail($id);
+
+        // Memperbarui data in_out_curah di database
+        $inOutCurah->update([
+            'barang_masuk' => $request->input('barang_masuk'),
+            'barang_keluar' => $request->input('barang_keluar'),
+            'date_in' => $request->input('date_in'),
+            'user_id' => $request->input('user_id'),
+            'date_out' => $request->input('date_out')
+        ]);
+
+        return redirect()->route('in_out_pendukung.show', ['in_out_pendukung' => $inOutCurah->kode_barang])->with('stok', 'Stok Berhasil Diupdate');
     }
 
     /**
@@ -115,8 +140,30 @@ class InOutPendukungController extends Controller
      * @param  \App\Models\InOutPendukung  $inOutPendukung
      * @return \Illuminate\Http\Response
      */
-    public function destroy(InOutPendukung $inOutPendukung)
+    public function destroy($id)
     {
-        //
+        $inOutCurah = InOutPendukung::findOrFail($id);
+
+        $kode_barang = $inOutCurah->kode_barang;
+
+        // Mengambil data produk dari database berdasarkan kode_barang
+        $produk = BarangPendukung::where('id', $inOutCurah->kode_barang)->firstOrFail();
+
+        // Menghitung stok akhir dari produk setelah barang keluar dihapus
+        $stokAkhir = $produk->stock + $inOutCurah->barang_keluar;
+
+        // Memperbarui data stok di database
+        $produk->update(['stock' => $stokAkhir]);
+
+        $inOutCurah->delete();
+
+        $countInOutCurah = InOutPendukung::where('kode_barang', $kode_barang)->count();
+
+        if ($countInOutCurah == 0) {
+
+            return redirect('/logistik/innout-pendukung')->with('delete', 'Data berhasil dihapus');
+        }
+
+        return redirect()->back()->with('delete', 'Data berhasil dihapus');
     }
 }

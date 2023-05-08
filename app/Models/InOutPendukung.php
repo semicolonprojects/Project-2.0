@@ -26,7 +26,7 @@ class InOutPendukung extends Model
 
     public function produkPendukung()
     {
-        return $this->belongsTo(BarangPendukung::class);
+        return $this->belongsTo(BarangPendukung::class, 'kode_barang');
     }
 
     public function getOrderShow()

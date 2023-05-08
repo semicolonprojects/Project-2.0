@@ -46,167 +46,81 @@
             </button>
         </div>
     </div>
-    <div id="accordion-collapse" data-accordion="open">
-        <table class=" w-[1020px]  table-fixed text-sm text-left text-gray-500 dark:text-gray-400 ml-2 mt-10">
-            <thead class=" text-xs text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                <th>
-                    <div class="flex items-center">
-                        <input id="checkbox-all" type="checkbox"
-                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                            onclick="toggle(this);">
-                        <label for="checkbox-all" class="sr-only">checkbox</label>
-                    </div>
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Produk
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Size
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    In
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Date In
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Out
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Date Out
-                </th>
-                <th scope="col" class="px-8 py-3">
-                    Action
-                </th>
-                <th scope="col" class="px-8 py-3">
-                    Detail
-                </th>
-                </tr>
-            </thead>
-            @foreach ($stock as $stock)
-            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                <th>
-                    <div class="flex items-center">
-                        <input id="checkbox-all" type="checkbox"
-                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                        <label for="checkbox-all" class="sr-only">checkbox</label>
-                    </div>
-                </th>
-                <td class="mt-2 px-4 align-center">
-                    {{$stock->produkCurah->nama_barang}}
+    <table class=" w-[1020px]  table-fixed text-sm text-left text-gray-500 dark:text-gray-400 ml-2 mt-10">
+        <thead class=" text-xs text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <th>
+                <div class="flex items-center">
+                    <input id="checkbox-all" type="checkbox"
+                        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                        onclick="toggle(this);">
+                    <label for="checkbox-all" class="sr-only">checkbox</label>
+                </div>
+            </th>
+            <th scope="col" class="px-6 py-3">
+                Produk
+            </th>
+            <th scope="col" class="px-6 py-3">
+                Size
+            </th>
+            <th scope="col" class="px-6 py-3">
+                In
+            </th>
+            <th scope="col" class="px-6 py-3">
+                Date In
+            </th>
+            <th scope="col" class="px-6 py-3">
+                Out
+            </th>
+            <th scope="col" class="px-6 py-3">
+                Date Out
+            </th>
+            <th scope="col" class="px-8 py-3">
+                Detail
+            </th>
+            </tr>
+        </thead>
+        @foreach ($stock as $stock)
+        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+            <th>
+                <div class="flex items-center">
+                    <input id="checkbox-all" type="checkbox"
+                        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                    <label for="checkbox-all" class="sr-only">checkbox</label>
+                </div>
+            </th>
+            <td class="mt-2 px-4 align-center">
+                {{$stock->produkCurah->nama_barang}}
 
-                </td>
-                <td class="mt-2 px-4 align-center">
-                    {{$stock->produkCurah->size}}
-                </td>
-                <td class="px-6 py-4">
-                    {{$stock->total_barang_masuk}}
-                </td>
-                <td class="mt-2 px-8 align-center">
-                    {{$stock->total_barang_keluar}}
-                </td>
-                <td class="px-6 py-4">
-                    {{ $stock->latest_date_in ? date('l d/m/Y', strtotime($stock->latest_date_in )) : NULL }}
-                </td>
-                <td class="px-6 py-4">
-                    {{ $stock->latest_date_in ? date('l d/m/Y', strtotime($stock->latest_date_in )) : NULL }}
-                </td>
-                <td class="px-4 py-4">
+            </td>
+            <td class="mt-2 px-4 align-center">
+                {{$stock->produkCurah->size}}
+            </td>
+            <td class="px-6 py-4">
+                {{$stock->total_barang_masuk}}
+            </td>
+            <td class="mt-2 px-8 align-center">
+                {{$stock->total_barang_keluar}}
+            </td>
+            <td class="px-6 py-4">
+                {{ $stock->latest_date_in ? date('l d/m/Y', strtotime($stock->latest_date_in )) : NULL }}
+            </td>
+            <td class="px-6 py-4">
+                {{ $stock->latest_date_in ? date('l d/m/Y', strtotime($stock->latest_date_in )) : NULL }}
+            </td>
+            <td class="px-9 py-4">
+                <a href="{{ route('in_out_curah.show', ['in_out_curah' => $stock->kode_barang]) }}">
                     <button>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M12 20h9"></path>
-                            <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
-                        </svg>
-                    </button>
-                    <button>
-                        <button>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <path d="M20 5H9l-7 7 7 7h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2Z"></path>
-                                <line x1="18" y1="9" x2="12" y2="15"></line>
-                                <line x1="12" y1="9" x2="18" y2="15"></line>
-                            </svg>
-                        </button>
-                </td>
-                <td class="px-9 py-4">
-                    <button data-accordion-target=" #accordion-color-stock-{{ $stock->kode_barang }}">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path>
                             <circle cx="12" cy="12" r="3"></circle>
                         </svg>
                     </button>
-                </td>
-            </tr>
-            @endforeach
-            @foreach($detail as $index => $inout)
-            <td class="inline-table">
-                <div id="accordion-color-stock-{{ $inout->kode_barang }}" class="hidden">
-                    @endforeach
-                    <table
-                        class="w-[1020px] table-fixed text-sm text-left border border-t-0 text-gray-500 dark:text-gray-400">
-                        <thead>
-                            <tr>
-                                <th>Tanggal Masuk</th>
-                                <th>Barang Masuk</th>
-                                <th>Tanggal Keluar</th>
-                                <th>Barang Keluar</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach($detail as $index => $inout)
-                            <tr>
-                                <td>
-                                    @foreach($inout->date_in as $date_in)
-                                    <p>{{ $date_in }}</p>
-                                    @endforeach
-                                </td>
-                                <td>
-                                    @foreach($inout->barang_masuk as $barang_masuk)
-                                    <p>{{ $barang_masuk }} pcs</p>
-                                    @endforeach
-                                </td>
-                                <td>
-                                    @foreach($inout->date_out as $date_out)
-                                    <p>{{ $date_out }}</p>
-                                    @endforeach
-                                </td>
-                                <td>
-                                    @foreach($inout->barang_keluar as $barang_keluar)
-                                    <p>{{ $barang_keluar }} pcs</p>
-                                    @endforeach
-                                </td>
-                                <td class="">
-                                    <button>
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                            stroke-linecap="round" stroke-linejoin="round">
-                                            <path d="M12 20h9"></path>
-                                            <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z">
-                                            </path>
-                                        </svg>
-                                    </button>
-                                    <button>
-                                        <button>
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                                stroke-linecap="round" stroke-linejoin="round">
-                                                <path d="M20 5H9l-7 7 7 7h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2Z"></path>
-                                                <line x1="18" y1="9" x2="12" y2="15"></line>
-                                                <line x1="12" y1="9" x2="18" y2="15"></line>
-                                            </svg>
-                                        </button>
-                                </td>
-                            </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
+                </a>
             </td>
-    </div>
+        </tr>
+        @endforeach
+    </table>
 </div>
 
 
@@ -239,7 +153,7 @@
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             <option selected>Pilih Produk</option>
                             @foreach($barangCurah as $barangCurah)
-                            <option value="{{ $barangCurah->kode_barang }}">{{ $barangCurah->nama_barang }}</option>
+                            <option value="{{ $barangCurah->id }}">{{ $barangCurah->nama_barang }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -299,10 +213,10 @@
 <script>
     $(document).ready(function() {
         $('#produk-select').change(function() {
-            var id = $(this).val();
-            if (id) {
+            var kode_barang = $(this).val();
+            if (kode_barang) {
                 $.ajax({
-                    url: "{{ route('curah.show', ':id') }}".replace(':id', id),
+                    url: "{{ route('curah.show', ':id') }}".replace(':id', kode_barang),
                     type: "GET",
                     dataType: "json",
                     success:function(data) {

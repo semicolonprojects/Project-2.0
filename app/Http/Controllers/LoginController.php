@@ -32,7 +32,6 @@ class LoginController extends Controller
                 case 'superadmin':
                     return redirect()->intended('/superadmin');
                     break;
-
                 case 'marketing':
                     return redirect()->intended('/marketing');
                     break;

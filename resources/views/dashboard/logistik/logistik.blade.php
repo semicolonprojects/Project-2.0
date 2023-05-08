@@ -716,16 +716,14 @@
                             </svg>
                         </button>
                         <button>
-
-                            <button>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <path d="M20 5H9l-7 7 7 7h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2Z"></path>
-                                    <line x1="18" y1="9" x2="12" y2="15"></line>
-                                    <line x1="12" y1="9" x2="18" y2="15"></line>
-                                </svg>
-                            </button>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M20 5H9l-7 7 7 7h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2Z"></path>
+                                <line x1="18" y1="9" x2="12" y2="15"></line>
+                                <line x1="12" y1="9" x2="18" y2="15"></line>
+                            </svg>
+                        </button>
                     </td>
                 </tr>
                 <td class="inline-table">
@@ -896,16 +894,18 @@
             </form>
         </div>
         <div>
-            <button type="button" data-modal-target="defaultModal-curah" data-modal-toggle="defaultModal-curah"
-                class="text-white bg-[#22DB66] font-medium rounded-[22px] text-[13px] px-3 py-2.5 inline-flex items-center">
-                <div class="px-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="w-6 h-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-                    </svg>
-                </div>
-                Add New Curah
-            </button>
+            <a href="{{ route('curah.create') }}">
+                <button type="button"
+                    class="text-white bg-[#22DB66] font-medium rounded-[22px] text-[13px] px-3 py-2.5 inline-flex items-center">
+                    <div class="px-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                        </svg>
+                    </div>
+                    Add New Curah
+                </button>
+            </a>
         </div>
     </div>
 </div>
@@ -914,10 +914,9 @@
     class="w-[1024px] h-[500px] rounded-[13px] overflow-hidden ml-40 mt-36 bg-white border border-[#686868CF] shadow-[0px_8px_8px_rgba(0,0,0,0.5)]">
     <div class="absolute ml-6 mt-4">
         <div class="grid grid-flow-col gap-[700px]">
-            <h5 class="text-3xl font-bold tracking-tight text-gray-900 ">Stock Non Curah</h5>
+            <h5 class="text-3xl font-bold tracking-tight text-gray-900 ">Stock Curah</h5>
             <div class="grid grid-flow-col">
-
-                <button id="orderStats" data-dropdown-toggle="orderStatsTrigger">
+                <button data-modal-target="defaultModal" data-modal-toggle="defaultModal">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="w-8 h-8">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -961,12 +960,11 @@
         <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
             <thead class="text-xs text-gray-700 bg-white dark:bg-gray-700 dark:text-gray-400">
                 <tr>
-
-                    <th scope="col" class="px-6 py-3 font-thin">
-                        PRODUCT NAME
-                    </th>
                     <th scope="col" class="px-6 py-3 font-thin">
                         PRODUCT NUMBER
+                    </th>
+                    <th scope="col" class="px-6 py-3 font-thin">
+                        PRODUCT NAME
                     </th>
                     <th scope="col" class="px-6 py-3 font-thin">
                         SATUAN
@@ -1014,11 +1012,8 @@
                         {{ "Rp " . number_format($pc->price ,2,',','.') }}
                     </td>
                     <td>
-                        <button data-modal-target="authentication-modal-dcurah-{{ $pc->id }}"
-                            data-modal-toggle="authentication-modal-dcurah-{{ $pc->id }}">
-
-                            <button data-modal-target="defaultModal-curah{{ $pc->id }}"
-                                data-modal-toggle="defaultModal-curah{{ $pc->id }}">
+                        <a href="{{ route('curah.edit', ['curah' => $pc->id ]) }}">
+                            <button>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round">
@@ -1026,24 +1021,23 @@
                                     <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
                                 </svg>
                             </button>
-                            <form action="{{ route('curah.destroy', ['curah' => $pc->id]) }}" method="post"
-                                class='inline'>
-                                <button onclick="return confirm('Are you sure?')">
-                                    @csrf
-                                    @method('delete')
-                                    <svg xmlns=" http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <path d="M20 5H9l-7 7 7 7h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2Z"></path>
-                                        <line x1="18" y1="9" x2="12" y2="15"></line>
-                                        <line x1="12" y1="9" x2="18" y2="15"></line>
-                                    </svg>
-                                </button>
-                            </form>
+                        </a>
+                        <form action="{{ route('curah.destroy', ['curah' => $pc->id]) }}" method="post" class='inline'>
+                            <button onclick="return confirm('Are you sure?')">
+                                @csrf
+                                @method('delete')
+                                <svg xmlns=" http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M20 5H9l-7 7 7 7h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2Z"></path>
+                                    <line x1="18" y1="9" x2="12" y2="15"></line>
+                                    <line x1="12" y1="9" x2="18" y2="15"></line>
+                                </svg>
+                            </button>
+                        </form>
                     </td>
                 </tr>
                 @endforeach
-
             </tbody>
         </table>
 
@@ -1119,16 +1113,18 @@
         </div>
         <div class="grid grid-flow-col">
             <div>
-                <button data-modal-target="defaultModal-bp" data-modal-toggle="defaultModal-bp"
-                    class="text-white bg-[#22DB66] font-medium rounded-[22px] text-[13px] px-3 py-2.5 inline-flex items-center">
-                    <div class="px-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-                        </svg>
-                    </div>
-                    Add Barang Pendukung
-                </button>
+                <a href="{{ route('barang_pendukung.create') }}">
+                    <button
+                        class="text-white bg-[#22DB66] font-medium rounded-[22px] text-[13px] px-3 py-2.5 inline-flex items-center">
+                        <div class="px-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                            </svg>
+                        </div>
+                        Add Barang Pendukung
+                    </button>
+                </a>
             </div>
         </div>
     </div>
@@ -1183,36 +1179,26 @@
             <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
-                        <th scope="col" class="p-4">
-                            <div class="flex items-center">
-                                <input id="checkbox-all" type="checkbox"
-                                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                <label for="checkbox-all" class="sr-only">checkbox</label>
-                            </div>
+                        <th scope="col" class="px-6 py-3 font-thin">
+                            PRODUCT NUMBER
                         </th>
-                        <th scope="col" class="px-6 py-3">
-                            Product Code
+                        <th scope="col" class="px-6 py-3 font-thin">
+                            PRODUCT NAME
                         </th>
-                        <th scope="col" class="px-6 py-3">
-                            Product Name
+                        <th scope="col" class="px-6 py-3 font-thin">
+                            SATUAN
                         </th>
-                        <th scope="col" class="px-6 py-3">
-                            Size
+                        <th scope="col" class="px-6 py-3 font-thin">
+                            AMOUNT
                         </th>
-                        <th scope="col" class="px-6 py-3">
-                            In
+                        <th scope="col" class="px-6 py-3 p-7 font-thin">
+                            STOCK AKHIR
                         </th>
-                        <th scope="col" class="px-6 py-3">
-                            Out
+                        <th scope="col" class="px-6 py-3 font-thin">
+                            PRICE
                         </th>
-                        <th scope="col" class="px-6 py-3">
-                            Approved By
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            Date In
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            Date Out
+                        <th scope="col" class="px-6 py-3 font-thin">
+                            ACTION
                         </th>
                     </tr>
                 </thead>
@@ -1220,13 +1206,6 @@
                 <tbody>
                     <tr
                         class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                        <td class="w-4 p-4">
-                            <div class="flex items-center">
-                                <input id="checkbox-table-1" type="checkbox"
-                                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                <label for="checkbox-table-1" class="sr-only">checkbox</label>
-                            </div>
-                        </td>
                         <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             {{ $barangPendukung->kode_barang }}
                         </th>
@@ -1240,16 +1219,38 @@
                             {{ $barangPendukung->stock }}
                         </td>
                         <td class="px-6 py-4">
-
+                            {{ $barangPendukung->stock }}
                         </td>
                         <td class="px-6 py-4">
-
+                            {{ "Rp " . number_format($barangPendukung->price ,2,',','.') }}
                         </td>
                         <td class="px-6 py-4">
-                            {{ $barangPendukung->created_at }}
-                        </td>
-                        <td class="px-6 py-4">
-
+                            <a
+                                href="{{ route('barang_pendukung.edit', ['barang_pendukung' => $barangPendukung->id ]) }}">
+                                <button>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M12 20h9"></path>
+                                        <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+                                    </svg>
+                                </button>
+                            </a>
+                            <form
+                                action="{{ route('barang_pendukung.destroy', ['barang_pendukung' => $barangPendukung->id]) }}"
+                                method="post" class='inline'>
+                                <button onclick="return confirm('Are you sure?')">
+                                    @csrf
+                                    @method('delete')
+                                    <svg xmlns=" http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M20 5H9l-7 7 7 7h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2Z"></path>
+                                        <line x1="18" y1="9" x2="12" y2="15"></line>
+                                        <line x1="12" y1="9" x2="18" y2="15"></line>
+                                    </svg>
+                                </button>
+                            </form>
                         </td>
                     </tr>
                 </tbody>
@@ -1510,307 +1511,7 @@
     @endforeach
 </div>
 
-<!-- Add new Barang Pedukung-->
-<div id="defaultModal-bp" tabindex="-1" aria-hidden="true"
-    class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] md:h-full">
-    <div class="relative w-full h-full max-w-2xl md:h-auto">
-        <!-- Modal content -->
-        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-            <!-- Modal header -->
-            <div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
-                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                    Add New Barang Pendukung
-                </h3>
-                <button type="button"
-                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                    data-modal-hide="defaultModal-bp">
-                    <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd"
-                            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                            clip-rule="evenodd"></path>
-                    </svg>
-                    <span class="sr-only">Close modal</span>
-                </button>
-            </div>
-            <!-- Modal body -->
-            <div class="px-6 py-6 lg:px-8">
-                <form class="space-y-6" action="{{ route('barang_pendukung.store') }}" method="POST">
-                    @csrf
-                    <div>
-                        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Kode
-                            Barang</label>
-                        <input type="text" name="kode_barang"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                            required>
-                    </div>
-                    <div>
-                        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama
-                            Barang</label>
-                        <input type="text" name="nama_barang"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                            required>
-                    </div>
-                    <div>
-                        <label for="email"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Size</label>
-                        <input type="text" name="size"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                            required>
-                    </div>
-                    <div>
-                        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                            Stock</label>
-                        <input type="number" name="stock"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                            required>
-                    </div>
-                    <div>
-                        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Harga
-                            Kulak</label>
-                        <input type="number" name="entry_price"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                            required>
-                    </div>
-                    <div>
-                        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Harga
-                            Jual</label>
-                        <input type="number" name="price"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                            required>
-                    </div>
-
-                    <button type="submit">Submit</button>
-                </form>
-            </div>
-
-        </div>
-    </div>
-</div>
-
-<!-- Add new Barang Curah-->
-<div id="defaultModal-curah" tabindex="-1" aria-hidden="true"
-    class="fixed top-0 left-0 right-0 z-50 hidden w-full my-[53px] p-4 overflow-x-hidden overflow-y-hidden md:inset-0 h-[calc(100%-1rem)] md:h-full">
-    <div class="relative p-4 w-full max-w-2xl h-full md:h-auto">
-        <!-- Modal content -->
-        <div class="relative p-4 bg-white rounded-lg shadow dark:bg-gray-800 sm:p-5">
-            <!-- Modal header -->
-            <div class="flex justify-between items-center pb-4 mb-4 rounded-t border-b sm:mb-5 dark:border-gray-600">
-                <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
-                    Add New Barang Curah
-                </h3>
-                <button type="button"
-                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                    data-modal-toggle="defaultModal-curah">
-                    <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd"
-                            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                            clip-rule="evenodd"></path>
-                    </svg>
-                    <span class="sr-only">Close modal</span>
-                </button>
-            </div>
-            <!-- Modal body -->
-            <form action="{{ route('curah.store') }}" method="POST">
-                @csrf
-                <div class="grid gap-4 mb-4 sm:grid-cols-2">
-                    <div>
-                        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Kode
-                            Barang</label>
-                        <input type="text" name="kode_barang"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                            required>
-                    </div>
-                    <div>
-                        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama
-                            Barang</label>
-                        <input type="text" name="nama_barang"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                            required>
-                    </div>
-                    <div>
-                        <label for="email"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Size</label>
-                        <input type="text" name="size"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                            required>
-                    </div>
-                    <div>
-                        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                            Stock</label>
-                        <input type="number" name="stock"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                            required>
-                    </div>
-                    <div>
-                        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                            Min Stock</label>
-                        <input type="number" name="min_ammount"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                            required>
-                    </div>
-                    <div>
-                        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                            Stock Akhir</label>
-                        <input type="number" name="stock_akhir"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                            required>
-                    </div>
-                    <div>
-                        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Harga
-                            Kulak</label>
-                        <input type="number" name="entry_price"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                            required>
-                    </div>
-                    <div>
-                        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Harga
-                            Jual</label>
-                        <input type="number" name="price"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                            required>
-                    </div>
-                </div>
-                <button
-                    class="w-[25%] mt-2.5 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
-                    type="submit">Submit</button>
-            </form>
-        </div>
-    </div>
-</div>
-
-<!-- Curah Detail Modal -->
-@foreach($produkCurah2 as $pc2)
-<div id="authentication-modal-dcurah-{{ $pc2->id }}" tabindex="-1" aria-hidden="true"
-    class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] md:h-full">
-    <div class="relative w-full h-full max-w-md md:h-auto">
-        <!-- Modal content -->
-        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-            <!-- Modal header -->
-            <div class="flex items-start justify-between ml-3 p-4 border-b rounded-t dark:border-gray-600">
-                <h3 class="text-xl font-bold text-gray-900 dark:text-white">
-                    {{$pc2->nama_barang}} Detail
-                </h3>
-            </div>
-            <!-- Modal body -->
-            <div class="ml-2 p-6 space-y-10 ">
-                <ul>
-                    <li> Kode Barang : {{ $pc2->nama_barang }}</li>
-                    <li>Nama Barang : {{ $pc2->size }}</li>
-                    <li>Size : {{ $pc2->size }}</li>
-                    <li>Stok : {{ $pc2->stock }}</li>
-                    <li>Min Ammount : {{ $pc2->min_ammount }}</li>
-                    <li>Stok Akhir : {{ $pc2->stock_akhir }}</li>
-                    <li>Harga Beli : {{ $pc2->entry_price }}</li>
-                    <li>Harga Jual : {{ $pc2->price }}</li>
-                    <li>Tanggal Barang Masuk : {{ date('d-m-Y', strtotime($pc2->created_at)) }}</li>
-                    <li>Tanggal Barang Update : {{ date('d-m-Y', strtotime($pc2->updated_at)) }}</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-@endforeach
-
-<!-- Edit Barang Curah-->
-@foreach($produkCurah3 as $pc3)
-<div id="defaultModal-curah{{ $pc3->id }}" tabindex="-1" aria-hidden="true"
-    class="fixed top-0 left-0 right-0 z-50 hidden w-full my-[53px] p-4 overflow-x-hidden overflow-y-hidden md:inset-0 h-[calc(100%-1rem)] md:h-full">
-    <div class="relative p-4 w-full max-w-2xl h-full md:h-auto">
-        <!-- Modal content -->
-        <div class="relative p-4 bg-white rounded-lg shadow dark:bg-gray-800 sm:p-5">
-            <!-- Modal header -->
-            <div class="flex justify-between items-center pb-4 mb-4 rounded-t border-b sm:mb-5 dark:border-gray-600">
-                <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
-                    Edit {{ $pc3->nama_barang }}
-                </h3>
-                <button type="button"
-                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                    data-modal-toggle="defaultModal-curah{{ $pc3->id }}">
-                    <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd"
-                            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                            clip-rule="evenodd"></path>
-                    </svg>
-                    <span class="sr-only">Close modal</span>
-                </button>
-            </div>
-            <!-- Modal body -->
-            <form action="{{ route('barang_pendukung.update', ['barang_pendukung' => $pc3->id]) }}" method="POST">
-                @csrf
-                @method('PUT')
-                <div class="grid gap-4 mb-4 sm:grid-cols-2">
-                    <div>
-                        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Kode
-                            Barang</label>
-                        <input type="text" name="kode_barang"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                            value='{{ $pc3->kode_barang }}'>
-                    </div>
-                    <div>
-                        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama
-                            Barang</label>
-                        <input type="text" name="nama_barang"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                            value='{{ $pc3->nama_barang }} '>
-                    </div>
-                    <div>
-                        <label for="email"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Size</label>
-                        <input type="text" name="size"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                            value='{{ $pc3->size }}'>
-                    </div>
-                    <div>
-                        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                            Stock</label>
-                        <input type="number" name="stock"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                            value='{{ $pc3->stock }}'>
-                    </div>
-                    <div>
-                        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                            Min Stock</label>
-                        <input type="number" name="min_ammount"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                            value='{{ $pc3->min_ammount }}'>
-                    </div>
-                    <div>
-                        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                            Stock Akhir</label>
-                        <input type="number" name="stock_akhir"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                            value='{{ $pc3->stock_akhir }}'>
-                    </div>
-                    <div>
-                        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Harga
-                            Kulak</label>
-                        <input type="number" name="entry_price"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                            value="{{  $pc3->entry_price }}">
-                    </div>
-                    <div>
-                        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Harga
-                            Jual</label>
-                        <input type="number" name="price"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                            value='{{ $pc3->price }}'>
-                    </div>
-                </div>
-                <button
-                    class="w-[25%] mt-2.5 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
-                    type="submit">Submit</button>
-            </form>
-        </div>
-    </div>
-</div>
-@endforeach
-
-
 <script src="{{ $bestSeller->cdn() }}"></script>
 
 {{ $bestSeller->script() }}
-@vite(['resources/css/app.css','resources/js/app.js'])
 @endsection

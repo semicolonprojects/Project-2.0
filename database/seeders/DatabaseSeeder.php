@@ -6,6 +6,7 @@ namespace Database\Seeders;
 
 use App\Models\BarangPendukung;
 use App\Models\Channel;
+use App\Models\Customer;
 use App\Models\Cuti;
 use App\Models\DataSupplier;
 use App\Models\Izin;
@@ -116,6 +117,16 @@ class DatabaseSeeder extends Seeder
         Channel::factory()->create([
             'nama_channel' => 'Tokopedia',
             'target_bulanan' => 5000000,
+        ]);
+
+        Customer::factory()->create([
+            'customer_id' => '14045',
+            'nama_lengkap' => 'Adi',
+            'alamat' => 'Malang',
+            'no_telepon' => '081234567890',
+            'email' => 'adi@email.com',
+            'tempat' => 'Malang',
+            'tanggal_lahir' => '2023-05-08'
         ]);
     }
 }

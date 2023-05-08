@@ -78,4 +78,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(TargetKaryawan::class);
     }
+
+    public function order()
+    {
+        return $this->hasMany(Order::class);
+    }
 }

@@ -24,4 +24,9 @@ class ProdukJadi extends Model
     {
         return $this->hasMany(InOut::class);
     }
+
+    public function order()
+    {
+        return $this->hasMany(Order::class);
+    }
 }

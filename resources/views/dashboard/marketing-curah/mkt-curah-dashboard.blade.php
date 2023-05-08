@@ -71,7 +71,7 @@
             </div>
         </div>
         <div>
-            <div id="{!! $revenueKonsinyasi->container() !!}" width="1028px" height="283px"></div>
+            <div id="" width="1028px" height="283px"></div>
         </div>
     </div>
 </div>
@@ -210,7 +210,7 @@
             </div>
         </div>
         <div>
-            <div id="{!! $salesAnalytics->container() !!}" width="1028px" height="283px"></div>
+            <div id="" width="1028px" height="283px"></div>
         </div>
     </div>
 </div>
@@ -330,7 +330,7 @@
                 <h5 class="text-2xl font-bold tracking-tight text-gray-900">Daily Order Stats</h5>
                 <div class="mt-20 mr-16 absolute">
                     <div>
-                        <div id="{!! $dailyOrderStats->container() !!}" width=" 350px" height="200px"></div>
+                        <div id="" width=" 350px" height="200px"></div>
                     </div>
                 </div>
             </div>
@@ -338,7 +338,7 @@
             <div class="inline-flex absolute mt-3 ml-[507px]">
                 <h5 class="absolute text-2xl font-bold tracking-tight text-gray-900">Daily Target Stats</h5>
                 <div class="mb-7 w-96">
-                    <div class='py-10' id="{!! $dailyTargetStats->container() !!}" width="280px">
+                    <div class='py-10' id="" width="280px">
                     </div>
                 </div>
             </div>
@@ -498,16 +498,6 @@
             </div>
         </div>
     </div>
-
-
-    <script src="{{ $userActivity->cdn() }}"></script>
-
-    {{ $userActivity->script() }}
-    {{ $salesAnalytics->script() }}
-    {{ $dailyOrderStats->script() }}
-    {{ $dailyTargetStats->script() }}
-    {{ $saleThisMonth->script() }}
-    {{ $revenueKonsinyasi->script() }}
 
     @vite(['resources/css/app.css','resources/js/app.js'])
 
