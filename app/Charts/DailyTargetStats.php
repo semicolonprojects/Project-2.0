@@ -3,6 +3,10 @@
 namespace App\Charts;
 
 use ArielMejiaDev\LarapexCharts\LarapexChart;
+use App\Models\TargetKaryawan;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Date;
+use Illuminate\Support\Facades\DB;
 
 class DailyTargetStats
 {
@@ -15,8 +19,12 @@ class DailyTargetStats
 
     public function build(): \ArielMejiaDev\LarapexCharts\DonutChart
     {
-        return $this->dailyTargetStats->donutChart()
-            ->addData([20, 24])
+        $auth = Auth::user()->id;
+        $target=TargetKaryawan::select('target', DB::raw('target * 1 / 100 AS total_target'))
+        ->where('target_karyawans.user_id','=', $auth)
+        ->get();
+            return $this->dailyTargetStats->donutChart()
+            ->addData([$target->pluck('total_target'), 24])
             ->setLabels(['Daily Target', 'Actual Sales'])
             ->setColors(['#F94144', '#F3722C'])
             ->setWidth(428)
