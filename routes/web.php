@@ -22,6 +22,7 @@ use App\Http\Controllers\ProdukJadiController;
 use App\Http\Controllers\ProdukCurahController;
 use App\Http\Controllers\SuperAdminController;
 use App\Http\Controllers\DataSupplierController;
+use App\Http\Controllers\FinanceInvoiceController;
 use App\Http\Controllers\SupplierCurahController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TargetKaryawanController;
@@ -74,6 +75,8 @@ Route::resource('customer', CustomerController::class);
 Route::resource('targetKaryawan', TargetKaryawanController::class);
 
 Route::resource('order', OrderController::class);
+
+Route::resource('invoice', FinanceInvoiceController::class);
 
 Route::get('/logout', [LoginController::class, 'logout']);
 
