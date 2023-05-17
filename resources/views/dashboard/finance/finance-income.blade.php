@@ -2,18 +2,23 @@
 
 @section('mainContent')
 
-<div class="ml-28 mt-10">
-    <div class="py-5 sm:ml-[422px] md: lg:ml-[670px] xl:ml-[928px] 2xl:ml-[928px]">
-        <button type="button"
-            class="text-white bg-[#22DB66] font-medium rounded-[22px] text-[13px] px-3 py-2.5 inline-flex items-center">
-            <div class="px-2">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                    stroke="currentColor" class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-                </svg>
-            </div>
-            Add New Outcome
-        </button>
+<div class="ml-16 mt-10">
+    <div class="grid grid-flow-col gap-7 py-10">
+        <div class="ml-10 grid grid-flow-row">
+            <h1 class="font-bold text-4xl text-black">Income</h1>
+        </div>
+        <div class="grid-flow-row sm:ml-[322px] lg:ml-[670px] xl:ml-[750px] 2xl:ml-[928px]">
+            <button type="button"
+                class="text-white bg-[#22DB66] font-medium rounded-[22px] text-[13px] px-5 py-2.5 inline-flex items-center">
+                <div class="px-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                    </svg>
+                </div>
+                Add New Income
+            </button>
+        </div>
     </div>
     <div class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-10">
         <!--Card 1-->
@@ -63,5 +68,6 @@
     </div>
 </div>
 </div>
+
 
 @endsection
