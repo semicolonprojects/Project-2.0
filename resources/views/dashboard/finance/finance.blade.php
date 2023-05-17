@@ -154,7 +154,6 @@
 
             </ul>
         </div>
-
         <thead class=" text-xs text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
                 <th scope="col" class="px-6 py-3">
@@ -180,11 +179,9 @@
                 <th scope="col" class="px-6 py-3">
                     AMOUNT
                 </th>
-
-
-
             </tr>
         </thead>
+        @foreach ($order as $order)
         <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700" data-accordion-target="#accordion-color-1">
             <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                 <div class="inline-block items-center p-1">
@@ -192,22 +189,19 @@
                         class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                     <label for="checkbox-all" class="sr-only">checkbox</label>
                 </div>
-                xxx/xxx/xxx/xxx/x
+                INV/{{ date ('d') }}/{{ $order->id }}/{{ $order->tipe_pesanan }}/{{ date('m') }}/{{ date('Y')}}
             </th>
             <td class="mt-2 px-4 align-center">
-                #SRMK14045
-
+                #{{ $order->order_id }}
             </td>
             <td class="mt-2 px-4 align-center">
-                Samid
-                <p>user@email.com</p>
-
+                {{ $order->customer->nama_lengkap }}
+                <p>{{ $order->customer->email }}</p>
             </td>
             <td class="px-6 py-4">
-                Jl.Bengkulu
+                {{ $order->customer->alamat }}
             </td>
             <td class="mt-2 px-4 align-center">
-
                 <button type="button"
                     class="min-w-fit text-green-600/80 border border-green-500 bg-white hover:bg-green-300/80 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-xs px-1 py-0.5 text-center inline-flex items-center  dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mr-2 mb-2">
                     <div class="ml-1 ">
@@ -217,195 +211,25 @@
                         </svg>
                     </div>
                     <div class="px-1">
-                        <p>Paid</p>
+                        <p>{{ $order->status_pembayaran }}</p>
                     </div>
                 </button>
-                <p>Paid on 15/APR/2015</p>
+                <p>{{ $order->status_pembayaran }} on {{ date('d-m-Y', strtotime($order->updated_at)) }}</p>
             </td>
             <td class="mt-2 px-6 align-center grid grid-flow-col">
-                <p>500.000</p>
-                <button class="ml-24">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M11.082 8.98694C12.3808 8.98694 13.4198 10.0513 13.4198 11.3818C13.4198 12.7123 12.3808 13.7767 11.082 13.7767C9.78318 13.7767 8.74414 12.7123 8.74414 11.3818C8.74414 10.0513 9.78318 8.98694 11.082 8.98694ZM8.74414 2.86675C8.74414 4.19723 9.78318 5.26161 11.082 5.26161C12.3808 5.26161 13.4198 4.19723 13.4198 2.86675C13.4198 1.53627 12.3808 0.471893 11.082 0.471893C9.78318 0.471893 8.74414 1.53627 8.74414 2.86675ZM8.74414 19.8968C8.74414 21.2273 9.78318 22.2917 11.082 22.2917C12.3808 22.2917 13.4198 21.2273 13.4198 19.8968C13.4198 18.5664 12.3808 17.502 11.082 17.502C9.78318 17.502 8.74414 18.5664 8.74414 19.8968Z"
-                            fill="currentColor" />
-                    </svg>
-
-                </button>
-
-            </td>
-
-
-
-
-
-            {{-- <td>
-                <button>
-                    <svg class="ml-24" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M11.082 8.98694C12.3808 8.98694 13.4198 10.0513 13.4198 11.3818C13.4198 12.7123 12.3808 13.7767 11.082 13.7767C9.78318 13.7767 8.74414 12.7123 8.74414 11.3818C8.74414 10.0513 9.78318 8.98694 11.082 8.98694ZM8.74414 2.86675C8.74414 4.19723 9.78318 5.26161 11.082 5.26161C12.3808 5.26161 13.4198 4.19723 13.4198 2.86675C13.4198 1.53627 12.3808 0.471893 11.082 0.471893C9.78318 0.471893 8.74414 1.53627 8.74414 2.86675ZM8.74414 19.8968C8.74414 21.2273 9.78318 22.2917 11.082 22.2917C12.3808 22.2917 13.4198 21.2273 13.4198 19.8968C13.4198 18.5664 12.3808 17.502 11.082 17.502C9.78318 17.502 8.74414 18.5664 8.74414 19.8968Z"
-                            fill="currentColor" />
-                    </svg>
-
-                </button>
-
-            </td> --}}
-
-        </tr>
-
-        {{-- accordion --}}
-        <td class="inline-table">
-            <div id="accordion-color-1" class="hidden">
-                <table
-                    class="w-[1070px]  table-fixed text-sm text-left border border-t-0 text-gray-500 dark:text-gray-400">
-                    <thead>
-                        <tr>
-                            <th scope="col" class="px-6 py-3 border-b">
-                                <p>Date</p>
-                            </th>
-                            <th scope="col" class="px-6 py-3 border-b">
-                                <p>Payment Type</p>
-                            </th>
-                            <th scope="col" class="px-6 py-3 border-b">
-                                <p>Detail</p>
-                            </th>
-
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <td scope="col" class="px-6 py-3 border-b">
-                            <p>10.02.2022/18:38</p>
-                        </td>
-                        <td scope="col" class="px-6 py-3 border-b">
-                            lorem ipsum DP lorem ipsum tanggal pelunasan
-                        </td>
-                        <td scope="col" class="px-6 py-3 border-b">
-                            <p>10.02.2022/18:38</p>
-                        </td>
-
-                    </tbody>
-                    <tbody>
-                        <td scope="col" class="px-6 py-3 border-b">
-                            <p>10.02.2022/18:38</p>
-                        </td>
-                        <td scope="col" class="px-6 py-3 border-b">
-                            lorem ipsum DP lorem ipsum tanggal pelunasan
-                        </td>
-                        <td scope="col" class="px-6 py-3 border-b">
-                            <p>10.02.2022/18:38</p>
-                        </td>
-
-                    </tbody>
-                </table>
-            </div>
-        </td>
-
-        {{-- table 2 --}}
-        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700" data-accordion-target="#accordion-color-2">
-            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                <div class="inline-block items-center p-1">
-                    <input id="checkbox-all" type="checkbox"
-                        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                    <label for="checkbox-all" class="sr-only">checkbox</label>
-                </div>
-                xxx/xxx/xxx/xxx/x
-            </th>
-            <td class="mt-2 px-4 align-center">
-                #SRMK14045
-
-            </td>
-            <td class="mt-2 px-4 align-center">
-                Samid
-                <p>user@email.com</p>
-
-            </td>
-            <td class="px-6 py-4">
-                Jl.Bengkulu
-            </td>
-            <td class="mt-2 px-4 align-center">
-
-                <button type="button"
-                    class="min-w-fit text-green-600/80 border border-green-500 bg-white hover:bg-green-300/80 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-xs px-1 py-0.5 text-center inline-flex items-center  dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mr-2 mb-2">
-                    <div class="ml-1 ">
-                        <svg class=width="7" height="7" viewBox="0 0 7 7" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <ellipse cx="3.54641" cy="3.65386" rx="3.27297" ry="3.27297" fill="#007F00" />
+                <p>{{ 'Rp ' . number_format($order->total_pembelian, 0, ',', '.') }}</p>
+                <a href="{{ route('invoice.show', ['invoice'=>$order->order_id]) }}">
+                    <button class="ml-24">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M11.082 8.98694C12.3808 8.98694 13.4198 10.0513 13.4198 11.3818C13.4198 12.7123 12.3808 13.7767 11.082 13.7767C9.78318 13.7767 8.74414 12.7123 8.74414 11.3818C8.74414 10.0513 9.78318 8.98694 11.082 8.98694ZM8.74414 2.86675C8.74414 4.19723 9.78318 5.26161 11.082 5.26161C12.3808 5.26161 13.4198 4.19723 13.4198 2.86675C13.4198 1.53627 12.3808 0.471893 11.082 0.471893C9.78318 0.471893 8.74414 1.53627 8.74414 2.86675ZM8.74414 19.8968C8.74414 21.2273 9.78318 22.2917 11.082 22.2917C12.3808 22.2917 13.4198 21.2273 13.4198 19.8968C13.4198 18.5664 12.3808 17.502 11.082 17.502C9.78318 17.502 8.74414 18.5664 8.74414 19.8968Z"
+                                fill="currentColor" />
                         </svg>
-                    </div>
-                    <div class="px-1">
-                        <p>Paid</p>
-                    </div>
-                </button>
-                <p>Paid on 15/APR/2015</p>
+                    </button>
+                </a>
             </td>
-            <td class="mt-2 px-6 align-center grid grid-flow-col">
-                <p>500.000</p>
-                <button class="ml-24">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M11.082 8.98694C12.3808 8.98694 13.4198 10.0513 13.4198 11.3818C13.4198 12.7123 12.3808 13.7767 11.082 13.7767C9.78318 13.7767 8.74414 12.7123 8.74414 11.3818C8.74414 10.0513 9.78318 8.98694 11.082 8.98694ZM8.74414 2.86675C8.74414 4.19723 9.78318 5.26161 11.082 5.26161C12.3808 5.26161 13.4198 4.19723 13.4198 2.86675C13.4198 1.53627 12.3808 0.471893 11.082 0.471893C9.78318 0.471893 8.74414 1.53627 8.74414 2.86675ZM8.74414 19.8968C8.74414 21.2273 9.78318 22.2917 11.082 22.2917C12.3808 22.2917 13.4198 21.2273 13.4198 19.8968C13.4198 18.5664 12.3808 17.502 11.082 17.502C9.78318 17.502 8.74414 18.5664 8.74414 19.8968Z"
-                            fill="currentColor" />
-                    </svg>
-
-                </button>
-
-            </td>
-
-
-
-
-
-
         </tr>
-
-        {{-- accordion --}}
-        <td class="inline-table">
-            <div id="accordion-color-2" class="hidden">
-                <table
-                    class="w-[1070px]  table-fixed text-sm text-left border border-t-0 text-gray-500 dark:text-gray-400">
-                    <thead>
-                        <tr>
-                            <th scope="col" class="px-6 py-3 border-b">
-                                <p>Date</p>
-                            </th>
-                            <th scope="col" class="px-6 py-3 border-b">
-                                <p>Payment Type</p>
-                            </th>
-                            <th scope="col" class="px-6 py-3 border-b">
-                                <p>Detail</p>
-                            </th>
-
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <td scope="col" class="px-6 py-3 border-b">
-                            <p>10.02.2022/18:38</p>
-                        </td>
-                        <td scope="col" class="px-6 py-3 border-b">
-                            lorem ipsum DP lorem ipsum tanggal pelunasan
-                        </td>
-                        <td scope="col" class="px-6 py-3 border-b">
-                            <p>10.02.2022/18:38</p>
-                        </td>
-
-                    </tbody>
-                    <tbody>
-                        <td scope="col" class="px-6 py-3 border-b">
-                            <p>10.02.2022/18:38</p>
-                        </td>
-                        <td scope="col" class="px-6 py-3 border-b">
-                            lorem ipsum DP lorem ipsum tanggal pelunasan
-                        </td>
-                        <td scope="col" class="px-6 py-3 border-b">
-                            <p>10.02.2022/18:38</p>
-                        </td>
-
-                    </tbody>
-                </table>
-            </div>
-        </td>
-
+        @endforeach
     </table>
     <div class="flex justify-center mr-32 py-5">
         <nav aria-label="Page navigation example">
