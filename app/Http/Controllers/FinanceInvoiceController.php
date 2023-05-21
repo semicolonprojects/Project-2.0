@@ -4,7 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Order;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use LaravelDaily\Invoices\Classes\Buyer;
+use LaravelDaily\Invoices\Classes\InvoiceItem;
+use LaravelDaily\Invoices\Facades\Invoice;
 
 class FinanceInvoiceController extends Controller
 {
@@ -84,5 +88,44 @@ class FinanceInvoiceController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function generate($id)
+    {
+        $orders = Order::where('order_id', $id)->get();
+        $order = Order::where('order_id', $id)->first();
+        $diskon = $order->diskon;
+        $now = Carbon::now();
+        $year = $now->year;
+        $id = $order->order_id;
+        $serialNumber = sprintf('INV/%03d/' . $order->tipe_pesanan . '/%d', $id, $year);
+        $customer = new Buyer([
+            'name'          => $order->customer->nama_lengkap,
+            'custom_fields' => [
+                'email' => $order->customer->email,
+                'address' => $order->customer->alamat,
+            ],
+        ]);
+
+        $items = [];
+
+        foreach ($orders as $order) {
+            $invoiceItem = (new InvoiceItem())->title($order->produk->nama_barang)
+                ->pricePerUnit($order->produk->price)
+                ->quantity($order->total_order)
+                ->subTotalPrice($order->produk->price * $order->total_order);
+            $items[] = $invoiceItem;
+        }
+
+        $invoice = Invoice::make()
+            ->buyer($customer)
+            ->discountByPercent($diskon)
+            ->shipping($order->ongkir)
+            ->status($order->status_barang)
+            ->addItems($items)
+            ->serialNumberFormat($serialNumber)
+            ->currencyCode('IDR');
+
+        return $invoice->download();
     }
 }

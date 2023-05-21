@@ -164,6 +164,8 @@ Route::get('/finance/outcome-e', function () {
     return view('dashboard.finance.finance-outcome-e');
 })->middleware('finance', 'auth');
 
+Route::get('/invoice/download/{id}', [FinanceInvoiceController::class, 'generate'])->name('invoice.download');
+
 Route::get('/sidebar', function () {
     return view('sidebar');
 });
