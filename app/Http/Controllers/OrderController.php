@@ -59,6 +59,7 @@ class OrderController extends Controller
             $order->total_order = $request->total_order[$key];
             $order->diskon = $request->diskon;
             $order->status_pembayaran = $request->status_pembayaran;
+            $order->tipe_pembayaran = $request->tipe_pembayaran;
             $order->tipe_pesanan = $request->tipe_pesanan;
             $order->total_pembelian = $request->total_pembelian;
             $order->ongkir = $request->ongkir;
@@ -114,6 +115,7 @@ class OrderController extends Controller
         $order->total_order = $request->input('total_order');
         $order->total_pembelian = $request->input('total_pembelian');
         $order->tipe_pesanan = $request->input('tipe_pesanan');
+        $order->tipe_pembayaran = $request->input('tipe_pembayaran');
         $order->status_pembayaran = $request->input('status_pembayaran');
         $order->status_barang = $request->input('status_barang');
         $order->diskon = $request->input('diskon');

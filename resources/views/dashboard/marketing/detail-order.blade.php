@@ -13,6 +13,7 @@
             <th class="px-10 py-5">Total Order</th>
             <th class="px-10 py-5">Total Pembelian</th>
             <th class="px-10 py-5">Tipe Pesanan</th>
+            <th class="px-10 py-5">Tipe Pembayaran</th>
             <th class="px-10 py-5">Status Pembayaran</th>
             <th class="px-10 py-5">Status Barang</th>
             <th class="px-10 py-5">Ongkir</th>
@@ -25,6 +26,7 @@
             <td class="px-6">{{ $produk->total_order }}</td>
             <td class="px-6">{{ 'Rp ' . number_format($produk->total_pembelian, 0, ',', '.') }}</td>
             <td class="px-6">{{ $produk->tipe_pesanan }}</td>
+            <td class="px-6">{{ $produk->tipe_pembayaran }}</td>
             <td class="px-6">{{ $produk->status_pembayaran }}</td>
             <td class="px-6">{{ $produk->status_barang }}</td>
             <td class="px-6">{{ 'Rp ' . number_format($produk->ongkir, 0, ',', '.') }}</td>

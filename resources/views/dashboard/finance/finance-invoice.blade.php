@@ -4,12 +4,10 @@
 <div class="ml-14 mt-10 p-10">
   <div
     class="inline-block p-6 bg-white border border-gray-200 rounded-xl  hover:bg-gray-100 shadow-2xl w-[1153px] h-[791px]">
-    <div class="grid grid-flow-col">
-      <h1 class="ml-44 mb-2 text-2xl font-semibold tracking-tight text-gray-900">INVOICE NUMBER :</h1>
-      <h2 class="mr-48 mb-2 text-2xl font-bold tracking-tight text-gray-900">INV/{{ date ('d') }}/{{ $order_id->id
-        }}/{{ $order_id->tipe_pesanan }}/{{ date('m') }}/{{ date('Y')}}</h2>
-    </div>
-    <div class="ml-[314px]">
+    <div class="ml-72 mb-3">
+        <p class="mb-2 text-2xl font-bold tracking-tight text-gray-900">INVOICE NUMBER : INV/{{ date ('d') }}/{{ $order_id->id }}/{{ $order_id->tipe_pesanan }}/{{ date('m') }}/{{ date('Y')}}</p>
+      </div>
+    <div class="ml-[414px]">
       <p class="text-sm font-semibold tracking-tight text-gray-900">Order Approved By : {{ $order_id->user->username
         }} ({{ date('d M Y', strtotime($order_id->created_at)) }})</p>
     </div>
@@ -59,12 +57,12 @@
         </tr>
         <tr class="border">
           <td colspan="6" class="px-5 py-5">Tanggal Pembayaran</td>
-          <td colspan="6" class="font-bold px-1 py-5 text-[#2E2E2E] ">{{ date('d M Y', strtotime($order_id->updated_at))
+          <td colspan="6" class="font-bold px-1 py-5 text-[#2E2E2E] ">{{ date('d M Y', strtotime($order_id->created_at))
             }}</td>
         </tr>
         <tr class="border">
           <td colspan="6" class="px-5 py-5">Channel Pembayaran</td>
-          <td colspan="6" class="font-bold px-7 py-5 text-[#2E2E2E] ">BRI</td>
+          <td colspan="6" class="font-bold px-7 py-5 text-[#2E2E2E] ">{{ $order_id->tipe_pembayaran }}</td>
         </tr>
         <tr class="border">
           <td colspan="6" class="px-5 py-5">Termin Pembayaran</td>

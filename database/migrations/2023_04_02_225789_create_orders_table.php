@@ -20,6 +20,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->foreignId('kode_barang')->references('id')->on('produk_jadis')->onDelete('cascade');
             $table->string('status_pembayaran');
+            $table->string('tipe_pembayaran');
             $table->string('tipe_pesanan');
             $table->decimal('total_pembelian', 15, 2);
             $table->integer('total_order');

@@ -52,29 +52,29 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('123456')
         ]);
 
-        Masuk::factory()->create([
-            'user_id' => 1,
-            'lat' => '-7.9593472',
-            'long' => '112.6301696'
-        ]);
+        // Masuk::factory()->create([
+        //     'user_id' => 1,
+        //     'lat' => '-7.9593472',
+        //     'long' => '112.6301696'
+        // ]);
 
-        Izin::factory()->create([
-            'user_id' => 1,
-            'keterangan' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus harum recusandae in.',
-        ]);
+        // Izin::factory()->create([
+        //     'user_id' => 1,
+        //     'keterangan' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus harum recusandae in.',
+        // ]);
 
-        Cuti::factory()->create([
-            'user_id' => 1,
-            'keterangan_cuti' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus harum recusandae in.',
-            'mulai_cuti' => '2023-09-21',
-            'akhir_cuti' => '2023-10-21',
-        ]);
+        // Cuti::factory()->create([
+        //     'user_id' => 1,
+        //     'keterangan_cuti' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus harum recusandae in.',
+        //     'mulai_cuti' => '2023-09-21',
+        //     'akhir_cuti' => '2023-10-21',
+        // ]);
 
-        Keluar::factory()->create([
-            'user_id' => 1,
-            'lat' => '-7.9593472',
-            'long' => '112.6301696'
-        ]);
+        // Keluar::factory()->create([
+        //     'user_id' => 1,
+        //     'lat' => '-7.9593472',
+        //     'long' => '112.6301696'
+        // ]);
 
 
         ProdukJadi::factory()->create(

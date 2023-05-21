@@ -106,14 +106,14 @@
                     <div class="px-5">
                         <label for="username" class="block font-semibold text-sm text-gray-800 ">Username</label>
                         <input type="username" name="username" id="username"
-                            class="block w-full px-4 py-2 mt-2 text-sm text-gray-700 bg-white border rounded-md focus:border-primary-600/70 focus:ring-primary-600/70 focus:outline-none focus:ring focus:ring-opacity-40"
+                            class="block w-full px-4 py-2 mt-2 text-sm text-gray-700 bg-white rounded-md  focus:ring-black-600/70 focus:outline-none focus:ring focus:ring-opacity-40"
                             placeholder="Username" required value="{{ old('username') }}">
                     </div>
                     <div class="mt-4 px-5">
                         <div>
                             <label for="password" class="block font-semibold text-sm text-gray-800">Password</label>
                             <input type="password" placeholder="Password" :type="show ? 'password' : 'text'"
-                                class="block w-full px-4 py-2 mt-2 text-sm text-gray-700 bg-white border rounded-md focus:border-primary-600/70 focus:ring-primary-600/70 focus:outline-none focus:ring focus:ring-opacity-40"
+                                class="block w-full px-4 py-2 mt-2 text-sm text-gray-700 bg-white rounded-md  focus:ring-black-600/70 focus:outline-none focus:ring focus:ring-opacity-40"
                                 name="password" id="password" required>
 
                         </div>

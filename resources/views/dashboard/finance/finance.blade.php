@@ -128,20 +128,20 @@
 </div>
 
 {{-- Tabel Invoice --}}
-<div id="accordion-collapse" class="ml-28" data-accordion="open">
-    <table class=" w-[1070px] table-fixed text-sm text-left text-gray-500 dark:text-gray-400 ">
+<div id="accordion-collapse" class="ml-12" data-accordion="open">
+    <table class=" w-[1200px] table-fixed text-sm text-left text-gray-500 dark:text-gray-400 ">
 
         <div
             class="text-sm w-[1070px] font-medium text-center text-gray-500 border-b border-gray-200 dark:text-gray-400 dark:border-gray-700">
             <ul class="flex flex-wrap -mb-px">
                 <li class="mr-2">
                     <a href="#"
-                        class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">All</a>
+                        class="inline-block p-4 text-blue-600 border-b-2 border-blue-600 rounded-t-lg active dark:text-blue-500 dark:border-blue-500" aria-current="page">All</a>
                 </li>
                 <li class="mr-2">
                     <a href="#"
-                        class="inline-block p-4 text-blue-600 border-b-2 border-blue-600 rounded-t-lg active dark:text-blue-500 dark:border-blue-500"
-                        aria-current="page">Paid</a>
+                        class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">
+                        Paid</a>
                 </li>
                 <li class="mr-2">
                     <a href="#"
@@ -191,7 +191,7 @@
                 </div>
                 INV/{{ date ('d') }}/{{ $order->id }}/{{ $order->tipe_pesanan }}/{{ date('m') }}/{{ date('Y')}}
             </th>
-            <td class="mt-2 px-4 align-center">
+            <td class="mt-2 px-10 align-center">
                 #{{ $order->order_id }}
             </td>
             <td class="mt-2 px-4 align-center">
@@ -216,19 +216,35 @@
                 </button>
                 <p>{{ $order->status_pembayaran }} on {{ date('d-m-Y', strtotime($order->updated_at)) }}</p>
             </td>
-            <td class="mt-2 px-6 align-center grid grid-flow-col">
+            <td class="mt-2 px-1 align-center grid grid-flow-col">
                 <p>{{ 'Rp ' . number_format($order->total_pembelian, 0, ',', '.') }}</p>
-                <a href="{{ route('invoice.show', ['invoice'=>$order->order_id]) }}">
-                    <button class="ml-24">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M11.082 8.98694C12.3808 8.98694 13.4198 10.0513 13.4198 11.3818C13.4198 12.7123 12.3808 13.7767 11.082 13.7767C9.78318 13.7767 8.74414 12.7123 8.74414 11.3818C8.74414 10.0513 9.78318 8.98694 11.082 8.98694ZM8.74414 2.86675C8.74414 4.19723 9.78318 5.26161 11.082 5.26161C12.3808 5.26161 13.4198 4.19723 13.4198 2.86675C13.4198 1.53627 12.3808 0.471893 11.082 0.471893C9.78318 0.471893 8.74414 1.53627 8.74414 2.86675ZM8.74414 19.8968C8.74414 21.2273 9.78318 22.2917 11.082 22.2917C12.3808 22.2917 13.4198 21.2273 13.4198 19.8968C13.4198 18.5664 12.3808 17.502 11.082 17.502C9.78318 17.502 8.74414 18.5664 8.74414 19.8968Z"
-                                fill="currentColor" />
-                        </svg>
-                    </button>
-                </a>
+                <div class="mt-1 px-2">
+                            <button class="ml-12" id="invoice" data-dropdown-toggle="invoiceTrigger">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M11.082 8.98694C12.3808 8.98694 13.4198 10.0513 13.4198 11.3818C13.4198 12.7123 12.3808 13.7767 11.082 13.7767C9.78318 13.7767 8.74414 12.7123 8.74414 11.3818C8.74414 10.0513 9.78318 8.98694 11.082 8.98694ZM8.74414 2.86675C8.74414 4.19723 9.78318 5.26161 11.082 5.26161C12.3808 5.26161 13.4198 4.19723 13.4198 2.86675C13.4198 1.53627 12.3808 0.471893 11.082 0.471893C9.78318 0.471893 8.74414 1.53627 8.74414 2.86675ZM8.74414 19.8968C8.74414 21.2273 9.78318 22.2917 11.082 22.2917C12.3808 22.2917 13.4198 21.2273 13.4198 19.8968C13.4198 18.5664 12.3808 17.502 11.082 17.502C9.78318 17.502 8.74414 18.5664 8.74414 19.8968Z"
+                                        fill="currentColor" />
+                                </svg>
+                            </button>
+                </div>
             </td>
         </tr>
+        <div id="invoiceTrigger" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+            <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+              <li>
+                <a href="{{ route('invoice.show', ['invoice'=>$order->order_id]) }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Detail</a>
+              </li>
+              <li>
+                <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
+              </li>
+              <li>
+                <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
+              </li>
+              <li>
+                <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sign out</a>
+              </li>
+            </ul>
+        </div>
         @endforeach
     </table>
     <div class="flex justify-center mr-32 py-5">
