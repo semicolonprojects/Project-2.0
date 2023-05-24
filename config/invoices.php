@@ -99,7 +99,6 @@ return [
                  * Used to display additional info on Seller section in invoice
                  * attribute => value
                  */
-                'Payment' => 'Cash',
                 'Mobile' => '081334171989',
                 'Email' => 'sarangmadukuofficial@gmail.com',
                 'Website' => 'www.sarangmaduku.com',

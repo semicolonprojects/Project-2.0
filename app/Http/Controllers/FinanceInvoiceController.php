@@ -104,6 +104,7 @@ class FinanceInvoiceController extends Controller
             'custom_fields' => [
                 'email' => $order->customer->email,
                 'address' => $order->customer->alamat,
+                'payment' => $order->tipe_pembayaran
             ],
         ]);
 
