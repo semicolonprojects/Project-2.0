@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\Customer;
 use App\Models\ProdukCurah;
 use App\Models\ProdukJadi;
+use Illuminate\Contracts\Session\Session;
 
 class OrderController extends Controller
 {
@@ -61,10 +62,20 @@ class OrderController extends Controller
             $order->status_pembayaran = $request->status_pembayaran;
             $order->tipe_pembayaran = $request->tipe_pembayaran;
             $order->tipe_pesanan = $request->tipe_pesanan;
-            $order->total_pembelian = $request->total_pembelian;
+
+            $product = ProdukJadi::where('kode_barang', $value)->first();
+            $harga_barang = $product->price;
+            $order->total_pembelian = ($request->total_order[$key] * $harga_barang) - (($harga_barang) *
+                ($request->total_order[$key]) * ($request->diskon) / 100);
+            $stokAkhir = $product->stock - $request->total_order[$key];
+            $product->update(['stock' => $stokAkhir]);
+
             $order->ongkir = $request->ongkir;
             $order->status_barang = $request->status_barang;
             $order->note = $request->note;
+            $order->total_termin = $request->total_termin ?? 0;
+            $order->tenggat_order = $request->tenggat_order;
+
             $order->save();
         }
 
@@ -120,6 +131,8 @@ class OrderController extends Controller
         $order->status_barang = $request->input('status_barang');
         $order->diskon = $request->input('diskon');
         $order->ongkir = $request->input('ongkir');
+        $order->total_termin = $request->input('total_termin');
+        $order->tenggat_order = $request->input('tenggat_order');
 
         $produk = ProdukJadi::where('id', $request->input('kode_barang'))->firstOrFail();
         $stokAkhir = $produk->stock - $request->input('total_pembelian');

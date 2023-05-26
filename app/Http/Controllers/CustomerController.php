@@ -6,6 +6,7 @@ use App\Models\Customer;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\URL;
 
 class CustomerController extends Controller
 {
@@ -17,7 +18,7 @@ class CustomerController extends Controller
     public function index()
     {
         $customer = Customer::all();
-        return view('dashboard.marketing.mktdash4',compact('customer'));
+        return view('dashboard.marketing.mktdash4', compact('customer'));
     }
 
     /**
@@ -39,12 +40,12 @@ class CustomerController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'customer_id'=> 'required|max:255|unique:customers',
+            'customer_id' => 'required|max:255|unique:customers',
             'nama_lengkap' => 'required|max:255|unique:customers',
-            'alamat'=>'required|max:255',
+            'alamat' => 'required|max:255',
             'no_telepon' => 'required|max:255|unique:customers',
             'email' => 'required|max:255|unique:customers',
-            'tempat'=> 'required|max:255',
+            'tempat' => 'required|max:255',
             'tanggal_lahir' => 'required'
         ]);
 
@@ -72,9 +73,9 @@ class CustomerController extends Controller
      */
     public function edit(Customer $customer)
     {
-        return view('dashboard.marketing.mkt-ci-update',[
-            'customer'=> $customer,
-            'id'=>$customer->id
+        return view('dashboard.marketing.mkt-ci-update', [
+            'customer' => $customer,
+            'id' => $customer->id
         ]);
     }
 
@@ -98,7 +99,6 @@ class CustomerController extends Controller
 
         $customer->save();
         return redirect('/marketing/customerinfo')->with('update', 'Customer updated successfully.');
-
     }
 
     /**
@@ -112,6 +112,5 @@ class CustomerController extends Controller
         $customer = Customer::find($id);
         $customer->delete();
         return redirect('/marketing/customerinfo')->with('delete', 'Customer deleted successfully.');
-
     }
 }
