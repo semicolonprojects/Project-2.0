@@ -128,6 +128,11 @@ class FinanceInvoiceController extends Controller
             ->currencyCode('IDR')
             ->logo(public_path('/Assets/images/Madukuy CMYK Logo.png'));
 
-        return $invoice->download();
+        $pdf = $invoice->stream();
+
+        return response($pdf, 200, [
+            'Content-Type' => 'application/pdf',
+            'Content-Disposition' => 'inline; filename="invoice.pdf"',
+        ]);
     }
 }

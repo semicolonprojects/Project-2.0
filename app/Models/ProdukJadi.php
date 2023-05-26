@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class ProdukJadi extends Model
 {
@@ -28,5 +29,13 @@ class ProdukJadi extends Model
     public function order()
     {
         return $this->hasMany(Order::class);
+    }
+
+    public function lowStock()
+    {
+        return DB::table('produk_jadis')
+            ->select('*', DB::raw('(stock - min_ammount) AS low_stock'))
+            ->orderBy('low_stock', 'asc')
+            ->get();
     }
 }

@@ -269,20 +269,21 @@
             </div>
         </div>
         <div class="grid grid-flow-col gap-x-40 py-10 ">
+            @foreach ($topProducts as $product)
             <div class="grid grid-flow-row  ml-14 gap-3">
-                <p class="ml-9 text-[32px] text-black">1</p>
+                <p class="ml-9 text-[32px] text-black">{{ $loop->iteration }}</p>
                 <div class="flex flex-wrap ">
                     <div
                         class="bg-bgTopProducs rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-[94px] w-[93px]">
                         <img class="mt-3 w-52 h-20" src="Assets\images\pure-honey-1-removebg-preview.png" />
                     </div>
                 </div>
-                <p class="text-base text-black ">Madu Durian</p>
-                <p class="px-5 text-base text-black ">600ml</p>
-                <p class="px-5 text-base text-black ">20pcs</p>
+                <p class="text-base text-black ">{{ $product->nama_barang }}</p>
+                <p class="px-5 text-base text-black ">{{ $product->size }}</p>
+                <p class="px-5 text-base text-black ">{{ $product->total_order }} PCS</p>
             </div>
 
-            <div class="grid grid-flow-row gap-3">
+            {{-- <div class="grid grid-flow-row gap-3">
                 <p class="ml-9 text-[32px] text-black">2</p>
                 <div class="flex flex-wrap ">
                     <div
@@ -306,9 +307,10 @@
                 <p class="text-base text-black ">Madu Durian</p>
                 <p class="px-5 text-base text-black ">600ml</p>
                 <p class="px-5 text-base text-black ">20pcs</p>
-            </div>
+            </div> --}}
+            @endforeach
         </div>
-        <div class="inline-flex absolute gap-10 mt-3 ">
+        {{-- <div class="inline-flex absolute gap-10 mt-3 ">
             <div class="inline-flex absolute mt-5 gap-10">
                 <p class=" text-[20px] text-black">4.</p>
                 <div class="flex flex-wrap pb-3">
@@ -335,7 +337,7 @@
                     <p class=" text-base text-black ">20pcs</p>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </div>
 </div>
 
@@ -366,9 +368,6 @@
                             Min. Ammount
                         </th>
                         <th scope="col" class="px-3 py-3">
-                            Stok Akhir
-                        </th>
-                        <th scope="col" class="px-3 py-3">
                             HPP
                         </th>
                         <th scope="col" class="px-3 py-3">
@@ -383,93 +382,34 @@
                     </tr>
                 </thead>
                 <tbody class="self-center">
+                    @foreach ($products as $p)
                     <tr class="">
                         <th scope="row" class="px-3 py-4 font-light text-[#464D51]">
-                            Madu Durian
+                            {{$p->nama_barang}}
                         </th>
                         <th scope="row" class="px-3 py-4 font-light text-[#464D51]">
-                            1
+                            {{$p->kode_barang}}
                         </th>
                         <td class="px-3 py-4">
-                            92
+                            {{ $p->stock }}
                         </td>
                         <td class="px-3 py-4">
-                            11
+                            {{ $p->min_ammount }}
                         </td>
                         <td class="px-3 py-4">
-                            72
+
                         </td>
                         <td class="px-3 py-4">
-                            IDR 5,000
+                            {{ 'Rp ' . number_format($p->entry_price, 0, ',', '.') }}
                         </td>
                         <td class="px-3 py-4">
-                            IDR 5,000
+                            {{ 'Rp ' . number_format($p->price, 0, ',', '.') }}
                         </td>
                         <td class="px-3 py-4">
-                            IDR 5,000
-                        </td>
-                        <td class="px-3 py-4">
-                            IDR 5,000
+
                         </td>
                     </tr>
-                    <tr class="">
-                        <th scope="row" class="px-3 py-4 font-light text-[#464D51]">
-                            Madu Durian
-                        </th>
-                        <th scope="row" class="px-3 py-4 font-light text-[#464D51]">
-                            1
-                        </th>
-                        <td class="px-3 py-4">
-                            92
-                        </td>
-                        <td class="px-3 py-4">
-                            11
-                        </td>
-                        <td class="px-3 py-4">
-                            72
-                        </td>
-                        <td class="px-3 py-4">
-                            IDR 5,000
-                        </td>
-                        <td class="px-3 py-4">
-                            IDR 5,000
-                        </td>
-                        <td class="px-3 py-4">
-                            IDR 5,000
-                        </td>
-                        <td class="px-3 py-4">
-                            IDR 5,000
-                        </td>
-                    </tr>
-                    <tr class="">
-                        <th scope="row" class="px-3 py-4 font-light text-[#464D51]">
-                            Madu Durian
-                        </th>
-                        <th scope="row" class="px-3 py-4 font-light text-[#464D51]">
-                            1
-                        </th>
-                        <td class="px-3 py-4">
-                            92
-                        </td>
-                        <td class="px-3 py-4">
-                            11
-                        </td>
-                        <td class="px-3 py-4">
-                            72
-                        </td>
-                        <td class="px-3 py-4">
-                            IDR 5,000
-                        </td>
-                        <td class="px-3 py-4">
-                            IDR 5,000
-                        </td>
-                        <td class="px-3 py-4">
-                            IDR 5,000
-                        </td>
-                        <td class="px-3 py-4">
-                            IDR 5,000
-                        </td>
-                    </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
@@ -526,9 +466,6 @@
                             Min. Ammount
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Stok Akhir
-                        </th>
-                        <th scope="col" class="px-6 py-3">
                             Entry Price
                         </th>
                         <th scope="col" class="px-6 py-3">
@@ -537,121 +474,28 @@
                     </tr>
                 </thead>
                 <tbody class="self-center">
+                    @foreach ($lowStocks as $low)
                     <tr class="">
                         <th scope="row" class="px-6 py-4 font-light text-[#464D51]">
-                            Madu Durian
+                            {{ $low->nama_barang }}
                         </th>
                         <th scope="row" class="px-6 py-4 font-light text-[#464D51]">
-                            1
+                            {{ $low->kode_barang }}
                         </th>
                         <td class="px-6 py-4">
-                            92
+                            {{ $low->stock }}
                         </td>
                         <td class="px-6 py-4">
-                            11
+                            {{ $low->min_ammount }}
                         </td>
                         <td class="px-6 py-4">
-                            72
+                            {{ 'Rp ' . number_format($low->entry_price, 0, ',', '.') }}
                         </td>
                         <td class="px-6 py-4">
-                            IDR 5,000
-                        </td>
-                        <td class="px-6 py-4">
-                            IDR 5,000
+                            {{ 'Rp ' . number_format($low->price, 0, ',', '.') }}
                         </td>
                     </tr>
-                    <tr class="">
-                        <th scope="row" class="px-6 py-4 font-light text-[#464D51]">
-                            Madu Durian
-                        </th>
-                        <th scope="row" class="px-6 py-4 font-light text-[#464D51]">
-                            2
-                        </th>
-                        <td class="px-6 py-4">
-                            92
-                        </td>
-                        <td class="px-6 py-4">
-                            11
-                        </td>
-                        <td class="px-6 py-4">
-                            72
-                        </td>
-                        <td class="px-6 py-4">
-                            IDR 5,000
-                        </td>
-                        <td class="px-6 py-4">
-                            IDR 5,000
-                        </td>
-                    </tr>
-                    <tr class="">
-                        <th scope="row" class="px-6 py-4 font-light text-[#464D51]">
-                            Madu Durian
-                        </th>
-                        <th scope="row" class="px-6 py-4 font-light text-[#464D51]">
-                            3
-                        </th>
-                        <td class="px-6 py-4">
-                            92
-                        </td>
-                        <td class="px-6 py-4">
-                            11
-                        </td>
-                        <td class="px-6 py-4">
-                            72
-                        </td>
-                        <td class="px-6 py-4">
-                            IDR 5,000
-                        </td>
-                        <td class="px-6 py-4">
-                            IDR 5,000
-                        </td>
-                    </tr>
-                    <tr class="">
-                        <th scope="row" class="px-6 py-4 font-light text-[#464D51]">
-                            Madu Durian
-                        </th>
-                        <th scope="row" class="px-6 py-4 font-light text-[#464D51]">
-                            4
-                        </th>
-                        <td class="px-6 py-4">
-                            92
-                        </td>
-                        <td class="px-6 py-4">
-                            11
-                        </td>
-                        <td class="px-6 py-4">
-                            72
-                        </td>
-                        <td class="px-6 py-4">
-                            IDR 5,000
-                        </td>
-                        <td class="px-6 py-4">
-                            IDR 5,000
-                        </td>
-                    </tr>
-                    <tr class="">
-                        <th scope="row" class="px-6 py-4 font-light text-[#464D51]">
-                            Madu Durian
-                        </th>
-                        <th scope="row" class="px-6 py-4 font-light text-[#464D51]">
-                            5
-                        </th>
-                        <td class="px-6 py-4">
-                            92
-                        </td>
-                        <td class="px-6 py-4">
-                            11
-                        </td>
-                        <td class="px-6 py-4">
-                            72
-                        </td>
-                        <td class="px-6 py-4">
-                            IDR 5,000
-                        </td>
-                        <td class="px-6 py-4">
-                            IDR 5,000
-                        </td>
-                    </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
@@ -695,11 +539,12 @@
             </button>
         </div>
         <div class=" mt-14 ml-24 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-9">
+            @foreach ($topCust as $top)
             <div
-                class="py-2 inline-flex rounded-xl border border-gray-400/70 bg-gray-200/0 shadow-md shadow-gray-400 w-52 h-56">
-                <h3 class="absolute mt-4 ml-24 text-3xl font-bold text-black">1</h3>
-                <p class="absolute mt-16 ml-16 text-2xl font-extrabold text-gray-900">Hengki</p>
-                <div class="inline-flex absolute stroke-gray-900 w-5 h-5  ml-[165px] mt-0">
+                class="py-2 inline-flex rounded-xl border border-gray-400/70 bg-gray-200/0 shadow-md shadow-gray-400 w-60 h-72">
+                <h3 class="absolute mt-4 ml-28 text-3xl font-bold text-black">{{ $loop->iteration }}</h3>
+                <p class="absolute mt-20 ml-24 text-2xl font-extrabold text-gray-900">{{ $top['nama_lengkap'] }}</p>
+                <div class="inline-flex absolute stroke-gray-900 w-5 h-5  ml-[200px] mt-0">
                     <button id="orderStats" data-dropdown-toggle="orderStatsTrigger">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="w-8 h-8">
@@ -710,126 +555,28 @@
                 </div>
                 <div class="mt-[120px] py-2 inline-flex absolute">
                     <p class="self-center text-md text-black font-semibold ml-3 ">Total Orders</p>
-                    <p class="place-self-center text-md text-black font-normal ml-10 ">246 pcs</p>
+                    <p class="place-self-center text-md text-black font-normal ml-10 ">{{ $top['total_pembelian'] }}</p>
                 </div>
                 <div class="mt-[155px] py-2 inline-flex absolute">
                     <p class="self-center text-md text-black font-semibold ml-3 ">Revenue</p>
-                    <p class="place-self-center text-md text-black font-normal ml-9 ">IDR 246.000</p>
+                    <p class="place-self-center text-md text-black font-normal ml-9 ">{{ 'Rp ' .
+                        number_format($top['revenue'], 0, ',', '.') }}</p>
                 </div>
+                @foreach ($top['favorite_products'] as $fav)
+                <div class="inline-flex mt-56 ml-2">
+                    <div class="bg-bgTopProducs ml-8 rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-8 w-8">
+                        <img src="Assets\images\pure-honey-1-removebg-preview.png" />
+                    </div>
+                    <div class="mt-8 inline-flex absolute ml-3">
+                        <p class="text-xs">{{ $fav }}</p>
+                    </div>
+                </div>
+                @endforeach
             </div>
-            <div
-                class="py-2 inline-flex rounded-xl border border-gray-400/70 bg-gray-200/0 shadow-md shadow-gray-400 w-52 h-56">
-                <h3 class="absolute mt-4 ml-24 text-3xl font-bold text-black">2</h3>
-                <p class="absolute mt-16 ml-16 text-2xl font-extrabold text-gray-900">Hengki</p>
-                <div class="inline-flex absolute stroke-gray-900 w-5 h-5  ml-[165px] mt-0">
-                    <button id="orderStats" data-dropdown-toggle="orderStatsTrigger">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-8 h-8">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
-                        </svg>
-                    </button>
-                </div>
-                <div class="mt-[120px] py-2 inline-flex absolute">
-                    <p class="self-center text-md text-black font-semibold ml-3 ">Total Orders</p>
-                    <p class="place-self-center text-md text-black font-normal ml-10 ">246 pcs</p>
-                </div>
-                <div class="mt-[155px] py-2 inline-flex absolute">
-                    <p class="self-center text-md text-black font-semibold ml-3 ">Revenue</p>
-                    <p class="place-self-center text-md text-black font-normal ml-9 ">IDR 246.000</p>
-                </div>
-            </div>
-            <div
-                class="py-2 inline-flex rounded-xl border border-gray-400/70 bg-gray-200/0 shadow-md shadow-gray-400 w-52 h-56">
-                <h3 class="absolute mt-4 ml-24 text-3xl font-bold text-black">3</h3>
-                <p class="absolute mt-16 ml-16 text-2xl font-extrabold text-gray-900">Hengki</p>
-                <div class="inline-flex absolute stroke-gray-900 w-5 h-5  ml-[165px] mt-0">
-                    <button id="orderStats" data-dropdown-toggle="orderStatsTrigger">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-8 h-8">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
-                        </svg>
-                    </button>
-                </div>
-                <div class="mt-[120px] py-2 inline-flex absolute">
-                    <p class="self-center text-md text-black font-semibold ml-3 ">Total Orders</p>
-                    <p class="place-self-center text-md text-black font-normal ml-10 ">246 pcs</p>
-                </div>
-                <div class="mt-[155px] py-2 inline-flex absolute">
-                    <p class="self-center text-md text-black font-semibold ml-3 ">Revenue</p>
-                    <p class="place-self-center text-md text-black font-normal ml-9 ">IDR 246.000</p>
-                </div>
-            </div>
-        </div>
-        <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
-            <div
-                class="inline-flex absolute py-2 mt-[24px] ml-[70px] rounded-xl border border-gray-400/70 bg-gray-200/0 shadow-md shadow-gray-400 w-64 h-16">
-                <div class="bg-bgTopProducs ml-8 rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-8 w-8">
-                    <img src="Assets\images\pure-honey-1-removebg-preview.png" />
-                </div>
-                <div class="bg-bgTopProducs ml-12 rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-8 w-8">
-                    <img src="Assets\images\pure-honey-1-removebg-preview.png" />
-                </div>
-                <div class="bg-bgTopProducs ml-12 rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-8 w-8">
-                    <img src="Assets\images\pure-honey-1-removebg-preview.png" />
-                </div>
-                <div class="mt-8 inline-flex absolute ml-3">
-                    <p class="text-xs">Madu Durian</p>
-                </div>
-                <div class="mt-8 inline-flex absolute ml-24">
-                    <p class="text-xs">Madu Durian</p>
-                </div>
-                <div class="mt-8 inline-flex absolute ml-44">
-                    <p class="text-xs">Madu Durian</p>
-                </div>
-            </div>
-
-            <div
-                class="inline-flex absolute py-2 mt-[24px] ml-[370px] rounded-xl border border-gray-400/70 bg-gray-200/0 shadow-md shadow-gray-400 w-64 h-16">
-                <div class="bg-bgTopProducs ml-8 rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-8 w-8">
-                    <img src="Assets\images\pure-honey-1-removebg-preview.png" />
-                </div>
-                <div class="bg-bgTopProducs ml-12 rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-8 w-8">
-                    <img src="Assets\images\pure-honey-1-removebg-preview.png" />
-                </div>
-                <div class="bg-bgTopProducs ml-12 rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-8 w-8">
-                    <img src="Assets\images\pure-honey-1-removebg-preview.png" />
-                </div>
-                <div class="mt-8 inline-flex absolute ml-3">
-                    <p class="text-xs">Madu Durian</p>
-                </div>
-                <div class="mt-8 inline-flex absolute ml-24">
-                    <p class="text-xs">Madu Durian</p>
-                </div>
-                <div class="mt-8 inline-flex absolute ml-44">
-                    <p class="text-xs">Madu Durian</p>
-                </div>
-            </div>
-
-            <div
-                class="inline-flex absolute py-2 mt-[24px] ml-[680px] rounded-xl border border-gray-400/70 bg-gray-200/0 shadow-md shadow-gray-400 w-64 h-16">
-                <div class="bg-bgTopProducs ml-8 rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-8 w-8">
-                    <img src="Assets\images\pure-honey-1-removebg-preview.png" />
-                </div>
-                <div class="bg-bgTopProducs ml-12 rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-8 w-8">
-                    <img src="Assets\images\pure-honey-1-removebg-preview.png" />
-                </div>
-                <div class="bg-bgTopProducs ml-12 rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-8 w-8">
-                    <img src="Assets\images\pure-honey-1-removebg-preview.png" />
-                </div>
-                <div class="mt-8 inline-flex absolute ml-3">
-                    <p class="text-xs">Madu Durian</p>
-                </div>
-                <div class="mt-8 inline-flex absolute ml-24">
-                    <p class="text-xs">Madu Durian</p>
-                </div>
-                <div class="mt-8 inline-flex absolute ml-44">
-                    <p class="text-xs">Madu Durian</p>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
+</div>
 </div>
 
 <!-- Back to top button -->
