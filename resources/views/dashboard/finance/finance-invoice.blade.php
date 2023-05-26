@@ -3,10 +3,11 @@
 {{-- Template Invoice --}}
 <div class="ml-14 mt-10 p-10">
   <div
-    class="inline-block p-6 bg-white border border-gray-200 rounded-xl  hover:bg-gray-100 shadow-2xl w-[1153px] h-[791px]">
+    class="inline-block p-6 bg-white border border-gray-200 rounded-xl  hover:bg-gray-100 shadow-2xl w-[1153px] h-[850px]">
     <div class="ml-72 mb-3">
-        <p class="mb-2 text-2xl font-bold tracking-tight text-gray-900">INVOICE NUMBER : INV/{{ date ('d') }}/{{ $order_id->id }}/{{ $order_id->tipe_pesanan }}/{{ date('m') }}/{{ date('Y')}}</p>
-      </div>
+      <p class="mb-2 text-2xl font-bold tracking-tight text-gray-900">INVOICE NUMBER : INV/{{ date ('d') }}/{{
+        $order_id->id }}/{{ $order_id->tipe_pesanan }}/{{ date('m') }}/{{ date('Y')}}</p>
+    </div>
     <div class="ml-[414px]">
       <p class="text-sm font-semibold tracking-tight text-gray-900">Order Approved By : {{ $order_id->user->username
         }} ({{ date('d M Y', strtotime($order_id->created_at)) }})</p>
@@ -40,14 +41,7 @@
           <td class="px-9">{{ number_format($order->diskon, 0) . '%' }}</td>
           <td class="px-9">{{ 'Rp ' . number_format((($order->produk->price) *
             ($order->total_order) * ($order->diskon)/100), 0, ',', '.') }}</td>
-          @if (isset($order->diskon))
-          <td class="px-3">{{ 'Rp ' . number_format((($order->produk->price) * ($order->total_order)) -
-            (($order->produk->price) *
-            ($order->total_order) * ($order->diskon)/100), 0, ',', '.') }}</td>
-          @else
-          <td class="px-3">{{ 'Rp ' . number_format((($order->produk->price) * ($order->total_order)), 0, ',', '.') }}
-          </td>
-          @endif
+          <td>{{ 'Rp. ' . number_format($order->total_pembelian, 0, ',', '.')}}</td>
           @endforeach
           <td class="bg-[#EEEE] px-[90px]" rowspan="1">{{ 'Rp ' . number_format($order_id->ongkir, 0, ',', '.') }}</td>
         </tr>
@@ -66,11 +60,27 @@
         </tr>
         <tr class="border">
           <td colspan="6" class="px-5 py-5">Termin Pembayaran</td>
-          <td colspan="6" class="font-bold px-1 py-5 text-[#2E2E2E] ">27 May 2023</td>
+          <td colspan="6" class="font-bold px-1 py-5 text-[#2E2E2E] ">{{ date('d M Y',
+            strtotime($order_id->tenggat_order))
+            }}</td>
         </tr>
         <tr class="border">
           <td colspan="6" class="px-5 py-5">Total Order Price</td>
-          <td colspan="6" class="font-bold pl-[270px] py-5 text-[#2E2E2E] ">IDR. 500.000</td>
+          <td colspan="6" class="font-bold pl-[270px] py-5 text-[#2E2E2E] ">{{ 'Rp ' . number_format(($order_id->ongkir
+            + $order_id->total_pembelian), 0, ',', '.') }}</td>
+        </tr>
+        @if ($order_id->status_pembayaran == 'Termin')
+        <tr class="border">
+          <td colspan="6" class="px-5 py-5">Paid</td>
+          <td colspan="6" class="font-bold pl-[270px] py-5 text-[#2E2E2E] ">{{ 'Rp ' .
+            number_format($order_id->total_termin, 0, ',', '.') }}</td>
+        </tr>
+        @endif
+        <tr class="border">
+          <td colspan="6" class="px-5 py-5">Balance Due</td>
+          <td colspan="6" class="font-bold pl-[270px] py-5 text-[#2E2E2E] ">{{ 'Rp ' .
+            number_format((($order_id->total_pembelian + $order_id->ongkir) - $order_id->total_termin), 0, ',', '.') }}
+          </td>
         </tr>
         <tr class="border">
           <td colspan="6" class="px-5 py-5">Commision Fee</td>

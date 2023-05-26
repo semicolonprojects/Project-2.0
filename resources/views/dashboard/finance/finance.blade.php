@@ -205,12 +205,45 @@
             <td class="mt-2 px-4 align-center">
                 <button type="button"
                     class="min-w-fit text-green-600/80 border border-green-500 bg-white hover:bg-green-300/80 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-xs px-1 py-0.5 text-center inline-flex items-center  dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mr-2 mb-2">
+                    @switch($order->status_pembayaran)
+                    @case('Dibayar')
                     <div class="ml-1 ">
                         <svg class=width="7" height="7" viewBox="0 0 7 7" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <ellipse cx="3.54641" cy="3.65386" rx="3.27297" ry="3.27297" fill="#007F00" />
                         </svg>
                     </div>
+                    @break
+                    @case('Menunggu Pembayaran')
+                    <div class="ml-1 ">
+                        <svg class=width="7" height="7" viewBox="0 0 7 7" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="3.54641" cy="3.65386" rx="3.27297" ry="3.27297" fill="#FFC107" />
+                        </svg>
+                    </div>
+                    @break
+                    @case('Tidak Dibayar')
+                    <div class="ml-1 ">
+                        <svg class=width="7" height="7" viewBox="0 0 7 7" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="3.54641" cy="3.65386" rx="3.27297" ry="3.27297" fill="#E91E63" />
+                        </svg>
+                    </div>
+                    @case('Termin')
+                    <div class="ml-1 ">
+                        <svg class=width="7" height="7" viewBox="0 0 7 7" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="3.54641" cy="3.65386" rx="3.27297" ry="3.27297" fill="#2196F3" />
+                        </svg>
+                    </div>
+                    @default
+                    <div class="ml-1 ">
+                        <svg class=width="7" height="7" viewBox="0 0 7 7" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="3.54641" cy="3.65386" rx="3.27297" ry="3.27297" fill="" />
+                        </svg>
+                    </div>
+                    @endswitch
                     <div class="px-1">
                         <p>{{ $order->status_pembayaran }}</p>
                     </div>
@@ -220,7 +253,7 @@
             <td class="mt-2 px-1 align-center grid grid-flow-col">
                 <p>{{ 'Rp ' . number_format($order->total_pembelian, 0, ',', '.') }}</p>
                 <div class="mt-1 px-2">
-                    <button class="ml-12" id="invoice" data-dropdown-toggle="invoiceTrigger">
+                    <button class="ml-12" id="invoice" data-dropdown-toggle="invoiceTrigger{{ $order->order_id }}">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M11.082 8.98694C12.3808 8.98694 13.4198 10.0513 13.4198 11.3818C13.4198 12.7123 12.3808 13.7767 11.082 13.7767C9.78318 13.7767 8.74414 12.7123 8.74414 11.3818C8.74414 10.0513 9.78318 8.98694 11.082 8.98694ZM8.74414 2.86675C8.74414 4.19723 9.78318 5.26161 11.082 5.26161C12.3808 5.26161 13.4198 4.19723 13.4198 2.86675C13.4198 1.53627 12.3808 0.471893 11.082 0.471893C9.78318 0.471893 8.74414 1.53627 8.74414 2.86675ZM8.74414 19.8968C8.74414 21.2273 9.78318 22.2917 11.082 22.2917C12.3808 22.2917 13.4198 21.2273 13.4198 19.8968C13.4198 18.5664 12.3808 17.502 11.082 17.502C9.78318 17.502 8.74414 18.5664 8.74414 19.8968Z"
@@ -230,15 +263,15 @@
                 </div>
             </td>
         </tr>
-        <div id="invoiceTrigger"
+        <div id="invoiceTrigger{{ $order->order_id }}"
             class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
             <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
                 <li>
-                    <a href="{{ route('invoice.show', ['invoice'=>$order->order_id]) }}"
+                    <a href="{{ route('invoice.show', ['invoice'=> $order->order_id]) }}"
                         class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Detail</a>
                 </li>
                 <li>
-                    <a href="{{ route('invoice.download', ['id'=>$order->order_id]) }}"
+                    <a href="{{ route('invoice.download', ['id'=> $order->order_id]) }}"
                         class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Download</a>
                 </li>
                 <li>
@@ -371,7 +404,6 @@
                     <path d="M12.2695 45.7284H45.7311" stroke="#A1A40B" stroke-width="1.5" stroke-linecap="round"
                         stroke-linejoin="round" />
                 </svg>
-
             </div>
             <div class="">
                 <p class="text-[#8F8F8F] text-xl font-semibold justify-center m-auto flex">Debt</p>

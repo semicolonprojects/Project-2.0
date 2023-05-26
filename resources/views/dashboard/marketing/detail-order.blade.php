@@ -15,6 +15,9 @@
             <th class="px-10 py-5">Tipe Pesanan</th>
             <th class="px-10 py-5">Tipe Pembayaran</th>
             <th class="px-10 py-5">Status Pembayaran</th>
+            @if ($order_id->status_pembayaran == 'Termin')
+            <th class="px-10 py-5">Tenggat Termin</th>
+            @endif
             <th class="px-10 py-5">Status Barang</th>
             <th class="px-10 py-5">Ongkir</th>
             <th class="px-10 py-5">Action</th>
@@ -28,6 +31,9 @@
             <td class="px-6">{{ $produk->tipe_pesanan }}</td>
             <td class="px-6">{{ $produk->tipe_pembayaran }}</td>
             <td class="px-6">{{ $produk->status_pembayaran }}</td>
+            @if ($produk->status_pembayaran == 'Termin')
+            <td>{{ $produk->tenggat_order }}</td>
+            @endif
             <td class="px-6">{{ $produk->status_barang }}</td>
             <td class="px-6">{{ 'Rp ' . number_format($produk->ongkir, 0, ',', '.') }}</td>
             <td class="px-6"><button id="defaultModalButtonEdit{{ $produk->id }}"
@@ -123,7 +129,7 @@
                     <div>
                         <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tipe
                             Pesanan</label>
-                        <select id="pesanan"
+                        <select
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             name="tipe_pesanan">
                             <option selected>{{ $modal->tipe_pesanan }}</option>
@@ -137,18 +143,45 @@
                             Pembayaran</label>
                         <select id="pesanan"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            name="status_pembayaran">
+                            name="status_pembayaran" onchange="showTerminFields(this)">
                             <option selected>{{ $modal->status_pembayaran }}</option>
                             <option value="Paid">Dibayar</option>
                             <option value="Setengah Dibayar">Setengah Dibayar</option>
                             <option value="Belum Dibayar">Belum Dibayar</option>
+                            <option value="Termin">Termin</option>
+                        </select>
+                    </div>
+                    <div id="terminFields" style="display: none;">
+                        <label for="total_termin"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Total
+                            Termin</label>
+                        <input id="total_termin" type="number" name="total_termin" value="{{ $modal->total_termin }}"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+
+                        <label for="tenggat_order"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tenggat
+                            Order</label>
+                        <input id="tenggat_order" type="date" name="tenggat_order" value="{{ $modal->tenggat_order }}"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    </div>
+                    <div>
+                        <label for="pesanan" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tipe
+                            Pembayaran</label>
+                        <select id="pesanan"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            name="tipe_pembayaran">
+                            <option selected>{{ $modal->tipe_pembayaran }}</option>
+                            <option value="BRI">BRI</option>
+                            <option value="BCA">BCA</option>
+                            <option value="Mandiri">Mandiri</option>
+                            <option value="Cash">Cash</option>
                         </select>
                     </div>
                     <div>
-                        <label for="password"
+                        <label for="password" id='pesanan'
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Status
                             Pesanan</label>
-                        <select id="countries"
+                        <select
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             name="status_barang">
                             <option selected>{{ $modal->status_barang }}</option>
@@ -186,5 +219,16 @@
         </div>
     </div>
 </div>
+
+<script>
+    function showTerminFields(selectElement) {
+        var terminFields = document.getElementById("terminFields");
+        if (selectElement.value === "Termin") {
+            terminFields.style.display = "block";
+        } else {
+            terminFields.style.display = "none";
+        }
+    }
+</script>
 @endforeach
 @endsection
