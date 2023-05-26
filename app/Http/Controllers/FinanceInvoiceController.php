@@ -19,7 +19,7 @@ class FinanceInvoiceController extends Controller
      */
     public function index()
     {
-        //
+        
     }
 
     /**
@@ -125,7 +125,8 @@ class FinanceInvoiceController extends Controller
             ->status($order->status_barang)
             ->addItems($items)
             ->serialNumberFormat($serialNumber)
-            ->currencyCode('IDR');
+            ->currencyCode('IDR')
+            ->logo(public_path('/Assets/images/Madukuy CMYK Logo.png'));
 
         return $invoice->download();
     }

@@ -15,6 +15,10 @@ return new class extends Migration
     {
         Schema::create('outcomes', function (Blueprint $table) {
             $table->id();
+            $table->string('nama_outcome');
+            $table->decimal('jumlah_outcome');
+            $table->string('jenis_outcome');
+            $table->string('keterangan')->nullable();
             $table->timestamps();
         });
     }

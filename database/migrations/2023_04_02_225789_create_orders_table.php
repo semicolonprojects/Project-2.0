@@ -21,7 +21,7 @@ return new class extends Migration
             $table->foreignId('kode_barang')->references('id')->on('produk_jadis')->onDelete('cascade');
             $table->string('status_pembayaran');
             $table->string('tipe_pembayaran');
-            $table->decimal('total_termin');
+            $table->decimal('total_termin', 15, 2)->nullable();
             $table->date('tenggat_order');
             $table->string('tipe_pesanan');
             $table->decimal('total_pembelian', 15, 2);
