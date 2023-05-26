@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('incomes', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('nama_channel')->references('nama_channel')->on('channels')->onDelete('cascade');
+            $table->foreignId('nama_channel')->constrained('channels')->onDelete('cascade');
             $table->foreignId('total_income')->constrained('orders')->onDelete('cascade');
             $table->string('tipe_income');
             $table->timestamps();

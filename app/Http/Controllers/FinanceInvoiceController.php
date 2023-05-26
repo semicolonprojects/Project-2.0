@@ -127,6 +127,11 @@ class FinanceInvoiceController extends Controller
             ->serialNumberFormat($serialNumber)
             ->currencyCode('IDR');
 
-        return $invoice->download();
+        $pdf = $invoice->stream();
+
+        return response($pdf, 200, [
+            'Content-Type' => 'application/pdf',
+            'Content-Disposition' => 'inline; filename="invoice.pdf"',
+        ]);
     }
 }

@@ -209,3 +209,7 @@ Route::get('/curah/topcust', function () {
 });
 
 Route::get('/data-absen', [DataAbsenController::class, 'index']);
+
+Route::get('/coba', function () {
+    return view('preview');
+});
