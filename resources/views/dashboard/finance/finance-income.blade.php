@@ -69,15 +69,19 @@
                                 <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
                             </svg>
                     </button>
-                    <button>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path d="M20 5H9l-7 7 7 7h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2Z"></path>
-                        <line x1="18" y1="9" x2="12" y2="15"></line>
-                        <line x1="12" y1="9" x2="18" y2="15"></line>
+                    <form action="{{ route('income.destroy', ['income' => $incomes->id]) }}" method="post" class="inline">
+                        <button onclick="return confirm('Are you sure?')">
+                            @csrf
+                            @method('delete')
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M20 5H9l-7 7 7 7h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2Z"></path>
+                            <line x1="18" y1="9" x2="12" y2="15"></line>
+                            <line x1="12" y1="9" x2="18" y2="15"></line>
                         </svg>                
                     </button>
+                </form>
                 </td>
             </tr>
             @endforeach
