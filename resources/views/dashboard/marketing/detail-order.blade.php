@@ -28,7 +28,7 @@
             <td class="px-6">{{ $produk->produk->nama_barang }}</td>
             <td class="px-6">{{ $produk->total_order }}</td>
             <td class="px-6">{{ 'Rp ' . number_format($produk->total_pembelian, 0, ',', '.') }}</td>
-            <td class="px-6">{{ $produk->tipe_pesanan }}</td>
+            <td class="px-6">{{ $produk->channel->nama_channel }}</td>
             <td class="px-6">{{ $produk->tipe_pembayaran }}</td>
             <td class="px-6">{{ $produk->status_pembayaran }}</td>
             @if ($produk->status_pembayaran == 'Termin')

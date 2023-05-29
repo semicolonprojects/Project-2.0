@@ -162,4 +162,9 @@ class Order extends Model
     {
         return $this->belongsTo(Customer::class, 'customer_id');
     }
+
+    public function channel()
+    {
+        return $this->belongsTo(Channel::class, 'tipe_pesanan');
+    }
 }

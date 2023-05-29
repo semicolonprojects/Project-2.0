@@ -14,10 +14,4 @@ class Channel extends Model
         'target_bulanan',
         'total_tercapai'
     ];
-    
-    public function channel()
-    {
-        return $this->belongsTo(Channel::class, 'nama_channel');
-    }
-
 }

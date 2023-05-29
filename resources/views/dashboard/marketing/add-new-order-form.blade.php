@@ -126,13 +126,10 @@
             <select id="pesanan"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 name="tipe_pesanan">
+                @foreach ($channel as $channel)
                 <option selected>Tipe Pesanan</option>
-                <option value="DST">Distributor</option>
-                <option value="MKL">Maklon</option>
-                <option value="RSL">Reseller</option>
-                <option value="CRH">Curah</option>
-                <option value="KGS">Konsinyasi</option>
-                <option value="ECR">Eceran</option>
+                <option value="{{ $channel->id }}">{{ $channel->nama_channel }}</option>
+                @endforeach
             </select>
         </div>
         <div class="mb-6">

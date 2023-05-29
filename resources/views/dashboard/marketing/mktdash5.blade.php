@@ -120,7 +120,7 @@
                             {{ $cust_order->created_at }}
                         </td>
                         <td class="mt-2 px-4 align-center">
-                            {{$cust_order->tipe_pesanan}}
+                            {{$cust_order->status_pembayaran}}
                         </td>
                         <td class="px-6 py-4">
                             {{$cust_order->nama_lengkap}}

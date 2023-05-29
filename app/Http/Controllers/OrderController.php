@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use App\Http\Controllers\Controller;
+use App\Models\Channel;
 use Illuminate\Http\Request;
 use App\Models\Customer;
 use App\Models\ProdukCurah;
@@ -35,7 +36,8 @@ class OrderController extends Controller
         $produk = ProdukJadi::all();
         $produkJs = ProdukJadi::all();
         $customer = Customer::all();
-        return view('dashboard.marketing.add-new-order-form', compact('produk', 'produkJs', 'customer'));
+        $channel = Channel::all();
+        return view('dashboard.marketing.add-new-order-form', compact('produk', 'produkJs', 'customer', 'channel'));
     }
 
     /**

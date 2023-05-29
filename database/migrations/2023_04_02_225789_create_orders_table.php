@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('tipe_pembayaran');
             $table->decimal('total_termin', 15, 2)->nullable();
             $table->date('tenggat_order');
-            $table->string('tipe_pesanan');
+            $table->foreignId('tipe_pesanan')->constrained('channels')->onDelete('cascade');
             $table->decimal('total_pembelian', 15, 2);
             $table->integer('total_order');
             $table->float('diskon')->nullable();
