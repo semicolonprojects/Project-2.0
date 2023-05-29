@@ -13,11 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('outcomes', function (Blueprint $table) {
+        Schema::create('outcomes_details', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('nama_outcome')->constrained('outcomes_details')->onDelete('cascade');
-            $table->decimal('jumlah_outcome', 15, 2);
-            $table->string('keterangan');
+            $table->string('name');
+            $table->string('jenis_outcome');
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('outcomes');
+        Schema::dropIfExists('outcomes_details');
     }
 };

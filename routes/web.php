@@ -23,6 +23,8 @@ use App\Http\Controllers\ProdukCurahController;
 use App\Http\Controllers\SuperAdminController;
 use App\Http\Controllers\DataSupplierController;
 use App\Http\Controllers\FinanceInvoiceController;
+use App\Http\Controllers\OutcomeController;
+use App\Http\Controllers\OutcomesDetailController;
 use App\Http\Controllers\SupplierCurahController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TargetKaryawanController;
@@ -77,6 +79,10 @@ Route::resource('targetKaryawan', TargetKaryawanController::class);
 Route::resource('order', OrderController::class);
 
 Route::resource('invoice', FinanceInvoiceController::class);
+
+Route::resource('outcomes', OutcomeController::class);
+
+Route::resource('outcomeName', OutcomesDetailController::class);
 
 Route::get('/logout', [LoginController::class, 'logout']);
 
@@ -152,17 +158,7 @@ Route::get('/finance/income', function () {
     return view('dashboard.finance.finance-income');
 })->middleware('finance', 'auth');
 
-Route::get('/finance/outcome', function () {
-    return view('dashboard.finance.finance-outcome');
-})->middleware('finance', 'auth');
-
-Route::get('/finance/outcome-i', function () {
-    return view('dashboard.finance.finance-outcome-i');
-})->middleware('finance', 'auth');
-
-Route::get('/finance/outcome-e', function () {
-    return view('dashboard.finance.finance-outcome-e');
-})->middleware('finance', 'auth');
+Route::get('/finance/outcome', [OutcomeController::class, 'index'])->name('outcomes.index')->middleware('finance', 'auth');
 
 Route::get('/invoice/download/{id}', [FinanceInvoiceController::class, 'generate'])->name('invoice.download');
 
@@ -209,4 +205,3 @@ Route::get('/curah/topcust', function () {
 });
 
 Route::get('/data-absen', [DataAbsenController::class, 'index']);
-
