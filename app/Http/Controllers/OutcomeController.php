@@ -6,6 +6,9 @@ use App\Models\Outcome;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreOutcomeRequest;
 use App\Http\Requests\UpdateOutcomeRequest;
+use App\Models\OutcomesDetail;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class OutcomeController extends Controller
 {
@@ -16,7 +19,11 @@ class OutcomeController extends Controller
      */
     public function index()
     {
-        //
+        $option = OutcomesDetail::all();
+        $total = Outcome::getInternalOutcomeTotals();
+        $totalEksternal = Outcome::getEksternalOutcomeTotals();
+
+        return view('dashboard.finance.finance-outcome', compact('option', 'total', 'totalEksternal'));
     }
 
     /**
@@ -35,9 +42,17 @@ class OutcomeController extends Controller
      * @param  \App\Http\Requests\StoreOutcomeRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreOutcomeRequest $request)
+    public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nama_outcome' => 'required|exists:outcomes_details,id',
+            'jumlah_outcome' => 'required|numeric',
+            'keterangan' => 'required',
+        ]);
+
+        Outcome::create($request->all());
+
+        return redirect()->route('outcomes.index')->with('success', 'Outcome created successfully.');
     }
 
     /**
@@ -46,9 +61,11 @@ class OutcomeController extends Controller
      * @param  \App\Models\Outcome  $outcome
      * @return \Illuminate\Http\Response
      */
-    public function show(Outcome $outcome)
+    public function show($id)
     {
-        //
+        $outcome = Outcome::where('nama_outcome', $id)->get();
+        $outcomeName = Outcome::where('nama_outcome', $id)->first();
+        return view('dashboard.finance.finance-outcome-i', compact('outcome', 'outcomeName'));
     }
 
     /**
@@ -69,9 +86,19 @@ class OutcomeController extends Controller
      * @param  \App\Models\Outcome  $outcome
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateOutcomeRequest $request, Outcome $outcome)
+    public function update(Request $request, Outcome $outcome)
     {
-        //
+
+
+        $request->validate([
+            'nama_outcome' => 'required|exists:outcomes_details,id',
+            'jumlah_outcome' => 'required|numeric',
+            'keterangan' => 'required',
+        ]);
+
+        $outcome->update($request->all());
+
+        return redirect()->route('outcomes.show', ['outcome' => $outcome->nama_outcome])->with('success', 'Outcome updated successfully.');
     }
 
     /**
@@ -82,6 +109,13 @@ class OutcomeController extends Controller
      */
     public function destroy(Outcome $outcome)
     {
-        //
+        $outcome->delete();
+
+        $count = Outcome::where('nama_outcome', $outcome->nama_outcome)->count();
+
+        if ($count === 0) {
+            return redirect()->route('outcomes.index')->with('delete', 'Berhasil Hapus');
+        }
+        return redirect()->route('outcomes.show', ['outcome' => $outcome->nama_outcome])->with('delete', 'Berhasil Hapus');
     }
 }
