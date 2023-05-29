@@ -95,7 +95,7 @@ class IncomeController extends Controller
         $income->update($validatedData);
 
         // Redirect to the index page with success message
-        return redirect()->route('incomes.index')->with('success', 'Income updated successfully');
+        return redirect('/finance/income')->with('success', 'Income edited successfully');
     }
 
     /**
@@ -110,6 +110,6 @@ class IncomeController extends Controller
         $income->delete();
 
         // Redirect to the index page with success message
-        return redirect()->route('incomes.index')->with('success', 'Income deleted successfully');
+        return redirect('/finance/income')->with('delete', 'Income deleted successfully');
     }
 }
