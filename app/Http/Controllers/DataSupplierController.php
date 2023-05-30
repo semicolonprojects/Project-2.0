@@ -19,7 +19,7 @@ class DataSupplierController extends Controller
     {
         $dataSupplier = DataSupplier::all();
         $dataSupplier2 = DataSupplier::all();
-        return view('dashboard.logistik.logistik5', compact('dataSupplier', 'dataSupplier2'));
+        return view('dashboard.logistik.logistik2', compact('dataSupplier', 'dataSupplier2'));
     }
 
     /**
@@ -45,6 +45,8 @@ class DataSupplierController extends Controller
             'supplier_name' => $request->input('supplier_name'),
             'phone' => $request->input('phone'),
             'email' => $request->input('email'),
+            'entry_price' => $request->input('entry_price'),
+            'ukuran_kulak' => $request->input('ukuran_kulak'),
             'supplier_type' => $request->input('supplier_type'),
             'address' => $request->input('address')
         ]);
@@ -88,6 +90,8 @@ class DataSupplierController extends Controller
         $dataSupplier->supplier_name = $request->supplier_name;
         $dataSupplier->phone = $request->phone;
         $dataSupplier->email = $request->email;
+        $dataSupplier->entry_price = $request->entry_price;
+        $dataSupplier->ukuran_kulak = $request->ukuran_kulak;
         $dataSupplier->supplier_type = $request->supplier_type;
         $dataSupplier->address = $request->address;
         $dataSupplier->save();

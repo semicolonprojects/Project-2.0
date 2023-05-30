@@ -29,6 +29,7 @@ use App\Http\Controllers\SupplierCurahController;
 use App\Http\Controllers\IncomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TargetKaryawanController;
+use App\Models\DataSupplier;
 use App\Models\Income;
 
 /*
@@ -130,9 +131,7 @@ Route::patch('/marketing/targetkaryawan-edit', function () {
 
 Route::get('/logistik', [LogistikController::class, 'index'])->middleware('logistik', 'auth');
 
-Route::get('/logistik/datasupplier', function () {
-    return view('dashboard.logistik.logistik2');
-})->middleware('logistik', 'auth');
+Route::get('/logistik/datasupplier', [DataSupplierController::class, 'index'] )->middleware('logistik', 'auth');
 
 Route::get('/logistik/innout', [InOutController::class, 'index'])->middleware('logistik', 'auth');
 

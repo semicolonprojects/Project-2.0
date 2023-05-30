@@ -272,7 +272,7 @@
                 </li>
                 <li>
                     <a href="{{ route('invoice.download', ['id'=> $order->order_id]) }}"
-                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Download</a>
+                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Preview</a>
                 </li>
                 <li>
                     <a href="#"

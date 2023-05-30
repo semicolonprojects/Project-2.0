@@ -111,6 +111,8 @@ class DatabaseSeeder extends Seeder
             'supplier_type' => 'Madu',
             'phone' => '+628112345678',
             'email' => 'andipeci@email.com',
+            'entry_price' => '7000000',
+            'ukuran_kulak'=>'1000',
             'address' => 'Jl Sindanglaya II, Dki Jakarta, 10311',
         ]);
 

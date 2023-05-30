@@ -14,6 +14,8 @@ class SupplierCurah extends Model
         'phone',
         'email',
         'supplier_type',
+        'entry_price',
+        'ukuran_kulak',
         'address',
     ];
 }
