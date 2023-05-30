@@ -26,8 +26,8 @@ use App\Http\Controllers\OutcomeController;
 use App\Http\Controllers\OutcomesDetailController;
 use App\Http\Controllers\SupplierCurahController;
 use App\Http\Controllers\IncomeController;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TargetKaryawanController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
