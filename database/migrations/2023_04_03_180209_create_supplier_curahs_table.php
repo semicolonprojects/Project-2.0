@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('supplier_name');
             $table->string('phone');
             $table->string('email');
+            $table->decimal('entry_price', 15,2);
+            $table->float('ukuran_kulak');
             $table->string('supplier_type');
             $table->string('address');
             $table->timestamps();

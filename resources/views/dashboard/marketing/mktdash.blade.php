@@ -244,7 +244,7 @@
                     <div class="inline-flex absolute mt-32 mr-16">
                         @forelse($targetKaryawan as $targetKaryawan)
                         <h5 class="text-3xl font-bold tracking-tight text-gray-900 ml-3 mt-3">Rp {{
-                            number_format(($targetKaryawan->target/30*Date('d'))) }}</h5>
+                            number_format(($targetKaryawan->target/30)) }}</h5>
                         <p class="text-sm ml-5 mt-[27px] text-gray-700/75">Today : {{
                             now("Asia/Bangkok")->toDateString() }}</p>
                         @empty

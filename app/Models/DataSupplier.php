@@ -13,6 +13,8 @@ class DataSupplier extends Model
         'supplier_name',
         'phone',
         'email',
+        'entry_price',
+        'ukuran_kulak',
         'supplier_type',
         'address',
     ];
