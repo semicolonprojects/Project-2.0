@@ -12,8 +12,8 @@
         <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path>
       </svg>
     </div>
-    <div class="inline-flex absolute mt-36 ml-[460px]">
-      <h5 class="text-2xl font-semibold tracking-tight text-gray-900 ">Hengki Saranggih</h5>
+    <div class="inline-flex absolute mt-36 ml-[530px]">
+      <h5 class="text-2xl font-semibold tracking-tight text-gray-900 ">{{ $order->customer->nama_lengkap }}</h5>
     </div>
     <div
       class="text-white  bg-[#B21E1E] focus:outline-none focus:ring-4 focus:ring-blue-300 text-xs font-medium rounded-full px-1 py-0.5 text-center ml-[500px] mt-[195px] dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 w-24 h-8">
@@ -23,11 +23,11 @@
     <div class="py-7 ml-5">
       <h5 class="text-2xl font-bold tracking-tight text-gray-900">Customer Details</h5>
       <div class="py-2">
-        <p>Full Name : Hengki Saranggih</p>
-        <p>Birth Date : 29 Agustus 1995</p>
-        <p>Address : Jl. Ijen Nirwana 41 Blok U-17</p>
-        <p>E-mail : hengkiss@gmail.com</p>
-        <p>Phone Number : 0879-69420-69</p>
+        <p>Full Name : {{ $order->customer->nama_lengkap }}</p>
+        <p>Birth Date : {{ date('d M Y'), strtotime($order->customer->tanggal_lahir) }}</p>
+        <p>Address : {{ $order->customer->alamat }}</p>
+        <p>E-mail : {{ $order->customer->email }}</p>
+        <p>Phone Number : {{ $order->customer->no_telepon }}</p>
       </div>
     </div>
   </div>
@@ -37,7 +37,8 @@
   <div
     class="inline-block p-6 bg-white border border-gray-200 rounded-xl  hover:bg-gray-100 shadow-2xl shadow-background w-[550px] h-[650px]">
     <div class="grid grid-flow-col gap-[150px]">
-      <h5 class="text-2xl font-bold tracking-tight text-gray-900 "> Hengki's Top Products</h5>
+      <h5 class="text-2xl font-bold tracking-tight text-gray-900 "> {{ $order->customer->nama_lengkap }}'s Top Products
+      </h5>
       <div class="grid grid-flow-col">
         <p class="font-normal text-xl text-black/60">Daily</p>
         <button id="topProducts" data-dropdown-toggle="topProductsTrigger">
@@ -49,93 +50,33 @@
       </div>
     </div>
     <div class="inline-flex absolute gap-3 mt-4">
+      @foreach ($top as $top)
       <div class="inline-flex absolute mt-5 gap-10">
-        <p class=" text-[20px] text-black">1.</p>
+        <p class=" text-[20px] text-black">{{ $loop->iteration }}.</p>
         <div class="flex flex-wrap pb-3">
           <div class=" bg-bgTopProducs rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-[83px] w-[83px]">
           </div>
         </div>
         <div>
-          <p class=" text-base font-semibold text-black grid-flow-row gap-[100px] ">Madu Durian</p>
+          <p class=" text-base font-semibold text-black grid-flow-row gap-[100px] ">{{ $top->produk->nama_barang }}</p>
           <div class="grid grid-flow-col">
-            <p class=" text-base font-semibold text-black mt-2 ">600ml</p>
-            <p class=" text-base font-semibold text-black mt-2 ml-36 inline-flex absolute">278ml</p>
-            <p class=" text-base font-semibold text-black mt-2 ml-56 inline-flex absolute">IDR.2000.000</p>
+            <p class=" text-base font-semibold text-black mt-2 ">{{ $top->produk->size }}</p>
+            <p class=" text-base font-semibold text-black mt-2 ml-36 inline-flex absolute">{{ $top->total_order }}</p>
+            <p class=" text-base font-semibold text-black ml-56 inline-flex absolute">{{ 'Rp. ' .
+              number_format($top->produk->price, 0, ',', '.') }} (Price)
+            </p>
             <p class=" text-base  text-gray-400 mt-8 ml-32 px-2 inline-flex absolute">quantity</p>
-            <p class=" text-base text-gray-400 mt-8 ml-60 px-4 inline-flex absolute">price</p>
-          </div>
-          <div class="grid grid-flow-col">
-            <p class=" text-base font-semibold text-black mt-8">40pcs</p>
-            <p class=" text-base font-semibold text-black mt-8 ml-36 inline-flex absolute">278ml</p>
-            <p class=" text-base font-semibold text-black mt-8 ml-56 inline-flex absolute">IDR.2000.000</p>
-            <p class=" text-base  text-gray-400 mt-14 py ml-32 px-2 inline-flex absolute">quantity</p>
-            <p class=" text-base  text-gray-400 mt-14 ml-60 px-4 inline-flex absolute">price</p>
           </div>
         </div>
       </div>
-      <div class="inline-flex absolute gap-10 mt-44">
-        <div class="inline-flex absolute mt-5 gap-10">
-          <p class=" text-[20px] text-black">2.</p>
-          <div class="flex flex-wrap pb-3">
-            <div class=" bg-bgTopProducs rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-[83px] w-[83px]">
-            </div>
-
-          </div>
-          <div>
-            <p class=" text-base font-semibold text-black grid-flow-row gap-[100px] ">Madu Durian</p>
-            <div class="grid grid-flow-col">
-              <p class=" text-base font-semibold   text-black mt-2 ">600ml</p>
-              <p class=" text-base font-semibold text-black mt-2 ml-36 inline-flex absolute">278ml</p>
-              <p class=" text-base font-semibold text-black mt-2 ml-56 inline-flex absolute">IDR.2000.000</p>
-              <p class=" text-base  text-gray-400 mt-8 ml-32 px-2 inline-flex absolute">quantity</p>
-              <p class=" text-base text-gray-400 mt-8 ml-60 px-4 inline-flex absolute">price</p>
-            </div>
-            <div class="grid grid-flow-col">
-
-              <p class=" text-base font-semibold text-black mt-8">40pcs</p>
-              <p class=" text-base font-semibold text-black mt-8 ml-36 inline-flex absolute">278ml</p>
-              <p class=" text-base font-semibold text-black mt-8 ml-56 inline-flex absolute">IDR.2000.000</p>
-              <p class=" text-base  text-gray-400 mt-14 py ml-32 px-2 inline-flex absolute">quantity</p>
-              <p class=" text-base  text-gray-400 mt-14 ml-60 px-4 inline-flex absolute">price</p>
-            </div>
-          </div>
-          <div class="inline-flex absolute gap-10 mt-40">
-            <div class="inline-flex absolute mt-5 gap-10">
-              <p class=" text-[20px] text-black">3.</p>
-              <div class="flex flex-wrap pb-3">
-                <div
-                  class=" bg-bgTopProducs rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-[83px] w-[83px]">
-                </div>
-
-              </div>
-              <div>
-                <p class=" text-base font-semibold text-black grid-flow-row gap-[100px] ">Madu Durian</p>
-                <div class="grid grid-flow-col">
-                  <p class=" text-base font-semibold text-black mt-2 ">600ml</p>
-                  <p class=" text-base font-semibold text-black mt-2 ml-36 inline-flex absolute">278ml</p>
-                  <p class=" text-base font-semibold text-black mt-2 ml-56 inline-flex absolute">IDR.2000.000</p>
-                  <p class=" text-base  text-gray-400 mt-8 ml-32 px-2 inline-flex absolute">quantity</p>
-                  <p class=" text-base text-gray-400 mt-8 ml-60 px-4 inline-flex absolute">price</p>
-                </div>
-                <div class="grid grid-flow-col">
-
-                  <p class=" text-base font-semibold text-black mt-8">40pcs</p>
-                  <p class=" text-base font-semibold text-black mt-8 ml-36 inline-flex absolute">278ml</p>
-                  <p class=" text-base font-semibold text-black mt-8 ml-56 inline-flex absolute">IDR.2000.000</p>
-                  <p class=" text-base  text-gray-400 mt-14 py ml-32 px-2 inline-flex absolute">quantity</p>
-                  <p class=" text-base  text-gray-400 mt-14 ml-60 px-4 inline-flex absolute">price</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      @endforeach
     </div>
   </div>
   <div
     class="inline-block p-6 bg-white border border-gray-200 rounded-xl  hover:bg-gray-100 shadow-2xl shadow-background w-[550px] h-[650px]">
     <div class="grid grid-flow-col gap-[150px]">
-      <h5 class="text-2xl font-bold tracking-tight text-gray-900 ">Hengki's Order Stats</h5>
+      <h5 class="text-2xl font-bold tracking-tight text-gray-900 ">{{ $order->customer->nama_lengkap }}'s Order Stats
+      </h5>
       <div class="grid grid-flow-col">
         <p class="font-normal text-xl text-black/60">Daily</p>
         <button id="topProducts" data-dropdown-toggle="topProductsTrigger">
@@ -162,7 +103,7 @@
           </div>
         </div>
         <p class=" text-center text-black font-bold ">Total Order</p>
-        <p class=" text-center text-black font-bold mt-3">700</p>
+        <p class=" text-center text-black font-bold mt-3">{{ $totalOrder }}</p>
       </div>
       <div class="inline-flex px-52 ml-14 ">
         <div class=" absolute mt-5 gap-10">
@@ -180,7 +121,8 @@
             </div>
           </div>
           <p class=" text-center text-black font-bold">Total Spent</p>
-          <p class=" text-center text-black font-bold mt-3">IDR.2000.000</p>
+          <p class=" text-center text-black font-bold mt-3">{{ 'Rp. ' .
+            number_format($spent, 0, ',', '.') }}</p>
         </div>
       </div>
     </div>
@@ -188,7 +130,8 @@
 </div>
 
 <div class="mt-14 ml-28">
-  <div class="inline-block p-6 bg-white border border-gray-200 rounded-xl  hover:bg-gray-100 shadow-2xl shadow-background w-[1122px]">
+  <div
+    class="inline-block p-6 bg-white border border-gray-200 rounded-xl  hover:bg-gray-100 shadow-2xl shadow-background w-[1122px]">
     <p class="text-center text-[24px] text-black">Hengki's Order Chart </p>
     <div>
       <div id="{!! $hengkiOrder->container() !!}"></div>

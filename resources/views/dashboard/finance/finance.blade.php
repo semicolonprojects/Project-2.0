@@ -190,7 +190,7 @@
                         class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                     <label for="checkbox-all" class="sr-only">checkbox</label>
                 </div>
-                INV/{{ date ('d') }}/{{ $order->id }}/{{ $order->tipe_pesanan }}/{{ date('m') }}/{{ date('Y')}}
+                INV/{{ date ('d') }}/{{ $order->id }}/{{ $order->channel->kode_channel }}/{{ date('m') }}/{{ date('Y')}}
             </th>
             <td class="mt-2 px-10 align-center">
                 #{{ $order->order_id }}
@@ -361,9 +361,6 @@
             <div class="py-1"></div>
             <div class="bg-[#FFC0C0] rounded-[6px] max-w-fit flex justify-items-center m-auto">
                 <svg width="58" height="58" viewBox="0 0 58 58" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    {{--
-                    <rect x="58" y="58" width="58" height="58" rx="6" transform="rotate(-180 58 58)" fill="#FFC0C0" />
-                    --}}
                     <path
                         d="M25.0469 31.7652C25.0469 33.2979 26.232 34.5304 27.6857 34.5304H30.6563C31.9204 34.5304 32.9475 33.4559 32.9475 32.1128C32.9475 30.6749 32.3155 30.1535 31.3832 29.8217L26.627 28.1625C25.6947 27.8307 25.0627 27.325 25.0627 25.8713C25.0627 24.544 26.0897 23.4537 27.3538 23.4537H30.3245C31.7782 23.4537 32.9633 24.6862 32.9633 26.219"
                         stroke="#FD3131" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />

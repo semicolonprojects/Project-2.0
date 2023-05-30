@@ -15,7 +15,6 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogistikController;
 use App\Http\Controllers\MarketingKonsinyasiDashboard;
 use App\Http\Controllers\MasukController;
-use App\Http\Controllers\Mktdash2Controller;
 use App\Http\Controllers\MktdashController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProdukJadiController;
@@ -29,7 +28,6 @@ use App\Http\Controllers\SupplierCurahController;
 use App\Http\Controllers\IncomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TargetKaryawanController;
-use App\Models\Income;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,6 +43,8 @@ use App\Models\Income;
 Route::get('/', [LoginController::class, 'index'])->name('login')->middleware('guest');
 
 Route::post('/', [LoginController::class, 'authenticate']);
+
+Route::get('/dashboard', [LoginController::class, 'dashboard']);
 
 Route::resource('absen', MasukController::class);
 
@@ -96,32 +96,16 @@ Route::get('/superadmin', [SuperAdminController::class, 'index'])->middleware('a
 
 Route::get('/marketing', [MktdashController::class, 'index'])->middleware('marketing', 'auth');
 
-Route::get('/marketing/topcust', [Mktdash2Controller::class, 'index'])->middleware('marketing', 'auth');
+Route::get('/marketing/topcust/{id}', [MktdashController::class, 'show'])->name('topcust')->middleware('marketing', 'auth');
 
 Route::get('/marketing/channel', [ChannelController::class, 'index'])->middleware('marketing', 'auth');
-
-Route::get('/marketing/paymentstats', function () {
-    return view('dashboard.marketing.mktdash3');
-})->middleware('marketing', 'auth');
 
 Route::get('/marketing/customerinfo', [CustomerController::class, 'index'])->middleware('marketing', 'auth');
 
 Route::get('/marketing/orderstats', [OrderController::class, 'index'])->middleware('marketing', 'auth');
 
-Route::get('/marketing/detailtermin', function () {
-    return view('dashboard.marketing.mktdash6');
-})->middleware('marketing', 'auth');
-
-Route::get('/marketing/customerinfo-create', function () {
-    return view('dashboard.marketing.mkt-ci-create');
-})->middleware('marketing', 'auth');
-
 Route::patch('/marketing/customerinfo-update', function () {
     return view('dashboard.marketing.mkt-ci-update');
-})->middleware('marketing', 'auth');
-
-Route::get('/marketing/targetkaryawan-create', function () {
-    return view('dashboard.marketing.mkt-targetk-create');
 })->middleware('marketing', 'auth');
 
 Route::patch('/marketing/targetkaryawan-edit', function () {
@@ -130,9 +114,7 @@ Route::patch('/marketing/targetkaryawan-edit', function () {
 
 Route::get('/logistik', [LogistikController::class, 'index'])->middleware('logistik', 'auth');
 
-Route::get('/logistik/datasupplier', function () {
-    return view('dashboard.logistik.logistik2');
-})->middleware('logistik', 'auth');
+Route::get('/logistik/datasupplier', [DataSupplierController::class, 'index'])->middleware('logistik', 'auth');
 
 Route::get('/logistik/innout', [InOutController::class, 'index'])->middleware('logistik', 'auth');
 
@@ -144,9 +126,7 @@ Route::get('/logistik/tanggalprod', function () {
     return view('dashboard.logistik.logistik4');
 })->middleware('logistik', 'auth');
 
-Route::get('/logistik/datasupplier-c', function () {
-    return view('dashboard.logistik.logistik5');
-})->middleware('logistik', 'auth');
+Route::get('/logistik/datasupplier-c', [SupplierCurahController::class, 'index'])->middleware('logistik', 'auth');
 
 Route::get('/logistik/dbb', function () {
     return view('dashboard.logistik.logistik6');
@@ -163,10 +143,6 @@ Route::get('/finance/income', [IncomeController::class, 'index'])->middleware('f
 Route::get('/finance/outcome', [OutcomeController::class, 'index'])->name('outcomes.index')->middleware('finance', 'auth');
 
 Route::get('/invoice/download/{id}', [FinanceInvoiceController::class, 'generate'])->name('invoice.download');
-
-Route::get('/sidebar', function () {
-    return view('sidebar');
-});
 
 Route::get('/marketing-k', [MarketingKonsinyasiDashboard::class, 'index']);
 

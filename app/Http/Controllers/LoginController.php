@@ -60,4 +60,28 @@ class LoginController extends Controller
 
         return redirect('/');
     }
+
+    public function dashboard()
+    {
+
+        $role = Auth::user()->role;
+
+        switch ($role) {
+            case 'superadmin':
+                return redirect()->intended('/superadmin');
+                break;
+            case 'marketing':
+                return redirect()->intended('/marketing');
+                break;
+            case 'finance':
+                return redirect()->intended('/finance');
+                break;
+            case 'logistik':
+                return redirect()->intended('/logistik');
+                break;
+            default:
+                return back()->with('loginError', 'Login Failed, Please Check your username or password');
+                break;
+        }
+    }
 }

@@ -25,6 +25,9 @@
                     Nama Channel
                 </th>
                 <th scope="col" class="px-6 py-3">
+                    Kode Channel
+                </th>
+                <th scope="col" class="px-6 py-3">
                     Target Bulanan
                 </th>
                 <th scope="col" class="px-6 py-3">
@@ -44,11 +47,14 @@
                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                     {{ $channel->nama_channel }}
                 </th>
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    {{ $channel->kode_channel }}
+                </th>
                 <td class="mt-2 px-4 align-center">
-                    Rp {{ number_format($channel->target_bulanan, 2, ',', '.') }}
+                    {{'Rp. ' number_format($channel->target_bulanan, 2, ',', '.') }}
                 </td>
                 <td class="px-6 py-4">
-                    Rp {{ number_format($channel->total_tercapai, 2, ',', '.') }}
+                    {{'Rp. ' number_format($channel->total_tercapai, 2, ',', '.') }}
                 </td>
                 <td>
                     <a href="{{ route('channel.show', ['channel' => $channel->id]) }}">
@@ -125,6 +131,13 @@
                             required="">
                     </div>
                     <div>
+                        <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Kode
+                            Channel</label>
+                        <input type="text" name="kode_channel"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                            required="">
+                    </div>
+                    <div>
                         <label for="brand" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Target
                             Bulanan</label>
                         <input type="number" name="target_bulanan"
@@ -189,6 +202,13 @@
                         <input type="text" name="nama_channel"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                             required="" value="{{ $channel2->nama_channel }}">
+                    </div>
+                    <div>
+                        <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Kode
+                            Channel</label>
+                        <input type="text" name="kode_channel"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                            required="" value="{{ $channel2->kode_channel }}">
                     </div>
                     <div>
                         <label for="brand" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Target

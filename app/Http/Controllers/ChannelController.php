@@ -42,12 +42,14 @@ class ChannelController extends Controller
             'nama_channel' => 'required',
             'target_bulanan' => 'required|numeric',
             'total_tercapai' => 'numeric|nullable',
+            'kode_channel' => 'required',
         ]);
 
         $channel = new Channel;
         $channel->nama_channel = $request->nama_channel;
         $channel->target_bulanan = $request->target_bulanan;
         $channel->total_tercapai = $request->total_tercapai;
+        $channel->kode_channel = $request->kode_channel;
         $channel->save();
 
         return redirect()->route('channel.index')->with('success', 'Channel has been created.');
@@ -93,6 +95,7 @@ class ChannelController extends Controller
         $channel->nama_channel = $request->nama_channel;
         $channel->target_bulanan = $request->target_bulanan;
         $channel->total_tercapai = $request->total_tercapai;
+        $channel->kode_channel = $request->kode_channel;
         $channel->save();
         return redirect('/marketing/channel')->with('update', 'Berhasil Update');
     }

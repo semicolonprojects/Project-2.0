@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Charts\HengkiOrderChart;
 use App\Charts\OrderStats;
 use App\Charts\SaleThisMonth;
 use App\Http\Controllers\Controller;

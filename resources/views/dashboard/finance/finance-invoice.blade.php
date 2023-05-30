@@ -6,7 +6,7 @@
     class="inline-block p-6 bg-white border border-gray-200 rounded-xl  hover:bg-gray-100 shadow-2xl w-[1153px] h-[850px]">
     <div class="ml-72 mb-3">
       <p class="mb-2 text-2xl font-bold tracking-tight text-gray-900">INVOICE NUMBER : INV/{{ date ('d') }}/{{
-        $order_id->id }}/{{ $order_id->tipe_pesanan }}/{{ date('m') }}/{{ date('Y')}}</p>
+        $order_id->id }}/{{ $order_id->channel->kode_channel }}/{{ date('m') }}/{{ date('Y')}}</p>
     </div>
     <div class="ml-[414px]">
       <p class="text-sm font-semibold tracking-tight text-gray-900">Order Approved By : {{ $order_id->user->username
@@ -88,8 +88,8 @@
         </tr>
         <tr class="border">
           <td colspan="6" class="px-5 py-5">Revenue</td>
-          <td colspan="6" class="font-bold pl-[270px] py-5 text-[#2E2E2E] ">IDR. 500.000 <div
-              class="inline-block top-0 rounded bg-green-200 text-green-600 w-16 h-4">
+          <td colspan="6" class="font-bold pl-[270px] py-5 text-[#2E2E2E] ">IDR. 500.000
+            <div class="inline-block top-0 rounded bg-green-200 text-green-600 w-16 h-4">
               <p class="text-center ml-1 text-xs font-medium">+ 67,81 % </p>
             </div>
           </td>

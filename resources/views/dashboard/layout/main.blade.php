@@ -193,8 +193,10 @@
                             </path>
                         </svg>
                     </button>
-                    <img src='{{ asset('\Assets\images\Madukuy CMYK Logo.png') }}'
-                        class="h-15 w-16  inset-y-0 flex-items-center ml-5" />
+                    <a href="/dashboard">
+                        <img src='{{ asset(' Assets\images\Madukuy CMYK Logo.png') }}'
+                            class="h-15 w-16  inset-y-0 flex-items-center ml-5" />
+                    </a>
                 </div>
                 <div class="flex justify-items-center">
                     <form class="flex items-center">
@@ -337,16 +339,22 @@
                     </button>
                     <ul id="dropdown-example" class="hidden py-2 space-y-2">
                         <li>
+                            <a href="/marketing"
+                                class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 font-medium">Dashboard</a>
+                        </li>
+                        <li>
+                            <a href="/marketing/channel"
+                                class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 font-medium">Channel</a>
+                        </li>
+                        <li>
                             <a href="/marketing/orderstats"
-                                class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 font-medium">Tabel Order</a>
+                                class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 font-medium">Tabel
+                                Order</a>
                         </li>
                         <li>
                             <a href="/marketing/customerinfo"
-                                class="flex items-center w-full p-2 text-base font-medium text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Customer Info</a>
-                        </li>
-                        <li>
-                            <a href="#"
-                                class="flex items-center w-full p-2 text-base font-medium text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Data Supplier</a>
+                                class="flex items-center w-full p-2 text-base font-medium text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Customer
+                                Info</a>
                         </li>
                     </ul>
                 </li>
@@ -385,42 +393,7 @@
                         </li>
                     </ul>
                 </li>
-                {{-- <li>
-                    <a href="#"
-                        class="flex items-center p-2 text-base font-bold rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            stroke="#FFC525" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="4" y1="22" x2="20" y2="22"></line>
-                            <line x1="7" y1="18" x2="7" y2="11"></line>
-                            <line x1="12" y1="18" x2="12" y2="11"></line>
-                            <line x1="17" y1="18" x2="17" y2="11"></line>
 
-                            <polygon points="12 2 20 7 4 7" fill="#FFC525"> </polygon>
-                        </svg>
-                        <span class="flex-1 ml-3 whitespace-nowrap font-bold">Finance</span>
-
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd"
-                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                clip-rule="evenodd"></path>
-                        </svg>
-                    </a>
-                    <ul id="dropdown-example" class="hidden py-2 space-y-2">
-                        <li>
-                            <a href="/marketing/orderstats"
-                                class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 font-medium">Tabel Order</a>
-                        </li>
-                        <li>
-                            <a href="/marketing/customerinfo"
-                                class="flex items-center w-full p-2 text-base font-medium text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Customer Info</a>
-                        </li>
-                        <li>
-                            <a href="#"
-                                class="flex items-center w-full p-2 text-base font-medium text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Data Supplier</a>
-                        </li>
-                    </ul>
-                </li> --}}
-                
                 <li>
                     <a href="#"
                         class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
@@ -460,15 +433,18 @@
                     <ul id="dropdown-mktcurah" class="hidden py-2 space-y-2">
                         <li>
                             <a href="/marketing/orderstats"
-                                class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 font-medium">Tabel Order</a>
+                                class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 font-medium">Tabel
+                                Order</a>
                         </li>
                         <li>
                             <a href="/marketing/customerinfo"
-                                class="flex items-center w-full p-2 text-base font-medium text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Customer Info</a>
+                                class="flex items-center w-full p-2 text-base font-medium text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Customer
+                                Info</a>
                         </li>
                         <li>
                             <a href="#"
-                                class="flex items-center w-full p-2 text-base font-medium text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Data Supplier</a>
+                                class="flex items-center w-full p-2 text-base font-medium text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Data
+                                Supplier</a>
                         </li>
                     </ul>
                 </li>

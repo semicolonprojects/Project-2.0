@@ -24,23 +24,23 @@
                         </div>
                         <input type="text" id="simple-search"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-yellow-300 focus:border-yellow-300 block w-full pl-10 p-2.5  "
-                            placeholder="Search" >
+                            placeholder="Search">
                     </div>
                 </form>
             </div>
             <div class="mt-6">
-                <a href="/marketing/customerinfo-create">
-                <button type="button"
-                    class="text-white bg-[#22DB66] font-medium rounded-[22px] text-[13px] w-full m-3 py-3 inline-flex items-center">
-                    <div class="px-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-                        </svg>
-                    </div>
-                    Add New Customer
-                </button>
-            </a>
+                <a href="{{ route('customer.create') }}">
+                    <button type="button"
+                        class="text-white bg-[#22DB66] font-medium rounded-[22px] text-[13px] w-full m-3 py-3 inline-flex items-center">
+                        <div class="px-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                            </svg>
+                        </div>
+                        Add New Customer
+                    </button>
+                </a>
             </div>
         </div>
 
@@ -59,9 +59,6 @@
                         </th>
                         <th scope="col" class="px-6 py-3">
                             Wallet Balance
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            Platform
                         </th>
                         <th scope="col" class="px-6 py-3">
                             Address
@@ -87,14 +84,11 @@
                             {{ $customers->no_telepon }} <br>
                             {{ $customers->email }}
                         </td>
+                        @foreach ($wallet as $wallet)
                         <td class="px-6 py-4">
-                            IDR 500,000
+                            {{'Rp.' . number_format($wallet->total, 2, ',', '.') }}
                         </td>
-                        <td class="px-1 py-4">
-                            <button class="bg-[#22DB66] text-white font-bold py-2 px-4 rounded-[22px]" disabled>
-                                TOKOPEDIA
-                            </button>
-                        </td>
+                        @endforeach
                         <td class="px-6 py-4">
                             {{ $customers->alamat }}
                         </td>
@@ -102,41 +96,42 @@
                             {{ $customers->tempat }}, {{ $customers->tanggal_lahir }}
                         </td>
                         <td>
-                            <a href=""> 
-                            <button>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path>
-                                    <circle cx="12" cy="12" r="3"></circle>
-                                </svg>
-                            </button>
+                            <a href="">
+                                <button>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path>
+                                        <circle cx="12" cy="12" r="3"></circle>
+                                    </svg>
+                                </button>
                             </a>
-                            <a href="{{ route('customer.edit', ['customer' => $customers->id]) }}"> 
-                            <button>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <path d="M12 20h9"></path>
-                                    <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
-                                </svg>
-                            </button>
+                            <a href="{{ route('customer.edit', ['customer' => $customers->id]) }}">
+                                <button>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M12 20h9"></path>
+                                        <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+                                    </svg>
+                                </button>
                             </a>
                             <button>
-                                <form class="inline " action="{{ route('customer.destroy', ['customer' => $customers->id]) }}"
+                                <form class="inline "
+                                    action="{{ route('customer.destroy', ['customer' => $customers->id]) }}"
                                     method="POST">
                                     <button onclick="return confirm('Are you sure?')">
                                         @csrf
                                         @method('delete')
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <path d="M20 5H9l-7 7 7 7h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2Z"></path>
-                                        <line x1="18" y1="9" x2="12" y2="15"></line>
-                                        <line x1="12" y1="9" x2="18" y2="15"></line>
-                                    </svg>
-                                </button>
-                            </form>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M20 5H9l-7 7 7 7h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2Z"></path>
+                                            <line x1="18" y1="9" x2="12" y2="15"></line>
+                                            <line x1="12" y1="9" x2="18" y2="15"></line>
+                                        </svg>
+                                    </button>
+                                </form>
                         </td>
                     </tr>
                     @endforeach
@@ -184,6 +179,6 @@
         </ul>
     </div>
 
-    
+
 
     @endsection

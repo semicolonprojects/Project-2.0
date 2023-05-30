@@ -3,6 +3,7 @@
 namespace App\Charts;
 
 use ArielMejiaDev\LarapexCharts\LarapexChart;
+use Illuminate\Support\Facades\DB;
 
 class HengkiOrderChart
 {
@@ -13,16 +14,27 @@ class HengkiOrderChart
         $this->hengkiOrder = $hengkiOrder;
     }
 
-    public function build(): \ArielMejiaDev\LarapexCharts\LineChart
+    public function build($id): \ArielMejiaDev\LarapexCharts\LineChart
     {
+        $totalPerMonth = DB::table('orders')
+            ->where('customer_id', $id)
+            ->select(DB::raw('SUM(total_pembelian) as total, MONTH(created_at) as month'))
+            ->groupBy('month')
+            ->get();
+        $dataTotalPembelian = [];
+        $bulan = [];
+        foreach ($totalPerMonth as $data) {
+            $dataTotalPembelian[] = $data->total;
+            $bulan[] = date('F', mktime(0, 0, 0, $data->month, 1));
+        }
+
         return $this->hengkiOrder->lineChart()
-            ->addData('Physical sales', [40, 93, 35, 42, 18, 82])
-            ->addData('Digital sales', [70, 29, 77, 28, 55, 45])
-            ->setXAxis(['January', 'February', 'March', 'April', 'May', 'June'])
+            ->addData('Total Pembelian', $dataTotalPembelian)
+            ->setXAxis($bulan)
             ->setWidth(1096.35)
             ->setHeight(303)
-            ->setColors(['#A155B9', '#F765A3'])
-            ->setMarkers(['#A155B9', '#F765A3'], 7, 10)
+            ->setColors(['#A155B9'])
+            ->setMarkers(['#A155B9'], 7, 10)
             ->setGrid();
     }
 }

@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('channels', function (Blueprint $table) {
             $table->id();
             $table->string('nama_channel');
+            $table->string('kode_channel');
             $table->decimal('target_bulanan', 15, 2);
             $table->decimal('total_tercapai', 15, 2)->nullable();
             $table->timestamps();

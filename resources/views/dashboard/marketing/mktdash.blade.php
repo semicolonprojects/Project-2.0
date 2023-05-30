@@ -61,8 +61,8 @@
     <div class="grid grid-flow-col gap-[842px] mb-3">
         <h5 class="mb-2 ml-5 text-2xl font-bold tracking-tight text-gray-900 ">Order Stats</h5>
         <button id="orderStats" data-dropdown-toggle="orderStatsTrigger">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                class="w-8 h-8">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class="w-8 h-8">
                 <path stroke-linecap="round" stroke-linejoin="round"
                     d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
             </svg>
@@ -80,8 +80,8 @@
     <div class='' id="{!! $saleThisMonth->container()  !!}"></div>
 </div>
 
-{{-- Top Product --}}
-<div class="mt-14 ml-40">
+{{-- Top Products --}}
+<div class="mt-14 ml-[169px]">
     <div
         class="inline-block p-6 bg-white border border-gray-200 rounded-xl  hover:bg-gray-100 shadow-2xl w-[1024px] h-[700px]">
         <div class="grid grid-flow-col gap-[690px]">
@@ -97,77 +97,23 @@
             </div>
         </div>
         <div class="grid grid-flow-col gap-x-40 py-10 ">
+            @foreach ($topProducts as $product)
             <div class="grid grid-flow-row  ml-14 gap-3">
-                <p class="ml-9 text-[32px] text-black">1</p>
+                <p class="ml-9 text-[32px] text-black">{{ $loop->iteration }}</p>
                 <div class="flex flex-wrap ">
                     <div
                         class="bg-bgTopProducs rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-[94px] w-[93px]">
                         <img class="mt-3 w-52 h-20" src="Assets\images\pure-honey-1-removebg-preview.png" />
                     </div>
                 </div>
-                <p class="text-base text-black ">Madu Durian</p>
-                <p class="px-5 text-base text-black ">600ml</p>
-                <p class="px-5 text-base text-black ">20pcs</p>
+                <p class="text-base text-black ">{{ $product->nama_barang }}</p>
+                <p class="px-5 text-base text-black ">{{ $product->size }}</p>
+                <p class="px-5 text-base text-black ">{{ $product->total_order }} PCS</p>
             </div>
-
-            <div class="grid grid-flow-row gap-3">
-                <p class="ml-9 text-[32px] text-black">2</p>
-                <div class="flex flex-wrap ">
-                    <div
-                        class="bg-bgTopProducs rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-[94px] w-[93px]">
-                        <img class="mt-3 w-52 h-20" src="Assets\images\pure-honey-1-removebg-preview.png" />
-                    </div>
-                </div>
-                <p class="text-base text-black ">Madu Durian</p>
-                <p class="px-5 text-base text-black ">600ml</p>
-                <p class="px-5 text-base text-black ">20pcs</p>
-            </div>
-
-            <div class="grid grid-flow-row gap-3">
-                <p class="ml-9 text-[32px] text-black">3</p>
-                <div class="flex flex-wrap ">
-                    <div
-                        class="bg-bgTopProducs rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-[94px] w-[93px]">
-                        <img class="mt-3 w-52 h-20" src="Assets\images\pure-honey-1-removebg-preview.png" />
-                    </div>
-                </div>
-                <p class="text-base text-black ">Madu Durian</p>
-                <p class="px-5 text-base text-black ">600ml</p>
-                <p class="px-5 text-base text-black ">20pcs</p>
-            </div>
-        </div>
-        <div class="inline-flex absolute gap-10 mt-3 ">
-            <div class="inline-flex absolute mt-5 gap-10">
-                <p class=" text-[20px] text-black">4.</p>
-                <div class="flex flex-wrap pb-3">
-                    <div
-                        class=" bg-bgTopProducs rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-[83px] w-[83px]">
-                        <img class=" w-52 h-20 mt-3" src="Assets\images\pure-honey-1-removebg-preview.png" />
-                    </div>
-                </div>
-                <p class=" text-base text-black ">Madu Durian</p>
-                <p class=" text-base text-black ">600ml</p>
-                <p class=" text-base text-black ">20pcs</p>
-            </div>
-            <div>
-                <div class="inline-flex absolute gap-10 mt-36 ">
-                    <p class=" text-[20px] text-black">5.</p>
-                    <div class="flex flex-wrap">
-                        <div
-                            class="bg-bgTopProducs rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-[83px] w-[83px]">
-                            <img class="w-52 h-20 mt-3" src="Assets\images\pure-honey-1-removebg-preview.png" />
-                        </div>
-                    </div>
-                    <p class=" text-base text-black ">Madu Durian</p>
-                    <p class=" text-base text-black ">600ml</p>
-                    <p class=" text-base text-black ">20pcs</p>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
-</div>
-
-<!-- Back to top button -->
+</div <!-- Back to top button -->
 <button type="button" data-mdb-ripple="true" data-mdb-ripple-color="light"
     class="p-3 bg-background text-black font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-gradient-to-bl from-yellow-200 to-bg-yellow-300 focus:ring-yellow-400 focus:shadow-lg focus:outline-none transition duration-150 ease-in-out hidden bottom-5 right-5 fixed"
     id="btn-back-to-top">
@@ -242,11 +188,13 @@
                     <h5 class="text-xl font-semibold tracking-tight text-gray-900 ml-5 mt-3">Total Target</h5>
                     <div class="inline-flex absolute mt-32 mr-16">
                         @forelse ($targetKaryawan as $targetKaryawans)
-                        <h5 class="text-3xl font-bold tracking-tight text-gray-900 ml-3 mt-3">Rp {{ number_format(($targetKaryawans->target)) }}</h5>
-                        <p class="text-sm ml-5 mt-[27px] text-gray-700/75">Deadline : {{ $targetKaryawans->deadline_target }}</p>
+                        <h5 class="text-3xl font-bold tracking-tight text-gray-900 ml-3 mt-3">Rp {{
+                            number_format(($targetKaryawans->target)) }}</h5>
+                        <p class="text-sm ml-5 mt-[27px] text-gray-700/75">Deadline : {{
+                            $targetKaryawans->deadline_target }}</p>
                         @empty
                         <h5 class="text-3xl font-bold tracking-tight text-gray-900 ml-3 mt-3">Rp. 0,00</h5>
-                        <p class="text-sm ml-5 mt-[27px] text-gray-700/75">Deadline : </p>   
+                        <p class="text-sm ml-5 mt-[27px] text-gray-700/75">Deadline : </p>
                         @endforelse ($targetKaryawan as $targetKaryawans)
                     </div>
                     <div
@@ -295,11 +243,14 @@
                     <h5 class="text-xl font-semibold tracking-tight text-gray-900 ml-5 mt-3">Daily Target</h5>
                     <div class="inline-flex absolute mt-32 mr-16">
                         @forelse($targetKaryawan as $targetKaryawan)
-                        <h5 class="text-3xl font-bold tracking-tight text-gray-900 ml-3 mt-3">Rp {{ number_format(($targetKaryawan->target/30*Date('d'))) }}</h5>
-                        <p class="text-sm ml-5 mt-[27px] text-gray-700/75">Today : {{ now("Asia/Bangkok")->toDateString() }}</p>
+                        <h5 class="text-3xl font-bold tracking-tight text-gray-900 ml-3 mt-3">Rp {{
+                            number_format(($targetKaryawan->target/30*Date('d'))) }}</h5>
+                        <p class="text-sm ml-5 mt-[27px] text-gray-700/75">Today : {{
+                            now("Asia/Bangkok")->toDateString() }}</p>
                         @empty
                         <h5 class="text-3xl font-bold tracking-tight text-gray-900 ml-3 mt-3">Rp. 0,00</h5>
-                        <p class="text-sm ml-5 mt-[27px] text-gray-700/75">Today : {{ now("Asia/Bangkok")->toDateString() }}</p>
+                        <p class="text-sm ml-5 mt-[27px] text-gray-700/75">Today : {{
+                            now("Asia/Bangkok")->toDateString() }}</p>
                         @endforelse ($targetKaryawan as $targetKaryawan)
                     </div>
                     <div
@@ -364,47 +315,51 @@
         <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="topProducts">
             @if (isset($targetKaryawan->id))
             <li>
-                <a href="{{ route('targetKaryawan.edit', ['targetKaryawan' => $targetKaryawan->id]) }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 ">Edit Target</a>
+                <a href="{{ route('targetKaryawan.edit', ['targetKaryawan' => $targetKaryawan->id]) }}"
+                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 ">Edit Target</a>
             </li>
             <li>
                 <form class="" action="{{ route('targetKaryawan.destroy', ['targetKaryawan' => $targetKaryawan->id]) }}"
                     method="POST">
-                    <button onclick="return confirm('Are you sure?')"class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 ">Hapus Target
+                    <button onclick="return confirm('Are you sure?')"
+                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 ">Hapus Target
                         @csrf
                         @method('delete')
-                </button>
+                    </button>
             </li>
-        </form>
+            </form>
             @else
             <li>
-                <a href="/marketing/targetkaryawan-create" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 ">Tambahkan Target</a>
+                <a href="{{ route('targetKaryawan.create') }}"
+                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 ">Tambahkan Target</a>
             </li>
-        @endif
-            </ul>
+            @endif
+        </ul>
     </div>
-    
-    
 
-    {{-- Top Customer --}}
-    <div class="px-0 mt-10 p-10">
-        <div class=" max-w-5xl h-[480px] p-6 bg-white border border-gray-200 rounded-xl  hover:bg-gray-100 shadow-2xl">
-            <h5 class="inline-flex absolute mb-2 text-2xl font-bold tracking-tight  text-gray-900 ">Top Customers</h5>
-            <div class="inline-flex ml-[900px]">
-                <p class="font-normal text-xl text-black/60">Daily</p>
-                <button id="topProducts" data-dropdown-toggle="topProductsTrigger">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="0.5"
-                        stroke="currentColor" class="w-5 h-5">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                    </svg>
-                </button>
-            </div>
+
+
+    {{-- Top Customers --}}
+    <div
+        class=" max-w-5xl h-[480px] p-6 bg-white border border-gray-200 rounded-xl  hover:bg-gray-100 shadow-2xl mt-10">
+        <h5 class="inline-flex absolute mb-2 text-2xl font-bold tracking-tight  text-gray-900 ">Top Customers</h5>
+        <div class="inline-flex ml-[900px]">
+            <p class="font-normal text-xl text-black/60">Daily</p>
+            <button id="topProducts" data-dropdown-toggle="topProductsTrigger">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="0.5"
+                    stroke="currentColor" class="w-5 h-5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                </svg>
+            </button>
+        </div>
+        <div class=" mt-14 ml-24 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-9">
+            @foreach ($topCust as $top)
             <div
-                class=" mt-14 ml-24 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-9">
-                <div
-                    class="py-2 inline-flex rounded-xl border border-gray-400/70 bg-gray-200/0 shadow-md shadow-gray-400 w-52 h-56">
-                    <h3 class="absolute mt-4 ml-24 text-3xl font-bold text-black">1</h3>
-                    <p class="absolute mt-16 ml-16 text-2xl font-extrabold text-gray-900">Hengki</p>
-                    <div class="inline-flex absolute stroke-gray-900 w-5 h-5  ml-[165px] mt-0">
+                class="py-2 inline-flex rounded-xl border border-gray-400/70 bg-gray-200/0 shadow-md shadow-gray-400 w-60 h-72">
+                <h3 class="absolute mt-4 ml-28 text-3xl font-bold text-black">{{ $loop->iteration }}</h3>
+                <p class="absolute mt-20 ml-24 text-2xl font-extrabold text-gray-900">{{ $top['nama_lengkap'] }}</p>
+                <div class="inline-flex absolute stroke-gray-900 w-5 h-5  ml-[200px] mt-0">
+                    <a href="{{ route('topcust', ['id' => $top['customer_id']]) }}">
                         <button id="orderStats" data-dropdown-toggle="orderStatsTrigger">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                                 stroke="currentColor" class="w-8 h-8">
@@ -412,143 +367,46 @@
                                     d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
                             </svg>
                         </button>
+                    </a>
+                </div>
+                <div class="mt-[120px] py-2 inline-flex absolute">
+                    <p class="self-center text-md text-black font-semibold ml-3 ">Total Orders</p>
+                    <p class="place-self-center text-md text-black font-normal ml-10 ">{{ $top['total_pembelian'] }}
+                    </p>
+                </div>
+                <div class="mt-[155px] py-2 inline-flex absolute">
+                    <p class="self-center text-md text-black font-semibold ml-3 ">Revenue</p>
+                    <p class="place-self-center text-md text-black font-normal ml-9 ">{{ 'Rp ' .
+                        number_format($top['revenue'], 0, ',', '.') }}</p>
+                </div>
+                @foreach ($top['favorite_products'] as $fav)
+                <div class="inline-flex mt-56 ml-2">
+                    <div class="bg-bgTopProducs ml-8 rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-8 w-8">
+                        <img src="Assets\images\pure-honey-1-removebg-preview.png" />
                     </div>
-                    <div class="mt-[120px] py-2 inline-flex absolute">
-                        <p class="self-center text-md text-black font-semibold ml-3 ">Total Orders</p>
-                        <p class="place-self-center text-md text-black font-normal ml-10 ">246 pcs</p>
-                    </div>
-                    <div class="mt-[155px] py-2 inline-flex absolute">
-                        <p class="self-center text-md text-black font-semibold ml-3 ">Revenue</p>
-                        <p class="place-self-center text-md text-black font-normal ml-9 ">IDR 246.000</p>
+                    <div class="mt-8 inline-flex absolute ml-3">
+                        <p class="text-xs">{{ $fav }}</p>
                     </div>
                 </div>
-                <div
-                    class="py-2 inline-flex rounded-xl border border-gray-400/70 bg-gray-200/0 shadow-md shadow-gray-400 w-52 h-56">
-                    <h3 class="absolute mt-4 ml-24 text-3xl font-bold text-black">2</h3>
-                    <p class="absolute mt-16 ml-16 text-2xl font-extrabold text-gray-900">Hengki</p>
-                    <div class="inline-flex absolute stroke-gray-900 w-5 h-5  ml-[165px] mt-0">
-                        <button id="orderStats" data-dropdown-toggle="orderStatsTrigger">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                stroke="currentColor" class="w-8 h-8">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
-                            </svg>
-                        </button>
-                    </div>
-                    <div class="mt-[120px] py-2 inline-flex absolute">
-                        <p class="self-center text-md text-black font-semibold ml-3 ">Total Orders</p>
-                        <p class="place-self-center text-md text-black font-normal ml-10 ">246 pcs</p>
-                    </div>
-                    <div class="mt-[155px] py-2 inline-flex absolute">
-                        <p class="self-center text-md text-black font-semibold ml-3 ">Revenue</p>
-                        <p class="place-self-center text-md text-black font-normal ml-9 ">IDR 246.000</p>
-                    </div>
-                </div>
-                <div
-                    class="py-2 inline-flex rounded-xl border border-gray-400/70 bg-gray-200/0 shadow-md shadow-gray-400 w-52 h-56">
-                    <h3 class="absolute mt-4 ml-24 text-3xl font-bold text-black">3</h3>
-                    <p class="absolute mt-16 ml-16 text-2xl font-extrabold text-gray-900">Hengki</p>
-                    <div class="inline-flex absolute stroke-gray-900 w-5 h-5  ml-[165px] mt-0">
-                        <button id="orderStats" data-dropdown-toggle="orderStatsTrigger">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                stroke="currentColor" class="w-8 h-8">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
-                            </svg>
-                        </button>
-                    </div>
-                    <div class="mt-[120px] py-2 inline-flex absolute">
-                        <p class="self-center text-md text-black font-semibold ml-3 ">Total Orders</p>
-                        <p class="place-self-center text-md text-black font-normal ml-10 ">246 pcs</p>
-                    </div>
-                    <div class="mt-[155px] py-2 inline-flex absolute">
-                        <p class="self-center text-md text-black font-semibold ml-3 ">Revenue</p>
-                        <p class="place-self-center text-md text-black font-normal ml-9 ">IDR 246.000</p>
-                    </div>
-                </div>
+                @endforeach
             </div>
-            <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
-                <div
-                    class="inline-flex absolute py-2 mt-[24px] ml-[70px] rounded-xl border border-gray-400/70 bg-gray-200/0 shadow-md shadow-gray-400 w-64 h-16">
-                    <div class="bg-bgTopProducs ml-8 rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-8 w-8">
-                        <img src="Assets\images\pure-honey-1-removebg-preview.png" />
-                    </div>
-                    <div class="bg-bgTopProducs ml-12 rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-8 w-8">
-                        <img src="Assets\images\pure-honey-1-removebg-preview.png" />
-                    </div>
-                    <div class="bg-bgTopProducs ml-12 rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-8 w-8">
-                        <img src="Assets\images\pure-honey-1-removebg-preview.png" />
-                    </div>
-                    <div class="mt-8 inline-flex absolute ml-3">
-                        <p class="text-xs">Madu Durian</p>
-                    </div>
-                    <div class="mt-8 inline-flex absolute ml-24">
-                        <p class="text-xs">Madu Durian</p>
-                    </div>
-                    <div class="mt-8 inline-flex absolute ml-44">
-                        <p class="text-xs">Madu Durian</p>
-                    </div>
-                </div>
-
-                <div
-                    class="inline-flex absolute py-2 mt-[24px] ml-[370px] rounded-xl border border-gray-400/70 bg-gray-200/0 shadow-md shadow-gray-400 w-64 h-16">
-                    <div class="bg-bgTopProducs ml-8 rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-8 w-8">
-                        <img src="Assets\images\pure-honey-1-removebg-preview.png" />
-                    </div>
-                    <div class="bg-bgTopProducs ml-12 rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-8 w-8">
-                        <img src="Assets\images\pure-honey-1-removebg-preview.png" />
-                    </div>
-                    <div class="bg-bgTopProducs ml-12 rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-8 w-8">
-                        <img src="Assets\images\pure-honey-1-removebg-preview.png" />
-                    </div>
-                    <div class="mt-8 inline-flex absolute ml-3">
-                        <p class="text-xs">Madu Durian</p>
-                    </div>
-                    <div class="mt-8 inline-flex absolute ml-24">
-                        <p class="text-xs">Madu Durian</p>
-                    </div>
-                    <div class="mt-8 inline-flex absolute ml-44">
-                        <p class="text-xs">Madu Durian</p>
-                    </div>
-                </div>
-
-                <div
-                    class="inline-flex absolute py-2 mt-[24px] ml-[680px] rounded-xl border border-gray-400/70 bg-gray-200/0 shadow-md shadow-gray-400 w-64 h-16">
-                    <div class="bg-bgTopProducs ml-8 rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-8 w-8">
-                        <img src="Assets\images\pure-honey-1-removebg-preview.png" />
-                    </div>
-                    <div class="bg-bgTopProducs ml-12 rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-8 w-8">
-                        <img src="Assets\images\pure-honey-1-removebg-preview.png" />
-                    </div>
-                    <div class="bg-bgTopProducs ml-12 rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-8 w-8">
-                        <img src="Assets\images\pure-honey-1-removebg-preview.png" />
-                    </div>
-                    <div class="mt-8 inline-flex absolute ml-3">
-                        <p class="text-xs">Madu Durian</p>
-                    </div>
-                    <div class="mt-8 inline-flex absolute ml-24">
-                        <p class="text-xs">Madu Durian</p>
-                    </div>
-                    <div class="mt-8 inline-flex absolute ml-44">
-                        <p class="text-xs">Madu Durian</p>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
+</div>
 
-   
 
 
-    <script src="{{ $orderStats->cdn() }}"></script>
 
-    {{ $orderStats->script() }}
-    {{ $userActivity->script() }}
-    {{ $salesAnalytics->script() }}
-    {{ $dailyOrderStats->script() }}
-    {{ $dailyTargetStats->script() }}
-    {{ $saleThisMonth->script() }}
+<script src="{{ $orderStats->cdn() }}"></script>
 
-    @vite(['resources/css/app.css','resources/js/app.js'])
+{{ $orderStats->script() }}
+{{ $userActivity->script() }}
+{{ $salesAnalytics->script() }}
+{{ $dailyOrderStats->script() }}
+{{ $dailyTargetStats->script() }}
+{{ $saleThisMonth->script() }}
 
-    @endsection
+@vite(['resources/css/app.css','resources/js/app.js'])
+
+@endsection

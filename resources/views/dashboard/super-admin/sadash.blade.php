@@ -282,62 +282,8 @@
                 <p class="px-5 text-base text-black ">{{ $product->size }}</p>
                 <p class="px-5 text-base text-black ">{{ $product->total_order }} PCS</p>
             </div>
-
-            {{-- <div class="grid grid-flow-row gap-3">
-                <p class="ml-9 text-[32px] text-black">2</p>
-                <div class="flex flex-wrap ">
-                    <div
-                        class="bg-bgTopProducs rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-[94px] w-[93px]">
-                        <img class="mt-3 w-52 h-20" src="Assets\images\pure-honey-1-removebg-preview.png" />
-                    </div>
-                </div>
-                <p class="text-base text-black ">Madu Durian</p>
-                <p class="px-5 text-base text-black ">600ml</p>
-                <p class="px-5 text-base text-black ">20pcs</p>
-            </div>
-
-            <div class="grid grid-flow-row gap-3">
-                <p class="ml-9 text-[32px] text-black">3</p>
-                <div class="flex flex-wrap ">
-                    <div
-                        class="bg-bgTopProducs rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-[94px] w-[93px]">
-                        <img class="mt-3 w-52 h-20" src="Assets\images\pure-honey-1-removebg-preview.png" />
-                    </div>
-                </div>
-                <p class="text-base text-black ">Madu Durian</p>
-                <p class="px-5 text-base text-black ">600ml</p>
-                <p class="px-5 text-base text-black ">20pcs</p>
-            </div> --}}
             @endforeach
         </div>
-        {{-- <div class="inline-flex absolute gap-10 mt-3 ">
-            <div class="inline-flex absolute mt-5 gap-10">
-                <p class=" text-[20px] text-black">4.</p>
-                <div class="flex flex-wrap pb-3">
-                    <div
-                        class=" bg-bgTopProducs rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-[83px] w-[83px]">
-                        <img class=" w-52 h-20 mt-3" src="Assets\images\pure-honey-1-removebg-preview.png" />
-                    </div>
-                </div>
-                <p class=" text-base text-black ">Madu Durian</p>
-                <p class=" text-base text-black ">600ml</p>
-                <p class=" text-base text-black ">20pcs</p>
-            </div>
-            <div>
-                <div class="inline-flex absolute gap-10 mt-36 ">
-                    <p class=" text-[20px] text-black">5.</p>
-                    <div class="flex flex-wrap">
-                        <div
-                            class="bg-bgTopProducs rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-[83px] w-[83px]">
-                            <img class="w-52 h-20 mt-3" src="Assets\images\pure-honey-1-removebg-preview.png" />
-                        </div>
-                    </div>
-                    <p class=" text-base text-black ">Madu Durian</p>
-                    <p class=" text-base text-black ">600ml</p>
-                    <p class=" text-base text-black ">20pcs</p>
-                </div>
-            </div>
-        </div> --}}
     </div>
 </div>
 
@@ -545,13 +491,15 @@
                 <h3 class="absolute mt-4 ml-28 text-3xl font-bold text-black">{{ $loop->iteration }}</h3>
                 <p class="absolute mt-20 ml-24 text-2xl font-extrabold text-gray-900">{{ $top['nama_lengkap'] }}</p>
                 <div class="inline-flex absolute stroke-gray-900 w-5 h-5  ml-[200px] mt-0">
-                    <button id="orderStats" data-dropdown-toggle="orderStatsTrigger">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-8 h-8">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
-                        </svg>
-                    </button>
+                    <a href="{{ route('topcust', ['id' => $top['customer_id']]) }}">
+                        <button>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="w-8 h-8">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+                            </svg>
+                        </button>
+                    </a>
                 </div>
                 <div class="mt-[120px] py-2 inline-flex absolute">
                     <p class="self-center text-md text-black font-semibold ml-3 ">Total Orders</p>
@@ -590,16 +538,6 @@
         </path>
     </svg>
 </button>
-
-<!-- Dropdown menu -->
-<div id="orderStatsTrigger" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 ">
-    <ul class="py-2 text-sm text-gray-700 " aria-labelledby="orderStats">
-        <li>
-            <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 ">Daily</a>
-        </li>
-
-    </ul>
-</div>
 
 <!-- Order Stats Dropdown Menu -->
 <div id="topProductsTrigger" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 ">

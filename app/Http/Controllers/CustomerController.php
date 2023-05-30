@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Customer;
 use App\Http\Controllers\Controller;
+use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\URL;
@@ -18,7 +19,10 @@ class CustomerController extends Controller
     public function index()
     {
         $customer = Customer::all();
-        return view('dashboard.marketing.mktdash4', compact('customer'));
+        $wallet = Order::groupBy('customer_id')
+            ->selectRaw('customer_id, SUM(total_pembelian) as total')
+            ->get();
+        return view('dashboard.marketing.mktdash4', compact('customer', 'wallet'));
     }
 
     /**
@@ -28,7 +32,7 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.marketing.mkt-ci-create');
     }
 
     /**

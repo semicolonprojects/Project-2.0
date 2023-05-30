@@ -19,7 +19,7 @@ class DataSupplierController extends Controller
     {
         $dataSupplier = DataSupplier::all();
         $dataSupplier2 = DataSupplier::all();
-        return view('dashboard.logistik.logistik5', compact('dataSupplier', 'dataSupplier2'));
+        return view('dashboard.logistik.logistik2', compact('dataSupplier', 'dataSupplier2'));
     }
 
     /**

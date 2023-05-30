@@ -19,7 +19,6 @@ class FinanceInvoiceController extends Controller
      */
     public function index()
     {
-        
     }
 
     /**
@@ -94,11 +93,11 @@ class FinanceInvoiceController extends Controller
     {
         $orders = Order::where('order_id', $id)->get();
         $order = Order::where('order_id', $id)->first();
-        $diskon = $order->diskon;
+        $diskon = $order->diskon ?? 0;
         $now = Carbon::now();
         $year = $now->year;
         $id = $order->order_id;
-        $serialNumber = sprintf('INV/%03d/' . $order->tipe_pesanan . '/%d', $id, $year);
+        $serialNumber = sprintf('INV/%03d/' . $order->channel->kode_channel . '/%d', $id, $year);
         $customer = new Buyer([
             'name'          => $order->customer->nama_lengkap,
             'custom_fields' => [
@@ -128,11 +127,6 @@ class FinanceInvoiceController extends Controller
             ->currencyCode('IDR')
             ->logo(public_path('/Assets/images/Madukuy CMYK Logo.png'));
 
-        $pdf = $invoice->stream();
-
-        return response($pdf, 200, [
-            'Content-Type' => 'application/pdf',
-            'Content-Disposition' => 'inline; filename="invoice.pdf"',
-        ]);
+        return $invoice->stream();
     }
 }

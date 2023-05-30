@@ -116,6 +116,7 @@ class DatabaseSeeder extends Seeder
 
         Channel::factory()->create([
             'nama_channel' => 'Tokopedia',
+            'kode_channel' => 'TKP',
             'target_bulanan' => 5000000,
         ]);
 
