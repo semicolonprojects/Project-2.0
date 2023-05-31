@@ -27,6 +27,9 @@
                     Tanggal Keluar
                 </th>
                 <th scope="col" class="px-6 py-3">
+                    Note
+                </th>
+                <th scope="col" class="px-6 py-3">
                     Action
                 </th>
             </tr>
@@ -54,6 +57,9 @@
                 </td>
                 <td class="px-6 py-4">
                     {{ $produk->date_out }}
+                </td>
+                <td class="px-6 py-4">
+                    {{ $produk->keterangan }}
                 </td>
                 <td class="px-6 py-4">
                     <button id="defaultModalButtonEdit{{ $produk->id }}"

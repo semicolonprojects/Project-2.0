@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Channel;
 use Illuminate\Http\Request;
 use App\Models\Customer;
+use App\Models\InOut;
 use App\Models\ProdukCurah;
 use App\Models\ProdukJadi;
 use Illuminate\Contracts\Session\Session;
@@ -71,6 +72,13 @@ class OrderController extends Controller
                 ($request->total_order[$key]) * ($request->diskon) / 100);
             $stokAkhir = $product->stock - $request->total_order[$key];
             $product->update(['stock' => $stokAkhir]);
+            $inout = new InOut;
+            $inout->kode_barang = $value;
+            $inout->barang_keluar = $request->total_order[$key];
+            $inout->keterangan = 'Order #' . ' ' .  $order->order_id;
+            $inout->user_id = $order->user_id;
+            $inout->date_out = now();
+            $inout->save();
 
             $order->ongkir = $request->ongkir;
             $order->status_barang = $request->status_barang;

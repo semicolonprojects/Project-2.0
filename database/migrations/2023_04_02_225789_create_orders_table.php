@@ -30,6 +30,7 @@ return new class extends Migration
             $table->decimal('ongkir', 15, 2);
             $table->string('status_barang');
             $table->string('note');
+            $table->decimal('komisi', 15, 2);
             $table->timestamps();
         });
     }

@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BarangPendukungController;
 use App\Http\Controllers\ChannelController;
 use App\Http\Controllers\CustomerController;
@@ -27,7 +28,6 @@ use App\Http\Controllers\OutcomesDetailController;
 use App\Http\Controllers\SupplierCurahController;
 use App\Http\Controllers\IncomeController;
 use App\Http\Controllers\TargetKaryawanController;
-use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
