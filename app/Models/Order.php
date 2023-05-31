@@ -22,7 +22,8 @@ class Order extends Model
         'diskon',
         'ongkir',
         'status_barang',
-        'note'
+        'note',
+        'komisi',
     ];
 
     public function show()
@@ -104,5 +105,10 @@ class Order extends Model
     public function channel()
     {
         return $this->belongsTo(Channel::class, 'tipe_pesanan');
+    }
+
+    public function target()
+    {
+        return $this->hasMany(TargetKaryawan::class);
     }
 }

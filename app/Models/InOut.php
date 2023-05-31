@@ -16,14 +16,14 @@ class InOut extends Model
         'barang_masuk',
         'barang_keluar',
         'date_in',
-        'date_out'
+        'date_out',
+        'keterangan'
     ];
 
     public function produkJadi()
     {
         return $this->belongsTo(ProdukJadi::class, 'kode_barang');
     }
-
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id');
