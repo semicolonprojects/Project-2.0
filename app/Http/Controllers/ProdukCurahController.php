@@ -39,16 +39,19 @@ class ProdukCurahController extends Controller
      */
     public function store(Request $request)
     {
-        $produk = ProdukCurah::create([
-            'kode_barang' => $request->input('kode_barang'),
-            'nama_barang' => $request->input('nama_barang'),
-            'size' => $request->input('size'),
-            'stock' => $request->input('stock'),
-            'min_ammount' => $request->input('min_ammount'),
-            'stock_akhir' => $request->input('stock_akhir'),
-            'price' => $request->input('price'),
-            'entry_price' => $request->input('entry_price'),
+        $data = $request->validate([
+            'kode_barang' => 'required|unique:produk_curahs',
+            'nama_barang' => 'required',
+            'size' => 'required',
+            'stock' => 'required|integer',
+            'kategori' => 'required',
+            'min_ammount' => 'nullable|integer',
+            'stock_akhir' => 'nullable|integer',
+            'hpp' => 'nullable|numeric',
+            'harga' => 'required|numeric',
         ]);
+
+        ProdukCurah::create($data);
 
         return redirect('/logistik')->with('stok', 'Stok Berhasil Ditambah');
     }
@@ -93,17 +96,22 @@ class ProdukCurahController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $produk = ProdukCurah::find($id);
-        $produk->kode_barang = $request->kode_barang;
-        $produk->nama_barang = $request->nama_barang;
-        $produk->size = $request->size;
-        $produk->stock = $request->stock;
-        $produk->stock_akhir = $request->stock_akhir;
-        $produk->price = $request->price;
-        $produk->entry_price = $request->entry_price;
-        $produk->save();
+        $data = $request->validate([
+            'kode_barang' => 'required|unique:produk_curahs,kode_barang,' . $id,
+            'nama_barang' => 'required',
+            'size' => 'required',
+            'stock' => 'required|integer',
+            'kategori' => 'required',
+            'min_ammount' => 'nullable|integer',
+            'stock_akhir' => 'nullable|integer',
+            'hpp' => 'nullable|numeric',
+            'harga' => 'required|numeric',
+        ]);
 
-        return redirect('logistik')->with('update', 'Berhasil Update');
+        $produk = ProdukCurah::findOrFail($id);
+        $produk->update($data);
+
+        return redirect('/logistik')->with('update', 'Berhasil Update');
     }
 
     /**

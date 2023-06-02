@@ -15,10 +15,14 @@ class ProdukJadi extends Model
         'nama_barang',
         'size',
         'stock',
+        'kategori',
         'min_ammount',
         'stock_akhir',
-        'entry_price',
-        'price'
+        'hpp',
+        'harga_ecer',
+        'harga_rs',
+        'harga_mkl',
+        'harga_ds',
     ];
 
     public function inout()

@@ -9,15 +9,8 @@ class BarangPendukung extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'kode_barang',
-        'nama_barang',
-        'size',
-        'stock',
-        'min_ammount',
-        'stock_akhir',
-        'entry_price',
-        'price'
+    protected $guarded = [
+        'id'
     ];
 
     public function inoutpendukung()

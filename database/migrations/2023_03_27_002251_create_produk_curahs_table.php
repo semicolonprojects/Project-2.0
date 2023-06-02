@@ -19,10 +19,11 @@ return new class extends Migration
             $table->string('nama_barang');
             $table->string('size');
             $table->integer('stock');
+            $table->string('kategori');
             $table->integer('min_ammount')->nullable();
             $table->integer('stock_akhir')->nullable();
-            $table->decimal('entry_price', 15, 2);
-            $table->decimal('price', 15, 2);
+            $table->decimal('hpp', 15, 2)->nullable();
+            $table->decimal('harga', 15, 2);
             $table->timestamps();
         });
     }

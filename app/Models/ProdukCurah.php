@@ -14,10 +14,11 @@ class ProdukCurah extends Model
         'nama_barang',
         'size',
         'stock',
+        'kategori',
         'min_ammount',
         'stock_akhir',
-        'entry_price',
-        'price'
+        'hpp',
+        'harga',
     ];
 
     public function inoutcurah()

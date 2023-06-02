@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\ProdukJadi;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreProdukJadiRequest;
-use App\Http\Requests\UpdateProdukJadiRequest;
 use Illuminate\Http\Request;
 
 class ProdukJadiController extends Controller
@@ -38,17 +36,24 @@ class ProdukJadiController extends Controller
      */
     public function store(Request $request)
     {
-        $produk = ProdukJadi::create([
-            'kode_barang' => $request->input('kode_barang'),
-            'nama_barang' => $request->input('nama_barang'),
-            'size' => $request->input('size'),
-            'stock' => $request->input('stock'),
-            'stock_akhir' => $request->input('stock_akhir'),
-            'price' => $request->input('price'),
-            'entry_price' => $request->input('entry_price'),
+        $data = $request->validate([
+            'kode_barang' => 'required|unique:produk_jadis',
+            'nama_barang' => 'required',
+            'size' => 'required',
+            'stock' => 'required|integer',
+            'kategori' => 'required',
+            'min_ammount' => 'nullable|integer',
+            'stock_akhir' => 'nullable|integer',
+            'hpp' => 'nullable|numeric',
+            'harga_ecer' => 'required|numeric',
+            'harga_rs' => 'required|numeric',
+            'harga_mkl' => 'required|numeric',
+            'harga_ds' => 'required|numeric',
         ]);
 
-        return redirect('/logistik')->with('stok', 'Stok Berhasil Ditambah');
+        ProdukJadi::create($data);
+
+        return redirect('/logistik')->with('success', 'Berhasil Menambahkan Produk');
     }
 
     /**
@@ -75,9 +80,10 @@ class ProdukJadiController extends Controller
      * @param  \App\Models\ProdukJadi  $produkJadi
      * @return \Illuminate\Http\Response
      */
-    public function edit(ProdukJadi $produkJadi)
+    public function edit($id)
     {
-        //
+        $produk = ProdukJadi::findOrFail($id);
+        return view('dashboard.logistik.edit-jadi', compact('produk'));
     }
 
     /**
@@ -89,15 +95,23 @@ class ProdukJadiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $produk = ProdukJadi::find($id);
-        $produk->kode_barang = $request->kode_barang;
-        $produk->nama_barang = $request->nama_barang;
-        $produk->size = $request->size;
-        $produk->stock = $request->stock;
-        $produk->stock_akhir = $request->stock_akhir;
-        $produk->price = $request->price;
-        $produk->entry_price = $request->entry_price;
-        $produk->save();
+        $data = $request->validate([
+            'kode_barang' => 'required|unique:produk_jadis,kode_barang,' . $id,
+            'nama_barang' => 'required',
+            'size' => 'required',
+            'stock' => 'required|integer',
+            'kategori' => 'required',
+            'min_ammount' => 'nullable|integer',
+            'stock_akhir' => 'nullable|integer',
+            'hpp' => 'nullable|numeric',
+            'harga_ecer' => 'required|numeric',
+            'harga_rs' => 'required|numeric',
+            'harga_mkl' => 'required|numeric',
+            'harga_ds' => 'required|numeric',
+        ]);
+
+        $produk = ProdukJadi::findOrFail($id);
+        $produk->update($data);
 
         return redirect('logistik')->with('update', 'Berhasil Update');
     }

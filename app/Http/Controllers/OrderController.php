@@ -133,6 +133,7 @@ class OrderController extends Controller
      */
     public function update(Request $request, Order $order)
     {
+
         $order->total_order = $request->input('total_order');
         $order->total_pembelian = $request->input('total_pembelian');
         $order->tipe_pesanan = $request->input('tipe_pesanan');
@@ -145,8 +146,15 @@ class OrderController extends Controller
         $order->tenggat_order = $request->input('tenggat_order');
 
         $produk = ProdukJadi::where('id', $request->input('kode_barang'))->firstOrFail();
-        $stokAkhir = $produk->stock - $request->input('total_pembelian');
+        $stokAkhir = $produk->stock - $request->input('total_order');
         $produk->update(['stock' => $stokAkhir]);
+
+        $inout = InOut::where('created_at', $order->created_at)
+            ->where('kode_barang',  $request->input('kode_barang'))
+            ->firstOrFail();
+        $id = $inout->id;
+        $updateInOut = InOut::where('id', $id)->firstOrFail();
+        $updateInOut->update(['barang_keluar' => $request->input('total_order')]);
 
         $order->save();
 
@@ -165,6 +173,13 @@ class OrderController extends Controller
         $produk = ProdukJadi::where('id', $order->kode_barang)->firstOrFail();
         $stokAkhir = $produk->stock + $order->total_pembelian;
         $produk->update(['stock' => $stokAkhir]);
+
+        $inout = InOut::where('created_at', $order->created_at)
+            ->where('kode_barang',  $order->kode_barang)
+            ->firstOrFail();
+        $id = $inout->id;
+        $updateInOut = InOut::where('id', $id)->firstOrFail();
+        $updateInOut->delete();
 
         // Menghapus order
         $order->delete();
