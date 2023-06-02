@@ -23,12 +23,12 @@ use App\Http\Controllers\ProdukCurahController;
 use App\Http\Controllers\SuperAdminController;
 use App\Http\Controllers\DataSupplierController;
 use App\Http\Controllers\FinanceInvoiceController;
+use App\Http\Controllers\HargaPokokPenjualanController;
 use App\Http\Controllers\OutcomeController;
 use App\Http\Controllers\OutcomesDetailController;
 use App\Http\Controllers\SupplierCurahController;
 use App\Http\Controllers\IncomeController;
 use App\Http\Controllers\TargetKaryawanController;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -88,6 +88,8 @@ Route::resource('outcomeName', OutcomesDetailController::class);
 
 Route::resource('income', IncomeController::class);
 
+Route::resource('hpp', HargaPokokPenjualanController::class);
+
 Route::get('/logout', [LoginController::class, 'logout']);
 
 Route::get('/admin', [MasukController::class, 'index']);
@@ -131,6 +133,8 @@ Route::get('/logistik/datasupplier-c', [SupplierCurahController::class, 'index']
 Route::get('/logistik/dbb', function () {
     return view('dashboard.logistik.logistik6');
 })->middleware('logistik', 'auth');
+
+Route::get('/hpp', [HargaPokokPenjualanController::class, 'index'])->middleware('superadmin', 'logistik', 'auth');
 
 Route::get('/finance', [FinanceController::class, 'index'])->middleware('finance', 'auth');
 

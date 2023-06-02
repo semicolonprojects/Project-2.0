@@ -51,7 +51,7 @@
         </tr>
         <tr class="border">
           <td colspan="6" class="px-5 py-5">Tanggal Pembayaran</td>
-          <td colspan="6" class="font-bold px-1 py-5 text-[#2E2E2E] ">{{ date('d M Y', strtotime($order_id->created_at))
+          <td colspan="6" class="font-bold px-1 py-5 text-[#cababa] ">{{ date('d M Y', strtotime($order_id->created_at))
             }}</td>
         </tr>
         <tr class="border">
