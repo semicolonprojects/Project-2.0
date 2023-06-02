@@ -215,10 +215,10 @@
                 </div>
                 <div
                     class="inline-flex ml-10 bg-white border-2 border-gray-200 rounded-2xl shadow-xl w-[390px] h-[200px]">
-                    <h5 class="text-xl font-semibold tracking-tight text-gray-900 ml-5 mt-3">Total Closing</h5>
+                    <h5 class="text-xl font-semibold tracking-tight text-gray-900 ml-5 mt-3">GAP Ke Target</h5>
                     <div class="inline-flex absolute mt-32 mr-16">
-                        <h5 class="text-4xl font-bold tracking-tight text-gray-900 ml-5 mt-3">IDR 27 M</h5>
-                        <p class="ml-14 mt-7 text-gray-700/75">Today : 27 May 2023</p>
+                        <h5 class="text-3xl font-bold tracking-tight text-gray-900 ml-5 mt-3"></h5>
+                        <p class="text-sm ml-14 mt-7 text-gray-700/75">Today : 27 May 2023</p>
                     </div>
                     <div
                         class="inline-flex absolute ml-80 mt-3 bg-[#22DB6636] text-[#25D466F7] rounded-xl  w-[50px] h-[50px]">

@@ -194,7 +194,7 @@
                         </svg>
                     </button>
                     <a href="/dashboard">
-                        <img src='{{ asset(' Assets\images\Madukuy CMYK Logo.png') }}'
+                        <img src='{{ asset('Assets\images\Madukuy CMYK Logo.png') }}'
                             class="h-15 w-16  inset-y-0 flex-items-center ml-5" />
                     </a>
                 </div>
