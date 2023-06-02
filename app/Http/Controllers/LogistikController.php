@@ -19,7 +19,6 @@ class LogistikController extends Controller
 
         $stok = ProdukJadi::all();
         $stok2 = ProdukJadi::all();
-        $stok3 = ProdukJadi::all();
         $barangPendukung = BarangPendukung::all();
         $barangPendukung2 = BarangPendukung::all();
         $barangPendukung3 = BarangPendukung::all();
@@ -27,6 +26,8 @@ class LogistikController extends Controller
         $produkCurah2 = ProdukCurah::all();
         $produkCurah3 = ProdukCurah::all();
         $inout = InOut::all();
-        return view('dashboard.logistik.logistik', ['bestSeller' => $bestSeller->build()], compact('stok', 'stok2', 'stok3', 'barangPendukung', 'barangPendukung2', 'barangPendukung3', 'produkCurah', 'inout', 'produkCurah2', 'produkCurah3'));
+        $productModel = new ProdukJadi();
+        $lowStocks = $productModel->lowStock();
+        return view('dashboard.logistik.logistik', ['bestSeller' => $bestSeller->build()], compact('stok', 'stok2', 'barangPendukung', 'barangPendukung2', 'barangPendukung3', 'produkCurah', 'inout', 'produkCurah2', 'produkCurah3', 'lowStocks'));
     }
 }

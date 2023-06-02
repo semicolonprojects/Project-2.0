@@ -47,7 +47,7 @@
 </div>
 </div>
 <div
-    class="w-[1024px] h-[600px] rounded-[13px] overflow-hidden ml-40 mt-28 bg-white border border-[#686868CF] shadow-[0px_8px_8px_rgba(0,0,0,0.5)]">
+    class="w-[1224px] h-[600px] rounded-[13px] overflow-hidden ml-[2rem] mt-28 bg-white border border-[#686868CF] shadow-[0px_8px_8px_rgba(0,0,0,0.5)]">
     <div class="absolute ml-6 mt-4">
         <div class="grid grid-flow-col gap-[870px]">
             <h5 class="text-3xl font-bold tracking-tight text-gray-900 ">Stock</h5>
@@ -91,12 +91,10 @@
         </div>
     </div>
     {{-- table --}}
-
-    <div class=" py-20">
+    <div class="py-20">
         <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
             <thead class="text-xs text-gray-700 bg-white dark:bg-gray-700 dark:text-gray-400">
                 <tr>
-
                     <th scope="col" class="px-6 py-3 font-thin">
                         PRODUCT NUMBER
                     </th>
@@ -116,7 +114,16 @@
                         STOCK AKHIR
                     </th>
                     <th scope="col" class="px-6 py-3 font-thin">
-                        PRICE
+                        ECER
+                    </th>
+                    <th scope="col" class="px-6 py-3 font-thin">
+                        RESELLER
+                    </th>
+                    <th scope="col" class="px-6 py-3 font-thin">
+                        DISTRIBUTOR
+                    </th>
+                    <th scope="col" class="px-6 py-3 font-thin">
+                        MAKLON
                     </th>
                     <th scope="col" class="px-6 py-3 font-thin">
                         ACTION
@@ -145,7 +152,16 @@
                         {{ $stok->stock_akhir }}
                     </th>
                     <td class="px-6 py-4">
-                        {{ "Rp " . number_format($stok->price ,2,',','.') }}
+                        {{ "Rp " . number_format($stok->harga_ecer ,2,',','.') }}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ "Rp " . number_format($stok->harga_rs ,2,',','.') }}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ "Rp " . number_format($stok->harga_mkl ,2,',','.') }}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ "Rp " . number_format($stok->harga_ds ,2,',','.') }}
                     </td>
                     <td>
                         <button data-modal-target="authentication-modal-dstock-{{ $stok->id }}"
@@ -156,15 +172,16 @@
                                 <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path>
                                 <circle cx="12" cy="12" r="3"></circle>
                             </svg>
-                            <button data-modal-target="authentication-modal-estock-{{ $stok->id }}"
-                                data-modal-toggle="authentication-modal-estock-{{ $stok->id }}">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <path d="M12 20h9"></path>
-                                    <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
-                                </svg>
-                            </button>
+                            <a href="{{ route('stock.edit', ['stock'=>$stok->id]) }}">
+                                <button>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M12 20h9"></path>
+                                        <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+                                    </svg>
+                                </button>
+                            </a>
                             <form action="{{ route('stock.destroy', ['stock' => $stok->id]) }}" method="post"
                                 class='inline'>
                                 <button onclick="return confirm('Are you sure?')">
@@ -211,7 +228,6 @@
         </div>
     </div>
 </div>
-</div>
 
 {{-- data-dropdown-toggle --}}
 <div id="orderStatsTrigger" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 ">
@@ -232,17 +248,16 @@
 {{-- low stock --}}
 
 <div
-    class="w-[1024px] h-[500px] rounded-[13px] overflow-hidden ml-40 mt-12 bg-white border border-[#686868CF] shadow-[0px_8px_8px_rgba(0,0,0,0.5)]">
+    class="w-[1224px] h-[600px] rounded-[13px] overflow-hidden ml-[2rem] mt-12 bg-white border border-[#686868CF] shadow-[0px_8px_8px_rgba(0,0,0,0.5)]">
     <div class="absolute ml-6 mt-4">
         <div class="grid grid-flow-col gap-[810px]">
             <h5 class="text-3xl font-bold tracking-tight text-gray-900 ">Low Stock</h5>
             <div class="grid grid-flow-col">
-
                 <button id="orderStats" data-dropdown-toggle="orderStatsTrigger">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="w-8 h-8">
                         <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+                            d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z">
                     </svg>
                 </button>
             </div>
@@ -283,12 +298,11 @@
         <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
             <thead class="text-xs text-gray-700 bg-white dark:bg-gray-700 dark:text-gray-400">
                 <tr>
-
-                    <th scope="col" class="px-6 py-3 font-thin">
-                        PRODUCT NAME
-                    </th>
                     <th scope="col" class="px-6 py-3 font-thin">
                         PRODUCT NUMBER
+                    </th>
+                    <th scope="col" class="px-6 py-3 font-thin">
+                        PRODUCT NAME
                     </th>
                     <th scope="col" class="px-6 py-3 font-thin">
                         SATUAN
@@ -303,121 +317,57 @@
                         STOCK AKHIR
                     </th>
                     <th scope="col" class="px-6 py-3 font-thin">
-                        PRICE
+                        ECER
                     </th>
                     <th scope="col" class="px-6 py-3 font-thin">
-                        ACTION
+                        RESELLER
+                    </th>
+                    <th scope="col" class="px-6 py-3 font-thin">
+                        DISTRIBUTOR
+                    </th>
+                    <th scope="col" class="px-6 py-3 font-thin">
+                        MAKLON
                     </th>
                 </tr>
             </thead>
-
             <tbody>
+                @foreach($lowStocks as $stok)
                 <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        4505
+                        {{ $stok->kode_barang }}
                     </th>
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        Madu Kaliandra
+                        {{ $stok->nama_barang }}
                     </th>
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        PCS
+                        {{ $stok->size }}
                     </th>
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        90
+                        {{$stok->stock}}
                     </th>
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        11
+                        {{ $stok->min_ammount }}
                     </th>
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        79
+                        {{ $stok->stock_akhir }}
                     </th>
                     <td class="px-6 py-4">
-                        xxxx
+                        {{ "Rp " . number_format($stok->harga_ecer ,2,',','.') }}
                     </td>
-                    <td>
-                        <button>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path>
-                                <circle cx="12" cy="12" r="3"></circle>
-                            </svg>
-                        </button>
-                        <button>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <path d="M12 20h9"></path>
-                                <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
-                            </svg>
-                        </button>
-                        <button>
-                            <button>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <path d="M20 5H9l-7 7 7 7h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2Z"></path>
-                                    <line x1="18" y1="9" x2="12" y2="15"></line>
-                                    <line x1="12" y1="9" x2="18" y2="15"></line>
-                                </svg>
-                            </button>
+                    <td class="px-6 py-4">
+                        {{ "Rp " . number_format($stok->harga_rs ,2,',','.') }}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ "Rp " . number_format($stok->harga_mkl ,2,',','.') }}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ "Rp " . number_format($stok->harga_ds ,2,',','.') }}
                     </td>
                 </tr>
+                @endforeach
 
-                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        4505
-                    </th>
-                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        Madu Kaliandra
-                    </th>
-                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        PCS
-                    </th>
-                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        90
-                    </th>
-                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        11
-                    </th>
-                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        79
-                    </th>
-                    <td class="px-6 py-4">
-                        xxxx
-                    </td>
-                    <td>
-                        <button>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path>
-                                <circle cx="12" cy="12" r="3"></circle>
-                            </svg>
-                        </button>
-                        <button>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <path d="M12 20h9"></path>
-                                <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
-                            </svg>
-                        </button>
-                        <button>
-                            <button>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <path d="M20 5H9l-7 7 7 7h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2Z"></path>
-                                    <line x1="18" y1="9" x2="12" y2="15"></line>
-                                    <line x1="12" y1="9" x2="18" y2="15"></line>
-                                </svg>
-                            </button>
-                    </td>
-                </tr>
             </tbody>
         </table>
-
         {{-- pagination --}}
 
         <div class="flex justify-center py-24 mr-6">
@@ -1009,7 +959,7 @@
                         {{ $pc->stock_akhir }}
                     </th>
                     <td class="px-6 py-4">
-                        {{ "Rp " . number_format($pc->price ,2,',','.') }}
+                        {{ "Rp " . number_format($pc->harga ,2,',','.') }}
                     </td>
                     <td>
                         <a href="{{ route('curah.edit', ['curah' => $pc->id ]) }}">
@@ -1303,7 +1253,7 @@
         <div class="relative  bg-white rounded-lg shadow dark:bg-gray-700">
             <button type="button"
                 class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
-                data-modal-hide="authentication-modal-4">
+                data-modal-hide="authentication-modal-stock">
                 <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
                     xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd"
@@ -1315,30 +1265,38 @@
             <div class="px-6 py-3 lg:px-8">
                 <form class="space-y-6" action="{{ route('stock.store') }}" method="POST">
                     @csrf
-                </form>
-                <form class="space-y-6" action="{{ route('stock.store') }}" method="POST">
-                    @csrf
-                    <div class="grid grid-flow-row gap-5">
-                        <div>
-                            <label for="email"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Product
-                                ID</label>
-                            <input type="text" name="kode_barang"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                                required>
+                    <div class="grid grid-flow-row gap-2">
+                        <div class="grid grid-flow-col gap-3">
+                            <div>
+                                <label for="email"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Product
+                                    ID</label>
+                                <input type="text" name="kode_barang"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                    required>
+                            </div>
+                            <div>
+                                <label class=" block mb-2 text-sm font-medium text-gray-900 dark:text-white">Product
+                                    Name</label>
+                                <input type="text" name="nama_barang"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                    required>
+                            </div>
                         </div>
-                        <div>
-                            <label class=" block mb-2 text-sm font-medium text-gray-900 dark:text-white">Product
-                                Name</label>
-                            <input type="text" name="nama_barang"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                                required>
-                        </div>
-                        <div>
-                            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Satuan</label>
-                            <input type="text" name="size"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                                required>
+                        <div class="grid grid-flow-col gap-3">
+                            <div>
+                                <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Size</label>
+                                <input type="text" name="size"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                    required>
+                            </div>
+                            <div>
+                                <label
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Kategori</label>
+                                <input type="text" name="kategori"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                    required>
+                            </div>
                         </div>
                     </div>
                     <div class="grid grid-flow-col gap-3">
@@ -1363,14 +1321,29 @@
                     </div>
                     <div class="grid grid-flow-col gap-3">
                         <div>
-                            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Entry
-                                Price</label>
-                            <input type="number" name="entry_price"
+                            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"> Harga
+                                Ecer</label>
+                            <input type="number" name="harga_ecer"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
                         </div>
                         <div>
-                            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Price</label>
-                            <input type="number" name="price"
+                            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                                Harga Reseller</label>
+                            <input type="number" name="harga_rs"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
+                        </div>
+                    </div>
+                    <div class="grid grid-flow-col gap-3">
+                        <div>
+                            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                                Harga Maklon</label>
+                            <input type="number" name="harga_mkl"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
+                        </div>
+                        <div>
+                            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                                Harga Distributor</label>
+                            <input type="number" name="harga_ds"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white">
                         </div>
                     </div>
@@ -1407,8 +1380,10 @@
                     <li>Stok : {{ $stok->stock }}</li>
                     <li>Min Ammount : {{ $stok->min_ammount }}</li>
                     <li>Stok Akhir : {{ $stok->stock_akhir }}</li>
-                    <li>Harga Beli : {{ $stok->entry_price }}</li>
-                    <li>Harga Jual : {{ $stok->price }}</li>
+                    <li>Harga Ecer : {{ $stok->harga_ecer }}</li>
+                    <li>Harga Distributor : {{ $stok->harga_ds }}</li>
+                    <li>Harga Maklon : {{ $stok->mkl }}</li>
+                    <li>Harga Reseller : {{ $stok->rs }}</li>
                     <li>Tanggal Barang Masuk : {{ date('d-m-Y', strtotime($stok->created_at)) }}</li>
                     <li>Tanggal Barang Update : {{ date('d-m-Y', strtotime($stok->updated_at)) }}</li>
                 </ul>
@@ -1417,99 +1392,6 @@
     </div>
 </div>
 @endforeach
-
-<!-- Stock Edit Modal -->
-@foreach($stok3 as $stok)
-<div id="authentication-modal-estock-{{ $stok->id }}" tabindex="-1" aria-hidden="true"
-    class="fixed z-50 hidden w-full my-[53px] overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] md:h-full">
-    <div class="relative  w-full h-full max-w-md md:h-auto">
-        <!-- Modal content -->
-        <div class="relative  bg-white rounded-lg shadow dark:bg-gray-700">
-            <button type="button"
-                class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
-                data-modal-hide="authentication-modal-4">
-                <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd"
-                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                        clip-rule="evenodd"></path>
-                </svg>
-                <span class="sr-only">Close modal</span>
-            </button>
-            <div class="px-6 py-3 lg:px-8">
-                <form class="space-y-6" action="{{ route('stock.update', ['stock' => $stok->id]) }}" method="POST">
-                    @csrf
-                    @method('PUT')
-                    <div class="grid grid-flow-row gap-5">
-                        <div>
-                            <label for="email"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Product
-                                ID</label>
-                            <input type="text" name="kode_barang"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                                required value="{{ $stok->kode_barang }}">
-                        </div>
-                        <div>
-                            <label class=" block mb-2 text-sm font-medium text-gray-900 dark:text-white">Product
-                                Name</label>
-                            <input type="text" name="nama_barang"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                                required value="{{ $stok->nama_barang }}">
-                        </div>
-                        <div>
-                            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Satuan</label>
-                            <input type="text" name="size"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                                required value="{{ $stok->size }}">
-                        </div>
-                    </div>
-                    <div class="grid grid-flow-col gap-3">
-                        <div>
-                            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Ammount</label>
-                            <input type="number" name="stock"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                                required value="{{ $stok->stock }}">
-                        </div>
-                        <div>
-                            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Min.
-                                Ammount</label>
-                            <input type="number" name="min_ammount"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                                value="{{ $stok->min_ammount }}">
-                        </div>
-                        <div>
-                            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Stock
-                                Akhir</label>
-                            <input type="number" name="stock_akhir"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                                value="{{ $stok->stock_akhir }}">
-                        </div>
-                    </div>
-                    <div class="grid grid-flow-col gap-3">
-                        <div>
-                            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Entry
-                                Price</label>
-                            <input type="number" name="entry_price"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                                value="{{ $stok->entry_price }}">
-                        </div>
-                        <div>
-                            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Price</label>
-                            <input type="number" name="price"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                                value="{{ $stok->price }}">
-                        </div>
-                    </div>
-                    <div class="mt-2">
-                        <button type="submit"
-                            class="w-max text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    @endforeach
-</div>
 
 <script src="{{ $bestSeller->cdn() }}"></script>
 

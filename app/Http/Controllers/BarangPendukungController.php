@@ -38,16 +38,18 @@ class BarangPendukungController extends Controller
      */
     public function store(Request $request)
     {
-        $barangPendukung = BarangPendukung::create([
-            'kode_barang' => $request->input('kode_barang'),
-            'nama_barang' => $request->input('nama_barang'),
-            'size' => $request->input('size'),
-            'stock' => $request->input('stock'),
-            'min_ammount' => $request->input('min_ammount'),
-            'stock_akhir' => $request->input('stock_akhir'),
-            'entry_price' => $request->input('entry_price'),
-            'price' => $request->input('price')
+        $data = $request->validate([
+            'kode_barang' => 'required|unique:barang_pendukungs',
+            'nama_barang' => 'required',
+            'size' => 'required',
+            'stock' => 'required|integer',
+            'kategori' => 'required',
+            'min_ammount' => 'nullable|integer',
+            'stock_akhir' => 'nullable|integer',
+            'price' => 'required|numeric',
         ]);
+
+        BarangPendukung::create($data);
         return redirect('/logistik')->with('success', 'Pendukung berhasil dimasukkan');
     }
 
@@ -90,15 +92,19 @@ class BarangPendukungController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $produk = BarangPendukung::find($id);
-        $produk->kode_barang = $request->kode_barang;
-        $produk->nama_barang = $request->nama_barang;
-        $produk->size = $request->size;
-        $produk->stock = $request->stock;
-        $produk->stock_akhir = $request->stock_akhir;
-        $produk->price = $request->price;
-        $produk->entry_price = $request->entry_price;
-        $produk->save();
+        $data = $request->validate([
+            'kode_barang' => 'required|unique:barang_pendukungs,kode_barang,' . $id,
+            'nama_barang' => 'required',
+            'size' => 'required',
+            'stock' => 'required|integer',
+            'kategori' => 'required',
+            'min_ammount' => 'nullable|integer',
+            'stock_akhir' => 'nullable|integer',
+            'price' => 'required|numeric',
+        ]);
+
+        $barangPendukung = BarangPendukung::findOrFail($id);
+        $barangPendukung->update($data);
 
         return redirect('logistik')->with('update', 'Berhasil Update');
     }

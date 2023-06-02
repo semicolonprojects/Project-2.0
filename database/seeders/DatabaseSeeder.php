@@ -52,58 +52,36 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('123456')
         ]);
 
-        // Masuk::factory()->create([
-        //     'user_id' => 1,
-        //     'lat' => '-7.9593472',
-        //     'long' => '112.6301696'
-        // ]);
-
-        // Izin::factory()->create([
-        //     'user_id' => 1,
-        //     'keterangan' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus harum recusandae in.',
-        // ]);
-
-        // Cuti::factory()->create([
-        //     'user_id' => 1,
-        //     'keterangan_cuti' => 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus harum recusandae in.',
-        //     'mulai_cuti' => '2023-09-21',
-        //     'akhir_cuti' => '2023-10-21',
-        // ]);
-
-        // Keluar::factory()->create([
-        //     'user_id' => 1,
-        //     'lat' => '-7.9593472',
-        //     'long' => '112.6301696'
-        // ]);
-
-
         ProdukJadi::factory()->create(
             [
                 'kode_barang' => '1',
                 'nama_barang' => 'MULTIFLORA',
                 'size' => '1000',
                 'stock' => 2925,
-                'entry_price' => 500000,
-                'price' => 1000000,
+                'harga_ecer' => 95000,
+                'harga_rs' => 88000,
+                'harga_mkl' => 80000,
+                'harga_ds' => 75000,
+                'kategori' => '1 KG'
             ]
         );
 
         ProdukCurah::factory()->create([
             'kode_barang' => '1',
-            'nama_barang' => 'RANDU',
-            'size' => 'curah',
-            'stock' => 366,
-            'entry_price' => 500000,
-            'price' => 1000000,
+            'nama_barang' => 'MULTIFLORA CURAH',
+            'size' => '1000',
+            'stock' => 2925,
+            'harga' => 95000,
+            'kategori' => '1 KG'
         ]);
 
         BarangPendukung::factory()->create([
             'kode_barang' => '1000',
             'nama_barang' => 'JERIGEN 1KG',
+            'kategori' => 'Jerigen',
             'size' => 'PCS',
             'stock' => 800,
-            'entry_price' => 6000,
-            'price' => 10000,
+            'price' => 3700,
         ]);
 
         DataSupplier::factory()->create([
@@ -112,7 +90,7 @@ class DatabaseSeeder extends Seeder
             'phone' => '+628112345678',
             'email' => 'andipeci@email.com',
             'entry_price' => '7000000',
-            'ukuran_kulak'=>'1000',
+            'ukuran_kulak' => '1000',
             'address' => 'Jl Sindanglaya II, Dki Jakarta, 10311',
         ]);
 

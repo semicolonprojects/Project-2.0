@@ -26,6 +26,7 @@
                     <input type="text" id="simple-search"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-yellow-300 focus:border-yellow-300 block w-full pl-10 p-2.5  "
                         placeholder="Search" required>
+                    </input>
                 </div>
         </div>
 
@@ -46,7 +47,6 @@
                 <th scope="col" class="px-6 py-3 font-thin">
                     ACTION
                 </th>
-
             </tr>
             </thead>
             <tbody>
@@ -61,7 +61,6 @@
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                         125
                     </th>
-
                     <td>
                         <button>
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
