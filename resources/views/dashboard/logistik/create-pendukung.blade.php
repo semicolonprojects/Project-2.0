@@ -23,13 +23,6 @@
                 </div>
                 <div class="grid grid-flow-col gap-5">
                     <div class="w-full">
-                        <label for="brand"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Stock</label>
-                        <input type="number" name="stock" id="stock"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-background focus:border-background block w-full p-2.5 "
-                            placeholder="Ex: 1" required="">
-                    </div>
-                    <div class="w-full">
                         <label for="price"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Size</label>
                         <input type="text" name="size" id="disabled-input" aria-label="disabled input"

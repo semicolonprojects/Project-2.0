@@ -6,6 +6,7 @@ use App\Models\HargaPokokPenjualan;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreHargaPokokPenjualanRequest;
 use App\Http\Requests\UpdateHargaPokokPenjualanRequest;
+use App\Models\BarangPendukung;
 use Illuminate\Http\Request;
 
 
@@ -29,7 +30,8 @@ class HargaPokokPenjualanController extends Controller
      */
     public function create()
     {
-        return view('dashboard.hpp.create-hpp');
+        $pendukung = BarangPendukung::all();
+        return view('dashboard.hpp.create-hpp', compact('pendukung'));
     }
 
     /**
@@ -40,6 +42,35 @@ class HargaPokokPenjualanController extends Controller
      */
     public function store(Request $request)
     {
+
+        switch ($request->size) {
+            case '1kg':
+                $a = 1000;
+                break;
+            case '500ml':
+                $a = 500;
+                break;
+            case '325ml':
+                $a = 325;
+                break;
+            case '125ml':
+                $a = 125;
+                break;
+            default:
+                $a = 0;
+                break;
+        }
+
+        $total = 0;
+
+        foreach ($request->barang_pendukung as $key => $value) {
+            $total += $value;
+        }
+
+        $sum = ($a * $request->bahan_madu) + $total;
+
+        dd($sum);
+
         $validatedData = $request->validate([
             'nama_produk' => 'required|string',
             'size' => 'required|string',
