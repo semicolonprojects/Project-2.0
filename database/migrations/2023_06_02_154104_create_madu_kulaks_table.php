@@ -15,6 +15,10 @@ return new class extends Migration
     {
         Schema::create('madu_kulaks', function (Blueprint $table) {
             $table->id();
+            $table->string('nama_madu');
+            $table->string('size');
+            $table->decimal('harga_per_gram');
+            $table->decimal('harga_total')->nullable();
             $table->timestamps();
         });
     }

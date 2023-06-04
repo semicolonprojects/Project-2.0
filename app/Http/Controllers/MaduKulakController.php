@@ -6,6 +6,7 @@ use App\Models\MaduKulak;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreMaduKulakRequest;
 use App\Http\Requests\UpdateMaduKulakRequest;
+use Illuminate\Http\Request;
 
 class MaduKulakController extends Controller
 {
@@ -16,7 +17,8 @@ class MaduKulakController extends Controller
      */
     public function index()
     {
-        //
+        $madukulak = MaduKulak::all();
+        return view('dashboard.logistik.madu-kulak',compact('madukulak'));
     }
 
     /**
@@ -26,7 +28,7 @@ class MaduKulakController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.logistik.create-madukulak');
     }
 
     /**
@@ -35,9 +37,19 @@ class MaduKulakController extends Controller
      * @param  \App\Http\Requests\StoreMaduKulakRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreMaduKulakRequest $request)
+    public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'nama_madu' => 'required|string',
+            'size' => 'required|string',
+            'harga_per_gram' => 'required|numeric',
+            'harga_total' => 'nullable|numeric',
+        ]);
+
+        MaduKulak::create($validatedData);
+
+        // Redirect or return a response
+        return redirect('/logistik/bahanmadu')->with('success', 'Bahan Madu Created successfully');
     }
 
     /**
@@ -80,8 +92,12 @@ class MaduKulakController extends Controller
      * @param  \App\Models\MaduKulak  $maduKulak
      * @return \Illuminate\Http\Response
      */
-    public function destroy(MaduKulak $maduKulak)
+    public function destroy($id)
     {
-        //
+        $madukulak = MaduKulak::findOrFail($id);
+        $madukulak->delete();
+
+        // Redirect or return a response
+        return redirect('/logistik/bahanmadu')->with('deleted', 'Bahan Madu Deleted successfully');
     }
 }
