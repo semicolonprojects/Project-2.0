@@ -42,9 +42,32 @@ class MaduKulakController extends Controller
         $validatedData = $request->validate([
             'nama_madu' => 'required|string',
             'size' => 'required|string',
-            'harga_per_gram' => 'required|numeric',
-            'harga_total' => 'nullable|numeric',
+            'harga_per_gram' => 'required|numeric'
         ]);
+        switch ($request->size) {
+            case '1kg':
+                $a = 1000;
+                break;
+            case '500ml':
+                $a = 500;
+                break;
+            case '325ml':
+                $a = 325;
+                break;
+            case '125ml':
+                $a = 125;
+                break;
+            default:
+                $a = 0;
+                break;
+        }
+
+        $total = 0;
+
+
+        $sum= ($a * $request->harga_per_gram);
+
+        $validatedData['harga_total'] = $sum;
 
         MaduKulak::create($validatedData);
 
