@@ -8,9 +8,7 @@ use App\Models\Channel;
 use Illuminate\Http\Request;
 use App\Models\Customer;
 use App\Models\InOut;
-use App\Models\ProdukCurah;
 use App\Models\ProdukJadi;
-use Illuminate\Contracts\Session\Session;
 
 class OrderController extends Controller
 {

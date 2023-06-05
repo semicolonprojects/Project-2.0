@@ -56,6 +56,8 @@ class HargaPokokPenjualanController extends Controller
             case '125ml':
                 $a = 125;
                 break;
+            case '70gr':
+                $a = 70;
             default:
                 $a = 0;
                 break;
@@ -69,17 +71,18 @@ class HargaPokokPenjualanController extends Controller
 
         $sum = ($a * $request->bahan_madu) + $total;
 
-        dd($sum);
 
         $validatedData = $request->validate([
             'nama_produk' => 'required|string',
             'size' => 'required|string',
             'bahan_madu' => 'required|numeric',
-            'bahan_pendukung' => 'required|numeric',
-            'total_hpp' => 'nullable|numeric',
         ]);
 
+        $validatedData['total_hpp'] = $sum;
+        $validatedData['bahan_pendukung'] = $total;
+
         HargaPokokPenjualan::create($validatedData);
+
 
         // Redirect or return a response
         return redirect('/hpp')->with('success', 'HPP Created successfully');

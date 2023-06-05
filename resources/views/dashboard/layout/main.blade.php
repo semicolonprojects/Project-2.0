@@ -194,7 +194,7 @@
                         </svg>
                     </button>
                     <a href="/dashboard">
-                        <img src='{{ asset('Assets\images\Madukuy CMYK Logo.png') }}'
+                        <img src='{{ asset(' Assets\images\Madukuy CMYK Logo.png') }}'
                             class="h-15 w-16  inset-y-0 flex-items-center ml-5" />
                     </a>
                 </div>
@@ -320,7 +320,22 @@
                         <span class="ml-3 font-bold">Dashboard</span>
                     </a>
                 </li>
-
+                <li>
+                    <a href="/hpp">
+                        <button type="button"
+                            class="flex items-center w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+                            aria-controls="dropdown-mktcurah">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="#FFC525" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-circle-dollar-sign">
+                                <circle cx="12" cy="12" r="10" />
+                                <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8" />
+                                <path d="M12 18V6" />
+                            </svg>
+                            <span class="flex-1 ml-3 text-left whitespace-nowrap font-bold">HPP</span>
+                        </button>
+                    </a>
+                </li>
                 <li>
                     <button type="button"
                         class="flex items-center w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
