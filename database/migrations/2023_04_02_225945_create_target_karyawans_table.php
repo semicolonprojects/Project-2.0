@@ -20,7 +20,6 @@ return new class extends Migration
             $table->decimal('target', 15, 2);
             $table->date('deadline_target');
             $table->timestamps();
-            $table->foreign('total_tercapai')->references('id')->on('orders')->onDelete('cascade');
         });
     }
 

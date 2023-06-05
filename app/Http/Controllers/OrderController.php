@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Models\Customer;
 use App\Models\InOut;
 use App\Models\ProdukJadi;
+use App\Models\TargetKaryawan;
 
 class OrderController extends Controller
 {
@@ -114,6 +115,14 @@ class OrderController extends Controller
 
             $order->save();
         }
+
+        $newlyAddedOrder = Order::latest()->first();
+        $target = TargetKaryawan::findOrFail($request->user_id);
+        $updatetarget = $target->total_tercapai + $newlyAddedOrder->komisi;
+        $target->update(['total_tercapai' => $updatetarget]);
+
+
+
 
         return redirect('/marketing/orderstats')->with('success', 'Order Berhasil Dimasukkan');
     }
