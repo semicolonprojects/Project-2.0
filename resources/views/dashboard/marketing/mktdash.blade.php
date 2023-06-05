@@ -218,8 +218,13 @@
                     <h5 class="text-xl font-semibold tracking-tight text-gray-900 ml-5 mt-3">GAP Ke Target</h5>
                     <div class="inline-flex absolute mt-32 mr-16">
                         @forelse ($targetKaryawan as $targetKaryawans3)
+                        @if ($targetKaryawans3->total_tercapai != 0)
                         <h5 class="text-3xl font-bold tracking-tight text-gray-900 ml-3 mt-3">Rp {{
                             number_format(($targetKaryawans3->target)/($targetKaryawans3->total_tercapai)) }}</h5>
+                        @else
+                        <h5 class="text-3xl font-bold tracking-tight text-gray-900 ml-3 mt-3">Rp {{
+                            number_format($targetKaryawans3->target) }}</h5>
+                        @endif
                         <p class="text-sm ml-5 mt-[27px] text-gray-700/75">Deadline : {{
                             $targetKaryawans->deadline_target }}</p>
                         @empty
@@ -249,9 +254,9 @@
                     class="inline-flex mt-20 ml-10 bg-white border-2 border-gray-200 rounded-2xl shadow-xl w-[390px] h-[200px]">
                     <h5 class="text-xl font-semibold tracking-tight text-gray-900 ml-5 mt-3">Daily Target</h5>
                     <div class="inline-flex absolute mt-32 mr-16">
-                        @forelse($targetKaryawan as $targetKaryawan)
+                        @forelse($targetKaryawan as $targetKaryawans)
                         <h5 class="text-3xl font-bold tracking-tight text-gray-900 ml-3 mt-3">Rp {{
-                            number_format(($targetKaryawan->target/30)) }}</h5>
+                            number_format(($targetKaryawans->target/30)) }}</h5>
                         <p class="text-sm ml-5 mt-[27px] text-gray-700/75">Today : {{
                             now("Asia/Bangkok")->toDateString() }}</p>
                         @empty
@@ -279,15 +284,15 @@
                     <h5 class="text-xl font-semibold tracking-tight text-gray-900 ml-5 mt-3">Total Tercapai</h5>
                     <div class="inline-flex absolute mt-32 mr-16">
                         @forelse($targetKaryawan as $targetKaryawans2)
-                        <h5 class="text-3xl font-bold tracking-tight text-gray-900 ml-3 mt-3">Rp {{
-                            number_format(($targetKaryawans2->total_tercapai)) }}</h5>
+                        <h5 class="text-3xl font-bold tracking-tight text-gray-900 ml-3 mt-3"> Rp {{
+                            number_format($targetKaryawans2->total_tercapai) }}</h5>
                         <p class="text-sm ml-5 mt-[27px] text-gray-700/75">Today : {{
                             now("Asia/Bangkok")->toDateString() }}</p>
                         @empty
                         <h5 class="text-3xl font-bold tracking-tight text-gray-900 ml-3 mt-3">Rp. 0,00</h5>
                         <p class="text-sm ml-5 mt-[27px] text-gray-700/75">Today : {{
                             now("Asia/Bangkok")->toDateString() }}</p>
-                        @endforelse ($targetKaryawan as $targetKaryawan)
+                        @endforelse ($targetKaryawan as $targetKaryawans2)
                     </div>
                     <div
                         class="inline-flex absolute ml-80 mt-3 bg-[#22DB6636] text-[#25D466F7] rounded-xl  w-[50px] h-[50px]">
