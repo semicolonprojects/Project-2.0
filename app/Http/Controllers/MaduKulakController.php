@@ -57,6 +57,9 @@ class MaduKulakController extends Controller
             case '125ml':
                 $a = 125;
                 break;
+            case '70gr':
+                $a = 70;
+                break;
             default:
                 $a = 0;
                 break;

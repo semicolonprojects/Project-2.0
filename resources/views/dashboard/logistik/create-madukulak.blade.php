@@ -25,6 +25,7 @@
                   <option value="500ml">500 ML</option>
                   <option value="325ml">325 ML</option>
                   <option value="125ml">125 ML</option>
+                  <option value="70gr">70 GR</option>
                   </select>              
               </div>
               <div>
