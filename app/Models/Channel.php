@@ -14,4 +14,9 @@ class Channel extends Model
         'target_bulanan',
         'total_tercapai'
     ];
+
+    public function order()
+    {
+        return $this->hasMany(Order::class);
+    }
 }

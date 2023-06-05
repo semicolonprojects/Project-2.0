@@ -51,10 +51,10 @@
                     {{ $channel->kode_channel }}
                 </th>
                 <td class="mt-2 px-4 align-center">
-                    {{'Rp. ' number_format($channel->target_bulanan, 2, ',', '.') }}
+                    {{ 'Rp. ' . number_format($channel->target_bulanan, 2, ',', '.') }}
                 </td>
                 <td class="px-6 py-4">
-                    {{'Rp. ' number_format($channel->total_tercapai, 2, ',', '.') }}
+                    {{ 'Rp. ' . number_format($channel->total_tercapai, 2, ',', '.') }}
                 </td>
                 <td>
                     <a href="{{ route('channel.show', ['channel' => $channel->id]) }}">

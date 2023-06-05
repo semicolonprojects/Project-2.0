@@ -31,7 +31,7 @@
                 @endforeach
             </select>
             <div class="mb-6">
-                <a href="/marketing/customerinfo-create">
+                <a href="{{ route('customer.create') }}">
                     <button type="button"
                         class="text-blue inline-flex items-center bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
                         <svg class="mr-1 -ml-1 w-6 h-6" fill="currentColor" viewBox="0 0 20 20"
@@ -126,8 +126,8 @@
             <select id="pesanan"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 name="tipe_pesanan">
-                @foreach ($channel as $channel)
                 <option selected>Tipe Pesanan</option>
+                @foreach ($channel as $channel)
                 <option value="{{ $channel->id }}">{{ $channel->nama_channel }}</option>
                 @endforeach
             </select>

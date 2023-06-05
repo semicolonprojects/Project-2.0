@@ -107,10 +107,15 @@
                     <div>
                         <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama
                             Barang</label>
-                        <input type="text"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                            value="{{ $modal->produk->nama_barang }}">
-                        <input name="kode_barang" value="{{ $modal->kode_barang }}" hidden>
+                        <select
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            name="kode_barang">
+                            <option selected value="{{ $modal->kode_barang }}">{{ $modal->produk->nama_barang }}
+                            </option>
+                            @foreach ($barang as $barangs)
+                            <option value="{{ $barangs->id }}">{{ $barangs->nama_barang}}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <div>
                         <label for="brand" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Total
@@ -132,10 +137,11 @@
                         <select
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             name="tipe_pesanan">
-                            <option selected>{{ $modal->tipe_pesanan }}</option>
-                            <option value="Distributor">Distributor</option>
-                            <option value="Maklon">Maklon</option>
-                            <option value="Reseller">Reseller</option>
+                            <option selected value="{{ $modal->tipe_pesanan }}">{{ $modal->channel->nama_channel }}
+                            </option>
+                            @foreach ($channel as $channels)
+                            <option value="{{ $channels->id }}">{{ $channels->nama_channel }}</option>
+                            @endforeach
                         </select>
                     </div>
                     <div>

@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\InOut;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreInOutRequest;
-use App\Http\Requests\UpdateInOutRequest;
 use App\Models\ProdukJadi;
 use App\Models\User;
 use Illuminate\Http\Request;

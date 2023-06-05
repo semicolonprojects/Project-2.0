@@ -87,6 +87,16 @@ class Order extends Model
         return $result;
     }
 
+    public function calculateTotalPembelian($totalOrder, $hargaBarang, $diskon)
+    {
+        return ($totalOrder * $hargaBarang) - ($hargaBarang * $totalOrder * $diskon);
+    }
+
+    public function calculateKomisi($totalPembelian, $komisiRate)
+    {
+        return $totalPembelian * $komisiRate;
+    }
+
     public function produk()
     {
         return $this->belongsTo(ProdukJadi::class, 'kode_barang');
