@@ -335,11 +335,18 @@
         <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="topProducts">
             @if (isset($targetKaryawan->id))
             <li>
-                <a href="{{ route('targetKaryawan.edit', ['targetKaryawan' => $targetKaryawan->id]) }}"
+                <a href="{{ route('targetKaryawan.create') }}"
+                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 ">Tambahkan Target</a>
+            </li>
+            
+            @else
+            @foreach ($targetKaryawan as $targetKaryawans4)
+            <li>
+                <a href="{{ route('targetKaryawan.edit', ['targetKaryawan' => $targetKaryawans4->id]) }}"
                     class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 ">Edit Target</a>
             </li>
             <li>
-                <form class="" action="{{ route('targetKaryawan.destroy', ['targetKaryawan' => $targetKaryawan->id]) }}"
+                <form class="" action="{{ route('targetKaryawan.destroy', ['targetKaryawan' => $targetKaryawans4->id]) }}"
                     method="POST">
                     <button onclick="return confirm('Are you sure?')"
                         class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 ">Hapus Target
@@ -348,11 +355,7 @@
                     </button>
             </li>
             </form>
-            @else
-            <li>
-                <a href="{{ route('targetKaryawan.create') }}"
-                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 ">Tambahkan Target</a>
-            </li>
+            @endforeach
             @endif
         </ul>
     </div>
