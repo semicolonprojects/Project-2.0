@@ -23,7 +23,7 @@ class OrderCurahController extends Controller
         $order_curah = OrderCurah::all();
         $cust_order = new OrderCurah();
         $show = $cust_order->show();
-        return view('dashboard.marketing.mktdash5', compact('order_curah', 'show'));
+        return view('dashboard.marketing-curah.mkt-curah-order-stats', compact('order_curah', 'show'));
     }
 
     /**

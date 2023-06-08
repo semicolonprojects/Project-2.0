@@ -31,6 +31,7 @@ use App\Http\Controllers\IncomeController;
 use App\Http\Controllers\MaduKulakController;
 use App\Http\Controllers\MktCurahdash;
 use App\Http\Controllers\MktCurahdashController;
+use App\Http\Controllers\OrderCurahController;
 use App\Http\Controllers\TargetKaryawanController;
 use App\Http\Controllers\TargetKaryawanCurahController;
 use App\Models\TargetKaryawanCurah;
@@ -181,5 +182,9 @@ Route::get('/curah/paymentstats', function () {
 Route::get('/curah/topcust', function () {
     return view('dashboard.marketing-curah.mkt-curah-topcust');
 });
+
+Route::get('/curah/order',[OrderCurahController::class, 'index']);
+
+
 
 Route::get('/data-absen', [DataAbsenController::class, 'index']);
