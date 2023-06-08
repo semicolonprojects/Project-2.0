@@ -87,6 +87,19 @@ class Order extends Model
         return $result;
     }
 
+    public function marketingOverview()
+    {
+        return DB::table('orders')
+            ->select(
+                DB::raw('SUM(total_pembelian) as total_pembelian'),
+                DB::raw('SUM(total_order) as total_order'),
+                DB::raw('SUM(customer_id) as total_customer'),
+                DB::raw('COUNT(CASE WHEN status_pembayaran = "Dibayar" THEN 1 END) as total_dibayar'),
+                DB::raw('(COUNT(CASE WHEN status_pembayaran = "Dibayar" THEN 1 END) / COUNT(*)) * 100 as persentase_dibayar')
+            )
+            ->get();
+    }
+
     public function calculateTotalPembelian($totalOrder, $hargaBarang, $diskon)
     {
         return ($totalOrder * $hargaBarang) - ($hargaBarang * $totalOrder * $diskon);

@@ -310,6 +310,53 @@
     </div>
 </div>
 
+{{-- Tabel Margin --}}
+<div
+    class="w-[1200px] h-[420px] rounded-[13px] overflow-hidden bg-white border border-[#686868CF] shadow-[0px_8px_8px_rgba(0,0,0,0.5)] mt-10 ml-12">
+    <div class="mt-2 ml-2 relative overflow-x-auto shadow-md sm:rounded-lg">
+        <div class="flex justify-center">
+            <p class="font-bold text-2xl">Margin</p>
+        </div>
+        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 mt-5">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                <tr>
+                    <th scope="col" class="px-4 py-3">
+                        Nama Produk
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Size Produk
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Margin
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Margin DS
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($hpp as $hpps)
+                <tr
+                    class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                    <th scope="row" class="px-4 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        {{ $hpps->nama_barang }}
+                    </th>
+                    <td class="px-6 py-4">
+                        {{ $hpps->kategori }}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ "Rp " . number_format($hpps->harga_ecer - $hpps->total_hpp ,2,',','.')}}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ "Rp " . number_format($hpps->harga_ds - $hpps->total_hpp ,2,',','.')}}
+                    </td>
+                    @endforeach
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
 {{-- Summary Per Day --}}
 <div class="ml-24 mt-16">
     <p class="text-black text-[32px] font-bold text-center mr-28">Summary Per Day</p>

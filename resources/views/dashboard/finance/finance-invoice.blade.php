@@ -84,7 +84,8 @@
         </tr>
         <tr class="border">
           <td colspan="6" class="px-5 py-5">Commision Fee</td>
-          <td colspan="6" class="font-bold pl-[270px] py-5 text-[#2E2E2E] ">IDR. 500.000</td>
+          <td colspan="6" class="font-bold pl-[270px] py-5 text-[#2E2E2E] ">{{ 'Rp ' .
+            number_format(($order_id->komisi), 0, ',', '.') }}</td>
         </tr>
         <tr class="border">
           <td colspan="6" class="px-5 py-5">Revenue</td>

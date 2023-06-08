@@ -98,7 +98,7 @@ class OrderController extends Controller
             $order->komisi = $order->calculateKomisi($totalPembelian, $komisi);
 
             $stokAkhir = $product->stock - $request->total_order[$key];
-            $product->update(['stock' => $stokAkhir]);
+            $product->update(['stock_akhir' => $stokAkhir]);
             $inout = new InOut;
             $inout->kode_barang = $value;
             $inout->barang_keluar = $request->total_order[$key];
@@ -120,9 +120,6 @@ class OrderController extends Controller
         $target = TargetKaryawan::findOrFail($request->user_id);
         $updatetarget = $target->total_tercapai + $newlyAddedOrder->komisi;
         $target->update(['total_tercapai' => $updatetarget]);
-
-
-
 
         return redirect('/marketing/orderstats')->with('success', 'Order Berhasil Dimasukkan');
     }

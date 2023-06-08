@@ -19,39 +19,43 @@
             </div>
         </div>
     </div>
+    @foreach ($overview as $overviews)
     <div class="px-10 py-8">
         <p class="text-black/75 text-xl">This Month</p>
         <div class="grid grid-flow-col gap-0">
-            <p class="text-[#4E504F] text-[32px]">IDR 2.000.000</p>
+            <p class="text-[#4E504F] text-[32px]">{{ $overviews->total_pembelian }}</p>
             <div class="absolute rounded bg-[#22DB6636] text-[#25D466F7] w-24 h-6 mt-4 ml-56">
                 <p class="text-center ml-1 text-[17px] font-medium">+ 4,20 % </p>
             </div>
         </div>
     </div>
+    @endforeach
+    @foreach ($overview as $overviews2)
     <div class="px-10 py-8">
         <div class="grid grid-flow-col divide-x divide-black ">
             <div class="grid grid-flow-row divide-y divide-black">
                 <div class="px-7 py-7">
                     <p class="text-[#000000B8] text-xl font-custom">Orders</p>
-                    <p class="text-black text-xl">5000</p>
+                    <p class="text-black text-xl">{{ $overviews2->total_order }}</p>
                 </div>
                 <div class="px-7 py-10">
                     <p class="text-[#000000B8] text-xl font-custom">Average sales success rate</p>
-                    <p class="text-black text-xl">12%</p>
+                    <p class="text-black text-xl">{{ $overviews2->persentase_dibayar }}</p>
                 </div>
             </div>
             <div class="grid grid-flow-row divide-y divide-black">
                 <div class="px-7 py-7">
                     <p class="text-[#000000B8] text-xl font-custom">Sales</p>
-                    <p class="text-black text-xl">20.000</p>
+                    <p class="text-black text-xl">{{ $overviews2->total_dibayar }}</p>
                 </div>
-                <div class="px-7 py-10">
+                <div class="px-7 py-[3.35rem]">
                     <p class="text-[#000000B8] text-xl font-custom">Customers</p>
-                    <p class="text-black text-xl">1.000</p>
+                    <p class="text-black text-xl">{{ $overviews2->total_customer }}</p>
                 </div>
             </div>
         </div>
     </div>
+    @endforeach
 </div>
 
 {{-- Order Stats --}}
@@ -158,9 +162,6 @@
                     </svg>
                 </button>
             </div>
-        </div>
-        <div>
-            <div id="{!! $salesAnalytics->container() !!}" width="1028px" height="283px"></div>
         </div>
     </div>
 </div>
@@ -333,7 +334,7 @@
     </div>
     <div id="targetTrigger" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 ">
         <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="topProducts">
-            @if (isset($targetKaryawan->id))
+            @if (count($targetKaryawan) != null)
             @foreach ($targetKaryawan as $targetKaryawans4)
             <li>
                 <a href="{{ route('targetKaryawan.edit', ['targetKaryawan' => $targetKaryawans4->id]) }}"
@@ -425,7 +426,6 @@
 
 {{ $orderStats->script() }}
 {{ $userActivity->script() }}
-{{ $salesAnalytics->script() }}
 {{ $dailyOrderStats->script() }}
 {{ $dailyTargetStats->script() }}
 {{ $saleThisMonth->script() }}

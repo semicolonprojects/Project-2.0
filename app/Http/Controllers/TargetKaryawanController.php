@@ -19,7 +19,7 @@ class TargetKaryawanController extends Controller
     public function index()
     {
         $targetKaryawan = Auth::user();
-        return view('dashboard.marketing.mktdash',compact('targetKaryawan'));
+        return view('dashboard.marketing.mktdash', compact('targetKaryawan'));
     }
 
     /**
@@ -29,7 +29,7 @@ class TargetKaryawanController extends Controller
      */
     public function create()
     {
-        return view('dashboard.marketing.mkt-targetk-create',);   
+        return view('dashboard.marketing.mkt-targetk-create',);
     }
 
     /**
@@ -41,11 +41,11 @@ class TargetKaryawanController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'target'=> 'required',
+            'target' => 'required',
             'total_tercapai' => 'nullable',
-            'deadline_target'=>'required',
-            'user_id'=>'required',
-            'order_id'=>'nullable'
+            'deadline_target' => 'required',
+            'user_id' => 'required',
+            'order_id' => 'nullable'
         ]);
 
         $validatedData['user_id'] = auth()->user()->id;
@@ -72,9 +72,9 @@ class TargetKaryawanController extends Controller
      */
     public function edit(TargetKaryawan $targetKaryawan)
     {
-        return view('dashboard.marketing.mkt-targetk-edit',[
-            'targetKaryawan'=>$targetKaryawan,
-            'id'=>$targetKaryawan->id
+        return view('dashboard.marketing.mkt-targetk-edit', [
+            'targetKaryawan' => $targetKaryawan,
+            'id' => $targetKaryawan->id
         ]);
     }
 
@@ -94,7 +94,6 @@ class TargetKaryawanController extends Controller
 
         $targetKaryawan->save();
         return redirect('/marketing')->with('update', 'Target updated successfully.');
-
     }
 
     /**

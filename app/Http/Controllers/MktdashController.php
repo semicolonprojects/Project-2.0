@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Charts\OrderStats;
-use App\Charts\SalesAnalytics;
 use App\Charts\UserActivity;
 use App\Charts\DailyTargetStats;
 use App\Charts\DailyOrderStats;
@@ -13,14 +12,12 @@ use App\Http\Controllers\Controller;
 use App\Models\Order;
 use App\Models\User;
 use App\Models\TargetKaryawan;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 
 class MktdashController extends Controller
 {
 
-    public function index(OrderStats $orderStats, UserActivity $userActivity, SalesAnalytics $salesAnalytics, DailyTargetStats $dailyTargetStats, DailyOrderStats $dailyOrderStats, SaleThisMonth $saleThisMonth, TargetKaryawan $targetKaryawan)
+    public function index(OrderStats $orderStats, UserActivity $userActivity, DailyTargetStats $dailyTargetStats, DailyOrderStats $dailyOrderStats, SaleThisMonth $saleThisMonth, TargetKaryawan $targetKaryawan)
     {
         $user = User::all();
         $targetKaryawan = Auth::user()->targetKaryawan;
@@ -28,16 +25,17 @@ class MktdashController extends Controller
         $model = new Order();
         $topProducts = $model->topProducts();
         $topCust = $model->topCustomer();
+        $overview = $model->marketingOverview();
+
         return view('dashboard.marketing.mktdash', [
 
             'orderStats' => $orderStats->build(),
             'userActivity' => $userActivity->build(),
-            'salesAnalytics' => $salesAnalytics->build(),
             'dailyTargetStats' => $dailyTargetStats->build(),
             'dailyOrderStats' => $dailyOrderStats->build(),
             'saleThisMonth' => $saleThisMonth->build()
 
-        ], compact('user', 'targetKaryawan', 'topProducts', 'topCust'));
+        ], compact('user', 'targetKaryawan', 'topProducts', 'topCust', 'overview'));
     }
 
     public function show($id, HengkiOrderChart $hengkiOrder)

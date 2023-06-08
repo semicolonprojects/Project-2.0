@@ -317,18 +317,21 @@
                             HPP
                         </th>
                         <th scope="col" class="px-3 py-3">
-                            Entry Price
+                            Price Ecer
                         </th>
                         <th scope="col" class="px-3 py-3">
-                            Price
+                            Price Maklon
                         </th>
                         <th scope="col" class="px-3 py-3">
-                            Total
+                            Price Distributor
+                        </th>
+                        <th scope="col" class="px-3 py-3">
+                            Asset
                         </th>
                     </tr>
                 </thead>
                 <tbody class="self-center">
-                    @foreach ($products as $p)
+                    @foreach ($hpp as $p)
                     <tr class="">
                         <th scope="row" class="px-3 py-4 font-light text-[#464D51]">
                             {{$p->nama_barang}}
@@ -343,16 +346,19 @@
                             {{ $p->min_ammount }}
                         </td>
                         <td class="px-3 py-4">
-
+                            {{ 'Rp ' . number_format($p->total_hpp, 0, ',', '.') }}
                         </td>
                         <td class="px-3 py-4">
-                            {{ 'Rp ' . number_format($p->entry_price, 0, ',', '.') }}
+                            {{ 'Rp ' . number_format($p->harga_ecer, 0, ',', '.') }}
                         </td>
                         <td class="px-3 py-4">
-                            {{ 'Rp ' . number_format($p->price, 0, ',', '.') }}
+                            {{ 'Rp ' . number_format($p->harga_mkl, 0, ',', '.') }}
                         </td>
                         <td class="px-3 py-4">
-
+                            {{ 'Rp ' . number_format($p->harga_ds, 0, ',', '.') }}
+                        </td>
+                        <td class="px-3 py-4">
+                            {{ 'Rp ' . number_format(($p->total_hpp * $p->stock), 0, ',', '.') }}
                         </td>
                     </tr>
                     @endforeach
@@ -394,7 +400,6 @@
     <div class="content-center mx-10 my-5">
         <h5 class="flex text-2xl font-black tracking-tight text-stockProductText justify-center">Low Stock
         </h5>
-
         <div class="relative overflow-x-auto py-10">
             <table class="w-full text-sm text-left text-gray-500">
                 <thead class="text-sm text-[#464D51] uppercase">
@@ -412,16 +417,22 @@
                             Min. Ammount
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Entry Price
+                            Harga Ecer
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Price
+                            Harga Maklon
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Harga Reseller
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Harga Distributor
                         </th>
                     </tr>
                 </thead>
                 <tbody class="self-center">
                     @foreach ($lowStocks as $low)
-                    <tr class="">
+                    <tr class="self-center">
                         <th scope="row" class="px-6 py-4 font-light text-[#464D51]">
                             {{ $low->nama_barang }}
                         </th>
@@ -435,10 +446,16 @@
                             {{ $low->min_ammount }}
                         </td>
                         <td class="px-6 py-4">
-                            {{ 'Rp ' . number_format($low->entry_price, 0, ',', '.') }}
+                            {{ 'Rp ' . number_format($low->harga_ecer, 0, ',', '.') }}
                         </td>
                         <td class="px-6 py-4">
-                            {{ 'Rp ' . number_format($low->price, 0, ',', '.') }}
+                            {{ 'Rp ' . number_format($low->harga_rs, 0, ',', '.') }}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{ 'Rp ' . number_format($low->harga_mkl, 0, ',', '.') }}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{ 'Rp ' . number_format($low->harga_ds, 0, ',', '.') }}
                         </td>
                     </tr>
                     @endforeach

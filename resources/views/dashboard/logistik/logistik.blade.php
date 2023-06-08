@@ -1290,12 +1290,19 @@
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                                     required>
                             </div>
-                            <div>
-                                <label
+                            <div class="sm:col-span-2">
+                                <label for="brand"
                                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Kategori</label>
-                                <input type="text" name="kategori"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                                    required>
+                                <select id="size"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    name="kategori">
+                                    <option selected>Pilih Kategori Produk</option>
+                                    <option value="1kg">1 KG</option>
+                                    <option value="500ml">500 ML</option>
+                                    <option value="325ml">325 ML</option>
+                                    <option value="125ml">125 ML</option>
+                                    <option value="70gr">70 GR</option>
+                                </select>
                             </div>
                         </div>
                     </div>

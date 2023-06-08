@@ -54,7 +54,7 @@ class InOutCurahController extends Controller
         $stokAkhir = $produk->stock + $request->input('barang_masuk') - $request->input('barang_keluar');
 
         // Memperbarui data stok di database
-        $produk->update(['stock' => $stokAkhir]);
+        $produk->update(['stock_akhir' => $stokAkhir]);
 
         $produk = InOutCurah::create([
             'kode_barang' => $request->input('kode_barang'),

@@ -42,4 +42,12 @@ class ProdukJadi extends Model
             ->orderBy('low_stock', 'asc')
             ->get();
     }
+
+    public function hpp()
+    {
+        return DB::table('produk_jadis')
+            ->join('harga_pokok_penjualans', 'produk_jadis.kategori', '=', 'harga_pokok_penjualans.size')
+            ->select('produk_jadis.*', 'harga_pokok_penjualans.total_hpp')
+            ->get();
+    }
 }

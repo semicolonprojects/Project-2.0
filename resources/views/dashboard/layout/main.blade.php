@@ -410,10 +410,12 @@
                 </li>
 
                 <li>
-                    <a href="#"
-                        class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                    <button type="button"
+                        class="flex items-center w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+                        aria-controls="dropdown-logistik" data-collapse-toggle="dropdown-logistik">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            stroke="#FFC525" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            stroke="#FFC525" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            aria-controls="dropdown-logistik" data-collapse-toggle="dropdown-logistik">
                             <line x1="16.5" y1="9.4" x2="7.5" y2="4.21"></line>
                             <path
                                 d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
@@ -421,13 +423,45 @@
                             <polyline points="3.29 7 12 12 20.71 7"></polyline>
                             <line x1="12" y1="22" x2="12" y2="12"></line>
                         </svg>
-                        <span class="flex-1 ml-3 whitespace-nowrap font-bold">Logistik</span>
+                        <span class="flex-1 ml-3 text-left whitespace-nowrap font-bold">Logistik</span>
                         <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd"
                                 d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
                                 clip-rule="evenodd"></path>
                         </svg>
-                    </a>
+                    </button>
+                    <ul id="dropdown-logistik" class="hidden py-2 space-y-2">
+                        <li>
+                            <a href="/logistik/datasupplier"
+                                class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 font-medium">Data
+                                Supplier</a>
+                        </li>
+                        <li>
+                            <a href="/logistik/datasupplier-c"
+                                class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 font-medium">Data
+                                Supplier Curah</a>
+                        </li>
+                        <li>
+                            <a href="/logistik/bahanmadu"
+                                class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 font-medium">Bahan
+                                Madu</a>
+                        </li>
+                        <li>
+                            <a href="/logistik/innout"
+                                class="flex items-center w-full p-2 text-base font-medium text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Inout
+                                Produk Jadi</a>
+                        </li>
+                        <li>
+                            <a href="/logistik/innout-curah"
+                                class="flex items-center w-full p-2 text-base font-medium text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Inout
+                                Curah</a>
+                        </li>
+                        <li>
+                            <a href="/logistik/innout-pendukung"
+                                class="flex items-center w-full p-2 text-base font-medium text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Inout
+                                Pendukung</a>
+                        </li>
+                    </ul>
                 </li>
                 <li>
                     <button type="button"
