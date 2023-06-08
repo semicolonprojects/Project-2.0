@@ -34,7 +34,9 @@ use App\Http\Controllers\MktCurahdashController;
 use App\Http\Controllers\OrderCurahController;
 use App\Http\Controllers\TargetKaryawanController;
 use App\Http\Controllers\TargetKaryawanCurahController;
+use App\Models\OrderCurah;
 use App\Models\TargetKaryawanCurah;
+use Illuminate\Routing\Route as RoutingRoute;
 
 /*
 |--------------------------------------------------------------------------
@@ -101,6 +103,8 @@ Route::resource('maduKulak', MaduKulakController::class);
 
 Route::resource('targetKaryawanC', TargetKaryawanCurahController::class);
 
+Route::resource('orderCurah', OrderCurahController::class);
+
 Route::get('/logout', [LoginController::class, 'logout']);
 
 Route::get('/admin', [MasukController::class, 'index']);
@@ -165,7 +169,9 @@ Route::get('/curah/customer-info', function () {
     return view('dashboard.marketing-curah.mkt-curah-customer-info');
 });
 
-Route::get('/curah', [MktCurahdashController::class, 'index'])->middleware('auth');
+Route::get('/curah', [MktCurahdashController::class, 'index'])->middleware('curah' ,'auth');
+
+Route::get('/curah/order', [OrderCurahController::class, 'index'])->middleware('curah' ,'auth');
 
 Route::get('/curah/innout', function () {
     return view('dashboard.marketing-curah.mkt-curah-innout');
@@ -183,7 +189,6 @@ Route::get('/curah/topcust', function () {
     return view('dashboard.marketing-curah.mkt-curah-topcust');
 });
 
-Route::get('/curah/order',[OrderCurahController::class, 'index']);
 
 
 
