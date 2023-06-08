@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\OrderCurah;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreOrderCurahRequest;
+use App\Http\Requests\UpdateOrderCurahRequest;
 use App\Models\Channel;
 use Illuminate\Http\Request;
 use App\Models\Customer;
@@ -20,10 +22,8 @@ class OrderCurahController extends Controller
      */
     public function index()
     {
-        $order_curah = OrderCurah::all();
-        $cust_order = new OrderCurah();
-        $show = $cust_order->show();
-        return view('dashboard.marketing-curah.mkt-curah-order-stats', compact('order_curah', 'show'));
+
+        return view('dashboard.marketing-curah.mkt-curah-order-stats');
     }
 
     /**
@@ -33,7 +33,10 @@ class OrderCurahController extends Controller
      */
     public function create()
     {
-        //
+        $customer = Customer::all();
+        $produk = ProdukCurah::all();
+        $channel = Channel::where('nama_channel', 'Curah')->get();
+        return view('dashboard.marketing-curah.mkt-curah-order-create', compact('customer', 'produk', 'channel'));
     }
 
     /**

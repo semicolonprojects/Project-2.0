@@ -24,6 +24,6 @@ class SuperAdminController extends Controller
         $lowStocks = $productModel->lowStock();
         $topCust = $model->topCustomer();
         $hpp = $productModel->hpp();
-        return view('dashboard.super-admin.sadash', ['orderStats' => $orderStats->build(), 'saleThisMonth' => $saleThisMonth->build()], compact('user', 'topProducts', 'products', 'lowStocks', 'topCust', 'hpp', 'order'));
+        return view('dashboard.super-admin.sadash', ['orderStats' => $orderStats->build(), 'saleThisMonth' => $saleThisMonth->build()], compact('user', 'topProducts', 'products', 'lowStocks', 'topCust', 'hpp'));
     }
 }
