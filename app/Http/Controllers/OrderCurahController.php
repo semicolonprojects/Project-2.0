@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\OrderCurah;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreOrderCurahRequest;
+use App\Http\Requests\UpdateOrderCurahRequest;
 use App\Models\Channel;
 use Illuminate\Http\Request;
 use App\Models\Customer;
@@ -23,7 +25,7 @@ class OrderCurahController extends Controller
         $order_curah = OrderCurah::all();
         $cust_order = new OrderCurah();
         $show = $cust_order->show();
-        return view('dashboard.marketing-curah.mkt-curah-order-stats', compact('order_curah', 'show'));
+        return view('dashboard.marketing-curah.mktc-order', compact('order_curah', 'show'));
     }
 
     /**

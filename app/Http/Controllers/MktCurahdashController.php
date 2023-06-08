@@ -19,7 +19,7 @@ class MktCurahdashController extends Controller
     {
         $user = User::all();
         $targetKaryawanCurah = Auth::user()->targetKaryawanCurah;
-        return view('dashboard.marketing-curah.mkt-curah-dashboard',compact('user','targetKaryawanCurah'));
+        return view('dashboard.marketing-curah.mktc-dash',compact('user','targetKaryawanCurah'));
     }
 
     /**
