@@ -83,4 +83,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(Order::class);
     }
+
+    public function targetKaryawanCurah()
+    {
+        return $this->hasMany(TargetKaryawanCurah::class);
+    }
+
 }
