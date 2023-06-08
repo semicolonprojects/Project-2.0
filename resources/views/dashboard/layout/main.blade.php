@@ -194,7 +194,7 @@
                         </svg>
                     </button>
                     <a href="/dashboard">
-                        <img src='{{ asset(' Assets\images\Madukuy CMYK Logo.png') }}'
+                        <img src='{{ asset('Assets\images\Madukuy CMYK Logo.png') }}'
                             class="h-15 w-16  inset-y-0 flex-items-center ml-5" />
                     </a>
                 </div>
@@ -290,7 +290,7 @@
     </nav>
 
     <div id="drawer-navigation"
-        class="fixed top-0 left-0 z-40 w-64 h-screen p-4 overflow-y-scroll transition-transform -translate-x-full bg-white dark:bg-gray-800"
+        class="fixed top-0 left-0 z-40 w-64 h-screen p-4 overflow-y-auto transition-transform -translate-x-full bg-white dark:bg-gray-800"
         tabindex="-1" aria-labelledby="drawer-navigation-label">
         <h5 id="drawer-navigation-label" class="text-base font-semibold text-gray-500 uppercase dark:text-gray-400">
             Menu</h5>

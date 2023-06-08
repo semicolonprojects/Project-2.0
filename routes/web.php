@@ -29,7 +29,12 @@ use App\Http\Controllers\OutcomesDetailController;
 use App\Http\Controllers\SupplierCurahController;
 use App\Http\Controllers\IncomeController;
 use App\Http\Controllers\MaduKulakController;
+use App\Http\Controllers\MktCurahdash;
+use App\Http\Controllers\MktCurahdashController;
 use App\Http\Controllers\TargetKaryawanController;
+use App\Http\Controllers\TargetKaryawanCurahController;
+use App\Models\TargetKaryawanCurah;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -93,6 +98,8 @@ Route::resource('hpp', HargaPokokPenjualanController::class);
 
 Route::resource('maduKulak', MaduKulakController::class);
 
+Route::resource('targetKaryawanC', TargetKaryawanCurahController::class);
+
 Route::get('/logout', [LoginController::class, 'logout']);
 
 Route::get('/admin', [MasukController::class, 'index']);
@@ -153,27 +160,11 @@ Route::get('/finance/outcome', [OutcomeController::class, 'index'])->name('outco
 
 Route::get('/invoice/download/{id}', [FinanceInvoiceController::class, 'generate'])->name('invoice.download');
 
-Route::get('/marketing-k', [MarketingKonsinyasiDashboard::class, 'index']);
-
-Route::get('/marketing-k/orderstats', function () {
-    return view('dashboard.marketing-konsinyasi.marketing-konsinyasi');
-});
-
-Route::get('/marketing-k/detail', function () {
-    return view('dashboard.marketing-konsinyasi.marketing-konsinyasi-detail');
-});
-
-Route::get('/marketing-k/innout', function () {
-    return view('dashboard.marketing-konsinyasi.marketing-konsinyasi-innout');
-});
-
-Route::get('/curah', function () {
+Route::get('/curah/customer-info', function () {
     return view('dashboard.marketing-curah.mkt-curah-customer-info');
 });
 
-Route::get('/curah/dashboard', function () {
-    return view('dashboard.marketing-curah.mkt-curah-dashboard');
-});
+Route::get('/curah', [MktCurahdashController::class, 'index'])->middleware('auth');
 
 Route::get('/curah/innout', function () {
     return view('dashboard.marketing-curah.mkt-curah-innout');
