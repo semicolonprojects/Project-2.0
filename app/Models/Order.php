@@ -100,6 +100,16 @@ class Order extends Model
             ->get();
     }
 
+    public function totalPembelian()
+    {
+        return DB::table('orders')
+            ->join('produk_jadis', 'orders.kode_barang', '=', 'produk_jadis.id')
+            ->join('channels', 'orders.tipe_pesanan', '=', 'channels.id')
+            ->select('produk_jadis.nama_barang', DB::raw('SUM(orders.total_order) AS total_order'), 'channels.nama_channel')
+            ->groupBy('produk_jadis.nama_barang', 'channels.nama_channel')
+            ->get();
+    }
+
     public function calculateTotalPembelian($totalOrder, $hargaBarang, $diskon)
     {
         return ($totalOrder * $hargaBarang) - ($hargaBarang * $totalOrder * $diskon);

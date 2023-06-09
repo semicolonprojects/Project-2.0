@@ -23,7 +23,8 @@
     <div class="px-10 py-8">
         <p class="text-black/75 text-xl">This Month</p>
         <div class="grid grid-flow-col gap-0">
-            <p class="text-[#4E504F] text-[32px]">{{ $overviews->total_pembelian }}</p>
+            <p class="text-[#4E504F] text-[32px]">{{ 'Rp. ' . number_format($overviews->total_pembelian, 2, ',', '.') }}
+            </p>
             <div class="absolute rounded bg-[#22DB6636] text-[#25D466F7] w-24 h-6 mt-4 ml-56">
                 <p class="text-center ml-1 text-[17px] font-medium">+ 4,20 % </p>
             </div>
@@ -143,27 +144,6 @@
         </li>
         <li>
     </ul>
-</div>
-
-{{-- Sales Analytics --}}
-<div class="mt-14 ml-40">
-    <div
-        class="h-fit w-[845px] sm:w-[845px] md:w-[845px] lg:w-[845px] xl:w-[1026px]  bg-white border-[1px] shadow-[0px_4px_4px_rgba(0,0,0,0.25)] border-[#686868cf] rounded-[13px]">
-        <div class="grid grid-flow-col gap-[693px]">
-            <div class="p-5">
-                <p class="text-[24px] text-black font-bold">Sales Analytics</p>
-            </div>
-            <div class="inline-flex self-center">
-                <p class="font-normal text-xl text-black/60">Daily</p>
-                <button id="topProducts" data-dropdown-toggle="topProductsTrigger">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="0.5"
-                        stroke="currentColor" class="w-5 h-5">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                    </svg>
-                </button>
-            </div>
-        </div>
-    </div>
 </div>
 
 {{-- Summary Orders & Targets --}}

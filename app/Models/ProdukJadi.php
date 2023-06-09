@@ -50,4 +50,11 @@ class ProdukJadi extends Model
             ->select('produk_jadis.*', 'harga_pokok_penjualans.total_hpp')
             ->get();
     }
+
+    public function selisihStock()
+    {
+        return DB::table('produk_jadis')
+            ->select(DB::raw('SUM(stock) AS total_stock'), DB::raw('SUM(stock_akhir) AS total_stock_akhir'), DB::raw('SUM(stock - stock_akhir) AS selisih_stock'))
+            ->get();
+    }
 }

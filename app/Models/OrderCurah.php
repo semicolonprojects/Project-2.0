@@ -36,6 +36,17 @@ class OrderCurah extends Model
             ->get();
     }
 
+    public function totalPembelian()
+    {
+        return DB::table('order_curahs')
+            ->join('produk_curahs', 'order_curahs.kode_barang', '=', 'produk_curahs.id')
+            ->join('channels', 'order_curahs.tipe_pesanan', '=', 'channels.id')
+            ->select('produk_curahs.nama_barang', DB::raw('SUM(order_curahs.total_order) AS total_order'), 'channels.nama_channel')
+            ->groupBy('produk_curahs.nama_barang', 'channels.nama_channel')
+            ->get();
+    }
+
+
     public function customer()
     {
         return $this->belongsTo(Customer::class, 'customer_id');

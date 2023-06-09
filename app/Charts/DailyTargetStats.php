@@ -20,13 +20,19 @@ class DailyTargetStats
     public function build(): \ArielMejiaDev\LarapexCharts\DonutChart
     {
         $auth = Auth::user()->id;
-        $target=TargetKaryawan::select('target', DB::raw('target * 1 / 100 AS total_target'))
-        ->where('target_karyawans.user_id','=', $auth)
-        ->get();
-            return $this->dailyTargetStats->donutChart()
-            ->addData([$target->pluck('total_target'), 24])
-            ->setLabels(['Daily Target', 'Actual Sales'])
-            ->setColors(['#F94144', '#F3722C'])
+        $target = TargetKaryawan::where('user_id', $auth)->pluck('target')->first();
+        $total_tercapai = TargetKaryawan::where('user_id', $auth)->pluck('total_tercapai')->first();
+
+        $persentase_tercapai = ($total_tercapai / $target) * 100;
+
+        $data = [$persentase_tercapai, 100 - $persentase_tercapai];
+        $labels = ['Actual Sales', 'Remaining'];
+        $colors = ['#F3722C', '#E2E8F0'];
+
+        return $this->dailyTargetStats->donutChart()
+            ->addData($data)
+            ->setLabels($labels)
+            ->setColors($colors)
             ->setWidth(428)
             ->setHeight(428)
             ->setDataLabels(true);

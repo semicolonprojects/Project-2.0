@@ -13,6 +13,7 @@ use App\Models\Order;
 use App\Models\User;
 use App\Models\TargetKaryawan;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class MktdashController extends Controller
 {

@@ -3,6 +3,8 @@
 namespace App\Charts;
 
 use ArielMejiaDev\LarapexCharts\LarapexChart;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class DailyOrderStats
 {
@@ -15,10 +17,32 @@ class DailyOrderStats
 
     public function build(): \ArielMejiaDev\LarapexCharts\LineChart
     {
+        $user_id = Auth::id();
+
+        $result = DB::table('target_karyawans')
+            ->select(
+                DB::raw("DATE_FORMAT(created_at, '%M') AS month"),
+                DB::raw('SUM(total_tercapai) AS total_tercapai'),
+                'target'
+            )
+            ->where('user_id', $user_id)
+            ->groupBy('month', 'target')
+            ->get();
+
+        $total_tercapai = [];
+        $target = [];
+        $months = [];
+
+        foreach ($result as $row) {
+            $total_tercapai[] = $row->total_tercapai;
+            $target[] = $row->target;
+            $months[] = $row->month;
+        }
+
         return $this->dailyOrdedStats->lineChart()
-            ->addData('Total Closing', [40, 93, 35, 42, 18, 82])
-            ->addData('Target', [70, 29, 77, 28, 55, 45])
-            ->setXAxis(['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'])
+            ->addData('Total Tercapai', $total_tercapai)
+            ->addData('Target', $target)
+            ->setXAxis($months)
             ->setColors(['#A155B9', '#F765A3'])
             ->setMarkers(['#A155B9', '#F765A3'], 7, 10)
             ->setLegend(true, 'top', 400, '12px')

@@ -120,6 +120,9 @@ class OrderController extends Controller
         $target = TargetKaryawan::findOrFail($request->user_id);
         $updatetarget = $target->total_tercapai + $newlyAddedOrder->komisi;
         $target->update(['total_tercapai' => $updatetarget]);
+        $channel = Channel::findOrFail($newlyAddedOrder->tipe_pesanan);
+        $updateChannel = $channel->total_tercapai + $newlyAddedOrder->komisi;
+        $channel->update(['total_tercapai' => $updateChannel]);
 
         return redirect('/marketing/orderstats')->with('success', 'Order Berhasil Dimasukkan');
     }
