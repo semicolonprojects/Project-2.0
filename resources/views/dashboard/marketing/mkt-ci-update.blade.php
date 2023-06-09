@@ -8,10 +8,24 @@
         @csrf
         @method('put')
           <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
-              <div class="sm:col-span-2">
-                  <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Customer ID (Berdasarkan Tipe Customer)</label>
-                  <input type="text" name="customer_id" id="customer_id" value="{{ $customer->customer_id }}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-background focus:border-background block w-full p-2.5 " placeholder="Type The Customer ID" required="">
-              </div>
+            <div class="">
+              <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tipe Customer</label>
+          <select id="countries" name="tipe_customer" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            <option {{ $customer->tipe_customer ? 'selected' : '' }}>{{ $customer->tipe_customer }}</option>
+                  <option value="RSL">Reseller</option>
+                  <option value="DST">Distributor</option>
+                  <option value="MKL">Maklon</option>
+                  <option value="CRH">Curah</option>
+                  <option value="KSY">Konsinyasi</option>
+          </select>
+            </div>
+            <div class="">
+              <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Customer ID
+                (Berdasarkan Tipe Customer)</label>
+              <input type="text" name="customer_id" id="customer_id"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-background focus:border-background block w-full p-2.5 "
+                value="{{ $customer->customer_id }}" required="">
+            </div>
               <div class="w-full">
                   <label for="brand" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama Customer</label>
                   <input type="text" name="nama_lengkap" id="nama_lengkap" value="{{ $customer->nama_lengkap }}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-background focus:border-background block w-full p-2.5 " placeholder="Ex: Hengky Saranggih" required="">
@@ -41,7 +55,7 @@
                     <input type="date" name="tanggal_lahir" id="tanggal_lahir" value="{{ $customer->tanggal_lahir }}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-background focus:border-background block w-full pl-10 p-2.5 " placeholder="Select date">
                   </div> 
               </div>
-              </div>
+            </div>
           <button type="submit" class="inline-flex items-center px-5 py-2.5 mt-9 sm:mt-8 text-sm font-medium text-center text-white bg-[#22DB66] rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
               Update Customer
           </button>
