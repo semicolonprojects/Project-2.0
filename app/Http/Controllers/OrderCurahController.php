@@ -23,7 +23,7 @@ class OrderCurahController extends Controller
     public function index()
     {
 
-        return view('dashboard.marketing-curah.mkt-curah-order-stats');
+        return view('dashboard.marketing-curah.mktc-order');
     }
 
     /**

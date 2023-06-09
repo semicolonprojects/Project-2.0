@@ -7,7 +7,18 @@
     <form action="{{ route('customer.store') }}" method="post">
       @csrf
       <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
-        <div class="sm:col-span-2">
+        <div class="">
+          <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tipe Customer</label>
+          <select id="countries" name="tipe_customer" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            <option selected>Pilih Tipe Customer</option>
+                  <option value="RSL">Reseller</option>
+                  <option value="DST">Distributor</option>
+                  <option value="MKL">Maklon</option>
+                  <option value="CRH">Curah</option>
+                  <option value="KSY">Konsinyasi</option>
+          </select>
+        </div>
+        <div class="">
           <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Customer ID
             (Berdasarkan Tipe Customer)</label>
           <input type="text" name="customer_id" id="customer_id"

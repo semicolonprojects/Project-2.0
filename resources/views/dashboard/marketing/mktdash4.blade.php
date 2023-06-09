@@ -49,7 +49,7 @@
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                     <tr>
                         <th scope="col" class="px-6 py-3">
-                            Username
+                            Full Name
                         </th>
                         <th scope="col" class="px-6 py-3">
                             Customer Id
@@ -58,13 +58,10 @@
                             Phone / Email
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Wallet Balance
-                        </th>
-                        <th scope="col" class="px-6 py-3">
                             Address
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Joining Date
+                            TTL
                         </th>
                         <th scope="col" class="px-6 py-3">
                             Actions

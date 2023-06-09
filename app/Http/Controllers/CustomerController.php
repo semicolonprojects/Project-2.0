@@ -8,6 +8,7 @@ use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\URL;
+use PhpParser\Node\Expr\New_;
 
 class CustomerController extends Controller
 {
@@ -44,6 +45,7 @@ class CustomerController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
+            'tipe_customer' => 'required',
             'customer_id' => 'required|max:255|unique:customers',
             'nama_lengkap' => 'required|max:255|unique:customers',
             'alamat' => 'required|max:255',
@@ -53,8 +55,15 @@ class CustomerController extends Controller
             'tanggal_lahir' => 'required'
         ]);
 
-        $validatedData['user_id'] = auth()->user()->id;
-        Customer::create($validatedData);
+        
+
+        $customer = new Customer;
+         $customer->tipe_customer = $request->tipe_customer;
+         $customer->customer_id = $customer->tipe_customer . '-' . $request->customer_id;
+         $validatedData['customer_id'] = $customer->customer_id;
+         $validatedData['user_id'] = auth()->user()->id;
+         $customer->fill($validatedData);
+         $customer->save();
         return redirect('/marketing/customerinfo')->with('success', 'Customer added successfully.');
     }
 
@@ -93,6 +102,7 @@ class CustomerController extends Controller
     public function update(Request $request, $id)
     {
         $customer = Customer::find($id);
+        $customer->tipe_customer = $request->tipe_customer;
         $customer->customer_id = $request->customer_id;
         $customer->nama_lengkap = $request->nama_lengkap;
         $customer->alamat = $request->alamat;

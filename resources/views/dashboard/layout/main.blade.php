@@ -481,12 +481,12 @@
                     </button>
                     <ul id="dropdown-mktcurah" class="hidden py-2 space-y-2">
                         <li>
-                            <a href="/curah/order"
+                            <a href="/curah-order"
                                 class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 font-medium">Tabel
                                 Order</a>
                         </li>
                         <li>
-                            <a href="/curah/customer-info"
+                            <a href="/curah-customer-info"
                                 class="flex items-center w-full p-2 text-base font-medium text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Customer
                                 Info</a>
                         </li>
