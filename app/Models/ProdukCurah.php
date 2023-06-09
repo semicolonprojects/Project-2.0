@@ -25,4 +25,9 @@ class ProdukCurah extends Model
     {
         return $this->hasMany(InOutCurah::class);
     }
+
+    public function order()
+    {
+        return $this->hasMany(OrderCurah::class);
+    }
 }
