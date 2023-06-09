@@ -103,7 +103,7 @@ Route::resource('maduKulak', MaduKulakController::class);
 
 Route::resource('targetKaryawanC', TargetKaryawanCurahController::class);
 
-Route::resource('orderCurah', OrderCurahController::class);
+Route::resource('orderCurah', OrderCurahController::class)->middleware('auth', 'curah');
 
 Route::get('/logout', [LoginController::class, 'logout']);
 
@@ -165,13 +165,13 @@ Route::get('/finance/outcome', [OutcomeController::class, 'index'])->name('outco
 
 Route::get('/invoice/download/{id}', [FinanceInvoiceController::class, 'generate'])->name('invoice.download');
 
-Route::get('/curah/customer-info', function () {
-    return view('dashboard.marketing-curah.mkt-curah-customer-info');
+Route::get('/curah-customer-info', function () {
+    return view('dashboard.marketing-curah.mktc-customer-info');
 });
 
-Route::get('/curah', [MktCurahdashController::class, 'index'])->middleware('curah' ,'auth');
+Route::get('/curah', [MktCurahdashController::class, 'index'])->middleware('curah', 'auth');
 
-Route::get('/curah/order', [OrderCurahController::class, 'index'])->middleware('curah' ,'auth');
+Route::get('/curah-order', [OrderCurahController::class, 'index'])->middleware('curah', 'auth');
 
 Route::get('/curah/innout', function () {
     return view('dashboard.marketing-curah.mkt-curah-innout');
@@ -188,8 +188,5 @@ Route::get('/curah/paymentstats', function () {
 Route::get('/curah/topcust', function () {
     return view('dashboard.marketing-curah.mkt-curah-topcust');
 });
-
-
-
 
 Route::get('/data-absen', [DataAbsenController::class, 'index']);

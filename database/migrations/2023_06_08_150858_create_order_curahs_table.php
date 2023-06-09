@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('order_id');
             $table->foreignId('customer_id')->constrained('customers')->onDelete('cascade');
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
-            $table->foreignId('kode_barang')->references('id')->on('produk_jadis')->onDelete('cascade');
+            $table->foreignId('kode_barang')->references('id')->on('produk_curahs')->onDelete('cascade');
             $table->string('status_pembayaran');
             $table->string('tipe_pembayaran');
             $table->decimal('total_termin', 15, 2)->nullable();
