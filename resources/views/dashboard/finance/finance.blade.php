@@ -20,15 +20,15 @@
                 <p
                     class="text-black text-sm sm:text-base md:text-base lg:text-base xl:text-base 2xl:text-base  font-normal">
                     Current Week</p>
-                <p class="text-black text-lg sm:text-xl md:text-xl lg:text-xl xl:text-xl 2xl:text-xl font-normal">IDR
-                    5,000,000</p>
+                <p class="text-black text-lg sm:text-xl md:text-xl lg:text-xl xl:text-xl 2xl:text-xl font-normal">{{'Rp.
+                    ' . number_format($totalRevenue, 0, ',', '.')}}</p>
             </div>
             <div class="grid grid-flow-row gap-3 px-10">
                 <p
                     class="text-black text-sm sm:text-base md:text-base lg:text-base xl:text-base 2xl:text-base font-normal">
                     Previous Week</p>
-                <p class="text-black text-lg sm:text-xl md:text-xl lg:text-xl xl:text-xl 2xl:text-xl font-normal">IDR
-                    4,000,000</p>
+                <p class="text-black text-lg sm:text-xl md:text-xl lg:text-xl xl:text-xl 2xl:text-xl font-normal">{{'Rp.
+                    ' . number_format($totalRevenueLalu, 0, ',', '.')}}</p>
             </div>
         </div>
         <div class="px-5 py-5">
@@ -43,7 +43,11 @@
         class="inline-block p-6 bg-white border border-gray-200 rounded-xl  hover:bg-gray-100 shadow-2xl w-[550px] h-[634px]">
         <div class="grid grid-flow-col gap-70">
             <h5 class="mb-2 text-xl font-semibold tracking-tight text-gray-900 ">Daily Sales Stats</h5>
-            <h5 class="mb-2 ml-10 text-xl font-semibold tracking-tight text-[#22DB66] ">Rp.500.000</h5>
+            @foreach ($totalOrderHari as $order)
+            <h5 class="mb-2 ml-10 text-xl font-semibold tracking-tight text-[#22DB66] ">
+                {{ $order }} Order
+            </h5>
+            @endforeach
             <button id="orderStats" data-dropdown-toggle="orderStatsTrigger" class="ml-48">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" class="w-8 h-8">
@@ -71,23 +75,20 @@
                 </div>
 
             </div>
-            <div class="font-custom font-normal ml-4 grid grid-flow-col ">
+            @foreach ($targetKaryawan as $targetKaryawans)
+            <div class="font-custom font-normal ml-4 grid grid-flow-col">
                 <div>
-                    <p>Mukti</p>
-                    <p>Supri</p>
-                    <p>Windah</p>
+                    <p>{{ $targetKaryawans->user->username }}</p>
                 </div>
-                <div class="mr-72">
-                    <p>:</p>
-                    <p>:</p>
+                <div class="flex justify-center">
                     <p>:</p>
                 </div>
                 <div>
-                    <p>30%</p>
-                    <p>30%</p>
-                    <p>30%</p>
+                    <p>{{ number_format(($targetKaryawans->total_tercapai / $targetKaryawans->target) * 100, 2) . '%'
+                        }}</p>
                 </div>
             </div>
+            @endforeach
         </div>
     </div>
 
@@ -361,16 +362,18 @@
 <div class="ml-24 mt-16">
     <p class="text-black text-[32px] font-bold text-center mr-28">Summary Per Day</p>
     <div class="py-5 sm:ml-[422px] md: lg:ml-[670px] xl:ml-[928px] 2xl:ml-[928px]">
-        <button type="button"
-            class="text-white bg-[#22DB66] font-medium rounded-[22px] text-[13px] px-3 py-2.5 inline-flex items-center">
-            <div class="px-2">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                    stroke="currentColor" class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-                </svg>
-            </div>
-            Add New Order
-        </button>
+        <a href="/finance/income">
+            <button type="button"
+                class="text-white bg-[#22DB66] font-medium rounded-[22px] text-[13px] px-3 py-2.5 inline-flex items-center">
+                <div class="px-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                    </svg>
+                </div>
+                Add New Income
+            </button>
+        </a>
     </div>
     <div
         class="grid py-3 gap-9 sm:-ml-24 md:-ml-24 lg:-ml-24 xl:-ml-80 2xl:-ml-24 sm:grid-flow-col md:grid-flow-row md:gap-[48px] md:px-48 lg:grid-flow-row lg:gap-[48px] lg:px-[400px] xl:grid-flow-col 2xl:grid-flow-col">
@@ -398,8 +401,10 @@
             </div>
             <div class="">
                 <p class="text-[#8F8F8F] text-xl font-semibold justify-center m-auto flex">Income</p>
-                <p class="text-black text-[24px] font-semibold justify-center m-auto flex">IDR. 5000.000</p>
-                <p class="text-[#8F8F8F] text-xs font-semibold justify-end m-auto flex py-2 px-3">Today : 27 May 2023
+                <p class="text-black text-[24px] font-semibold justify-center m-auto flex">{{'Rp.
+                    ' . number_format($incomeTotal, 0, ',', '.')}}</p>
+                <p class="text-[#8F8F8F] text-xs font-semibold justify-end m-auto flex py-2 px-3">Today : {{ date('d M
+                    Y', strtotime(now())) }}
                 </p>
             </div>
         </div>
@@ -425,8 +430,10 @@
             </div>
             <div class="">
                 <p class="text-[#8F8F8F] text-xl font-semibold justify-center m-auto flex">Outcome</p>
-                <p class="text-black text-[24px] font-semibold justify-center m-auto flex">IDR. 3000.000</p>
-                <p class="text-[#8F8F8F] text-xs font-semibold justify-end m-auto flex py-2 px-3">Today : 27 May 2023
+                <p class="text-black text-[24px] font-semibold justify-center m-auto flex">{{'Rp.
+                    ' . number_format($outcomeTotal, 0, ',', '.')}}</p>
+                <p class="text-[#8F8F8F] text-xs font-semibold justify-end m-auto flex py-2 px-3">Today : {{ date('d M
+                    Y', strtotime(now())) }}
                 </p>
             </div>
         </div>
@@ -451,8 +458,10 @@
             </div>
             <div class="">
                 <p class="text-[#8F8F8F] text-xl font-semibold justify-center m-auto flex">Debt</p>
-                <p class="text-black text-[24px] font-semibold justify-center m-auto flex">IDR. 1000.000</p>
-                <p class="text-[#8F8F8F] text-xs font-semibold justify-end m-auto flex py-2 px-3">Today : 27 May 2023
+                <p class="text-black text-[24px] font-semibold justify-center m-auto flex">{{'Rp.
+                    ' . number_format($totalDebtToday, 0, ',', '.')}}</p>
+                <p class="text-[#8F8F8F] text-xs font-semibold justify-end m-auto flex py-2 px-3">Today : {{ date('d M
+                    Y', strtotime(now())) }}
                 </p>
             </div>
         </div>
@@ -469,8 +478,10 @@
             </div>
             <div class="">
                 <p class="text-[#8F8F8F] text-xl font-semibold justify-center m-auto flex">Credit</p>
-                <p class="text-black text-[24px] font-semibold justify-center m-auto flex">IDR. 1000.000</p>
-                <p class="text-[#8F8F8F] text-xs font-semibold justify-end m-auto flex py-2 px-3">Today : 27 May 2023
+                <p class="text-black text-[24px] font-semibold justify-center m-auto flex">{{'Rp.
+                    ' . number_format($totalCreditToday, 0, ',', '.')}}</p>
+                <p class="text-[#8F8F8F] text-xs font-semibold justify-end m-auto flex py-2 px-3">Today : {{ date('d M
+                    Y', strtotime(now())) }}
                 </p>
             </div>
         </div>
@@ -502,7 +513,10 @@
             <div
                 class="-mt-[7px] -ml-[29px] sm:-ml-[232px] md:-ml-[232px] lg:-ml-[374px] xl:-ml-[484px] 2xl:-ml-[484px]">
                 <p class="font-semibold text-xl text-[#8F8F8F]">Income</p>
-                <p class="font-semibold text-[32px] text-black">IDR. 5000.000</p>
+                @foreach ($incomeMonth as $incomeMonths)
+                <p class="font-semibold text-[32px] text-black">{{'Rp.
+                    ' . number_format($incomeMonths->total_income, 0, ',', '.')}}</p>
+                @endforeach
             </div>
         </div>
 
@@ -528,7 +542,10 @@
             <div
                 class="-mt-[7px] -ml-[29px] sm:-ml-[232px] md:-ml-[232px] lg:-ml-[374px] xl:-ml-[484px] 2xl:-ml-[484px]">
                 <p class="font-semibold text-xl text-[#8F8F8F]">Outcome</p>
-                <p class="font-semibold text-[32px] text-black">IDR. 5000.000</p>
+                @foreach ($outcomeMonth as $outcomeMonths)
+                <p class="font-semibold text-[32px] text-black">{{'Rp.
+                    ' . number_format($outcomeMonths->total_outcome, 0, ',', '.') }}</p>
+                @endforeach
             </div>
         </div>
 
@@ -552,7 +569,8 @@
             <div
                 class="-mt-[7px] -ml-[29px] sm:-ml-[232px] md:-ml-[232px] lg:-ml-[374px] xl:-ml-[484px] 2xl:-ml-[484px]">
                 <p class="font-semibold text-xl text-[#8F8F8F]">Debt</p>
-                <p class="font-semibold text-[32px] text-black">IDR. 5000.000</p>
+                <p class="font-semibold text-[32px] text-black">{{'Rp.
+                    ' . number_format($totalDebtThisMonth, 0, ',', '.')}}</p>
             </div>
         </div>
 
@@ -569,11 +587,13 @@
             <div
                 class="-mt-[7px] -ml-[29px] sm:-ml-[232px] md:-ml-[232px] lg:-ml-[374px] xl:-ml-[484px] 2xl:-ml-[484px]">
                 <p class="font-semibold text-xl text-[#8F8F8F]">Credit</p>
-                <p class="font-semibold text-[32px] text-black">IDR. 1000.000</p>
+                <p class="font-semibold text-[32px] text-black">{{'Rp.
+                    ' . number_format($totalCreditThisMonth, 0, ',', '.')}}</p>
             </div>
         </div>
 
-        <p class="font-semibold text-base text-[#8F8F8F] text-end px-5 py-3">May 2023</p>
+        <p class="font-semibold text-base text-[#8F8F8F] text-end px-5 py-3">{{ \Carbon\Carbon::now()->format('F Y') }}
+        </p>
     </div>
 </div>
 

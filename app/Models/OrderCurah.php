@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
@@ -43,6 +44,62 @@ class OrderCurah extends Model
             ->join('channels', 'order_curahs.tipe_pesanan', '=', 'channels.id')
             ->select('produk_curahs.nama_barang', DB::raw('SUM(order_curahs.total_order) AS total_order'), 'channels.nama_channel')
             ->groupBy('produk_curahs.nama_barang', 'channels.nama_channel')
+            ->get();
+    }
+
+    public function totalPembelianPerMinggu()
+    {
+        $startDate = Carbon::now()->startOfWeek(); // Mengambil tanggal awal minggu ini
+        $endDate = Carbon::now()->endOfWeek(); // Mengambil tanggal akhir minggu ini
+
+        return DB::table('order_curahs')
+            ->join('produk_curahs', 'order_curahs.kode_barang', '=', 'produk_curahs.id')
+            ->join('channels', 'order_curahs.tipe_pesanan', '=', 'channels.id')
+            ->select('produk_curahs.nama_barang', DB::raw('SUM(order_curahs.total_order) AS total_order'), 'channels.nama_channel')
+            ->whereBetween('order_curahs.created_at', [$startDate, $endDate])
+            ->groupBy('produk_curahs.nama_barang', 'channels.nama_channel')
+            ->get();
+    }
+
+    public function totalPembelianPerMingguLalu()
+    {
+        $lastWeekStartDate = Carbon::now()->startOfWeek()->subWeek(); // Mengambil tanggal awal minggu kemarin
+        $lastWeekEndDate = Carbon::now()->endOfWeek()->subWeek(); // Mengambil tanggal akhir minggu kemarin
+        return DB::table('order_curahs')
+            ->join('produk_curahs', 'order_curahs.kode_barang', '=', 'produk_curahs.id')
+            ->join('channels', 'order_curahs.tipe_pesanan', '=', 'channels.id')
+            ->select('produk_curahs.nama_barang', DB::raw('SUM(order_curahs.total_order) AS total_order'), 'channels.nama_channel')
+            ->whereBetween('order_curahs.created_at', [$lastWeekStartDate, $lastWeekEndDate])
+            ->groupBy('produk_curahs.nama_barang', 'channels.nama_channel')
+            ->get();
+    }
+
+    public function perBulan()
+    {
+        return DB::table('order_curahs')
+            ->join('produk_curahs', 'order_curahs.kode_barang', '=', 'produk_curahs.id')
+            ->join('channels', 'order_curahs.tipe_pesanan', '=', 'channels.id')
+            ->select(
+                DB::raw('DATE_FORMAT(order_curahs.created_at, "%M") AS bulan'),
+                DB::raw('SUM(order_curahs.total_order) AS total_order')
+            )
+            ->groupBy('bulan')
+            ->get();
+    }
+
+    public function perHari()
+    {
+        $today = date('Y-m-d'); // Mendapatkan tanggal hari ini dalam format Y-m-d (misalnya: 2023-06-05)
+
+        return DB::table('orders')
+            ->join('produk_jadis', 'orders.kode_barang', '=', 'produk_jadis.id')
+            ->join('channels', 'orders.tipe_pesanan', '=', 'channels.id')
+            ->select(
+                DB::raw('DATE_FORMAT(orders.created_at, "%d") AS hari'),
+                DB::raw('SUM(orders.total_order) AS total_order')
+            )
+            ->whereDate('orders.created_at', $today) // Menambahkan kondisi where untuk tanggal hari ini
+            ->groupBy('hari')
             ->get();
     }
 

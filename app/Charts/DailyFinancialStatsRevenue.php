@@ -2,7 +2,12 @@
 
 namespace App\Charts;
 
+use App\Models\Order;
+use App\Models\OrderCurah;
+use App\Models\ProdukCurah;
+use App\Models\ProdukJadi;
 use ArielMejiaDev\LarapexCharts\LarapexChart;
+use Illuminate\Support\Facades\DB;
 
 class DailyFinancialStatsRevenue
 {
@@ -15,10 +20,24 @@ class DailyFinancialStatsRevenue
 
     public function build(): \ArielMejiaDev\LarapexCharts\LineChart
     {
+        $model = new Order();
+        $orderCurah = new OrderCurah();
+        $totalProduk = $model->perBulan();
+        $totalCurah = $orderCurah->perBulan();
+
+        // Mengambil data bulan dari hasil query Order
+        $bulan = $totalProduk->pluck('bulan')->toArray();
+
+        // Mengambil data total_order dari hasil query Order
+        $totalOrder = $totalProduk->pluck('total_order')->toArray();
+
+        // Mengambil data total_order dari hasil query OrderCurah
+        $totalOrderCurah = $orderCurah->pluck('total_order')->toArray();
+
         return $this->dailyRevenue->lineChart()
-            ->addData('Current Week', [40, 93, 35, 42, 18, 82])
-            ->addData('Previous Week', [70, 29, 77, 28, 55, 45])
-            ->setXAxis(['January', 'February', 'March', 'April', 'May', 'June'])
+            ->addData('Order', $totalOrder)
+            ->addData('Order Curah', $totalOrderCurah)
+            ->setXAxis($bulan)
             ->setWidth(787)
             ->setHeight(296)
             ->setColors(['#A155B9', '#F765A3'])

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
@@ -45,6 +46,33 @@ class Outcome extends Model
                     ->where('jenis_outcome', 'Eksternal');
             })
             ->groupBy('outcomes.nama_outcome', 'outcomes_details.name', 'outcomes_details.jenis_outcome')
+            ->get();
+    }
+
+    public function getTotalOutcomeByCategoryAndDate($category)
+    {
+        $currentDate = Carbon::now()->toDateString();
+
+        return $this->join('outcomes_details', 'outcomes.nama_outcome', '=', 'outcomes_details.id')
+            ->where('outcomes_details.name', $category)
+            ->whereDate('outcomes.created_at', $currentDate)
+            ->sum('outcomes.jumlah_outcome');
+    }
+
+
+    public function getTotalOutcomeByCategoryAndMonth($category)
+    {
+        return $this->join('outcomes_details', 'outcomes.nama_outcome', '=', 'outcomes_details.id')
+            ->where('outcomes_details.name', $category)
+            ->whereMonth('outcomes.created_at', Carbon::now()->month)
+            ->sum('outcomes.jumlah_outcome');
+    }
+
+    public function getTotalOutcomePerMonth()
+    {
+        return $this->selectRaw('SUM(jumlah_outcome) as total_outcome, DATE_FORMAT(created_at, "%M %Y") as month_year')
+            ->whereMonth('created_at', Carbon::now()->month)
+            ->groupBy('month_year')
             ->get();
     }
 }
