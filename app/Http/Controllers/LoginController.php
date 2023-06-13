@@ -41,6 +41,9 @@ class LoginController extends Controller
                 case 'logistik':
                     return redirect()->intended('/logistik');
                     break;
+                case 'curah':
+                    return redirect()->intended('/curah');
+                    break;
                 default:
                     return back()->with('loginError', 'Login Failed, Please Check your username or password');
                     break;

@@ -195,7 +195,7 @@
                     </button>
                     <a href="/dashboard">
                         <img src='{{ asset('Assets\images\Madukuy CMYK Logo.png') }}'
-                            class="h-15 w-16  inset-y-0 flex-items-center ml-5" />
+                            class="h-15 w-16  inset-y-0 flex-items-center ml-0.5 sm:ml-0.5 " />
                     </a>
                 </div>
                 <div class="flex justify-items-center">
@@ -238,7 +238,7 @@
                                 </div>
                             </button>
                         </div>
-                        <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600"
+                        <div class="z-90 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600"
                             id="dropdown-user">
                             <div class="px-4 py-3" role="none">
                                 <p class="text-sm text-gray-900 dark:text-white" role="none">
@@ -250,7 +250,7 @@
                             </div>
                             <ul class="py-1" role="none">
                                 <li>
-                                    <a href="#"
+                                    <a href="/dashboard"
                                         class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
                                         role="menuitem">Dashboard</a>
                                 </li>
@@ -280,6 +280,11 @@
                                         role="menuitem">Log Out</a>
                                 </li>
                             </ul>
+                            <div class="border-t-grey-700 px-2 py-2" role="none">
+                                <p class="block text-[11px] text-gray-700">© 2023 Semicolon
+                                    Projects;
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -307,7 +312,7 @@
         <div class="py-20 ">
             <ul class="space-y-2">
                 <li>
-                    <a href="/superadmin"
+                    <a href="/dashboard"
                         class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
                         <svg aria-hidden="true"
                             class="flex-shrink-0 w-6 h-6 text-black transition duration-75 group-hover:bg-yellow-200"
@@ -320,6 +325,7 @@
                         <span class="ml-3 font-bold">Dashboard</span>
                     </a>
                 </li>
+                @can('superadmin') 
                 <li>
                     <a href="/hpp">
                         <button type="button"
@@ -336,6 +342,25 @@
                         </button>
                     </a>
                 </li>
+                @elsecan('logistik')
+                <li>
+                    <a href="/hpp">
+                        <button type="button"
+                            class="flex items-center w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+                            aria-controls="dropdown-mktcurah">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="#FFC525" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-circle-dollar-sign">
+                                <circle cx="12" cy="12" r="10" />
+                                <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8" />
+                                <path d="M12 18V6" />
+                            </svg>
+                            <span class="flex-1 ml-3 text-left whitespace-nowrap font-bold">HPP</span>
+                        </button>
+                    </a>
+                </li>
+                @endcan
+                @can('marketing')
                 <li>
                     <button type="button"
                         class="flex items-center w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
@@ -353,10 +378,12 @@
                         </svg>
                     </button>
                     <ul id="dropdown-example" class="hidden py-2 space-y-2">
+                        @can('superadmin')
                         <li>
                             <a href="/marketing"
                                 class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 font-medium">Dashboard</a>
                         </li>
+                        @endcan
                         <li>
                             <a href="/marketing/channel"
                                 class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 font-medium">Channel</a>
@@ -373,6 +400,8 @@
                         </li>
                     </ul>
                 </li>
+                @endcan
+                @can('finance')
                 <li>
                     <button type="button"
                         class="flex items-center w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
@@ -394,21 +423,24 @@
                         </svg>
                     </button>
                     <ul id="dropdown-finance" class="hidden py-2 space-y-2">
+                        @can('superadmin')
                         <li>
-                            <a href="/finance/invoice"
-                                class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 font-medium">Invoice</a>
+                            <a href="/finance"
+                                class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 font-medium">Dashboard</a>
                         </li>
+                        @endcan
                         <li>
-                            <a href="/marketing/customerinfo"
+                            <a href="/finance/income"
                                 class="flex items-center w-full p-2 text-base font-medium text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Income</a>
                         </li>
                         <li>
-                            <a href="#"
+                            <a href="/finance/outcome"
                                 class="flex items-center w-full p-2 text-base font-medium text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Outcome</a>
                         </li>
                     </ul>
                 </li>
-
+                @endcan
+                @can('logistik')
                 <li>
                     <button type="button"
                         class="flex items-center w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
@@ -431,6 +463,12 @@
                         </svg>
                     </button>
                     <ul id="dropdown-logistik" class="hidden py-2 space-y-2">
+                        @can('superadmin')
+                        <li>
+                            <a href="/dashboard"
+                                class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 font-medium">Dashboard</a>
+                        </li>
+                        @endcan
                         <li>
                             <a href="/logistik/datasupplier"
                                 class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 font-medium">Data
@@ -462,7 +500,9 @@
                                 Pendukung</a>
                         </li>
                     </ul>
-                </li>
+                </li> 
+                @endcan
+                @can('curah')
                 <li>
                     <button type="button"
                         class="flex items-center w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
@@ -480,6 +520,12 @@
                         </svg>
                     </button>
                     <ul id="dropdown-mktcurah" class="hidden py-2 space-y-2">
+                        @can('superadmin')
+                        <li>
+                            <a href="/curah"
+                                class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 font-medium">Dashboard</a>
+                        </li>
+                        @endcan
                         <li>
                             <a href="/curah-order"
                                 class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 font-medium">Tabel
@@ -492,6 +538,7 @@
                         </li>
                     </ul>
                 </li>
+                @endcan
                 <ul class="pt-3 mb-9 space-y-4 border-t-2 border-gray-200 dark:border-gray-700">
                     <li>
                         <a href="#"
@@ -515,11 +562,6 @@
                     </li>
                 </ul>
             </ul>
-            <div class="px-9">
-                <h3 class="absolute bottom-3 font-semibold text-xs text-gray-500">© 2023 Semicolon
-                    Projects;
-                </h3>
-            </div>
         </div>
     </div>
 
@@ -556,75 +598,61 @@
     </div>
 
     {{-- Absensi, Cuti & Izin --}}
-    <div class="ml-10 mt-36 sm:ml-16 md:ml-20 xl:ml-48">
-        <div class="inline-flex ml-16 sm:ml-16 md:ml-20 xl:ml-72">
-            <button type="button"
-                class="text-black  bg-background hover:bg-gradient-to-bl from-yellow-200 to-bg-yellow-300 focus:ring-4 focus:outline-none focus:ring-yellow-400 font-medium rounded-full text-sm p-4 text-center inline-flex items-center ml-8"
-                data-modal-target="authentication-modal" data-modal-toggle="authentication-modal">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
-                    <path d="M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"></path>
-                    <path d="M16 4h2a2 2 0 0 1 2 2v4"></path>
-                    <path d="M21 14H11"></path>
-                    <path d="m15 10-4 4 4 4"></path>
-                </svg>
+    <div class="ml-10 mt-36 sm:ml-16 md:ml-20 xl:ml-[530px]">
+        <div class="flex items-center space-x-8">
+          <div class="flex flex-col items-center">
+            <button type="button" class="text-black bg-background hover:bg-gradient-to-bl from-yellow-200 to-bg-yellow-300 focus:ring-4 focus:outline-none focus:ring-yellow-400 font-medium rounded-full text-sm p-4 text-center inline-flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                <path d="M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"></path>
+                <path d="M16 4h2a2 2 0 0 1 2 2v4"></path>
+                <path d="M21 14H11"></path>
+                <path d="m15 10-4 4 4 4"></path>
+              </svg>
             </button>
-            <button type="button"
-                class="text-black  bg-background hover:bg-gradient-to-bl from-yellow-200 to-bg-yellow-300 focus:ring-4 focus:outline-none focus:ring-yellow-400 font-medium rounded-full text-sm p-4 text-center inline-flex items-center ml-8"
-                data-modal-target="authentication-modal-2" data-modal-toggle="authentication-modal-2">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-line p="round" stroke-linejoin="round">
-                    <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
-                    <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-                    <path d="m15 11-6 6"></path>
-                    <path d="m9 11 6 6"></path>
-                </svg>
+            <p class="font-semibold text-black mt-2">Masuk</p>
+          </div>
+          <div class="flex flex-col items-center">
+            <button type="button" class="text-black bg-background hover:bg-gradient-to-bl from-yellow-200 to-bg-yellow-300 focus:ring-4 focus:outline-none focus:ring-yellow-400 font-medium rounded-full text-sm p-4 text-center inline-flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                <path d="m15 11-6 6"></path>
+                <path d="m9 11 6 6"></path>
+              </svg>
             </button>
-            <button type="button"
-                class="text-black  bg-background hover:bg-gradient-to-bl from-yellow-200 to-bg-yellow-300 focus:ring-4 focus:outline-none focus:ring-yellow-400 font-medium rounded-full text-sm p-4 text-center inline-flex items-center ml-8"
-                data-modal-target="authentication-modal-3" data-modal-toggle="authentication-modal-3">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
-                    <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-                    <path d="M12 11h4"></path>
-                    <path d="M12 16h4"></path>
-                    <path d="M8 11h.01"></path>
-                    <path d="M8 16h.01"></path>
-                </svg>
-                <span class="sr-only">Icon description</span>
+            <p class="font-semibold text-black mt-2">Keluar</p>
+          </div>
+          <div class="flex flex-col items-center">
+            <button type="button" class="text-black bg-background hover:bg-gradient-to-bl from-yellow-200 to-bg-yellow-300 focus:ring-4 focus:outline-none focus:ring-yellow-400 font-medium rounded-full text-sm p-4 text-center inline-flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                <path d="M12 11h4"></path>
+                <path d="M12 16h4"></path>
+                <path d="M8 11h.01"></path>
+                <path d="M8 16h.01"></path>
+              </svg>
             </button>
-            <button type="button"
-                class="text-black  bg-background hover:bg-gradient-to-bl from-yellow-200 to-bg-yellow-300 focus:ring-4 focus:outline-none focus:ring-yellow-400 font-medium rounded-full text-sm p-4 text-center inline-flex items-center ml-8"
-                data-modal-target="authentication-modal-4" data-modal-toggle="authentication-modal-4">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
-                    <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-                    <path d="M12 11h4"></path>
-                    <path d="M12 16h4"></path>
-                    <path d="M8 11h.01"></path>
-                    <path d="M8 16h.01"></path>
-                </svg>
-                <span class="sr-only">Icon description</span>
+            <p class="font-semibold text-black mt-2">Ijin</p>
+          </div>
+          <div class="flex flex-col items-center">
+            <button type="button" class="text-black bg-background hover:bg-gradient-to-bl from-yellow-200 to-bg-yellow-300 focus:ring-4 focus:outline-none focus:ring-yellow-400 font-medium rounded-full text-sm p-4 text-center inline-flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                <path d="M12 11h4"></path>
+                <path d="M12 16h4"></path>
+                <path d="M8 11h.01"></path>
+                <path d="M8 16h.01"></path>
+              </svg>
             </button>
+            <p class="font-semibold text-black mt-2">Cuti</p>
+          </div>
         </div>
-    </div>
-    <div class="ml-[150px]  inline-flex sm:ml-3 md:ml-20 xl:ml-[525px]">
-        <div class="flex-wrap absolute pr-20">
-            <p class="font-semibold text-black">Masuk</p>
-        </div>
-        <div class="flex-wrap absolute  ml-[85px]">
-            <p class="font-semibold text-black">Keluar</p>
-        </div>
-        <div class="flex-wrap absolute  ml-[182px]">
-            <p class="font-semibold text-black">Ijin</p>
-        </div>
-        <div class="flex-wrap absolute  ml-[264px]">
-            <p class="font-semibold text-black">Cuti</p>
-        </div>
-    </div>
+      </div>
+      
+    
 
     <div id="authentication-modal" tabindex="-1" aria-hidden="true"
         class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] md:h-full">

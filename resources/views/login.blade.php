@@ -13,8 +13,8 @@
 <body class="bg-background">
     <section class="bg-background font-custom">
         <!-- ... -->
-        <div class="p-3 flex flex-col justify-center overflow-y-auto">
-            <div class="w-[534px] h-[650px] p-6 m-auto bg-background rounded-3xl shadow-md ring-2 ring-white max-w-full">
+        <div class="p-2.5 md:p-1.5 flex flex-col justify-center ">
+            <div class="w-[534px] h-[650px] p-4 m-auto bg-background rounded-3xl shadow-md ring-2 ring-white max-w-full">
                 <div class="px-10 md:px-40">
                     <img class="w-[233px] mx-auto" src="Assets\images\Madukuy CMYK Logo.png" alt="">
                 </div>

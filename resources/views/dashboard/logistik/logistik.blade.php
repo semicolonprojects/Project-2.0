@@ -30,37 +30,25 @@
 </div>
 
 {{-- STOCK & LOW STOCK --}}
-<div class="absolute mt-12 ml-44">
-    <div>
-        <button type="button" data-modal-target="authentication-modal-stock"
-            data-modal-toggle="authentication-modal-stock"
-            class="text-white bg-[#22DB66] font-medium rounded-[22px] text-[13px] px-3 py-2.5 inline-flex items-center">
-            <div class="px-2">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                    stroke="currentColor" class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-                </svg>
-            </div>
-            Add New Stock
-        </button>
-    </div>
-</div>
-</div>
 <div
-    class="w-[1224px] h-[600px] rounded-[13px] overflow-hidden ml-[2rem] mt-28 bg-white border border-[#686868CF] shadow-[0px_8px_8px_rgba(0,0,0,0.5)]">
-    <div class="absolute ml-6 mt-4">
-        <div class="grid grid-flow-col gap-[870px]">
+    class="w-[1224px] h-[600px] rounded-[13px] overflow-hidden ml-16 mt-28 bg-white border border-[#686868CF] shadow-[0px_8px_8px_rgba(0,0,0,0.5)]">
+    <div class="absolute ml-4 mt-4">
+        <div class="grid grid-flow-col gap-[920px]">
             <h5 class="text-3xl font-bold tracking-tight text-gray-900 ">Stock</h5>
-            <div class="grid grid-flow-col">
-
-                <button id="orderStats" data-dropdown-toggle="orderStatsTrigger">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="w-8 h-8">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
-                    </svg>
+            <div class="grid grid-flow-row mt-1">
+                <button type="button" data-modal-target="authentication-modal-stock"
+                    data-modal-toggle="authentication-modal-stock"
+                    class="text-white bg-[#22DB66] font-medium rounded-[22px] text-[13px] px-5 py-2.5 inline-flex items-center">
+                    <div class="px-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                        </svg>
+                    </div>
+                    Add New Stock
                 </button>
             </div>
+
         </div>
     </div>
 
@@ -230,19 +218,10 @@
 {{-- low stock --}}
 
 <div
-    class="w-[1224px] h-[600px] rounded-[13px] overflow-hidden ml-[2rem] mt-12 bg-white border border-[#686868CF] shadow-[0px_8px_8px_rgba(0,0,0,0.5)]">
-    <div class="absolute ml-6 mt-4">
+    class="w-[1224px] h-[600px] rounded-[13px] overflow-hidden ml-16 mt-12 bg-white border border-[#686868CF] shadow-[0px_8px_8px_rgba(0,0,0,0.5)]">
+    <div class="absolute ml-4 mt-4">
         <div class="grid grid-flow-col gap-[810px]">
             <h5 class="text-3xl font-bold tracking-tight text-gray-900 ">Low Stock</h5>
-            <div class="grid grid-flow-col">
-                <button id="orderStats" data-dropdown-toggle="orderStatsTrigger">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="w-8 h-8">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z">
-                    </svg>
-                </button>
-            </div>
         </div>
     </div>
 
@@ -362,22 +341,27 @@
 
 {{-- In & Out Products --}}
 <div class="absolute ml-40 mt-28">
-    <div class="grid grid-flow-col gap-[720px]">
-        <h5 class="text-2xl font-bold tracking-tight text-gray-900 ">In & Out Products</h5>
-        <div class="grid grid-flow-col">
-            <p class="font-normal text-xl text-black/60">Monthly</p>
-            <button id="innout" data-dropdown-toggle="innoutTrigger">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="0.5"
-                    stroke="currentColor" class="w-5 h-5 ml-3">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                </svg>
-            </button>
-        </div>
-    </div>
+
+
+</div>
 </div>
 <div
     class="w-[1024px] h-[570px] rounded-[13px] overflow-hidden ml-40 mt-40 bg-white border border-[#686868CF] shadow-[0px_8px_8px_rgba(0,0,0,0.5)]">
-    <div class="grid grid-flow-row">
+    <div class="absolute ml-4 mt-4">
+        <div class="grid grid-flow-col gap-[680px]">
+            <h5 class="text-2xl font-bold tracking-tight text-gray-900 ">In & Out Products</h5>
+            <div class="inline-flex">
+                <p class="font-normal text-xl text-black/60">Monthly</p>
+                <button id="innout" data-dropdown-toggle="innoutTrigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="0.5"
+                        stroke="currentColor" class="w-5 h-5 ml-3">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="grid grid-flow-row mt-12">
         <div>
             <button type="button"
                 class="min-w-fit text-green-600/80 border border-green-500 bg-white hover:bg-green-300/80 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mt-5 ml-4">
@@ -487,6 +471,8 @@
     </div>
 </div>
 </div>
+
+
 
 {{-- STOCK NON MADU --}}
 <div class="absolute ml-36 mt-20">

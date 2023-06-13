@@ -3,122 +3,118 @@
 @section('mainContent')
 
 {{-- Overview --}}
-<div
-    class="w-[1024px] rounded-[13px] overflow-hidden ml-40 mt-10 bg-white border border-[#686868CF] shadow-[0px_8px_8px_rgba(0,0,0,0.5)]">
-    <div class="px-6 py-4">
-        <div class="grid grid-flow-col gap-[580px]">
+<div class="w-full md:w-[1024px] rounded-[13px] overflow-hidden mx-auto md:ml-40 mt-10 bg-white border border-[#686868CF] shadow-[0px_8px_8px_rgba(0,0,0,0.5)]">
+    <div class="px-6 py-4 md:px-10 md:py-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div class="font-bold text-2xl">Marketing Division Overview</div>
-            <div class="inline-flex">
+            <div class="flex items-center justify-end md:justify-end">
                 <p class="font-normal text-xl text-black/60">Daily</p>
                 <button id="topProducts" data-dropdown-toggle="topProductsTrigger">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="0.5"
-                        stroke="currentColor" class="w-5 h-5">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="0.5" stroke="currentColor" class="w-5 h-5">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                     </svg>
                 </button>
             </div>
         </div>
-    </div>
-    @foreach ($overview as $overviews)
-    <div class="px-10 py-8">
-        <p class="text-black/75 text-xl">This Month</p>
-        <div class="grid grid-flow-col gap-0">
-            <p class="text-[#4E504F] text-[32px]">{{ 'Rp. ' . number_format($overviews->total_pembelian, 2, ',', '.') }}
-            </p>
-            <div class="absolute rounded bg-[#22DB6636] text-[#25D466F7] w-24 h-6 mt-4 ml-56">
-                <p class="text-center ml-1 text-[17px] font-medium">+ 4,20 % </p>
-            </div>
-        </div>
-    </div>
-    @endforeach
-    @foreach ($overview as $overviews2)
-    <div class="px-10 py-8">
-        <div class="grid grid-flow-col divide-x divide-black ">
-            <div class="grid grid-flow-row divide-y divide-black">
-                <div class="px-7 py-7">
-                    <p class="text-[#000000B8] text-xl font-custom">Orders</p>
-                    <p class="text-black text-xl">{{ $overviews2->total_order }}</p>
-                </div>
-                <div class="px-7 py-10">
-                    <p class="text-[#000000B8] text-xl font-custom">Average sales success rate</p>
-                    <p class="text-black text-xl">{{ $overviews2->persentase_dibayar }}</p>
-                </div>
-            </div>
-            <div class="grid grid-flow-row divide-y divide-black">
-                <div class="px-7 py-7">
-                    <p class="text-[#000000B8] text-xl font-custom">Sales</p>
-                    <p class="text-black text-xl">{{ $overviews2->total_dibayar }}</p>
-                </div>
-                <div class="px-7 py-[3.35rem]">
-                    <p class="text-[#000000B8] text-xl font-custom">Customers</p>
-                    <p class="text-black text-xl">{{ $overviews2->total_customer }}</p>
+        @foreach ($overview as $overviews)
+        <div class="py-4">
+            <p class="text-black/75 text-xl">This Month</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <p class="text-[#4E504F] text-[32px]">{{ 'Rp. ' . number_format($overviews->total_pembelian, 2, ',', '.') }}</p>
+                <div class="rounded bg-[#22DB6636] text-[#25D466F7] w-24 h-6 mt-4 md:ml-56">
+                    <p class="text-center ml-1 text-[17px] font-medium">+ 4,20 %</p>
                 </div>
             </div>
         </div>
+        @endforeach
+        @foreach ($overview as $overviews2)
+        <div class="py-4">
+            <div class="grid grid-cols-2 md:grid-cols-2 divide-x divide-black">
+                <div class="grid grid-rows-2 md:grid-rows-1 divide-y divide-black">
+                    <div class="px-4 py-4 md:px-7 md:py-3">
+                        <p class="text-[#000000B8] text-xl font-custom">Orders</p>
+                        <p class="text-black text-xl">{{ $overviews2->total_order }}</p>
+                    </div>
+                    <div class="px-4 py-4 md:px-7 md:py-[3.35rem]">
+                        <p class="text-[#000000B8] text-xl font-custom">Average sales success rate</p>
+                        <p class="text-black text-xl">{{ $overviews2->persentase_dibayar }}</p>
+                    </div>
+                </div>
+                <div class="grid grid-rows-2 md:grid-rows-1 divide-y divide-black">
+                    <div class="px-4 py-4 md:px-7 md:py-7">
+                        <p class="text-[#000000B8] text-xl font-custom">Sales</p>
+                        <p class="text-black text-xl">{{ $overviews2->total_dibayar }}</p>
+                    </div>
+                    <div class="px-4 py-4 md:px-7 md:py-[3.35rem]">
+                        <p class="text-[#000000B8] text-xl font-custom">Customers</p>
+                        <p class="text-black text-xl">{{ $overviews2->total_customer }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @endforeach
     </div>
-    @endforeach
 </div>
+
+
 
 {{-- Order Stats --}}
 
-<div
-    class="inline-block p-6 bg-white border border-gray-200 rounded-xl mt-10 ml-32 hover:bg-gray-100 shadow-2xl w-[1070px] h-[700px]">
-    <div class="grid grid-flow-col gap-[842px] mb-3">
-        <h5 class="mb-2 ml-5 text-2xl font-bold tracking-tight text-gray-900 ">Order Stats</h5>
-        <button id="orderStats" data-dropdown-toggle="orderStatsTrigger">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                stroke="currentColor" class="w-8 h-8">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                    d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
-            </svg>
-        </button>
-    </div>
-    <div class="grid grid-flow-col justify-end mb-8 mr-1 gap-2">
-
-        <button class="grid grid-flow-col gap-2 " id="sortBy" data-dropdown-toggle="sortBytrigger">Sort by
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="0.5"
-                stroke="currentColor" class="w-5 h-5 mt-1">
+<div class="inline-block p-6 bg-white border border-gray-200 rounded-xl ml-1 md:ml-36 mt-7 md:mt-10 hover:bg-gray-100 shadow-2xl w-full md:w-[1070px] h-[600px]">
+    <div class="grid grid-flow-col justify-between mb-8">
+        <div class="flex items-center">
+            <h5 class="mb-2 ml-5 text-2xl font-bold tracking-tight text-gray-900">Order Stats</h5>
+        </div>
+        <button class="text-gray-600 text-sm font-medium hover:text-gray-900 grid mt-2 grid-flow-col gap-2" id="sortBy" data-dropdown-toggle="sortBytrigger">
+            Sort by
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                class="w-4 h-4 inline-block mt-1">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
             </svg>
         </button>
     </div>
-    <div class='' id="{!! $saleThisMonth->container()  !!}"></div>
+    <div class="overflow-x-auto" id="{!! $saleThisMonth->container() !!}"></div>
 </div>
 
+
+
+
+
 {{-- Top Products --}}
-<div class="mt-14 ml-[169px]">
-    <div
-        class="inline-block p-6 bg-white border border-gray-200 rounded-xl  hover:bg-gray-100 shadow-2xl w-[1024px] h-[700px]">
-        <div class="grid grid-flow-col gap-[690px]">
-            <h5 class="text-2xl font-bold tracking-tight text-gray-900 ">Top Products</h5>
-            <div class="grid grid-flow-col">
-                <p class="font-normal text-xl text-black/60">Daily</p>
-                <button id="topProducts" data-dropdown-toggle="topProductsTrigger">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="0.5"
-                        stroke="currentColor" class="w-5 h-5">
+<div class="mt-14 ml-1 md:ml-[169px]">
+    <div class="inline-block p-6 bg-white border border-gray-200 rounded-xl hover:bg-gray-100 shadow-2xl w-full md:w-[1024px] h-[700px]">
+        <div class="flex justify-between items-center mb-6 md:mb-0">
+            <h5 class="text-2xl font-bold tracking-tight text-gray-900">Top Products</h5>
+            <div class="flex items-center">
+                <button class="text-gray-600 text-sm font-medium hover:text-gray-900">
+                    Sort By
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                        class="w-4 h-4 inline-block ml-1 -mt-0.5">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                     </svg>
                 </button>
             </div>
         </div>
-        <div class="grid grid-flow-col gap-x-40 py-10 ">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-2 gap-y-4 py-10">
             @foreach ($topProducts as $product)
-            <div class="grid grid-flow-row  ml-14 gap-3">
-                <p class="ml-9 text-[32px] text-black">{{ $loop->iteration }}</p>
-                <div class="flex flex-wrap ">
-                    <div
-                        class="bg-bgTopProducs rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-[94px] w-[93px]">
-                        <img class="mt-3 w-52 h-20" src="Assets\images\pure-honey-1-removebg-preview.png" />
+                <div class="grid grid-flow-row gap-3">
+                    <p class="text-[32px] text-black ml-9">{{ $loop->iteration }}</p>
+                    <div class="flex flex-wrap">
+                        <div class="bg-bgTopProducs rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-[94px] w-[93px]">
+                            <img class="mt-3 w-52 h-20" src="Assets\images\pure-honey-1-removebg-preview.png" />
+                        </div>
                     </div>
+                    <p class="text-base text-black">{{ $product->nama_barang }}</p>
+                    <p class="px-5 text-base text-black">{{ $product->size }}</p>
+                    <p class="px-5 text-base text-black">{{ $product->total_order }} PCS</p>
                 </div>
-                <p class="text-base text-black ">{{ $product->nama_barang }}</p>
-                <p class="px-5 text-base text-black ">{{ $product->size }}</p>
-                <p class="px-5 text-base text-black ">{{ $product->total_order }} PCS</p>
-            </div>
             @endforeach
         </div>
     </div>
-</div <!-- Back to top button -->
+</div>
+
+
+ <!-- Back to top button -->
 <button type="button" data-mdb-ripple="true" data-mdb-ripple-color="light"
     class="p-3 bg-background text-black font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-gradient-to-bl from-yellow-200 to-bg-yellow-300 focus:ring-yellow-400 focus:shadow-lg focus:outline-none transition duration-150 ease-in-out hidden bottom-5 right-5 fixed"
     id="btn-back-to-top">
@@ -147,9 +143,8 @@
 </div>
 
 {{-- Summary Orders & Targets --}}
-<div class="mt-14 ml-40">
-    <div
-        class="inline-block p-6 bg-white border border-gray-200 rounded-xl  hover:bg-gray-100 shadow-2xl w-[1024px] h-[980px]">
+<div class="mt-14 ml-4 md:ml-40">
+    <div class="inline-block p-6 bg-white border border-gray-200 rounded-xl hover:bg-gray-100 shadow-2xl w-full md:w-[1024px] md:h-[980px]">
         <div class="inline-flex absolute">
             <h5 class="text-2xl font-bold tracking-tight text-gray-900 ">Summary Order & Target </h5>
         </div>
@@ -162,12 +157,12 @@
                 </svg>
             </button>
         </div>
-        <div class="grid grid-flow-col gap-7 ">
-            <div class="grid grid-flow-row gap-7 ">
+        <div class="grid grid-flow-col grid-rows-4 md:grid-rows-none gap-7 ">
+            <div class="grid grid-flow-row  gap-7 ">
                 <div
-                    class="inline-flex mt-20 ml-10 bg-white border-2 border-gray-200 rounded-2xl shadow-xl w-[390px] h-[200px]">
+                    class="inline-flex mt-20 ml-0.5 md:ml-10 bg-white border-2 border-gray-200 rounded-2xl shadow-xl w-[70%] md:w-[390px] md:h-[200px]">
                     <h5 class="text-xl font-semibold tracking-tight text-gray-900 ml-5 mt-3">Total Target</h5>
-                    <div class="inline-flex absolute mt-32 mr-16">
+                    <div class="inline-flex absolute mr-auto mt-16 md:mt-32 md:mr-16">
                         @forelse ($targetKaryawan as $targetKaryawans)
                         <h5 class="text-3xl font-bold tracking-tight text-gray-900 ml-3 mt-3">Rp {{
                             number_format(($targetKaryawans->target)) }}</h5>
@@ -179,7 +174,7 @@
                         @endforelse ($targetKaryawan as $targetKaryawans)
                     </div>
                     <div
-                        class="inline-flex absolute ml-80 mt-3 bg-[#22DB6636] text-[#25D466F7] rounded-xl  w-[50px] h-[50px]">
+                        class="inline-flex absolute ml-[230px] md:ml-80 mt-3 bg-[#22DB6636] text-[#25D466F7] rounded-xl  w-[50px] h-[50px]">
                         <div class="py-2 px-2">
                             <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
                                 viewBox="0 0 24 24">
@@ -195,9 +190,9 @@
                     </div>
                 </div>
                 <div
-                    class="inline-flex ml-10 bg-white border-2 border-gray-200 rounded-2xl shadow-xl w-[390px] h-[200px]">
+                    class="inline-flex ml-0.5 md:ml-10 bg-white border-2 border-gray-200 rounded-2xl shadow-xl w-[70%] md:w-[390px] md:h-[200px]">
                     <h5 class="text-xl font-semibold tracking-tight text-gray-900 ml-5 mt-3">GAP Ke Target</h5>
-                    <div class="inline-flex absolute mt-32 mr-16">
+                    <div class="inline-flex absolute mt-16 mr-auto md:mt-32 md:mr-16">
                         @forelse ($targetKaryawan as $targetKaryawans3)
                         @if ($targetKaryawans3->total_tercapai != 0)
                         <h5 class="text-3xl font-bold tracking-tight text-gray-900 ml-3 mt-3">Rp {{
@@ -214,7 +209,7 @@
                         @endforelse ($targetKaryawan as $targetKaryawans)
                     </div>
                     <div
-                        class="inline-flex absolute ml-80 mt-3 bg-[#22DB6636] text-[#25D466F7] rounded-xl  w-[50px] h-[50px]">
+                        class="inline-flex absolute ml-[230px] md:ml-80 mt-3 bg-[#22DB6636] text-[#25D466F7] rounded-xl  w-[50px] h-[50px]">
                         <div class="py-2 px-2">
                             <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
                                 viewBox="0 0 24 24">
@@ -232,9 +227,9 @@
             <div class="grid grid-flow-row gap-7">
 
                 <div
-                    class="inline-flex mt-20 ml-10 bg-white border-2 border-gray-200 rounded-2xl shadow-xl w-[390px] h-[200px]">
+                    class="inline-flex mt-auto md:mt-20 ml-0.5 md:ml-10 bg-white border-2 border-gray-200 rounded-2xl shadow-xl w-[70%] md:w-[390px] md:h-[200px]">
                     <h5 class="text-xl font-semibold tracking-tight text-gray-900 ml-5 mt-3">Daily Target</h5>
-                    <div class="inline-flex absolute mt-32 mr-16">
+                    <div class="inline-flex absolute mt-16 mr-auto md:mt-32 md:mr-16">
                         @forelse($targetKaryawan as $targetKaryawans)
                         <h5 class="text-3xl font-bold tracking-tight text-gray-900 ml-3 mt-3">Rp {{
                             number_format(($targetKaryawans->target/30)) }}</h5>
@@ -247,7 +242,7 @@
                         @endforelse ($targetKaryawan as $targetKaryawan)
                     </div>
                     <div
-                        class="inline-flex absolute ml-80 mt-3 bg-[#22DB6636] text-[#25D466F7] rounded-xl  w-[50px] h-[50px]">
+                        class="inline-flex absolute ml-[230px] md:ml-80 mt-3 bg-[#22DB6636] text-[#25D466F7] rounded-xl  w-[50px] h-[50px]">
                         <div class="py-2 px-2">
                             <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
                                 viewBox="0 0 24 24">
@@ -261,7 +256,7 @@
                     </div>
                 </div>
                 <div
-                    class="inline-flex ml-10 bg-white border-2 border-gray-200 rounded-2xl shadow-xl w-[390px] h-[200px]">
+                    class="inline-flex ml-10 bg-white border-2 border-gray-200 rounded-2xl shadow-xl w-[70%] md:w-[390px] md:h-[200px]">
                     <h5 class="text-xl font-semibold tracking-tight text-gray-900 ml-5 mt-3">Total Tercapai</h5>
                     <div class="inline-flex absolute mt-32 mr-16">
                         @forelse($targetKaryawan as $targetKaryawans2)
@@ -292,7 +287,7 @@
             </div>
         </div>
         <div class="py-7 border-b-[1px] border-black "></div>
-        <div class="grid grid-flow-col gap-7">
+        <div class="grid grid-flow-col grid-rows-2 md:grid-rows-none gap-7">
             <div class="inline-flex absolute mt-3 ">
                 <h5 class="text-2xl font-bold tracking-tight text-gray-900 ml-4 ">Daily Order Stats</h5>
                 <div class="mt-20 mr-16 absolute">
@@ -340,12 +335,13 @@
             @endif
         </ul>
     </div>
+</div>
 
 
 
     {{-- Top Customers --}}
     <div
-        class=" max-w-5xl h-[480px] p-6 bg-white border border-gray-200 rounded-xl  hover:bg-gray-100 shadow-2xl mt-10">
+        class=" max-w-5xl md:ml-40 h-[480px] p-6 bg-white border border-gray-200 rounded-xl  hover:bg-gray-100 shadow-2xl mt-10">
         <h5 class="inline-flex absolute mb-2 text-2xl font-bold tracking-tight  text-gray-900 ">Top Customers</h5>
         <div class="inline-flex ml-[900px]">
             <p class="font-normal text-xl text-black/60">Daily</p>

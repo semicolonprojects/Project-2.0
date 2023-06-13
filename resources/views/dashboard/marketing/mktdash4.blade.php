@@ -5,7 +5,7 @@
     <div class="mb-3">
         <p class="text-[24px] text-black font-[700]">Customer Info</p>
     </div>
-    <div class="w-[1290px] bg-[#FFFFFF] shadow-[0px_8px_8px_rgba(0,0,0,0.5)] rounded-[22px]">
+    <div class="w-[1275px] bg-[#FFFFFF] shadow-[0px_8px_8px_rgba(0,0,0,0.5)] rounded-[22px]">
         <div class="grid grid-flow-col gap-[640px] mb-3 px-5">
             <div class="flex md:order-2 mt-6 ml-64">
                 <form class="flex items-center">
