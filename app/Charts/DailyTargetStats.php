@@ -23,14 +23,14 @@ class DailyTargetStats
         $target = TargetKaryawan::where('user_id', $auth)->pluck('target')->first();
         $total_tercapai = TargetKaryawan::where('user_id', $auth)->pluck('total_tercapai')->first();
 
-        $persentase_tercapai = ($total_tercapai / $target) * 100;
+        // $persentase_tercapai = ($total_tercapai / $target) * 100;
 
-        $data = [$persentase_tercapai, 100 - $persentase_tercapai];
+        // $data = [$persentase_tercapai, 100 - $persentase_tercapai];
         $labels = ['Actual Sales', 'Remaining'];
         $colors = ['#F3722C', '#E2E8F0'];
 
         return $this->dailyTargetStats->donutChart()
-            ->addData($data)
+            // ->addData($data)
             ->setLabels($labels)
             ->setColors($colors)
             ->setWidth(428)

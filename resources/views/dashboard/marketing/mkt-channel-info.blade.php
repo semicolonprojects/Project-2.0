@@ -2,7 +2,10 @@
 @section('mainContent')
 
 {{-- Table Order Stats --}}
-<div class="ml-14 px-24">
+<div class="ml-14">
+    <div>
+        <h1 class="text-5xl text-black font-[700]">Channels</h1>
+    </div>
     <div class="py-12">
         <button type="button" id="defaultModalButton" data-modal-toggle="defaultModal"
             class="text-white bg-[#22DB66] font-medium rounded-[22px] text-[13px] px-3 py-2.5 inline-flex items-center">
@@ -15,90 +18,92 @@
             Add New Channel
         </button>
     </div>
-    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-        <thead class="text-xs text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-            <tr>
-                <th scope="col" class="px-6 py-3">
-                    No
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Nama Channel
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Kode Channel
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Target Bulanan
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Target Tercapai
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Action
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach($channel as $channel)
-            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    {{ $channel->id }}.
-                </th>
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    {{ $channel->nama_channel }}
-                </th>
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    {{ $channel->kode_channel }}
-                </th>
-                <td class="mt-2 px-4 align-center">
-                    {{ 'Rp. ' . number_format($channel->target_bulanan, 2, ',', '.') }}
-                </td>
-                <td class="px-6 py-4">
-                    {{ 'Rp. ' . number_format($channel->total_tercapai, 2, ',', '.') }}
-                </td>
-                <td>
-                    <a href="{{ route('channel.show', ['channel' => $channel->id]) }}">
-                        <button>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path>
-                                <circle cx="12" cy="12" r="3"></circle>
+    <div class="w-[1175px] bg-[#FFFFFF] shadow-[0px_8px_8px_rgba(0,0,0,0.5)] rounded-[22px]">
+        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+            <thead class="text-xs text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                <tr>
+                    <th scope="col" class="px-6 py-3">
+                        No
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Nama Channel
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Kode Channel
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Target Bulanan
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Target Tercapai
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Action
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($channel as $channel)
+                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        {{ $channel->id }}.
+                    </th>
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        {{ $channel->nama_channel }}
+                    </th>
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        {{ $channel->kode_channel }}
+                    </th>
+                    <td class="mt-2 px-4 align-center">
+                        {{ 'Rp. ' . number_format($channel->target_bulanan, 2, ',', '.') }}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ 'Rp. ' . number_format($channel->total_tercapai, 2, ',', '.') }}
+                    </td>
+                    <td>
+                        <a href="{{ route('channel.show', ['channel' => $channel->id]) }}">
+                            <button>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path>
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                </svg>
+                            </button>
+                        </a>
+                        <button id="defaultModalButton-channel{{ $channel->id }}"
+                            data-modal-toggle="defaultModal-channel{{ $channel->id }}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 20h9"></path>
+                                <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
                             </svg>
                         </button>
-                    </a>
-                    <button id="defaultModalButton-channel{{ $channel->id }}"
-                        data-modal-toggle="defaultModal-channel{{ $channel->id }}">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M12 20h9"></path>
-                            <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
-                        </svg>
-                    </button>
-                    <form class="inline " action="{{ route('channel.destroy', ['channel' => $channel->id]) }}"
-                        method="POST">
-                        <button onclick="return confirm('Are you sure?')">
-                            @csrf
-                            @method('delete')
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <path d="M20 5H9l-7 7 7 7h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2Z"></path>
-                                <line x1="18" y1="9" x2="12" y2="15"></line>
-                                <line x1="12" y1="9" x2="18" y2="15"></line>
-                            </svg>
-                        </button>
-                    </form>
-                </td>
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
+                        <form class="inline " action="{{ route('channel.destroy', ['channel' => $channel->id]) }}"
+                            method="POST">
+                            <button onclick="return confirm('Are you sure?')">
+                                @csrf
+                                @method('delete')
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M20 5H9l-7 7 7 7h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2Z"></path>
+                                    <line x1="18" y1="9" x2="12" y2="15"></line>
+                                    <line x1="12" y1="9" x2="18" y2="15"></line>
+                                </svg>
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
 </div>
 
 <!-- Main Create New Channel -->
 <div id="defaultModal" tabindex="-1" aria-hidden="true"
-    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-modal md:h-full">
+    class="hidden overflow-y-auto overflow-x-hidden  fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-modal md:h-full mt-14">
     <div class="relative p-4 w-full max-w-2xl h-full md:h-auto">
         <!-- Modal content -->
         <div class="relative p-4 bg-white rounded-lg shadow dark:bg-gray-800 sm:p-5">
