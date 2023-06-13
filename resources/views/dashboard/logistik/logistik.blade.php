@@ -131,48 +131,48 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($stok as $stok)
+                @foreach($stokPaginate as $stokPaginates)
                 <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        {{ $stok->kode_barang }}
+                        {{ $stokPaginates->kode_barang }}
                     </th>
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        {{ $stok->nama_barang }}
+                        {{ $stokPaginates->nama_barang }}
                     </th>
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        {{ $stok->size }}
+                        {{ $stokPaginates->size }}
                     </th>
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        {{$stok->stock}}
+                        {{$stokPaginates->stock}}
                     </th>
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        {{ $stok->min_ammount }}
+                        {{ $stokPaginates->min_ammount }}
                     </th>
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        {{ $stok->stock_akhir }}
+                        {{ $stokPaginates->stock_akhir }}
                     </th>
                     <td class="px-6 py-4">
-                        {{ "Rp " . number_format($stok->harga_ecer ,2,',','.') }}
+                        {{ "Rp " . number_format($stokPaginates->harga_ecer ,2,',','.') }}
                     </td>
                     <td class="px-6 py-4">
-                        {{ "Rp " . number_format($stok->harga_rs ,2,',','.') }}
+                        {{ "Rp " . number_format($stokPaginates->harga_rs ,2,',','.') }}
                     </td>
                     <td class="px-6 py-4">
-                        {{ "Rp " . number_format($stok->harga_mkl ,2,',','.') }}
+                        {{ "Rp " . number_format($stokPaginates->harga_mkl ,2,',','.') }}
                     </td>
                     <td class="px-6 py-4">
-                        {{ "Rp " . number_format($stok->harga_ds ,2,',','.') }}
+                        {{ "Rp " . number_format($stokPaginates->harga_ds ,2,',','.') }}
                     </td>
                     <td>
-                        <button data-modal-target="authentication-modal-dstock-{{ $stok->id }}"
-                            data-modal-toggle="authentication-modal-dstock-{{ $stok->id }}">
+                        <button data-modal-target="authentication-modal-dstock-{{ $stokPaginates->id }}"
+                            data-modal-toggle="authentication-modal-dstock-{{ $stokPaginates->id }}">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round">
                                 <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path>
                                 <circle cx="12" cy="12" r="3"></circle>
                             </svg>
-                            <a href="{{ route('stock.edit', ['stock'=>$stok->id]) }}">
+                            <a href="{{ route('stock.edit', ['stock'=>$stokPaginates->id]) }}">
                                 <button>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -182,7 +182,7 @@
                                     </svg>
                                 </button>
                             </a>
-                            <form action="{{ route('stock.destroy', ['stock' => $stok->id]) }}" method="post"
+                            <form action="{{ route('stock.destroy', ['stock' => $stokPaginates->id]) }}" method="post"
                                 class='inline'>
                                 <button onclick="return confirm('Are you sure?')">
                                     @csrf
@@ -206,25 +206,7 @@
         {{-- pagination --}}
 
         <div class="flex justify-center py-24 mr-6">
-            <nav aria-label="Page navigation example">
-                <ul class="flex list-style-none">
-                    <li class="page-item disabled"><a
-                            class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-500 pointer-events-none focus:shadow-none"
-                            href="#" tabindex="-1" aria-disabled="true">Previous</a></li>
-                    <li class="page-item"><a
-                            class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
-                            href="#">1</a></li>
-                    <li class="page-item active"><a
-                            class="page-link relative block py-1.5 px-3 rounded border-0 bg-blue-600 outline-none transition-all duration-300  text-white hover:text-white hover:bg-blue-600 shadow-md focus:shadow-md"
-                            href="#">2 <span class="visually-hidden">(current)</span></a></li>
-                    <li class="page-item"><a
-                            class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
-                            href="#">3</a></li>
-                    <li class="page-item"><a
-                            class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
-                            href="#">Next</a></li>
-                </ul>
-            </nav>
+            {{$stokPaginate->links()}}
         </div>
     </div>
 </div>
@@ -331,37 +313,37 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($lowStocks as $stok)
+                @foreach($lowStocksPaginate as $lowStocksPaginates)
                 <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        {{ $stok->kode_barang }}
+                        {{ $lowStocksPaginates->kode_barang }}
                     </th>
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        {{ $stok->nama_barang }}
+                        {{ $lowStocksPaginates->nama_barang }}
                     </th>
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        {{ $stok->size }}
+                        {{ $lowStocksPaginates->size }}
                     </th>
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        {{$stok->stock}}
+                        {{$lowStocksPaginates->stock}}
                     </th>
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        {{ $stok->min_ammount }}
+                        {{ $lowStocksPaginates->min_ammount }}
                     </th>
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        {{ $stok->stock_akhir }}
+                        {{ $lowStocksPaginates->stock_akhir }}
                     </th>
                     <td class="px-6 py-4">
-                        {{ "Rp " . number_format($stok->harga_ecer ,2,',','.') }}
+                        {{ "Rp " . number_format($lowStocksPaginates->harga_ecer ,2,',','.') }}
                     </td>
                     <td class="px-6 py-4">
-                        {{ "Rp " . number_format($stok->harga_rs ,2,',','.') }}
+                        {{ "Rp " . number_format($lowStocksPaginates->harga_rs ,2,',','.') }}
                     </td>
                     <td class="px-6 py-4">
-                        {{ "Rp " . number_format($stok->harga_mkl ,2,',','.') }}
+                        {{ "Rp " . number_format($lowStocksPaginates->harga_mkl ,2,',','.') }}
                     </td>
                     <td class="px-6 py-4">
-                        {{ "Rp " . number_format($stok->harga_ds ,2,',','.') }}
+                        {{ "Rp " . number_format($lowStocksPaginates->harga_ds ,2,',','.') }}
                     </td>
                 </tr>
                 @endforeach
@@ -371,25 +353,7 @@
         {{-- pagination --}}
 
         <div class="flex justify-center py-24 mr-6">
-            <nav aria-label="Page navigation example">
-                <ul class="flex list-style-none">
-                    <li class="page-item disabled"><a
-                            class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-500 pointer-events-none focus:shadow-none"
-                            href="#" tabindex="-1" aria-disabled="true">Previous</a></li>
-                    <li class="page-item"><a
-                            class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
-                            href="#">1</a></li>
-                    <li class="page-item active"><a
-                            class="page-link relative block py-1.5 px-3 rounded border-0 bg-blue-600 outline-none transition-all duration-300  text-white hover:text-white hover:bg-blue-600 shadow-md focus:shadow-md"
-                            href="#">2 <span class="visually-hidden">(current)</span></a></li>
-                    <li class="page-item"><a
-                            class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
-                            href="#">3</a></li>
-                    <li class="page-item"><a
-                            class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
-                            href="#">Next</a></li>
-                </ul>
-            </nav>
+            {{$lowStocksPaginate->links()}}
         </div>
     </div>
 </div>
@@ -478,7 +442,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($inout as $inout)
+                @foreach($inoutPaginate as $inoutPaginates)
                 <tr
                     class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                     <td class="w-4 p-4">
@@ -489,28 +453,28 @@
                         </div>
                     </td>
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        {{ $inout->kode_barang }}
+                        {{ $inoutPaginates->kode_barang }}
                     </th>
                     <td class="px-6 py-4">
-                        {{ $inout->produkJadi->nama_barang }}
+                        {{ $inoutPaginates->produkJadi->nama_barang }}
                     </td>
                     <td class="px-6 py-4">
-                        {{ $inout->produkJadi->size }}
+                        {{ $inoutPaginates->produkJadi->size }}
                     </td>
                     <td class="px-6 py-4">
-                        {{ $inout->barang_masuk }}
+                        {{ $inoutPaginates->barang_masuk }}
                     </td>
                     <td class="px-6 py-4">
-                        {{ $inout->barang_keluar }}
+                        {{ $inoutPaginates->barang_keluar }}
                     </td>
                     <td class="px-6 py-4">
-                        {{ $inout->user->username }}
+                        {{ $inoutPaginates->user->username }}
                     </td>
                     <td class="px-6 py-4">
-                        {{ $inout->date_in ? $inout->date_in : NULL }}
+                        {{ $inoutPaginates->date_in ? $inoutPaginates->date_in : NULL }}
                     </td>
                     <td class="px-6 py-4">
-                        {{ $inout->date_out ? $inout->date_out : NULL }}
+                        {{ $inoutPaginates->date_out ? $inoutPaginates->date_out : NULL }}
                     </td>
                 </tr>
                 @endforeach
@@ -519,304 +483,9 @@
         </table>
     </div>
     <div class="flex justify-center py-5">
-        <nav aria-label="Page navigation example">
-            <ul class="flex list-style-none">
-                <li class="page-item disabled"><a
-                        class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-500 pointer-events-none focus:shadow-none"
-                        href="#" tabindex="-1" aria-disabled="true">Previous</a></li>
-                <li class="page-item"><a
-                        class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
-                        href="#">1</a></li>
-                <li class="page-item active"><a
-                        class="page-link relative block py-1.5 px-3 rounded border-0 bg-blue-600 outline-none transition-all duration-300  text-white hover:text-white hover:bg-blue-600 shadow-md focus:shadow-md"
-                        href="#">2 <span class="visually-hidden">(current)</span></a></li>
-                <li class="page-item"><a
-                        class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
-                        href="#">3</a></li>
-                <li class="page-item"><a
-                        class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
-                        href="#">Next</a></li>
-            </ul>
-        </nav>
+        {{$inoutPaginate->links()}}
     </div>
 </div>
-</div>
-
-{{-- Table Pembayaran --}}
-<div class="ml-28 mt-10">
-    <div class="mb-10">
-        <p class="text-[24px] text-black font-[700]">Tabel Pembayaran</p>
-    </div>
-    <div class="w-fit bg-[#FFFFFF] shadow-[0px_8px_8px_rgba(0,0,0,0.5)] rounded-[22px]">
-        <div class="grid grid-flow-col gap-[640px] mt-10 mb-3 px-5 py-10">
-            <div class="flex md:order-2">
-                <form class="flex items-center">
-                    <label for="simple-search" class="sr-only">Search</label>
-                    <div class="relative w-full">
-                        <div>
-                            <button class="absolute inset-y-0 right-0 flex items-center pr-3 type=" submit"
-                                class="p-2.5 ml-3 text-sm font-medium text-white bg-blue-700 rounded-[22px] border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 ">
-                                <svg class="w-5 h-5 text-yellow-300" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                                </svg>
-                                <span class="sr-only">Search Anything</span>
-                            </button>
-                        </div>
-                        <input type="text" id="search"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-yellow-300 focus:border-yellow-300 block w-full pl-10 p-2.5  "
-                            placeholder="Search">
-                    </div>
-            </div>
-            <div>
-                <button onclick="myFunction()" type="button"
-                    class="text-white bg-[#22DB66] font-medium rounded-[22px] text-[13px] px-3 py-2.5 inline-flex items-center">
-                    <div class="px-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-                        </svg>
-                    </div>
-                    Add New Order
-                </button>
-            </div>
-        </div>
-        <div id="accordion-collapse" data-accordion="collapse">
-            <table class=" w-[1120px] table-fixed text-sm text-left text-gray-500 dark:text-gray-400 ">
-                <thead class=" text-xs text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                    <tr>
-                        <th scope="col" class="px-6 py-3">
-                            Order Id
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            Customer Id
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            Date
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            Status
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            Customer Name
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            Payment Type
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            Total
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            Approved By
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            Action
-                        </th>
-                    </tr>
-                </thead>
-                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
-                    data-accordion-target="#accordion-color-1">
-                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        #SRMK14045
-                    </th>
-                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        #RS010
-                    </th>
-                    <td class="mt-2 px-4 align-center">
-                        10.02.2022 18:38
-
-                    </td>
-                    <td class="mt-2 px-4 align-center">
-                        <button disabled type="button"
-                            class="text-white bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300 text-xs font-medium rounded-full px-1 py-0.5 text-center mr-2 mb-2 ">In
-                            Progress</button>
-
-                    </td>
-                    <td class="px-6 py-4">
-                        Hengky
-                        user@email.com
-                    </td>
-                    <td class="mt-2 px-4 align-center">
-                        <button disabled type="button"
-                            class="text-white bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300 text-xs font-medium rounded-full px-1 py-0.5 text-center mr-2 mb-2 ">Transfer</button>
-
-                    </td>
-                    <td class="px-6 py-4">
-                        IDR 100.000
-                    </td>
-                    <td class="px-6 py-4">
-                        Willy Wonka
-                    </td>
-                    <td>
-                        <button>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path>
-                                <circle cx="12" cy="12" r="3"></circle>
-                            </svg>
-                        </button>
-                        <button>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <path d="M12 20h9"></path>
-                                <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
-                            </svg>
-                        </button>
-                        <button>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <path d="M20 5H9l-7 7 7 7h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2Z"></path>
-                                <line x1="18" y1="9" x2="12" y2="15"></line>
-                                <line x1="12" y1="9" x2="18" y2="15"></line>
-                            </svg>
-                        </button>
-                    </td>
-                </tr>
-                <td class="inline-table">
-                    <div id="accordion-color-1" class="hidden">
-                        <table
-                            class="w-[1070px] table-fixed text-sm text-left border border-t-0 text-gray-500 dark:text-gray-400">
-                            <thead>
-                                <tr>
-                                    <th>
-                                        <p class="ml-10">Date Received</p>
-                                    </th>
-                                    <th>Detail</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <td>
-                                    <p class="ml-10">10.02.2022/18:38</p>
-                                </td>
-                                <td>
-                                    lorem ipsum DP lorem ipsum tanggal pelunasan
-                                </td>
-                            </tbody>
-                            <tbody>
-                                <td>
-                                    <p class="ml-10">10.02.2022/18:38</p>
-                                </td>
-                                <td>
-                                    lorem ipsum DP lorem ipsum tanggal pelunasan
-                                </td>
-                            </tbody>
-                        </table>
-                    </div>
-                </td>
-                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
-                    data-accordion-target="#accordion-color-2">
-                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        #SRMK14045
-                    </th>
-                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        #RS011
-                    </th>
-                    <td class="mt-2 px-4 align-center">
-                        10.02.2022 18:38
-
-                    </td>
-                    <td class="mt-2 px-4 align-center">
-                        <button disabled type="button"
-                            class="text-white bg-[#AF5705] focus:outline-none focus:ring-4 focus:ring-blue-300 text-xs font-medium rounded-full px-1 py-0.5 text-center mr-2 mb-2 ">Termin</button>
-
-                    </td>
-                    <td class="px-6 py-4">
-                        Hengky
-                        user@email.com
-                    </td>
-                    <td class="mt-2 px-4 align-center">
-                        <button disabled type="button"
-                            class="text-white bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300 text-xs font-medium rounded-full px-1 py-0.5 text-center mr-2 mb-2 ">Transfer</button>
-                    </td>
-                    <td class="px-6 py-4">
-                        IDR 100.000
-                    </td>
-                    <td class="px-6 py-4">
-                        Willy Wonka
-                    </td>
-                    <td>
-                        <button>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path>
-                                <circle cx="12" cy="12" r="3"></circle>
-                            </svg>
-                        </button>
-                        <button>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <path d="M12 20h9"></path>
-                                <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
-                            </svg>
-                        </button>
-                        <button>
-
-                            <button>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <path d="M20 5H9l-7 7 7 7h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2Z"></path>
-                                    <line x1="18" y1="9" x2="12" y2="15"></line>
-                                    <line x1="12" y1="9" x2="18" y2="15"></line>
-                                </svg>
-                            </button>
-                    </td>
-                </tr>
-                <td class="inline-table">
-                    <div id="accordion-color-2" class="hidden">
-                        <table
-                            class="w-[1070px] table-fixed text-sm text-left border border-t-0 text-gray-500 dark:text-gray-400">
-                            <thead>
-                                <tr>
-                                    <th>
-                                        <p class="ml-10">Date Received</p>
-                                    </th>
-                                    <th>Detail</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-
-                                <th>
-                                    <p class="ml-10">10.02.2022/18:38</p>
-                                </th>
-                                <td>
-                                    lorem ipsum DP lorem ipsum tanggal pelunasan
-                                </td>
-
-                            </tbody>
-                        </table>
-                    </div>
-                </td>
-            </table>
-            <div class="flex justify-center py-5">
-                <nav aria-label="Page navigation example">
-                    <ul class="flex list-style-none">
-                        <li class="page-item disabled"><a
-                                class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-500 pointer-events-none focus:shadow-none"
-                                href="#" tabindex="-1" aria-disabled="true">Previous</a></li>
-                        <li class="page-item"><a
-                                class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
-                                href="#">1</a></li>
-                        <li class="page-item active"><a
-                                class="page-link relative block py-1.5 px-3 rounded border-0 bg-blue-600 outline-none transition-all duration-300  text-white hover:text-white hover:bg-blue-600 shadow-md focus:shadow-md"
-                                href="#">2 <span class="visually-hidden">(current)</span></a></li>
-                        <li class="page-item"><a
-                                class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
-                                href="#">3</a></li>
-                        <li class="page-item"><a
-                                class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
-                                href="#">Next</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </div>
 </div>
 
 {{-- STOCK NON MADU --}}
@@ -938,31 +607,31 @@
             </thead>
 
             <tbody>
-                @foreach($produkCurah as $pc)
+                @foreach($produkCurahPaginate as $produkCurahPaginates)
                 <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        {{ $pc->kode_barang }}
+                        {{ $produkCurahPaginates->kode_barang }}
                     </th>
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        {{ $pc->nama_barang }}
+                        {{ $produkCurahPaginates->nama_barang }}
                     </th>
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        {{ $pc->size }}
+                        {{ $produkCurahPaginates->size }}
                     </th>
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        {{ $pc->stock }}
+                        {{ $produkCurahPaginates->stock }}
                     </th>
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        {{ $pc->min_ammount }}
+                        {{ $produkCurahPaginates->min_ammount }}
                     </th>
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        {{ $pc->stock_akhir }}
+                        {{ $produkCurahPaginates->stock_akhir }}
                     </th>
                     <td class="px-6 py-4">
-                        {{ "Rp " . number_format($pc->harga ,2,',','.') }}
+                        {{ "Rp " . number_format($produkCurahPaginates->harga ,2,',','.') }}
                     </td>
                     <td>
-                        <a href="{{ route('curah.edit', ['curah' => $pc->id ]) }}">
+                        <a href="{{ route('curah.edit', ['curah' => $produkCurahPaginates->id ]) }}">
                             <button>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -972,7 +641,8 @@
                                 </svg>
                             </button>
                         </a>
-                        <form action="{{ route('curah.destroy', ['curah' => $pc->id]) }}" method="post" class='inline'>
+                        <form action="{{ route('curah.destroy', ['curah' => $produkCurahPaginates->id]) }}"
+                            method="post" class='inline'>
                             <button onclick="return confirm('Are you sure?')">
                                 @csrf
                                 @method('delete')
@@ -994,25 +664,7 @@
         {{-- pagination --}}
 
         <div class="flex justify-center py-24 mr-6">
-            <nav aria-label="Page navigation example">
-                <ul class="flex list-style-none">
-                    <li class="page-item disabled"><a
-                            class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-500 pointer-events-none focus:shadow-none"
-                            href="#" tabindex="-1" aria-disabled="true">Previous</a></li>
-                    <li class="page-item"><a
-                            class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
-                            href="#">1</a></li>
-                    <li class="page-item active"><a
-                            class="page-link relative block py-1.5 px-3 rounded border-0 bg-blue-600 outline-none transition-all duration-300  text-white hover:text-white hover:bg-blue-600 shadow-md focus:shadow-md"
-                            href="#">2 <span class="visually-hidden">(current)</span></a></li>
-                    <li class="page-item"><a
-                            class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
-                            href="#">3</a></li>
-                    <li class="page-item"><a
-                            class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
-                            href="#">Next</a></li>
-                </ul>
-            </nav>
+            {{$produkCurahPaginate->links()}}
         </div>
     </div>
 </div>
@@ -1152,31 +804,31 @@
                         </th>
                     </tr>
                 </thead>
-                @foreach($barangPendukung as $barangPendukung)
+                @foreach($barangPendukungPaginate as $barangPendukungPaginates)
                 <tbody>
                     <tr
                         class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                         <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            {{ $barangPendukung->kode_barang }}
+                            {{ $barangPendukungPaginates->kode_barang }}
                         </th>
                         <td class="px-6 py-4">
-                            {{ $barangPendukung->nama_barang }}
+                            {{ $barangPendukungPaginates->nama_barang }}
                         </td>
                         <td class="px-6 py-4">
-                            {{$barangPendukung->size}}
+                            {{$barangPendukungPaginates->size}}
                         </td>
                         <td class="px-6 py-4">
-                            {{ $barangPendukung->stock }}
+                            {{ $barangPendukungPaginates->stock }}
                         </td>
                         <td class="px-6 py-4">
-                            {{ $barangPendukung->stock }}
+                            {{ $barangPendukungPaginates->stock }}
                         </td>
                         <td class="px-6 py-4">
-                            {{ "Rp " . number_format($barangPendukung->price ,2,',','.') }}
+                            {{ "Rp " . number_format($barangPendukungPaginates->price ,2,',','.') }}
                         </td>
                         <td class="px-6 py-4">
                             <a
-                                href="{{ route('barang_pendukung.edit', ['barang_pendukung' => $barangPendukung->id ]) }}">
+                                href="{{ route('barang_pendukung.edit', ['barang_pendukung' => $barangPendukungPaginates->id ]) }}">
                                 <button>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -1187,7 +839,7 @@
                                 </button>
                             </a>
                             <form
-                                action="{{ route('barang_pendukung.destroy', ['barang_pendukung' => $barangPendukung->id]) }}"
+                                action="{{ route('barang_pendukung.destroy', ['barang_pendukung' => $barangPendukungPaginates->id]) }}"
                                 method="post" class='inline'>
                                 <button onclick="return confirm('Are you sure?')">
                                     @csrf
@@ -1208,25 +860,7 @@
             </table>
         </div>
         <div class="flex justify-center py-5">
-            <nav aria-label="Page navigation example">
-                <ul class="flex list-style-none">
-                    <li class="page-item disabled"><a
-                            class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-500 pointer-events-none focus:shadow-none"
-                            href="#" tabindex="-1" aria-disabled="true">Previous</a></li>
-                    <li class="page-item"><a
-                            class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
-                            href="#">1</a></li>
-                    <li class="page-item active"><a
-                            class="page-link relative block py-1.5 px-3 rounded border-0 bg-blue-600 outline-none transition-all duration-300  text-white hover:text-white hover:bg-blue-600 shadow-md focus:shadow-md"
-                            href="#">2 <span class="visually-hidden">(current)</span></a></li>
-                    <li class="page-item"><a
-                            class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
-                            href="#">3</a></li>
-                    <li class="page-item"><a
-                            class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
-                            href="#">Next</a></li>
-                </ul>
-            </nav>
+            {{$barangPendukungPaginate->links()}}
         </div>
     </div>
 </div>

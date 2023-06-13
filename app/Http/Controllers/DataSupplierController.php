@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreDataSupplierRequest;
 use App\Http\Requests\UpdateDataSupplierRequest;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\Paginator;
 
 class DataSupplierController extends Controller
 {
@@ -18,8 +19,15 @@ class DataSupplierController extends Controller
     public function index()
     {
         $dataSupplier = DataSupplier::all();
+
+        $perPage = 10; // Jumlah item per halaman
+        $currentPage = Paginator::resolveCurrentPage('page');
+        $path = Paginator::resolveCurrentPath();
+
+        $dataSupplierPaginate = DataSupplier::paginateCollection($dataSupplier, $perPage, $currentPage, $path);
+
         $dataSupplier2 = DataSupplier::all();
-        return view('dashboard.logistik.logistik2', compact('dataSupplier', 'dataSupplier2'));
+        return view('dashboard.logistik.logistik2', compact('dataSupplierPaginate', 'dataSupplier2'));
     }
 
     /**

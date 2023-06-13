@@ -18,6 +18,7 @@ use App\Models\ProdukJadi;
 use App\Models\TargetKaryawan;
 use App\Models\User;
 use Carbon\Carbon;
+use Illuminate\Pagination\Paginator;
 
 class FinanceController extends Controller
 {
@@ -27,6 +28,13 @@ class FinanceController extends Controller
         $modelOrder = new Order;
         $modelOrderCurah = new OrderCurah;
         $order = $modelOrder::all();
+
+        $perPage = 10; // Jumlah item per halaman
+        $currentPage = Paginator::resolveCurrentPage('page');
+        $path = Paginator::resolveCurrentPath();
+
+        $orderPaginate = Order::paginateCollection($order, $perPage, $currentPage, $path);
+
         $modelProduk = new ProdukJadi;
         $modelProdukCurah = new ProdukCurah;
         $hpp = $modelProduk->hpp();
@@ -139,6 +147,6 @@ class FinanceController extends Controller
 
 
 
-        return view('dashboard.finance.finance', ['dailyRevenue' => $dailyRevenue->build(), 'dailyStats' => $dailyStats->build(), 'dailyRevenue2' => $dailyRevenue2->build(), 'profit' => $profit->build(), 'orderSize' => $orderSize->build()], compact('order', 'hpp', 'totalRevenue', 'totalRevenueLalu', 'totalOrderHari', 'targetKaryawan', 'incomeTotal', 'outcomeTotal', 'totalDebtToday', 'totalCreditToday', 'totalCreditThisMonth', 'totalDebtThisMonth', 'incomeMonth', 'outcomeMonth'));
+        return view('dashboard.finance.finance', ['dailyRevenue' => $dailyRevenue->build(), 'dailyStats' => $dailyStats->build(), 'dailyRevenue2' => $dailyRevenue2->build(), 'profit' => $profit->build(), 'orderSize' => $orderSize->build()], compact('orderPaginate', 'hpp', 'totalRevenue', 'totalRevenueLalu', 'totalOrderHari', 'targetKaryawan', 'incomeTotal', 'outcomeTotal', 'totalDebtToday', 'totalCreditToday', 'totalCreditThisMonth', 'totalDebtThisMonth', 'incomeMonth', 'outcomeMonth'));
     }
 }

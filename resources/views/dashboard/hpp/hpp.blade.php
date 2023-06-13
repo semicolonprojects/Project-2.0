@@ -53,29 +53,30 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($hpp as $hpps)
+                    @foreach ($hppPaginate as $hppPaginates)
                     <tr
                         class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                         <th scope="row" class="px-4 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            {{ $hpps->nama_produk }}
+                            {{ $hppPaginates->nama_produk }}
                         </th>
                         <td class="px-6 py-4">
-                            {{ $hpps->size }}
+                            {{ $hppPaginates->size }}
                         </td>
                         <td class="px-6 py-4">
-                            {{ 'Rp ' . number_format ($hpps->bahan_madu)}}
+                            {{ 'Rp ' . number_format ($hppPaginates->bahan_madu)}}
                         </td>
                         <td class="px-6 py-4">
-                            {{ 'Rp ' . number_format ($hpps->bahan_pendukung)}}
+                            {{ 'Rp ' . number_format ($hppPaginates->bahan_pendukung)}}
                         </td>
                         <td class="px-6 py-4">
-                            {{ $hpps->total_hpp }}
+                            {{ $hppPaginates->total_hpp }}
                         </td>
                         <td class="px-6 py-4">
-                            {{ date('d M Y', strtotime($hpps->created_at)) }}
+                            {{ date('d M Y', strtotime($hppPaginates->created_at)) }}
                         </td>
                         <td class="px-8">
-                            <form class="" action="{{ route('hpp.destroy', ['hpp' => $hpps->id]) }}" method="POST">
+                            <form class="" action="{{ route('hpp.destroy', ['hpp' => $hppPaginates->id]) }}"
+                                method="POST">
                                 @csrf
                                 @method('delete')
                                 <button onclick="return confirm('Are you sure?')">
@@ -93,6 +94,7 @@
                     </tr>
                 </tbody>
             </table>
+            {{ $hppPaginate->links() }}
         </div>
     </div>
 </div>

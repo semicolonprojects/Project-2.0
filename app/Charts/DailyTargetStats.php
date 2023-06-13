@@ -23,7 +23,13 @@ class DailyTargetStats
         $target = TargetKaryawan::where('user_id', $auth)->pluck('target')->first();
         $total_tercapai = TargetKaryawan::where('user_id', $auth)->pluck('total_tercapai')->first();
 
-        $persentase_tercapai = ($total_tercapai / $target) * 100;
+        if ($total_tercapai && $target == null) {
+            $persentase_tercapai = 0;
+        } elseif ($target == 0) {
+            $persentase_tercapai = 0;
+        } else {
+            $persentase_tercapai = ($total_tercapai / $target) * 100;
+        }
 
         $data = [$persentase_tercapai, 100 - $persentase_tercapai];
         $labels = ['Actual Sales', 'Remaining'];

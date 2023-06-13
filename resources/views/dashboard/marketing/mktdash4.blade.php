@@ -22,7 +22,7 @@
                                 <span class="sr-only">Search Anything</span>
                             </button>
                         </div>
-                        <input type="text" id="simple-search"
+                        <input type="text" id="simple-search" name="query"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-yellow-300 focus:border-yellow-300 block w-full pl-10 p-2.5  "
                             placeholder="Search">
                     </div>
@@ -44,7 +44,7 @@
             </div>
         </div>
 
-        <div class="relative overflow-x-auto">
+        <div class="relative overflow-x-auto" id="search-results">
             <table class="w-[1250px] mt-10 text-[14px] text-left text-gray-500">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                     <tr>
@@ -69,17 +69,17 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($customer as $customers)
+                    @foreach ($customerPaginate as $customerPaginates)
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                         <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            {{ $customers->nama_lengkap }}
+                            {{ $customerPaginates->nama_lengkap }}
                         </th>
                         <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            {{ $customers->customer_id }}
+                            {{ $customerPaginates->customer_id }}
                         </th>
                         <td class="px-6 py-4">
-                            {{ $customers->no_telepon }} <br>
-                            {{ $customers->email }}
+                            {{ $customerPaginates->no_telepon }} <br>
+                            {{ $customerPaginates->email }}
                         </td>
                         @foreach ($wallet as $wallet)
                         <td class="px-6 py-4">
@@ -87,10 +87,10 @@
                         </td>
                         @endforeach
                         <td class="px-6 py-4">
-                            {{ $customers->alamat }}
+                            {{ $customerPaginates->alamat }}
                         </td>
                         <td class="px-6 py-4">
-                            {{ $customers->tempat }}, {{ $customers->tanggal_lahir }}
+                            {{ $customerPaginates->tempat }}, {{ $customerPaginates->tanggal_lahir }}
                         </td>
                         <td>
                             <a href="">
@@ -103,7 +103,7 @@
                                     </svg>
                                 </button>
                             </a>
-                            <a href="{{ route('customer.edit', ['customer' => $customers->id]) }}">
+                            <a href="{{ route('customer.edit', ['customer' => $customerPaginates->id]) }}">
                                 <button>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -115,7 +115,7 @@
                             </a>
                             <button>
                                 <form class="inline "
-                                    action="{{ route('customer.destroy', ['customer' => $customers->id]) }}"
+                                    action="{{ route('customer.destroy', ['customer' => $customerPaginates->id]) }}"
                                     method="POST">
                                     <button onclick="return confirm('Are you sure?')">
                                         @csrf
@@ -135,25 +135,7 @@
                 </tbody>
             </table>
             <div class="flex justify-center py-5 mr-10">
-                <nav aria-label="Page navigation example">
-                    <ul class="flex list-style-none">
-                        <li class="page-item disabled"><a
-                                class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-500 pointer-events-none focus:shadow-none"
-                                href="#" tabindex="-1" aria-disabled="true">Previous</a></li>
-                        <li class="page-item"><a
-                                class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
-                                href="#">1</a></li>
-                        <li class="page-item active"><a
-                                class="page-link relative block py-1.5 px-3 rounded border-0 bg-blue-600 outline-none transition-all duration-300  text-white hover:text-white hover:bg-blue-600 shadow-md focus:shadow-md"
-                                href="#">2 <span class="visually-hidden">(current)</span></a></li>
-                        <li class="page-item"><a
-                                class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
-                                href="#">3</a></li>
-                        <li class="page-item"><a
-                                class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
-                                href="#">Next</a></li>
-                    </ul>
-                </nav>
+                {{$customerPaginate->links()}}
             </div>
         </div>
 
@@ -167,7 +149,7 @@
                 <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 ">Daily</a>
             </li>
             <li>
-                <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 ">Monthly</a>
+                <a href="#" class="block px-4 py-2 hover:bg -gray-100 dark:hover:bg-gray-600 ">Monthly</a>
             </li>
             <li>
                 <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 ">Yearly</a>
@@ -175,7 +157,29 @@
             <li>
         </ul>
     </div>
+</div>
 
+<script>
+    const searchInput = document.getElementById('simple-search');
+    const searchResults = document.getElementById('search-results');
+  
+    searchInput.addEventListener('input', function() {
+      const query = this.value.trim();
+  
+      if (query.length === 0) {
+        searchResults.innerHTML = ''; // Bersihkan hasil pencarian jika query kosong
+        return;
+      }
+  
+      fetch(`/order/search?query=${query}`)
+        .then(response => response.text())
+        .then(data => {
+          searchResults.innerHTML = data;
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+    });
+</script>
 
-
-    @endsection
+@endsection

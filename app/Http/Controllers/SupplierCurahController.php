@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreSupplierCurahRequest;
 use App\Http\Requests\UpdateSupplierCurahRequest;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\Paginator;
 
 class SupplierCurahController extends Controller
 {
@@ -18,8 +19,15 @@ class SupplierCurahController extends Controller
     public function index()
     {
         $supplierCurah = SupplierCurah::all();
+
+        $perPage = 10; // Jumlah item per halaman
+        $currentPage = Paginator::resolveCurrentPage('page');
+        $path = Paginator::resolveCurrentPath();
+
+        $supplierCurahPaginate = SupplierCurah::paginateCollection($supplierCurah, $perPage, $currentPage, $path);
+
         $supplierCurah2 = SupplierCurah::all();
-        return view('dashboard.logistik.logistik5', compact('supplierCurah', 'supplierCurah2'));
+        return view('dashboard.logistik.logistik5', compact('supplierCurahPaginate', 'supplierCurah2'));
     }
 
     /**

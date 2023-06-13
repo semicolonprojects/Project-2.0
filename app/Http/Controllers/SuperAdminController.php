@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Charts\HengkiOrderChart;
+use Illuminate\Pagination\Paginator;
 use App\Charts\OrderStats;
 use App\Charts\SaleThisMonth;
 use App\Http\Controllers\Controller;
@@ -12,6 +12,7 @@ use App\Models\OrderCurah;
 use App\Models\ProdukCurah;
 use App\Models\ProdukJadi;
 use App\Models\User;
+use Illuminate\Http\Request;
 
 class SuperAdminController extends Controller
 {
@@ -27,6 +28,14 @@ class SuperAdminController extends Controller
         $lowStocks = $productModel->lowStock();
         $topCust = $model->topCustomer();
         $hpp = $productModel->hpp();
+
+        $perPage = 10; // Jumlah item per halaman
+        $currentPage = Paginator::resolveCurrentPage('page');
+        $path = Paginator::resolveCurrentPath();
+
+        $hppPaginate = ProdukJadi::paginateCollection($hpp, $perPage, $currentPage, $path);
+        $lowStocksPaginate = ProdukJadi::paginateCollection($lowStocks, $perPage, $currentPage, $path);
+
         $hppCurah = $productCurah->hppCurah();
         $totalTercapai = Channel::sum('total_tercapai');
         $totalProduk = $model->totalPembelian();
@@ -75,6 +84,6 @@ class SuperAdminController extends Controller
 
         $totalRevenue = $profit + $profitCurah;
 
-        return view('dashboard.super-admin.sadash', ['orderStats' => $orderStats->build(), 'saleThisMonth' => $saleThisMonth->build()], compact('user', 'topProducts', 'products', 'lowStocks', 'topCust', 'hpp', 'totalTercapai', 'totalRevenue', 'logistik'));
+        return view('dashboard.super-admin.sadash', ['orderStats' => $orderStats->build(), 'saleThisMonth' => $saleThisMonth->build()], compact('user', 'topProducts', 'products', 'lowStocksPaginate', 'topCust', 'hppPaginate', 'totalTercapai', 'totalRevenue', 'logistik'));
     }
 }

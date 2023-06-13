@@ -5,6 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Collection;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class ProdukJadi extends Model
 {
@@ -56,5 +59,22 @@ class ProdukJadi extends Model
         return DB::table('produk_jadis')
             ->select(DB::raw('SUM(stock) AS total_stock'), DB::raw('SUM(stock_akhir) AS total_stock_akhir'), DB::raw('SUM(stock - stock_akhir) AS selisih_stock'))
             ->get();
+    }
+
+    public static function paginateCollection(Collection $collection, $perPage, $currentPage, $path)
+    {
+        $queryBuilder = new Collection($collection);
+
+        $paginator = new LengthAwarePaginator(
+            $queryBuilder->forPage($currentPage, $perPage),
+            $queryBuilder->count(),
+            $perPage,
+            $currentPage,
+            ['path' => $path]
+        );
+
+        Paginator::useTailwind();
+
+        return $paginator;
     }
 }

@@ -168,63 +168,47 @@
                     </tr>
                 </thead>
                 <tbody class="self-center">
-                    @foreach ($hpp as $p)
+                    @foreach ($hppPaginate as $hppPaginates)
                     <tr class="">
                         <th scope="row" class="px-3 py-4 font-light text-[#464D51]">
-                            {{$p->nama_barang}}
+                            {{$hppPaginates->nama_barang}}
                         </th>
                         <th scope="row" class="px-3 py-4 font-light text-[#464D51]">
-                            {{$p->kode_barang}}
+                            {{$hppPaginates->kode_barang}}
                         </th>
                         <td class="px-3 py-4">
-                            {{ $p->stock }}
+                            {{ $hppPaginates->stock }}
                         </td>
                         <td class="px-3 py-4">
-                            {{ $p->min_ammount }}
+                            {{ $hppPaginates->min_ammount }}
                         </td>
                         <td class="px-3 py-4">
-                            {{ 'Rp ' . number_format($p->total_hpp, 0, ',', '.') }}
+                            {{ 'Rp ' . number_format($hppPaginates->total_hpp, 0, ',', '.') }}
                         </td>
                         <td class="px-3 py-4">
-                            {{ 'Rp ' . number_format($p->harga_ecer, 0, ',', '.') }}
+                            {{ 'Rp ' . number_format($hppPaginates->harga_ecer, 0, ',', '.') }}
                         </td>
                         <td class="px-3 py-4">
-                            {{ 'Rp ' . number_format($p->harga_mkl, 0, ',', '.') }}
+                            {{ 'Rp ' . number_format($hppPaginates->harga_mkl, 0, ',', '.') }}
                         </td>
                         <td class="px-3 py-4">
-                            {{ 'Rp ' . number_format($p->harga_ds, 0, ',', '.') }}
+                            {{ 'Rp ' . number_format($hppPaginates->harga_ds, 0, ',', '.') }}
                         </td>
                         <td class="px-3 py-4">
-                            {{ 'Rp ' . number_format(($p->total_hpp * $p->stock), 0, ',', '.') }}
+                            {{ 'Rp ' . number_format(($hppPaginates->total_hpp * $hppPaginates->stock), 0, ',', '.') }}
                         </td>
                     </tr>
                     @endforeach
                 </tbody>
             </table>
+
         </div>
     </div>
 
+
     <!-- Pagination -->
     <div class="flex justify-center py-5">
-        <nav aria-label="Page navigation example">
-            <ul class="flex list-style-none">
-                <li class="page-item disabled"><a
-                        class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-500 pointer-events-none focus:shadow-none"
-                        href="#" tabindex="-1" aria-disabled="true">Previous</a></li>
-                <li class="page-item"><a
-                        class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
-                        href="#">1</a></li>
-                <li class="page-item active"><a
-                        class="page-link relative block py-1.5 px-3 rounded border-0 bg-blue-600 outline-none transition-all duration-300  text-white hover:text-white hover:bg-blue-600 shadow-md focus:shadow-md"
-                        href="#">2 <span class="visually-hidden">(current)</span></a></li>
-                <li class="page-item"><a
-                        class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
-                        href="#">3</a></li>
-                <li class="page-item"><a
-                        class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
-                        href="#">Next</a></li>
-            </ul>
-        </nav>
+        {{ $hppPaginate->links() }}
     </div>
 </div>
 
@@ -268,31 +252,31 @@
                     </tr>
                 </thead>
                 <tbody class="self-center">
-                    @foreach ($lowStocks as $low)
+                    @foreach ($lowStocksPaginate as $lowStocksPaginates)
                     <tr class="self-center">
                         <th scope="row" class="px-6 py-4 font-light text-[#464D51]">
-                            {{ $low->nama_barang }}
+                            {{ $lowStocksPaginates->nama_barang }}
                         </th>
                         <th scope="row" class="px-6 py-4 font-light text-[#464D51]">
-                            {{ $low->kode_barang }}
+                            {{ $lowStocksPaginates->kode_barang }}
                         </th>
                         <td class="px-6 py-4">
-                            {{ $low->stock }}
+                            {{ $lowStocksPaginates->stock }}
                         </td>
                         <td class="px-6 py-4">
-                            {{ $low->min_ammount }}
+                            {{ $lowStocksPaginates->min_ammount }}
                         </td>
                         <td class="px-6 py-4">
-                            {{ 'Rp ' . number_format($low->harga_ecer, 0, ',', '.') }}
+                            {{ 'Rp ' . number_format($lowStocksPaginates->harga_ecer, 0, ',', '.') }}
                         </td>
                         <td class="px-6 py-4">
-                            {{ 'Rp ' . number_format($low->harga_rs, 0, ',', '.') }}
+                            {{ 'Rp ' . number_format($lowStocksPaginates->harga_rs, 0, ',', '.') }}
                         </td>
                         <td class="px-6 py-4">
-                            {{ 'Rp ' . number_format($low->harga_mkl, 0, ',', '.') }}
+                            {{ 'Rp ' . number_format($lowStocksPaginates->harga_mkl, 0, ',', '.') }}
                         </td>
                         <td class="px-6 py-4">
-                            {{ 'Rp ' . number_format($low->harga_ds, 0, ',', '.') }}
+                            {{ 'Rp ' . number_format($lowStocksPaginates->harga_ds, 0, ',', '.') }}
                         </td>
                     </tr>
                     @endforeach
@@ -303,25 +287,7 @@
 
     <!-- Pagination -->
     <div class="flex justify-center py-5">
-        <nav aria-label="Page navigation example">
-            <ul class="flex list-style-none">
-                <li class="page-item disabled"><a
-                        class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-500 pointer-events-none focus:shadow-none"
-                        href="#" tabindex="-1" aria-disabled="true">Previous</a></li>
-                <li class="page-item"><a
-                        class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
-                        href="#">1</a></li>
-                <li class="page-item active"><a
-                        class="page-link relative block py-1.5 px-3 rounded border-0 bg-blue-600 outline-none transition-all duration-300  text-white hover:text-white hover:bg-blue-600 shadow-md focus:shadow-md"
-                        href="#">2 <span class="visually-hidden">(current)</span></a></li>
-                <li class="page-item"><a
-                        class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
-                        href="#">3</a></li>
-                <li class="page-item"><a
-                        class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
-                        href="#">Next</a></li>
-            </ul>
-        </nav>
+        {{ $lowStocksPaginate->links() }}
     </div>
 </div>
 
@@ -413,22 +379,23 @@
 <div id="sortBytrigger" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-32">
     <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="sortBy">
         <li>
-            <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 ">Highest</a>
+            <button type="submit" name="sortBy" value="highest"
+                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600">
+                Highest
+            </button>
         </li>
         <li>
-            <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 ">Lowest</a>
+            <button type="submit" name="sortBy" value="lowest"
+                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600">
+                Lowest
+            </button>
         </li>
-
-
     </ul>
 </div>
-
 
 
 <script src="{{ $orderStats->cdn() }}"></script>
 
 {{ $orderStats->script() }}
 {{ $saleThisMonth->script() }}
-
-@vite(['resources/css/app.css','resources/js/app.js'])
 @endsection

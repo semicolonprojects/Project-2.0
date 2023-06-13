@@ -26,7 +26,7 @@
                             <span class="sr-only">Search Anything</span>
                         </button>
                     </div>
-                    <input type="text" id="search"
+                    <input type="text" id="simple-search" name="query"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-yellow-300 focus:border-yellow-300 block w-full pl-10 p-2.5  "
                         placeholder="Search">
                 </div>
@@ -46,7 +46,8 @@
             </button>
         </div>
     </div>
-    <table class=" w-[1020px]  table-fixed text-sm text-left text-gray-500 dark:text-gray-400 ml-2 mt-10">
+    <table class=" w-[1020px]  table-fixed text-sm text-left text-gray-500 dark:text-gray-400 ml-2 mt-10"
+        id="search-results">
         <thead class=" text-xs text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <th>
                 <div class="flex items-center">
@@ -79,7 +80,7 @@
             </th>
             </tr>
         </thead>
-        @foreach ($stock as $stock)
+        @foreach ($stockPaginate as $stockPaginates)
         <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
             <th>
                 <div class="flex items-center">
@@ -89,25 +90,27 @@
                 </div>
             </th>
             <td class="mt-2 px-4 align-center">
-                {{$stock->produkPendukung->nama_barang}}
+                {{$stockPaginates->produkPendukung->nama_barang}}
             </td>
             <td class="mt-2 px-4 align-center">
-                {{$stock->produkPendukung->size}}
+                {{$stockPaginates->produkPendukung->size}}
             </td>
             <td class="px-6 py-4">
-                {{$stock->total_barang_masuk}}
+                {{$stockPaginates->total_barang_masuk}}
             </td>
             <td class="px-6 py-4">
-                {{ $stock->latest_date_in ? date('l d/m/Y', strtotime($stock->latest_date_in )) : NULL }}
+                {{ $stockPaginates->latest_date_in ? date('l d/m/Y', strtotime($stockPaginates->latest_date_in )) : NULL
+                }}
             </td>
             <td class="mt-2 px-8 align-center">
-                {{$stock->total_barang_keluar}}
+                {{$stockPaginates->total_barang_keluar}}
             </td>
             <td class="px-6 py-4">
-                {{ $stock->latest_date_out ? date('l d/m/Y', strtotime($stock->latest_date_out )) : NULL }}
+                {{ $stockPaginates->latest_date_out ? date('l d/m/Y', strtotime($stockPaginates->latest_date_out )) :
+                NULL }}
             </td>
             <td class="px-9 py-4">
-                <a href="{{ route('in_out_pendukung.show', ['in_out_pendukung' => $stock->kode_barang]) }}">
+                <a href="{{ route('in_out_pendukung.show', ['in_out_pendukung' => $stockPaginates->kode_barang]) }}">
                     <button>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -120,6 +123,8 @@
         </tr>
         @endforeach
     </table>
+
+    {{ $stockPaginate->links() }}
 </div>
 
 
@@ -235,6 +240,27 @@
             checkboxes[i].checked = source.checked;
     }
 }
+
+const searchInput = document.getElementById('simple-search');
+    const searchResults = document.getElementById('search-results');
+  
+    searchInput.addEventListener('input', function() {
+      const query = this.value.trim();
+  
+      if (query.length === 0) {
+        searchResults.innerHTML = ''; // Bersihkan hasil pencarian jika query kosong
+        return;
+      }
+  
+      fetch(`/logistik/search?query=${query}`)
+        .then(response => response.text())
+        .then(data => {
+          searchResults.innerHTML = data;
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+    });
 </script>
 
 @vite(['resources/css/app.css','resources/js/app.js'])

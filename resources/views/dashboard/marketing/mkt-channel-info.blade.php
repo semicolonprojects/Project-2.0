@@ -39,25 +39,25 @@
             </tr>
         </thead>
         <tbody>
-            @foreach($channel as $channel)
+            @foreach($channelPaginate as $channelPaginates)
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    {{ $channel->id }}.
+                    {{ $channelPaginates->id }}.
                 </th>
                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    {{ $channel->nama_channel }}
+                    {{ $channelPaginates->nama_channel }}
                 </th>
                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    {{ $channel->kode_channel }}
+                    {{ $channelPaginates->kode_channel }}
                 </th>
                 <td class="mt-2 px-4 align-center">
-                    {{ 'Rp. ' . number_format($channel->target_bulanan, 2, ',', '.') }}
+                    {{ 'Rp. ' . number_format($channelPaginates->target_bulanan, 2, ',', '.') }}
                 </td>
                 <td class="px-6 py-4">
-                    {{ 'Rp. ' . number_format($channel->total_tercapai, 2, ',', '.') }}
+                    {{ 'Rp. ' . number_format($channelPaginates->total_tercapai, 2, ',', '.') }}
                 </td>
                 <td>
-                    <a href="{{ route('channel.show', ['channel' => $channel->id]) }}">
+                    <a href="{{ route('channel.show', ['channel' => $channelPaginates->id]) }}">
                         <button>
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -67,15 +67,15 @@
                             </svg>
                         </button>
                     </a>
-                    <button id="defaultModalButton-channel{{ $channel->id }}"
-                        data-modal-toggle="defaultModal-channel{{ $channel->id }}">
+                    <button id="defaultModalButton-channel{{ $channelPaginates->id }}"
+                        data-modal-toggle="defaultModal-channel{{ $channelPaginates->id }}">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M12 20h9"></path>
                             <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
                         </svg>
                     </button>
-                    <form class="inline " action="{{ route('channel.destroy', ['channel' => $channel->id]) }}"
+                    <form class="inline " action="{{ route('channel.destroy', ['channel' => $channelPaginates->id]) }}"
                         method="POST">
                         <button onclick="return confirm('Are you sure?')">
                             @csrf
@@ -94,6 +94,7 @@
             @endforeach
         </tbody>
     </table>
+    {{ $channelPaginate->links() }}
 </div>
 
 <!-- Main Create New Channel -->

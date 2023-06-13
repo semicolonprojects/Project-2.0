@@ -22,7 +22,7 @@
                                 <span class="sr-only">Search Anything</span>
                             </button>
                         </div>
-                        <input type="text" id="simple-search"
+                        <input type="text" id="simple-search" name="query"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-yellow-300 focus:border-yellow-300 block w-full pl-10 p-2.5  "
                             placeholder="Search">
                     </div>
@@ -44,7 +44,7 @@
             </div>
 
         </div>
-        <table class=" w-[1070px] table-fixed text-sm text-left text-gray-500 dark:text-gray-400 ">
+        <table class=" w-[1070px] table-fixed text-sm text-left text-gray-500 dark:text-gray-400 " id="search-results">
             <thead class="text-xs text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
                     <th scope="col" class="px-6 py-3">
@@ -73,7 +73,7 @@
                     </th>
                 </tr>
             </thead>
-            @foreach ($orderCurah as $orderCurahs)
+            @foreach ($paginateCurah as $orderCurahs)
             <tbody>
                 <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
@@ -115,26 +115,31 @@
             @endforeach
         </table>
         <div class="flex justify-center py-5">
-            <nav aria-label="Page navigation example">
-                <ul class="flex list-style-none">
-                    <li class="page-item disabled"><a
-                            class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-500 pointer-events-none focus:shadow-none"
-                            href="#" tabindex="-1" aria-disabled="true">Previous</a></li>
-                    <li class="page-item"><a
-                            class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
-                            href="#">1</a></li>
-                    <li class="page-item active"><a
-                            class="page-link relative block py-1.5 px-3 rounded border-0 bg-blue-600 outline-none transition-all duration-300  text-white hover:text-white hover:bg-blue-600 shadow-md focus:shadow-md"
-                            href="#">2 <span class="visually-hidden">(current)</span></a></li>
-                    <li class="page-item"><a
-                            class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
-                            href="#">3</a></li>
-                    <li class="page-item"><a
-                            class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
-                            href="#">Next</a></li>
-                </ul>
-            </nav>
+            {{$paginateCurah->links()}}
         </div>
     </div>
 </div>
+
+<script>
+    const searchInput = document.getElementById('simple-search');
+    const searchResults = document.getElementById('search-results');
+  
+    searchInput.addEventListener('input', function() {
+      const query = this.value.trim();
+  
+      if (query.length === 0) {
+        searchResults.innerHTML = ''; // Bersihkan hasil pencarian jika query kosong
+        return;
+      }
+  
+      fetch(`/order/search?query=${query}`)
+        .then(response => response.text())
+        .then(data => {
+          searchResults.innerHTML = data;
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+    });
+</script>
 @endsection

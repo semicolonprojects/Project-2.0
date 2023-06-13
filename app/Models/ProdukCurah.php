@@ -4,6 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 
 class ProdukCurah extends Model
@@ -35,6 +38,23 @@ class ProdukCurah extends Model
         return DB::table('produk_curahs')
             ->select(DB::raw('SUM(stock) AS total_stock'), DB::raw('SUM(stock_akhir) AS total_stock_akhir'), DB::raw('SUM(stock - stock_akhir) AS selisih_stock'))
             ->get();
+    }
+
+    public static function paginateCollection(Collection $collection, $perPage, $currentPage, $path)
+    {
+        $queryBuilder = new Collection($collection);
+
+        $paginator = new LengthAwarePaginator(
+            $queryBuilder->forPage($currentPage, $perPage),
+            $queryBuilder->count(),
+            $perPage,
+            $currentPage,
+            ['path' => $path]
+        );
+
+        Paginator::useTailwind();
+
+        return $paginator;
     }
 
     public function inoutcurah()

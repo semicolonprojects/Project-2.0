@@ -12,6 +12,7 @@ use App\Models\Customer;
 use App\Models\InOutCurah;
 use App\Models\ProdukCurah;
 use App\Models\TargetKaryawanCurah;
+use Illuminate\Pagination\Paginator;
 
 class OrderCurahController extends Controller
 {
@@ -24,7 +25,11 @@ class OrderCurahController extends Controller
     {
         $curah = new OrderCurah;
         $orderCurah = $curah->show();
-        return view('dashboard.marketing-curah.mktc-order', compact('orderCurah'));
+        $perPage = 10; // Jumlah item per halaman
+        $currentPage = Paginator::resolveCurrentPage('page');
+        $path = Paginator::resolveCurrentPath();
+        $paginateCurah = OrderCurah::paginateCollection($orderCurah, $perPage, $currentPage, $path);
+        return view('dashboard.marketing-curah.mktc-order', compact('paginateCurah'));
     }
 
     /**
@@ -200,5 +205,40 @@ class OrderCurahController extends Controller
         } else {
             return redirect()->route('orderCurah.show', ['orderCurah' => $orderCurah->order_id])->with('success', 'Order berhasil dihapus');
         }
+    }
+
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+        $cust_order = OrderCurah::where(function ($queryBuilder) use ($query) {
+            $queryBuilder->where('order_id', 'LIKE', '%' . $query . '%')
+                ->orWhere('customer_id', 'LIKE', '%' . $query . '%')
+                ->orWhere('user_id', 'LIKE', '%' . $query . '%')
+                ->orWhere('kode_barang', 'LIKE', '%' . $query . '%')
+                ->orWhere('status_pembayaran', 'LIKE', '%' . $query . '%')
+                ->orWhere('tipe_pembayaran', 'LIKE', '%' . $query . '%')
+                ->orWhere('total_termin', 'LIKE', '%' . $query . '%')
+                ->orWhere('tenggat_order', 'LIKE', '%' . $query . '%')
+                ->orWhere('tipe_pesanan', 'LIKE', '%' . $query . '%')
+                ->orWhere('total_pembelian', 'LIKE', '%' . $query . '%')
+                ->orWhere('total_order', 'LIKE', '%' . $query . '%')
+                ->orWhere('diskon', 'LIKE', '%' . $query . '%')
+                ->orWhere('ongkir', 'LIKE', '%' . $query . '%')
+                ->orWhere('status_barang', 'LIKE', '%' . $query . '%')
+                ->orWhere('note', 'LIKE', '%' . $query . '%')
+                ->orWhere('komisi', 'LIKE', '%' . $query . '%');
+            // Lanjutkan dengan menambahkan atau mengubah where clause sesuai dengan daftar kolom yang Anda miliki pada model Anda
+        })->get();
+
+        $cust_order = new OrderCurah();
+        $show = $cust_order->show();
+
+        $perPage = 10; // Jumlah item per halaman
+        $currentPage = Paginator::resolveCurrentPage('page');
+        $path = Paginator::resolveCurrentPath();
+        $paginateCurah = OrderCurah::paginateCollection($show, $perPage, $currentPage, $path);
+
+        // Lakukan sesuatu dengan hasil pencarian (misalnya, kirim data ke view)
+        return view('dashboard.marketing-curah.mktc-order', compact('paginateCurah'));
     }
 }

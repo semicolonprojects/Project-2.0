@@ -8,7 +8,7 @@ use App\Http\Requests\StoreHargaPokokPenjualanRequest;
 use App\Http\Requests\UpdateHargaPokokPenjualanRequest;
 use App\Models\BarangPendukung;
 use Illuminate\Http\Request;
-
+use Illuminate\Pagination\Paginator;
 
 class HargaPokokPenjualanController extends Controller
 {
@@ -20,7 +20,14 @@ class HargaPokokPenjualanController extends Controller
     public function index()
     {
         $hpp = HargaPokokPenjualan::all();
-        return view('dashboard.hpp.hpp', compact('hpp'));
+
+        $perPage = 10; // Jumlah item per halaman
+        $currentPage = Paginator::resolveCurrentPage('page');
+        $path = Paginator::resolveCurrentPath();
+
+        $hppPaginate = HargaPokokPenjualan::paginateCollection($hpp, $perPage, $currentPage, $path);
+
+        return view('dashboard.hpp.hpp', compact('hppPaginate'));
     }
 
     /**

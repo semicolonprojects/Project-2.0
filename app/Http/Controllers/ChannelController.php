@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Pagination\Paginator;
 use App\Models\Channel;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -17,7 +18,13 @@ class ChannelController extends Controller
     {
         $channel = Channel::all();
         $channel2 = Channel::all();
-        return view('dashboard.marketing.mkt-channel-info', compact('channel', 'channel2'));
+
+        $perPage = 10; // Jumlah item per halaman
+        $currentPage = Paginator::resolveCurrentPage('page');
+        $path = Paginator::resolveCurrentPath();
+        $channelPaginate = Channel::paginateCollection($channel, $perPage, $currentPage, $path);
+
+        return view('dashboard.marketing.mkt-channel-info', compact('channelPaginate', 'channel2'));
     }
 
     /**
