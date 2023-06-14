@@ -340,11 +340,6 @@
 
 
 {{-- In & Out Products --}}
-<div class="absolute ml-40 mt-28">
-
-
-</div>
-</div>
 <div
     class="w-[1024px] h-[570px] rounded-[13px] overflow-hidden ml-40 mt-20 bg-white border border-[#686868CF] shadow-[0px_8px_8px_rgba(0,0,0,0.5)]">
     <div class="absolute ml-4 mt-4">

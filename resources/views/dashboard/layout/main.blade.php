@@ -601,7 +601,7 @@
     <div class="ml-10 mt-36 sm:ml-16 md:ml-20 xl:ml-[530px]">
         <div class="flex items-center space-x-8">
           <div class="flex flex-col items-center">
-            <button type="button" class="text-black bg-background hover:bg-gradient-to-bl from-yellow-200 to-bg-yellow-300 focus:ring-4 focus:outline-none focus:ring-yellow-400 font-medium rounded-full text-sm p-4 text-center inline-flex items-center">
+            <button type="button" data-modal-toggle="authentication-modal" data-modal-target="authentication-modal" class="text-black bg-background hover:bg-gradient-to-bl from-yellow-200 to-bg-yellow-300 focus:ring-4 focus:outline-none focus:ring-yellow-400 font-medium rounded-full text-sm p-4 text-center inline-flex items-center">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
                 <path d="M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"></path>
@@ -610,10 +610,11 @@
                 <path d="m15 10-4 4 4 4"></path>
               </svg>
             </button>
+            </a>
             <p class="font-semibold text-black mt-2">Masuk</p>
           </div>
           <div class="flex flex-col items-center">
-            <button type="button" class="text-black bg-background hover:bg-gradient-to-bl from-yellow-200 to-bg-yellow-300 focus:ring-4 focus:outline-none focus:ring-yellow-400 font-medium rounded-full text-sm p-4 text-center inline-flex items-center">
+            <button type="button" data-modal-toggle="authentication-modal-2" data-modal-target="authentication-modal-2" class="text-black bg-background hover:bg-gradient-to-bl from-yellow-200 to-bg-yellow-300 focus:ring-4 focus:outline-none focus:ring-yellow-400 font-medium rounded-full text-sm p-4 text-center inline-flex items-center">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
                 <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
@@ -624,7 +625,7 @@
             <p class="font-semibold text-black mt-2">Keluar</p>
           </div>
           <div class="flex flex-col items-center">
-            <button type="button" class="text-black bg-background hover:bg-gradient-to-bl from-yellow-200 to-bg-yellow-300 focus:ring-4 focus:outline-none focus:ring-yellow-400 font-medium rounded-full text-sm p-4 text-center inline-flex items-center">
+            <button type="button" data-modal-toggle="authentication-modal-3" data-modal-target="authentication-modal-3" class="text-black bg-background hover:bg-gradient-to-bl from-yellow-200 to-bg-yellow-300 focus:ring-4 focus:outline-none focus:ring-yellow-400 font-medium rounded-full text-sm p-4 text-center inline-flex items-center">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
                 <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
@@ -637,7 +638,7 @@
             <p class="font-semibold text-black mt-2">Ijin</p>
           </div>
           <div class="flex flex-col items-center">
-            <button type="button" class="text-black bg-background hover:bg-gradient-to-bl from-yellow-200 to-bg-yellow-300 focus:ring-4 focus:outline-none focus:ring-yellow-400 font-medium rounded-full text-sm p-4 text-center inline-flex items-center">
+            <button type="button" data-modal-toggle="authentication-modal-4" data-modal-target="authentication-modal-4" class="text-black bg-background hover:bg-gradient-to-bl from-yellow-200 to-bg-yellow-300 focus:ring-4 focus:outline-none focus:ring-yellow-400 font-medium rounded-full text-sm p-4 text-center inline-flex items-center">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
                 <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
@@ -655,7 +656,7 @@
     
 
     <div id="authentication-modal" tabindex="-1" aria-hidden="true"
-        class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] md:h-full">
+        class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] md:h-full mt-14 ml-14">
         <div class="relative w-full h-full max-w-md md:h-auto">
             <!-- Modal content -->
 
@@ -708,7 +709,7 @@
 
             </div>
         </div>
-        <div class="">
+        <div class="mt-10 ml-3">
             <div id="map" style="width:400px;height:400px" class="flex justify-center"></div>
             <div>
                 <ul id="status" class="progressing">

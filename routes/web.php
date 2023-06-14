@@ -165,3 +165,7 @@ Route::get('/curah-order', [OrderCurahController::class, 'index'])->middleware('
 Route::get('/curah-order', [OrderCurahController::class, 'search'])->middleware('curah', 'auth');
 
 Route::get('/data-absen', [DataAbsenController::class, 'index']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
