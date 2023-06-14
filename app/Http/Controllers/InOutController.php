@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\ProdukJadi;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\Paginator;
 
 class InOutController extends Controller
 {
@@ -22,7 +23,14 @@ class InOutController extends Controller
         $inOut = new InOut();
         $stock = $inOut->getOrderShow();
         $detail = $inOut->accordionInOut();
-        return view('dashboard.logistik.logistik3', compact('barangJadi', 'stock', 'detail', 'user'));
+
+        $perPage = 10; // Jumlah item per halaman
+        $currentPage = Paginator::resolveCurrentPage('page');
+        $path = Paginator::resolveCurrentPath();
+
+        $stockPaginate = ProdukJadi::paginateCollection($stock, $perPage, $currentPage, $path);
+
+        return view('dashboard.logistik.logistik3', compact('barangJadi', 'stockPaginate', 'detail', 'user'));
     }
 
     /**
@@ -162,5 +170,36 @@ class InOutController extends Controller
         }
 
         return redirect()->back()->with('delete', 'Data berhasil dihapus');
+    }
+
+    public function search(Request $request)
+    {
+
+        $query = $request->input('query');
+        $results = InOut::where(function ($queryBuilder) use ($query) {
+            $queryBuilder->where('kode_barang', 'LIKE', '%' . $query . '%')
+                ->orWhere('user_id', 'LIKE', '%' . $query . '%')
+                ->orWhere('barang_masuk', 'LIKE', '%' . $query . '%')
+                ->orWhere('barang_keluar', 'LIKE', '%' . $query . '%')
+                ->orWhere('date_in', 'LIKE', '%' . $query . '%')
+                ->orWhere('date_out', 'LIKE', '%' . $query . '%')
+                ->orWhere('keterangan', 'LIKE', '%' . $query . '%');
+            // Lanjutkan dengan menambahkan atau mengubah where clause sesuai dengan daftar kolom yang Anda miliki pada model Anda
+        })->get();
+
+        $inOut = new InOut();
+        $detail = $inOut->accordionInOut();
+        $user = User::all();
+        $barangJadi = ProdukJadi::all();
+
+
+        $perPage = 10; // Jumlah item per halaman
+        $currentPage = Paginator::resolveCurrentPage('page');
+        $path = Paginator::resolveCurrentPath();
+
+        $stockPaginate = InOut::paginateCollection($results, $perPage, $currentPage, $path);
+
+        // Lakukan sesuatu dengan hasil pencarian (misalnya, kirim data ke view)
+        return view('dashboard.logistik.logistik3', compact('stockPaginate', 'detail', 'user', 'barangJadi'));
     }
 }

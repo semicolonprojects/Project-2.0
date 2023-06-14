@@ -49,9 +49,9 @@
                                 <span class="sr-only">Search Anything</span>
                             </button>
                         </div>
-                        <input type="text" id="simple-search"
+                        <input type="text" id="simple-search" name="query"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-yellow-300 focus:border-yellow-300 block w-full pl-10 p-2.5  "
-                            placeholder="Search" required>
+                            placeholder="Search">
                     </div>
                 </form>
             </div>
@@ -104,36 +104,36 @@
                         <th></th>
                     </tr>
                 </thead>
-                @foreach($show as $cust_order)
+                @foreach($showPaginate as $showPaginates)
                 <tbody>
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700"">
                         <th scope=" row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        {{ $cust_order->order_id}}
+                        {{ $showPaginates->order_id}}
                         </th>
                         <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            {{ $cust_order->customer_id }}
+                            {{ $showPaginates->customer_id }}
                         </th>
                         <td class="mt-2 px-4 align-center">
-                            {{ $cust_order->nama_barang }}
+                            {{ $showPaginates->nama_barang }}
                         </td>
                         <td class="mt-2 px-4 align-center">
-                            {{ $cust_order->created_at }}
+                            {{ $showPaginates->created_at }}
                         </td>
                         <td class="mt-2 px-4 align-center">
-                            {{$cust_order->status_pembayaran}}
+                            {{$showPaginates->status_pembayaran}}
                         </td>
                         <td class="px-6 py-4">
-                            {{$cust_order->nama_lengkap}}
+                            {{$showPaginates->nama_lengkap}}
                         </td>
                         <td class="px-2 py-6">
-                            {{ 'Rp ' . number_format($cust_order->total_pembelian, 0, ',', '.') }}
+                            {{ 'Rp ' . number_format($showPaginates->total_pembelian, 0, ',', '.') }}
                         </td>
 
                         <td class="px-6 py-4">
-                            {{$cust_order->username}}
+                            {{$showPaginates->username}}
                         </td>
                         <td class="px-6 py-4">
-                            <a href="{{ route('order.show', ['order'=>$cust_order->order_id]) }}">
+                            <a href="{{ route('order.show', ['order'=>$showPaginates->order_id]) }}">
                                 <button>
                                     <svg xmlns=" http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -149,25 +149,7 @@
                 </tbody>
             </table>
             <div class="flex justify-center py-5">
-                <nav aria-label="Page navigation example">
-                    <ul class="flex list-style-none">
-                        <li class="page-item disabled"><a
-                                class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-500 pointer-events-none focus:shadow-none"
-                                href="#" tabindex="-1" aria-disabled="true">Previous</a></li>
-                        <li class="page-item"><a
-                                class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
-                                href="#">1</a></li>
-                        <li class="page-item active"><a
-                                class="page-link relative block py-1.5 px-3 rounded border-0 bg-blue-600 outline-none transition-all duration-300  text-white hover:text-white hover:bg-blue-600 shadow-md focus:shadow-md"
-                                href="#">2 <span class="visually-hidden">(current)</span></a></li>
-                        <li class="page-item"><a
-                                class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
-                                href="#">3</a></li>
-                        <li class="page-item"><a
-                                class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
-                                href="#">Next</a></li>
-                    </ul>
-                </nav>
+                {{$showPaginate->links()}}
             </div>
         </div>
     </div>
@@ -203,151 +185,54 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
-                        data-accordion-target="#orderStats2">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            #SRMK14045
+                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                        @foreach ($showPaginate as $showPendings)
+                        @if ($showPendings->status_pembayaran == 'Menunggu Pembayaran')
+                        <th scope=" row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            {{ $showPendings->order_id}}
                         </th>
                         <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            #SRMK14045
+                            {{ $showPendings->customer_id }}
                         </th>
                         <td class="mt-2 px-4 align-center">
-                            10.02.2022 18:38
+                            {{ $showPendings->nama_barang }}
                         </td>
                         <td class="mt-2 px-4 align-center">
-                            <button disabled type="button"
-                                class="text-white bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300 text-xs font-medium rounded-full px-1 py-0.5 text-center mr-2 mb-2 ">Reseller</button>
+                            {{ $showPendings->created_at }}
+                        </td>
+                        <td class="mt-2 px-4 align-center">
+                            {{$showPendings->status_pembayaran}}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{$showPendings->nama_lengkap}}
+                        </td>
+                        <td class="px-2 py-6">
+                            {{ 'Rp ' . number_format($showPendings->total_pembelian, 0, ',', '.') }}
+                        </td>
 
+                        <td class="px-6 py-4">
+                            {{$showPendings->username}}
                         </td>
                         <td class="px-6 py-4">
-                            Hengky
-                            user@email.com
+                            <a href="{{ route('order.show', ['order'=>$showPendings->order_id]) }}">
+                                <button>
+                                    <svg xmlns=" http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path>
+                                        <circle cx="12" cy="12" r="3"></circle>
+                                    </svg>
+                                </button>
+                            </a>
                         </td>
-                        <td class="px-6 py-4">
-                            IDR 100.000
-                        </td>
-                        <td class="px-6 py-4">
-                            Willy Wonka
-                        </td>
-                        <td>
-                            <button>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path>
-                                    <circle cx="12" cy="12" r="3"></circle>
-                                </svg>
-                            </button>
-                            <button>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <path d="M12 20h9"></path>
-                                    <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
-                                </svg>
-                            </button>
-
-                            <button>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <path d="M20 5H9l-7 7 7 7h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2Z"></path>
-                                    <line x1="18" y1="9" x2="12" y2="15"></line>
-                                    <line x1="12" y1="9" x2="18" y2="15"></line>
-                                </svg>
-                            </button>
-                        </td>
+                        @else
+                        @endif
+                        @endforeach
                     </tr>
-                    <td class="inline-table">
-                        <div id="orderStats2" class="hidden">
-                            <table
-                                class="w-[1070px] table-fixed text-sm text-left border border-t-0 text-gray-500 dark:text-gray-400">
-                                <tr>
-                                    <th>
-                                        <p class="ml-10">Detail</p>
-                                    </th>
-                                    <th>Size</th>
-                                    <th>Total Order</th>
-                                    <th>Price</th>
-                                    <th>Diskon</th>
-                                    <th>Total Price</th>
-                                    <th>Shipping Cost</th>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <p class="ml-10">Madu Durian</p>
-                                    </td>
-                                    <td>
-                                        1L
-                                    </td>
-                                    <td>200</td>
-                                    <td>IDR 50.000</td>
-                                    <td>29%</td>
-                                    <td>IDR 1.000.000</td>
-                                    <td rowspan="3">IDR 700.000</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <p class="ml-10">Madu Durian</p>
-                                    </td>
-                                    <td>
-                                        1L
-                                    </td>
-                                    <td>200</td>
-                                    <td>IDR 50.000</td>
-                                    <td>29%</td>
-                                    <td>IDR 1.000.000</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <p class="ml-10">Madu Durian</p>
-                                    </td>
-                                    <td>
-                                        1L
-                                    </td>
-                                    <td>200</td>
-                                    <td>IDR 50.000</td>
-                                    <td>29%</td>
-                                    <td>IDR 1.000.000</td>
-                                </tr>
-                                <tr class="border">
-                                    <td colspan="6" class="px-16 py-5">Note : Lorem ipsum dolor sit amet consectetur
-                                        adipisicing
-                                        elit.
-                                        Delectus, totam.</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="6" class="px-16 py-5">Complain : Lorem ipsum dolor sit amet
-                                        consectetur
-                                        adipisicing
-                                        elit.
-                                        Delectus, totam.</td>
-                                </tr>
-                            </table>
-                        </div>
-                    </td>
                 </tbody>
             </table>
             <div class="flex justify-center py-5">
-                <nav aria-label="Page navigation example">
-                    <ul class="flex list-style-none">
-                        <li class="page-item disabled"><a
-                                class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-500 pointer-events-none focus:shadow-none"
-                                href="#" tabindex="-1" aria-disabled="true">Previous</a></li>
-                        <li class="page-item"><a
-                                class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
-                                href="#">1</a></li>
-                        <li class="page-item active"><a
-                                class="page-link relative block py-1.5 px-3 rounded border-0 bg-blue-600 outline-none transition-all duration-300  text-white hover:text-white hover:bg-blue-600 shadow-md focus:shadow-md"
-                                href="#">2 <span class="visually-hidden">(current)</span></a></li>
-                        <li class="page-item"><a
-                                class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
-                                href="#">3</a></li>
-                        <li class="page-item"><a
-                                class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
-                                href="#">Next</a></li>
-                    </ul>
-                </nav>
+                {{$showPaginate->links()}}
             </div>
         </div>
     </div>
@@ -383,156 +268,59 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
-                        data-accordion-target="#complete">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            #SRMK14045
+                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                        @foreach ($showPaginate as $showCompletes)
+                        @if ($showCompletes->status_pembayaran == 'Dibayar')
+                        <th scope=" row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            {{ $showCompletes->order_id}}
                         </th>
                         <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            #RS003
+                            {{ $showCompletes->customer_id }}
                         </th>
                         <td class="mt-2 px-4 align-center">
-                            10.02.2022 18:38
-
+                            {{ $showCompletes->nama_barang }}
                         </td>
                         <td class="mt-2 px-4 align-center">
-                            <button disabled type="button"
-                                class="text-white bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300 text-xs font-medium rounded-full px-1 py-0.5 text-center mr-2 mb-2 ">Reseller</button>
+                            {{ $showCompletes->created_at }}
+                        </td>
+                        <td class="mt-2 px-4 align-center">
+                            {{$showCompletes->status_pembayaran}}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{$showCompletes->nama_lengkap}}
+                        </td>
+                        <td class="px-2 py-6">
+                            {{ 'Rp ' . number_format($showCompletes->total_pembelian, 0, ',', '.') }}
+                        </td>
 
+                        <td class="px-6 py-4">
+                            {{$showCompletes->username}}
                         </td>
                         <td class="px-6 py-4">
-                            Hengky
-                            user@email.com
+                            <a href="{{ route('order.show', ['order'=>$showCompletes->order_id]) }}">
+                                <button>
+                                    <svg xmlns=" http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path>
+                                        <circle cx="12" cy="12" r="3"></circle>
+                                    </svg>
+                                </button>
+                            </a>
                         </td>
-                        <td class="px-6 py-4">
-                            IDR 100.000
-                        </td>
-                        <td class="px-6 py-4">
-                            Willy Wonka
-                        </td>
-                        <td>
-                            <button>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path>
-                                    <circle cx="12" cy="12" r="3"></circle>
-                                </svg>
-                            </button>
-                            <button>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <path d="M12 20h9"></path>
-                                    <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
-                                </svg>
-                            </button>
-                            <button>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <path d="M20 5H9l-7 7 7 7h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2Z"></path>
-                                    <line x1="18" y1="9" x2="12" y2="15"></line>
-                                    <line x1="12" y1="9" x2="18" y2="15"></line>
-                                </svg>
-                            </button>
-                        </td>
+                        @else
+                        @endif
+                        @endforeach
                     </tr>
-                    <td class="inline-table">
-                        <div id="complete" class="hidden">
-                            <table
-                                class="w-[1070px] table-fixed text-sm text-left border border-t-0 text-gray-500 dark:text-gray-400">
-                                <tr>
-                                    <th>
-                                        <p class="ml-10">Detail</p>
-                                    </th>
-                                    <th>Size</th>
-                                    <th>Total Order</th>
-                                    <th>Price</th>
-                                    <th>Diskon</th>
-                                    <th>Total Price</th>
-                                    <th>Shipping Cost</th>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <p class="ml-10">Madu Durian</p>
-                                    </td>
-                                    <td>
-                                        1L
-                                    </td>
-                                    <td>200</td>
-                                    <td>IDR 50.000</td>
-                                    <td>29%</td>
-                                    <td>IDR 1.000.000</td>
-                                    <td rowspan="3">IDR 700.000</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <p class="ml-10">Madu Durian</p>
-                                    </td>
-                                    <td>
-                                        1L
-                                    </td>
-                                    <td>200</td>
-                                    <td>IDR 50.000</td>
-                                    <td>29%</td>
-                                    <td>IDR 1.000.000</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <p class="ml-10">Madu Durian</p>
-                                    </td>
-                                    <td>
-                                        1L
-                                    </td>
-                                    <td>200</td>
-                                    <td>IDR 50.000</td>
-                                    <td>29%</td>
-                                    <td>IDR 1.000.000</td>
-                                </tr>
-                                <tr class="border">
-                                    <td colspan="6" class="px-16 py-5">Note : Lorem ipsum dolor sit amet consectetur
-                                        adipisicing
-                                        elit.
-                                        Delectus, totam.</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="6" class="px-16 py-5">Complain : Lorem ipsum dolor sit amet
-                                        consectetur
-                                        adipisicing
-                                        elit.
-                                        Delectus, totam.</td>
-                                </tr>
-                            </table>
-                        </div>
-                    </td>
                 </tbody>
             </table>
             <div class="flex justify-center py-5">
-                <nav aria-label="Page navigation example">
-                    <ul class="flex list-style-none">
-                        <li class="page-item disabled"><a
-                                class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-500 pointer-events-none focus:shadow-none"
-                                href="#" tabindex="-1" aria-disabled="true">Previous</a></li>
-                        <li class="page-item"><a
-                                class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
-                                href="#">1</a></li>
-                        <li class="page-item active"><a
-                                class="page-link relative block py-1.5 px-3 rounded border-0 bg-blue-600 outline-none transition-all duration-300  text-white hover:text-white hover:bg-blue-600 shadow-md focus:shadow-md"
-                                href="#">2 <span class="visually-hidden">(current)</span></a></li>
-                        <li class="page-item"><a
-                                class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
-                                href="#">3</a></li>
-                        <li class="page-item"><a
-                                class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
-                                href="#">Next</a></li>
-                    </ul>
-                </nav>
+                {{$showPaginate->links()}}
             </div>
         </div>
     </div>
     <div class="hidden " id="contacts" role="tabpanel" aria-labelledby="contacts-tab">
-        <div id="accordion-collapse" data-accordion="open">
+        <div>
             <table class=" w-[1130px] table-fixed text-sm text-left text-gray-500 dark:text-gray-400 ">
                 <thead class=" text-xs text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
@@ -563,156 +351,78 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
-                        data-accordion-target="#overdue">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            #SRMK14045
-                        </th>
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            #RS003
-                        </th>
-                        <td class="mt-2 px-4 align-center">
-                            10.02.2022 18:38
+                    @foreach ($showPaginate as $showOverdues)
+                    @if ($showOverdues->status_pembayaran == 'Tidak Dibayar')
+                    <th scope=" row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        {{ $showOverdues->order_id}}
+                    </th>
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        {{ $showOverdues->customer_id }}
+                    </th>
+                    <td class="mt-2 px-4 align-center">
+                        {{ $showOverdues->nama_barang }}
+                    </td>
+                    <td class="mt-2 px-4 align-center">
+                        {{ $showOverdues->created_at }}
+                    </td>
+                    <td class="mt-2 px-4 align-center">
+                        {{$showOverdues->status_pembayaran}}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{$showOverdues->nama_lengkap}}
+                    </td>
+                    <td class="px-2 py-6">
+                        {{ 'Rp ' . number_format($showOverdues->total_pembelian, 0, ',', '.') }}
+                    </td>
 
-                        </td>
-                        <td class="mt-2 px-4 align-center">
-                            <button disabled type="button"
-                                class="text-white bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300 text-xs font-medium rounded-full px-1 py-0.5 text-center mr-2 mb-2 ">Reseller</button>
-
-                        </td>
-                        <td class="px-6 py-4">
-                            Hengky
-                            user@email.com
-                        </td>
-                        <td class="px-6 py-4">
-                            IDR 100.000
-                        </td>
-                        <td class="px-6 py-4">
-                            Willy Wonka
-                        </td>
-                        <td>
+                    <td class="px-6 py-4">
+                        {{$showOverdues->username}}
+                    </td>
+                    <td class="px-6 py-4">
+                        <a href="{{ route('order.show', ['order'=>$showOverdues->order_id]) }}">
                             <button>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                <svg xmlns=" http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round">
                                     <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path>
                                     <circle cx="12" cy="12" r="3"></circle>
                                 </svg>
                             </button>
-                            <button>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <path d="M12 20h9"></path>
-                                    <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
-                                </svg>
-                            </button>
-                            <button>
-
-                                <button>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                        <path d="M20 5H9l-7 7 7 7h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2Z"></path>
-                                        <line x1="18" y1="9" x2="12" y2="15"></line>
-                                        <line x1="12" y1="9" x2="18" y2="15"></line>
-                                    </svg>
-                                </button>
-                        </td>
-                    </tr>
-                    <td class="inline-table">
-                        <div id="overdue" class="hidden">
-                            <table
-                                class="w-[1070px] table-fixed text-sm text-left border border-t-0 text-gray-500 dark:text-gray-400">
-                                <tr>
-                                    <th>
-                                        <p class="ml-10">Detail</p>
-                                    </th>
-                                    <th>Size</th>
-                                    <th>Total Order</th>
-                                    <th>Price</th>
-                                    <th>Diskon</th>
-                                    <th>Total Price</th>
-                                    <th>Shipping Cost</th>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <p class="ml-10">Madu Durian</p>
-                                    </td>
-                                    <td>
-                                        1L
-                                    </td>
-                                    <td>200</td>
-                                    <td>IDR 50.000</td>
-                                    <td>29%</td>
-                                    <td>IDR 1.000.000</td>
-                                    <td rowspan="3">IDR 700.000</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <p class="ml-10">Madu Durian</p>
-                                    </td>
-                                    <td>
-                                        1L
-                                    </td>
-                                    <td>200</td>
-                                    <td>IDR 50.000</td>
-                                    <td>29%</td>
-                                    <td>IDR 1.000.000</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <p class="ml-10">Madu Durian</p>
-                                    </td>
-                                    <td>
-                                        1L
-                                    </td>
-                                    <td>200</td>
-                                    <td>IDR 50.000</td>
-                                    <td>29%</td>
-                                    <td>IDR 1.000.000</td>
-                                </tr>
-                                <tr class="border">
-                                    <td colspan="6" class="px-16 py-5">Note : Lorem ipsum dolor sit amet consectetur
-                                        adipisicing
-                                        elit.
-                                        Delectus, totam.</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="6" class="px-16 py-5">Complain : Lorem ipsum dolor sit amet
-                                        consectetur
-                                        adipisicing
-                                        elit.
-                                        Delectus, totam.</td>
-                                </tr>
-                            </table>
-                        </div>
+                        </a>
                     </td>
+                    @else
+                    @endif
+                    @endforeach
                 </tbody>
             </table>
             <div class="flex justify-center py-5">
-                <nav aria-label="Page navigation example">
-                    <ul class="flex list-style-none">
-                        <li class="page-item disabled"><a
-                                class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-500 pointer-events-none focus:shadow-none"
-                                href="#" tabindex="-1" aria-disabled="true">Previous</a></li>
-                        <li class="page-item"><a
-                                class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
-                                href="#">1</a></li>
-                        <li class="page-item active"><a
-                                class="page-link relative block py-1.5 px-3 rounded border-0 bg-blue-600 outline-none transition-all duration-300  text-white hover:text-white hover:bg-blue-600 shadow-md focus:shadow-md"
-                                href="#">2 <span class="visually-hidden">(current)</span></a></li>
-                        <li class="page-item"><a
-                                class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
-                                href="#">3</a></li>
-                        <li class="page-item"><a
-                                class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
-                                href="#">Next</a></li>
-                    </ul>
-                </nav>
+                {{$showPaginate->links()}}
             </div>
         </div>
     </div>
 </div>
+
+<script>
+    const searchInput = document.getElementById('simple-search');
+    const searchResults = document.getElementById('search-results');
+  
+    searchInput.addEventListener('input', function() {
+      const query = this.value.trim();
+  
+      if (query.length === 0) {
+        searchResults.innerHTML = ''; // Bersihkan hasil pencarian jika query kosong
+        return;
+      }
+  
+      fetch(`/marketing/search?query=${query}`)
+        .then(response => response.text())
+        .then(data => {
+          searchResults.innerHTML = data;
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+    });
+</script>
 
 @endsection

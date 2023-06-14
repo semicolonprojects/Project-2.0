@@ -37,18 +37,18 @@
             <h5 class="text-3xl font-bold tracking-tight text-gray-900 ">Stock</h5>
             <div class="grid grid-flow-row mt-1">
                 <button type="button" data-modal-target="authentication-modal-stock"
-                        data-modal-toggle="authentication-modal-stock"
-                        class="text-white bg-[#22DB66] font-medium rounded-[22px] text-[13px] px-5 py-2.5 inline-flex items-center">
-                        <div class="px-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                stroke="currentColor" class="w-6 h-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-                            </svg>
-                        </div>
-                        Add New Stock
-                    </button>
-            </div>    
-            
+                    data-modal-toggle="authentication-modal-stock"
+                    class="text-white bg-[#22DB66] font-medium rounded-[22px] text-[13px] px-5 py-2.5 inline-flex items-center">
+                    <div class="px-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                        </svg>
+                    </div>
+                    Add New Stock
+                </button>
+            </div>
+
         </div>
     </div>
 
@@ -119,48 +119,48 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($stok as $stok)
+                @foreach($stokPaginate as $stokPaginates)
                 <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        {{ $stok->kode_barang }}
+                        {{ $stokPaginates->kode_barang }}
                     </th>
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        {{ $stok->nama_barang }}
+                        {{ $stokPaginates->nama_barang }}
                     </th>
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        {{ $stok->size }}
+                        {{ $stokPaginates->size }}
                     </th>
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        {{$stok->stock}}
+                        {{$stokPaginates->stock}}
                     </th>
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        {{ $stok->min_ammount }}
+                        {{ $stokPaginates->min_ammount }}
                     </th>
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        {{ $stok->stock_akhir }}
+                        {{ $stokPaginates->stock_akhir }}
                     </th>
                     <td class="px-6 py-4">
-                        {{ "Rp " . number_format($stok->harga_ecer ,2,',','.') }}
+                        {{ "Rp " . number_format($stokPaginates->harga_ecer ,2,',','.') }}
                     </td>
                     <td class="px-6 py-4">
-                        {{ "Rp " . number_format($stok->harga_rs ,2,',','.') }}
+                        {{ "Rp " . number_format($stokPaginates->harga_rs ,2,',','.') }}
                     </td>
                     <td class="px-6 py-4">
-                        {{ "Rp " . number_format($stok->harga_mkl ,2,',','.') }}
+                        {{ "Rp " . number_format($stokPaginates->harga_mkl ,2,',','.') }}
                     </td>
                     <td class="px-6 py-4">
-                        {{ "Rp " . number_format($stok->harga_ds ,2,',','.') }}
+                        {{ "Rp " . number_format($stokPaginates->harga_ds ,2,',','.') }}
                     </td>
                     <td>
-                        <button data-modal-target="authentication-modal-dstock-{{ $stok->id }}"
-                            data-modal-toggle="authentication-modal-dstock-{{ $stok->id }}">
+                        <button data-modal-target="authentication-modal-dstock-{{ $stokPaginates->id }}"
+                            data-modal-toggle="authentication-modal-dstock-{{ $stokPaginates->id }}">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round">
                                 <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path>
                                 <circle cx="12" cy="12" r="3"></circle>
                             </svg>
-                            <a href="{{ route('stock.edit', ['stock'=>$stok->id]) }}">
+                            <a href="{{ route('stock.edit', ['stock'=>$stokPaginates->id]) }}">
                                 <button>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -170,7 +170,7 @@
                                     </svg>
                                 </button>
                             </a>
-                            <form action="{{ route('stock.destroy', ['stock' => $stok->id]) }}" method="post"
+                            <form action="{{ route('stock.destroy', ['stock' => $stokPaginates->id]) }}" method="post"
                                 class='inline'>
                                 <button onclick="return confirm('Are you sure?')">
                                     @csrf
@@ -194,25 +194,7 @@
         {{-- pagination --}}
 
         <div class="flex justify-center py-24 mr-6">
-            <nav aria-label="Page navigation example">
-                <ul class="flex list-style-none">
-                    <li class="page-item disabled"><a
-                            class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-500 pointer-events-none focus:shadow-none"
-                            href="#" tabindex="-1" aria-disabled="true">Previous</a></li>
-                    <li class="page-item"><a
-                            class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
-                            href="#">1</a></li>
-                    <li class="page-item active"><a
-                            class="page-link relative block py-1.5 px-3 rounded border-0 bg-blue-600 outline-none transition-all duration-300  text-white hover:text-white hover:bg-blue-600 shadow-md focus:shadow-md"
-                            href="#">2 <span class="visually-hidden">(current)</span></a></li>
-                    <li class="page-item"><a
-                            class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
-                            href="#">3</a></li>
-                    <li class="page-item"><a
-                            class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
-                            href="#">Next</a></li>
-                </ul>
-            </nav>
+            {{$stokPaginate->links()}}
         </div>
     </div>
 </div>
@@ -310,37 +292,37 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($lowStocks as $stok)
+                @foreach($lowStocksPaginate as $lowStocksPaginates)
                 <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        {{ $stok->kode_barang }}
+                        {{ $lowStocksPaginates->kode_barang }}
                     </th>
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        {{ $stok->nama_barang }}
+                        {{ $lowStocksPaginates->nama_barang }}
                     </th>
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        {{ $stok->size }}
+                        {{ $lowStocksPaginates->size }}
                     </th>
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        {{$stok->stock}}
+                        {{$lowStocksPaginates->stock}}
                     </th>
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        {{ $stok->min_ammount }}
+                        {{ $lowStocksPaginates->min_ammount }}
                     </th>
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        {{ $stok->stock_akhir }}
+                        {{ $lowStocksPaginates->stock_akhir }}
                     </th>
                     <td class="px-6 py-4">
-                        {{ "Rp " . number_format($stok->harga_ecer ,2,',','.') }}
+                        {{ "Rp " . number_format($lowStocksPaginates->harga_ecer ,2,',','.') }}
                     </td>
                     <td class="px-6 py-4">
-                        {{ "Rp " . number_format($stok->harga_rs ,2,',','.') }}
+                        {{ "Rp " . number_format($lowStocksPaginates->harga_rs ,2,',','.') }}
                     </td>
                     <td class="px-6 py-4">
-                        {{ "Rp " . number_format($stok->harga_mkl ,2,',','.') }}
+                        {{ "Rp " . number_format($lowStocksPaginates->harga_mkl ,2,',','.') }}
                     </td>
                     <td class="px-6 py-4">
-                        {{ "Rp " . number_format($stok->harga_ds ,2,',','.') }}
+                        {{ "Rp " . number_format($lowStocksPaginates->harga_ds ,2,',','.') }}
                     </td>
                 </tr>
                 @endforeach
@@ -350,25 +332,7 @@
         {{-- pagination --}}
 
         <div class="flex justify-center py-24 mr-6">
-            <nav aria-label="Page navigation example">
-                <ul class="flex list-style-none">
-                    <li class="page-item disabled"><a
-                            class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-500 pointer-events-none focus:shadow-none"
-                            href="#" tabindex="-1" aria-disabled="true">Previous</a></li>
-                    <li class="page-item"><a
-                            class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
-                            href="#">1</a></li>
-                    <li class="page-item active"><a
-                            class="page-link relative block py-1.5 px-3 rounded border-0 bg-blue-600 outline-none transition-all duration-300  text-white hover:text-white hover:bg-blue-600 shadow-md focus:shadow-md"
-                            href="#">2 <span class="visually-hidden">(current)</span></a></li>
-                    <li class="page-item"><a
-                            class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
-                            href="#">3</a></li>
-                    <li class="page-item"><a
-                            class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
-                            href="#">Next</a></li>
-                </ul>
-            </nav>
+            {{$lowStocksPaginate->links()}}
         </div>
     </div>
 </div>
@@ -376,24 +340,28 @@
 
 
 {{-- In & Out Products --}}
+<div class="absolute ml-40 mt-28">
 
+
+</div>
+</div>
 <div
-class="w-[1024px] h-[570px] rounded-[13px] overflow-hidden ml-40 mt-20 bg-white border border-[#686868CF] shadow-[0px_8px_8px_rgba(0,0,0,0.5)]">
-<div class="absolute ml-4 mt-4">
-    <div class="grid grid-flow-col gap-[650px]">
-        <h5 class="text-3xl font-bold tracking-tight text-gray-900 ">In & Out Products</h5>
+    class="w-[1024px] h-[570px] rounded-[13px] overflow-hidden ml-40 mt-20 bg-white border border-[#686868CF] shadow-[0px_8px_8px_rgba(0,0,0,0.5)]">
+    <div class="absolute ml-4 mt-4">
+        <div class="grid grid-flow-col gap-[650px]">
+            <h5 class="text-3xl font-bold tracking-tight text-gray-900 ">In & Out Products</h5>
     <div>
         <button id="innout" data-dropdown-toggle="innoutTrigger">
-            <div class="inline-flex">
-                <p class="font-normal text-xl text-black/60">Monthly</p>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="0.5"
-                        stroke="currentColor" class="w-5 h-5 ml-2 mt-2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                    </svg>
+                    <div class="inline-flex">
+                        <p class="font-normal text-xl text-black/60">Monthly</p>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="0.5"
+                                stroke="currentColor" class="w-5 h-5 ml-2 mt-2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                            </svg>
             </div>
-        </button>
-    </div>
-    </div>
+                </button>
+            </div>
+        </div>
     </div>
     <div class="grid grid-flow-row mt-12">
         <div>
@@ -460,7 +428,7 @@ class="w-[1024px] h-[570px] rounded-[13px] overflow-hidden ml-40 mt-20 bg-white 
                 </tr>
             </thead>
             <tbody>
-                @foreach($inout as $inout)
+                @foreach($inoutPaginate as $inoutPaginates)
                 <tr
                     class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                     <td class="w-4 p-4">
@@ -471,28 +439,28 @@ class="w-[1024px] h-[570px] rounded-[13px] overflow-hidden ml-40 mt-20 bg-white 
                         </div>
                     </td>
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        {{ $inout->kode_barang }}
+                        {{ $inoutPaginates->kode_barang }}
                     </th>
                     <td class="px-6 py-4">
-                        {{ $inout->produkJadi->nama_barang }}
+                        {{ $inoutPaginates->produkJadi->nama_barang }}
                     </td>
                     <td class="px-6 py-4">
-                        {{ $inout->produkJadi->size }}
+                        {{ $inoutPaginates->produkJadi->size }}
                     </td>
                     <td class="px-6 py-4">
-                        {{ $inout->barang_masuk }}
+                        {{ $inoutPaginates->barang_masuk }}
                     </td>
                     <td class="px-6 py-4">
-                        {{ $inout->barang_keluar }}
+                        {{ $inoutPaginates->barang_keluar }}
                     </td>
                     <td class="px-6 py-4">
-                        {{ $inout->user->username }}
+                        {{ $inoutPaginates->user->username }}
                     </td>
                     <td class="px-6 py-4">
-                        {{ $inout->date_in ? $inout->date_in : NULL }}
+                        {{ $inoutPaginates->date_in ? $inoutPaginates->date_in : NULL }}
                     </td>
                     <td class="px-6 py-4">
-                        {{ $inout->date_out ? $inout->date_out : NULL }}
+                        {{ $inoutPaginates->date_out ? $inoutPaginates->date_out : NULL }}
                     </td>
                 </tr>
                 @endforeach
@@ -501,25 +469,7 @@ class="w-[1024px] h-[570px] rounded-[13px] overflow-hidden ml-40 mt-20 bg-white 
         </table>
     </div>
     <div class="flex justify-center py-5">
-        <nav aria-label="Page navigation example">
-            <ul class="flex list-style-none">
-                <li class="page-item disabled"><a
-                        class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-500 pointer-events-none focus:shadow-none"
-                        href="#" tabindex="-1" aria-disabled="true">Previous</a></li>
-                <li class="page-item"><a
-                        class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
-                        href="#">1</a></li>
-                <li class="page-item active"><a
-                        class="page-link relative block py-1.5 px-3 rounded border-0 bg-blue-600 outline-none transition-all duration-300  text-white hover:text-white hover:bg-blue-600 shadow-md focus:shadow-md"
-                        href="#">2 <span class="visually-hidden">(current)</span></a></li>
-                <li class="page-item"><a
-                        class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
-                        href="#">3</a></li>
-                <li class="page-item"><a
-                        class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
-                        href="#">Next</a></li>
-            </ul>
-        </nav>
+        {{$inoutPaginate->links()}}
     </div>
 </div>
 </div>
@@ -633,31 +583,31 @@ class="w-[1024px] h-[570px] rounded-[13px] overflow-hidden ml-40 mt-20 bg-white 
             </thead>
 
             <tbody>
-                @foreach($produkCurah as $pc)
+                @foreach($produkCurahPaginate as $produkCurahPaginates)
                 <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        {{ $pc->kode_barang }}
+                        {{ $produkCurahPaginates->kode_barang }}
                     </th>
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        {{ $pc->nama_barang }}
+                        {{ $produkCurahPaginates->nama_barang }}
                     </th>
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        {{ $pc->size }}
+                        {{ $produkCurahPaginates->size }}
                     </th>
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        {{ $pc->stock }}
+                        {{ $produkCurahPaginates->stock }}
                     </th>
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        {{ $pc->min_ammount }}
+                        {{ $produkCurahPaginates->min_ammount }}
                     </th>
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        {{ $pc->stock_akhir }}
+                        {{ $produkCurahPaginates->stock_akhir }}
                     </th>
                     <td class="px-6 py-4">
-                        {{ "Rp " . number_format($pc->harga ,2,',','.') }}
+                        {{ "Rp " . number_format($produkCurahPaginates->harga ,2,',','.') }}
                     </td>
                     <td>
-                        <a href="{{ route('curah.edit', ['curah' => $pc->id ]) }}">
+                        <a href="{{ route('curah.edit', ['curah' => $produkCurahPaginates->id ]) }}">
                             <button>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -667,7 +617,8 @@ class="w-[1024px] h-[570px] rounded-[13px] overflow-hidden ml-40 mt-20 bg-white 
                                 </svg>
                             </button>
                         </a>
-                        <form action="{{ route('curah.destroy', ['curah' => $pc->id]) }}" method="post" class='inline'>
+                        <form action="{{ route('curah.destroy', ['curah' => $produkCurahPaginates->id]) }}"
+                            method="post" class='inline'>
                             <button onclick="return confirm('Are you sure?')">
                                 @csrf
                                 @method('delete')
@@ -689,25 +640,7 @@ class="w-[1024px] h-[570px] rounded-[13px] overflow-hidden ml-40 mt-20 bg-white 
         {{-- pagination --}}
 
         <div class="flex justify-center py-24 mr-6">
-            <nav aria-label="Page navigation example">
-                <ul class="flex list-style-none">
-                    <li class="page-item disabled"><a
-                            class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-500 pointer-events-none focus:shadow-none"
-                            href="#" tabindex="-1" aria-disabled="true">Previous</a></li>
-                    <li class="page-item"><a
-                            class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
-                            href="#">1</a></li>
-                    <li class="page-item active"><a
-                            class="page-link relative block py-1.5 px-3 rounded border-0 bg-blue-600 outline-none transition-all duration-300  text-white hover:text-white hover:bg-blue-600 shadow-md focus:shadow-md"
-                            href="#">2 <span class="visually-hidden">(current)</span></a></li>
-                    <li class="page-item"><a
-                            class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
-                            href="#">3</a></li>
-                    <li class="page-item"><a
-                            class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
-                            href="#">Next</a></li>
-                </ul>
-            </nav>
+            {{$produkCurahPaginate->links()}}
         </div>
     </div>
 </div>
@@ -836,31 +769,31 @@ class="w-[1024px] h-[570px] rounded-[13px] overflow-hidden ml-40 mt-20 bg-white 
                         </th>
                     </tr>
                 </thead>
-                @foreach($barangPendukung as $barangPendukung)
+                @foreach($barangPendukungPaginate as $barangPendukungPaginates)
                 <tbody>
                     <tr
                         class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                         <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            {{ $barangPendukung->kode_barang }}
+                            {{ $barangPendukungPaginates->kode_barang }}
                         </th>
                         <td class="px-6 py-4">
-                            {{ $barangPendukung->nama_barang }}
+                            {{ $barangPendukungPaginates->nama_barang }}
                         </td>
                         <td class="px-6 py-4">
-                            {{$barangPendukung->size}}
+                            {{$barangPendukungPaginates->size}}
                         </td>
                         <td class="px-6 py-4">
-                            {{ $barangPendukung->stock }}
+                            {{ $barangPendukungPaginates->stock }}
                         </td>
                         <td class="px-6 py-4">
-                            {{ $barangPendukung->stock }}
+                            {{ $barangPendukungPaginates->stock }}
                         </td>
                         <td class="px-6 py-4">
-                            {{ "Rp " . number_format($barangPendukung->price ,2,',','.') }}
+                            {{ "Rp " . number_format($barangPendukungPaginates->price ,2,',','.') }}
                         </td>
                         <td class="px-6 py-4">
                             <a
-                                href="{{ route('barang_pendukung.edit', ['barang_pendukung' => $barangPendukung->id ]) }}">
+                                href="{{ route('barang_pendukung.edit', ['barang_pendukung' => $barangPendukungPaginates->id ]) }}">
                                 <button>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -871,7 +804,7 @@ class="w-[1024px] h-[570px] rounded-[13px] overflow-hidden ml-40 mt-20 bg-white 
                                 </button>
                             </a>
                             <form
-                                action="{{ route('barang_pendukung.destroy', ['barang_pendukung' => $barangPendukung->id]) }}"
+                                action="{{ route('barang_pendukung.destroy', ['barang_pendukung' => $barangPendukungPaginates->id]) }}"
                                 method="post" class='inline'>
                                 <button onclick="return confirm('Are you sure?')">
                                     @csrf
@@ -892,25 +825,7 @@ class="w-[1024px] h-[570px] rounded-[13px] overflow-hidden ml-40 mt-20 bg-white 
             </table>
         </div>
         <div class="flex justify-center mt-14">
-            <nav aria-label="Page navigation example">
-                <ul class="flex list-style-none">
-                    <li class="page-item disabled"><a
-                            class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-500 pointer-events-none focus:shadow-none"
-                            href="#" tabindex="-1" aria-disabled="true">Previous</a></li>
-                    <li class="page-item"><a
-                            class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
-                            href="#">1</a></li>
-                    <li class="page-item active"><a
-                            class="page-link relative block py-1.5 px-3 rounded border-0 bg-blue-600 outline-none transition-all duration-300  text-white hover:text-white hover:bg-blue-600 shadow-md focus:shadow-md"
-                            href="#">2 <span class="visually-hidden">(current)</span></a></li>
-                    <li class="page-item"><a
-                            class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
-                            href="#">3</a></li>
-                    <li class="page-item"><a
-                            class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
-                            href="#">Next</a></li>
-                </ul>
-            </nav>
+            {{$barangPendukungPaginate->links()}}
         </div>
     </div>
 </div>

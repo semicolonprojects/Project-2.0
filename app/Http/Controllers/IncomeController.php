@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreIncomeRequest;
 use App\Http\Requests\UpdateIncomeRequest;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\Paginator;
 
 class IncomeController extends Controller
 {
@@ -19,8 +20,15 @@ class IncomeController extends Controller
     public function index()
     {
         $income = Income::all();
+
+        $perPage = 10; // Jumlah item per halaman
+        $currentPage = Paginator::resolveCurrentPage('page');
+        $path = Paginator::resolveCurrentPath();
+
+        $incomePaginate = Income::paginateCollection($income, $perPage, $currentPage, $path);
+
         $channel = Channel::all();
-        return view('dashboard.finance.finance-income', compact('income', 'channel'));
+        return view('dashboard.finance.finance-income', compact('incomePaginate', 'channel'));
     }
 
     /**

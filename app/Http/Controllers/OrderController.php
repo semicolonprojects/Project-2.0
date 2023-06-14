@@ -10,6 +10,7 @@ use App\Models\Customer;
 use App\Models\InOut;
 use App\Models\ProdukJadi;
 use App\Models\TargetKaryawan;
+use Illuminate\Pagination\Paginator;
 
 class OrderController extends Controller
 {
@@ -23,7 +24,14 @@ class OrderController extends Controller
         $order = Order::all();
         $cust_order = new Order();
         $show = $cust_order->show();
-        return view('dashboard.marketing.mktdash5', compact('order', 'show'));
+
+        $perPage = 10; // Jumlah item per halaman
+        $currentPage = Paginator::resolveCurrentPage('page');
+        $path = Paginator::resolveCurrentPath();
+
+        $showPaginate = Order::paginateCollection($show, $perPage, $currentPage, $path);
+
+        return view('dashboard.marketing.mktdash5', compact('order', 'showPaginate'));
     }
 
     /**
@@ -197,6 +205,7 @@ class OrderController extends Controller
         $updateInOut = InOut::where('id', $id)->firstOrFail();
         $updateInOut->update(['barang_keluar' => $request->input('total_order')]);
 
+
         $order->save();
         return redirect()->route('order.show', ['order' => $order->order_id])->with('stok', 'Stok Berhasil Diupdate');
     }
@@ -220,9 +229,11 @@ class OrderController extends Controller
         $id = $inout->id;
         $updateInOut = InOut::where('id', $id)->firstOrFail();
         $updateInOut->delete();
-
         // Menghapus order
         $order->delete();
+        $target = TargetKaryawan::findOrFail($order->user_id);
+        $updatetarget = $target->total_tercapai - $order->komisi;
+        $target->update(['total_tercapai' => $updatetarget]);
 
         $count = Order::where('order_id', $order->order_id)->count();
 
@@ -231,5 +242,40 @@ class OrderController extends Controller
         } else {
             return redirect()->route('order.show', ['order' => $order->order_id])->with('success', 'Order berhasil dihapus');
         }
+    }
+
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+        $results = Order::where(function ($queryBuilder) use ($query) {
+            $queryBuilder->where('order_id', 'LIKE', '%' . $query . '%')
+                ->orWhere('customer_id', 'LIKE', '%' . $query . '%')
+                ->orWhere('user_id', 'LIKE', '%' . $query . '%')
+                ->orWhere('kode_barang', 'LIKE', '%' . $query . '%')
+                ->orWhere('status_pembayaran', 'LIKE', '%' . $query . '%')
+                ->orWhere('tipe_pembayaran', 'LIKE', '%' . $query . '%')
+                ->orWhere('total_termin', 'LIKE', '%' . $query . '%')
+                ->orWhere('tenggat_order', 'LIKE', '%' . $query . '%')
+                ->orWhere('tipe_pesanan', 'LIKE', '%' . $query . '%')
+                ->orWhere('total_pembelian', 'LIKE', '%' . $query . '%')
+                ->orWhere('total_order', 'LIKE', '%' . $query . '%')
+                ->orWhere('diskon', 'LIKE', '%' . $query . '%')
+                ->orWhere('ongkir', 'LIKE', '%' . $query . '%')
+                ->orWhere('status_barang', 'LIKE', '%' . $query . '%')
+                ->orWhere('note', 'LIKE', '%' . $query . '%')
+                ->orWhere('komisi', 'LIKE', '%' . $query . '%');
+            // Lanjutkan dengan menambahkan atau mengubah where clause sesuai dengan daftar kolom yang Anda miliki pada model Anda
+        })->get();
+
+        $cust_order = new Order();
+        $show = $cust_order->show();
+
+        $perPage = 10; // Jumlah item per halaman
+        $currentPage = Paginator::resolveCurrentPage('page');
+        $path = Paginator::resolveCurrentPath();
+        $showPaginate = Order::paginateCollection($show, $perPage, $currentPage, $path);
+
+        // Lakukan sesuatu dengan hasil pencarian (misalnya, kirim data ke view)
+        return view('dashboard.marketing.mktdash5', compact('results', 'showPaginate'));
     }
 }

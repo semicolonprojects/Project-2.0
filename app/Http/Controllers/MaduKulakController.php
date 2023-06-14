@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreMaduKulakRequest;
 use App\Http\Requests\UpdateMaduKulakRequest;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\Paginator;
 
 class MaduKulakController extends Controller
 {
@@ -18,7 +19,14 @@ class MaduKulakController extends Controller
     public function index()
     {
         $madukulak = MaduKulak::all();
-        return view('dashboard.logistik.madu-kulak',compact('madukulak'));
+
+        $perPage = 10; // Jumlah item per halaman
+        $currentPage = Paginator::resolveCurrentPage('page');
+        $path = Paginator::resolveCurrentPath();
+
+        $madukulakPaginate = MaduKulak::paginateCollection($madukulak, $perPage, $currentPage, $path);
+
+        return view('dashboard.logistik.madu-kulak', compact('madukulakPaginate'));
     }
 
     /**
@@ -68,7 +76,7 @@ class MaduKulakController extends Controller
         $total = 0;
 
 
-        $sum= ($a * $request->harga_per_gram);
+        $sum = ($a * $request->harga_per_gram);
 
         $validatedData['harga_total'] = $sum;
 

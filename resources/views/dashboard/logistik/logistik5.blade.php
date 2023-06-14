@@ -53,7 +53,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($supplierCurah2 as $ds)
+                @foreach($supplierCurahPaginate as $supplierCurahPaginates)
                 <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                     <td class="w-4 p-4">
                         <div class="flex items-center">
@@ -63,17 +63,17 @@
                         </div>
                     </td>
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        {{ $ds->supplier_name }}
+                        {{ $supplierCurahPaginates->supplier_name }}
                     </th>
                     <td class="px-6 py-4">
-                        {{ $ds->phone }} <br>
-                        {{ $ds->email }}
+                        {{ $supplierCurahPaginates->phone }} <br>
+                        {{ $supplierCurahPaginates->email }}
                     </td>
                     <td class="px-4 py-4">
-                        {{ $ds->supplier_type }}
+                        {{ $supplierCurahPaginates->supplier_type }}
                     </td>
                     <td class="px-6 py-4">
-                        {{ $ds->address }}
+                        {{ $supplierCurahPaginates->address }}
                     </td>
                     <td>
                         <button>
@@ -84,7 +84,8 @@
                                 <circle cx="12" cy="12" r="3"></circle>
                             </svg>
                         </button>
-                        <button id="defaultModalButton-{{ $ds->id }}" data-modal-toggle="defaultModal-{{ $ds->id }}">
+                        <button id="defaultModalButton-{{ $supplierCurahPaginates->id }}"
+                            data-modal-toggle="defaultModal-{{ $supplierCurahPaginates->id }}">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round">
@@ -92,7 +93,8 @@
                                 <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
                             </svg>
                         </button>
-                        <form action="{{ route('data_supplier_curah.destroy', ['data_supplier_curah' => $ds->id]) }}"
+                        <form
+                            action="{{ route('data_supplier_curah.destroy', ['data_supplier_curah' => $supplierCurahPaginates->id]) }}"
                             method="post" class='inline'>
                             <button onclick="return confirm('Are you sure?')">
                                 @csrf
@@ -113,25 +115,7 @@
         </table>
     </div>
     <div class="flex justify-center py-5 mr-9">
-        <nav aria-label="Page navigation example">
-            <ul class="flex list-style-none">
-                <li class="page-item disabled"><a
-                        class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-500 pointer-events-none focus:shadow-none"
-                        href="#" tabindex="-1" aria-disabled="true">Previous</a></li>
-                <li class="page-item"><a
-                        class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
-                        href="#">1</a></li>
-                <li class="page-item active"><a
-                        class="page-link relative block py-1.5 px-3 rounded border-0 bg-blue-600 outline-none transition-all duration-300  text-white hover:text-white hover:bg-blue-600 shadow-md focus:shadow-md"
-                        href="#">2 <span class="visually-hidden">(current)</span></a></li>
-                <li class="page-item"><a
-                        class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
-                        href="#">3</a></li>
-                <li class="page-item"><a
-                        class="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
-                        href="#">Next</a></li>
-            </ul>
-        </nav>
+        {{$supplierCurahPaginate->links()}}
     </div>
 </div>
 
@@ -184,8 +168,8 @@
                             placeholder="Product brand" required="">
                     </div>
                     <div>
-                        <label for="brand"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Harga Kulak</label>
+                        <label for="brand" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Harga
+                            Kulak</label>
                         <input type="price" name="entry_price" id="brand"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                             placeholder="Product brand" required="">

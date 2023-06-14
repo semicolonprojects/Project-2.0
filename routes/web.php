@@ -14,7 +14,6 @@ use App\Http\Controllers\IzinController;
 use App\Http\Controllers\KeluarController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogistikController;
-use App\Http\Controllers\MarketingKonsinyasiDashboard;
 use App\Http\Controllers\MasukController;
 use App\Http\Controllers\MktdashController;
 use App\Http\Controllers\OrderController;
@@ -29,14 +28,10 @@ use App\Http\Controllers\OutcomesDetailController;
 use App\Http\Controllers\SupplierCurahController;
 use App\Http\Controllers\IncomeController;
 use App\Http\Controllers\MaduKulakController;
-use App\Http\Controllers\MktCurahdash;
 use App\Http\Controllers\MktCurahdashController;
 use App\Http\Controllers\OrderCurahController;
 use App\Http\Controllers\TargetKaryawanController;
 use App\Http\Controllers\TargetKaryawanCurahController;
-use App\Models\OrderCurah;
-use App\Models\TargetKaryawanCurah;
-use Illuminate\Routing\Route as RoutingRoute;
 
 /*
 |--------------------------------------------------------------------------
@@ -109,7 +104,7 @@ Route::get('/logout', [LoginController::class, 'logout']);
 
 Route::get('/admin', [MasukController::class, 'index']);
 
-Route::get('/superadmin', [SuperAdminController::class, 'index'])->middleware('auth', 'superadmin');
+Route::get('/superadmin', [SuperAdminController::class, 'index'])->middleware('auth', 'superadmin')->name('superadmin.index');
 
 Route::get('/marketing', [MktdashController::class, 'index'])->middleware('marketing', 'auth');
 
@@ -119,7 +114,11 @@ Route::get('/marketing/channel', [ChannelController::class, 'index'])->middlewar
 
 Route::get('/marketing/customerinfo', [CustomerController::class, 'index'])->middleware('marketing', 'auth');
 
+Route::get('/marketing/customerinfo', [CustomerController::class, 'search']);
+
 Route::get('/marketing/orderstats', [OrderController::class, 'index'])->middleware('marketing', 'auth');
+
+Route::get('/marketing/orderstats', [OrderController::class, 'search'])->middleware('marketing', 'auth');
 
 Route::patch('/marketing/customerinfo-update', function () {
     return view('dashboard.marketing.mkt-ci-update');
@@ -135,19 +134,17 @@ Route::get('/logistik/datasupplier', [DataSupplierController::class, 'index'])->
 
 Route::get('/logistik/innout', [InOutController::class, 'index'])->middleware('logistik', 'auth');
 
+Route::get('/logistik/innout', [InOutController::class, 'search'])->middleware('logistik', 'auth');
+
 Route::get('/logistik/innout-curah', [InOutCurahController::class, 'index'])->middleware('logistik', 'auth');
+
+Route::get('/logistik/innout-curah', [InOutCurahController::class, 'search'])->middleware('logistik', 'auth');
 
 Route::get('/logistik/innout-pendukung', [InOutPendukungController::class, 'index'])->middleware('logistik', 'auth');
 
-Route::get('/logistik/tanggalprod', function () {
-    return view('dashboard.logistik.logistik4');
-})->middleware('logistik', 'auth');
+Route::get('/logistik/innout-pendukung', [InOutPendukungController::class, 'search'])->middleware('logistik', 'auth');
 
 Route::get('/logistik/datasupplier-c', [SupplierCurahController::class, 'index'])->middleware('logistik', 'auth');
-
-Route::get('/logistik/dbb', function () {
-    return view('dashboard.logistik.logistik6');
-})->middleware('logistik', 'auth');
 
 Route::get('/logistik/bahanmadu', [MaduKulakController::class, 'index'])->middleware('logistik', 'superadmin', 'auth');
 
@@ -155,38 +152,16 @@ Route::get('/hpp', [HargaPokokPenjualanController::class, 'index'])->middleware(
 
 Route::get('/finance', [FinanceController::class, 'index'])->middleware('finance', 'auth');
 
-Route::get('/finance/invoice', function () {
-    return view('dashboard.finance.finance-invoice');
-})->middleware('finance', 'auth');
-
 Route::get('/finance/income', [IncomeController::class, 'index'])->middleware('finance', 'auth');
 
 Route::get('/finance/outcome', [OutcomeController::class, 'index'])->name('outcomes.index')->middleware('finance', 'auth');
 
 Route::get('/invoice/download/{id}', [FinanceInvoiceController::class, 'generate'])->name('invoice.download');
 
-Route::get('/curah-customer-info', function () {
-    return view('dashboard.marketing-curah.mktc-customer-info');
-});
-
 Route::get('/curah', [MktCurahdashController::class, 'index'])->middleware('curah', 'auth');
 
 Route::get('/curah-order', [OrderCurahController::class, 'index'])->middleware('curah', 'auth');
 
-Route::get('/curah/innout', function () {
-    return view('dashboard.marketing-curah.mkt-curah-innout');
-});
-
-Route::get('/curah/detailtermin', function () {
-    return view('dashboard.marketing-curah.mkt-curah-detail-termin');
-});
-
-Route::get('/curah/paymentstats', function () {
-    return view('dashboard.marketing-curah.mkt-curah-payment-stats');
-});
-
-Route::get('/curah/topcust', function () {
-    return view('dashboard.marketing-curah.mkt-curah-topcust');
-});
+Route::get('/curah-order', [OrderCurahController::class, 'search'])->middleware('curah', 'auth');
 
 Route::get('/data-absen', [DataAbsenController::class, 'index']);

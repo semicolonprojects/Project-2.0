@@ -5,6 +5,9 @@ namespace App\Models;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Collection;
 
 class Income extends Model
 {
@@ -25,5 +28,22 @@ class Income extends Model
             ->whereMonth('created_at', Carbon::now()->month)
             ->groupBy('month_year')
             ->get();
+    }
+
+    public static function paginateCollection(Collection $collection, $perPage, $currentPage, $path)
+    {
+        $queryBuilder = new Collection($collection);
+
+        $paginator = new LengthAwarePaginator(
+            $queryBuilder->forPage($currentPage, $perPage),
+            $queryBuilder->count(),
+            $perPage,
+            $currentPage,
+            ['path' => $path]
+        );
+
+        Paginator::useTailwind();
+
+        return $paginator;
     }
 }

@@ -6,6 +6,7 @@ use App\Models\Customer;
 use App\Http\Controllers\Controller;
 use App\Models\Order;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\URL;
 use PhpParser\Node\Expr\New_;
@@ -23,7 +24,14 @@ class CustomerController extends Controller
         $wallet = Order::groupBy('customer_id')
             ->selectRaw('customer_id, SUM(total_pembelian) as total')
             ->get();
-        return view('dashboard.marketing.mktdash4', compact('customer', 'wallet'));
+
+        $perPage = 10; // Jumlah item per halaman
+        $currentPage = Paginator::resolveCurrentPage('page');
+        $path = Paginator::resolveCurrentPath();
+
+        $customerPaginate = Customer::paginateCollection($customer, $perPage, $currentPage, $path);
+
+        return view('dashboard.marketing.mktdash4', compact('customerPaginate', 'wallet'));
     }
 
     /**
@@ -55,15 +63,15 @@ class CustomerController extends Controller
             'tanggal_lahir' => 'required'
         ]);
 
-        
+
 
         $customer = new Customer;
-         $customer->tipe_customer = $request->tipe_customer;
-         $customer->customer_id = $customer->tipe_customer . '-' . $request->customer_id;
-         $validatedData['customer_id'] = $customer->customer_id;
-         $validatedData['user_id'] = auth()->user()->id;
-         $customer->fill($validatedData);
-         $customer->save();
+        $customer->tipe_customer = $request->tipe_customer;
+        $customer->customer_id = $customer->tipe_customer . '-' . $request->customer_id;
+        $validatedData['customer_id'] = $customer->customer_id;
+        $validatedData['user_id'] = auth()->user()->id;
+        $customer->fill($validatedData);
+        $customer->save();
         return redirect('/marketing/customerinfo')->with('success', 'Customer added successfully.');
     }
 
@@ -126,5 +134,36 @@ class CustomerController extends Controller
         $customer = Customer::find($id);
         $customer->delete();
         return redirect('/marketing/customerinfo')->with('delete', 'Customer deleted successfully.');
+    }
+
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+        $results = Customer::where(function ($queryBuilder) use ($query) {
+            $queryBuilder->where('tipe_customer', 'LIKE', '%' . $query . '%')
+                ->orWhere('customer_id', 'LIKE', '%' . $query . '%')
+                ->orWhere('nama_lengkap', 'LIKE', '%' . $query . '%')
+                ->orWhere('alamat', 'LIKE', '%' . $query . '%')
+                ->orWhere('no_telepon', 'LIKE', '%' . $query . '%')
+                ->orWhere('email', 'LIKE', '%' . $query . '%')
+                ->orWhere('tempat', 'LIKE', '%' . $query . '%')
+                ->orWhere('tanggal_lahir', 'LIKE', '%' . $query . '%')
+                ->orWhere('nama_lengkap', 'LIKE', '%' . $query . '%');
+            // Lanjutkan dengan menambahkan atau mengubah where clause sesuai dengan daftar kolom yang Anda miliki pada model Anda
+        })->get();
+
+
+        $perPage = 10; // Jumlah item per halaman
+        $currentPage = Paginator::resolveCurrentPage('page');
+        $path = Paginator::resolveCurrentPath();
+
+        $customerPaginate = Customer::paginateCollection($results, $perPage, $currentPage, $path);
+
+        $wallet = Order::groupBy('customer_id')
+            ->selectRaw('customer_id, SUM(total_pembelian) as total')
+            ->get();
+
+        // Lakukan sesuatu dengan hasil pencarian (misalnya, kirim data ke view)
+        return view('dashboard.marketing.mktdash4', ['customerPaginate' => $customerPaginate, 'wallet' => $wallet]);
     }
 }
