@@ -33,7 +33,7 @@
 <div
     class="w-[1224px] h-[600px] rounded-[13px] overflow-hidden ml-16 mt-28 bg-white border border-[#686868CF] shadow-[0px_8px_8px_rgba(0,0,0,0.5)]">
     <div class="absolute ml-4 mt-4">
-        <div class="grid grid-flow-col gap-[920px]">
+        <div class="grid grid-flow-col gap-[940px]">
             <h5 class="text-3xl font-bold tracking-tight text-gray-900 ">Stock</h5>
             <div class="grid grid-flow-row mt-1">
                 <button type="button" data-modal-target="authentication-modal-stock"
@@ -376,23 +376,21 @@
 
 
 {{-- In & Out Products --}}
-<div class="absolute ml-40 mt-28">
-    
-       
-</div>
-</div>
+
 <div
-class="w-[1024px] h-[570px] rounded-[13px] overflow-hidden ml-40 mt-40 bg-white border border-[#686868CF] shadow-[0px_8px_8px_rgba(0,0,0,0.5)]">
+class="w-[1024px] h-[570px] rounded-[13px] overflow-hidden ml-40 mt-20 bg-white border border-[#686868CF] shadow-[0px_8px_8px_rgba(0,0,0,0.5)]">
 <div class="absolute ml-4 mt-4">
-    <div class="grid grid-flow-col gap-[680px]">
-        <h5 class="text-2xl font-bold tracking-tight text-gray-900 ">In & Out Products</h5>
-    <div class="inline-flex">
-        <p class="font-normal text-xl text-black/60">Monthly</p>
+    <div class="grid grid-flow-col gap-[650px]">
+        <h5 class="text-3xl font-bold tracking-tight text-gray-900 ">In & Out Products</h5>
+    <div>
         <button id="innout" data-dropdown-toggle="innoutTrigger">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="0.5"
-                stroke="currentColor" class="w-5 h-5 ml-3">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-            </svg>
+            <div class="inline-flex">
+                <p class="font-normal text-xl text-black/60">Monthly</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="0.5"
+                        stroke="currentColor" class="w-5 h-5 ml-2 mt-2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                    </svg>
+            </div>
         </button>
     </div>
     </div>
@@ -528,66 +526,54 @@ class="w-[1024px] h-[570px] rounded-[13px] overflow-hidden ml-40 mt-40 bg-white 
 
 
 
-{{-- STOCK NON MADU --}}
-<div class="absolute ml-36 mt-20">
-    <div class="grid grid-flow-col gap-[640px] mb-3 px-5">
-        <div class="flex md:order-2">
-            <form class="flex items-center">
-                <label for="simple-search" class="sr-only">Search</label>
-                <div class="relative w-full">
-                    <div>
-                        <button class="absolute inset-y-0 right-0 flex items-center pr-3 type=" submit"
-                            class="p-2.5 ml-3 text-sm font-medium text-white bg-blue-700 rounded-[22px] border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 ">
-                            <svg class="w-5 h-5 text-yellow-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                            </svg>
-                            <span class="sr-only">Search Anything</span>
-                        </button>
+{{-- STOCK CURAH --}}
+<div
+    class="w-[1024px] h-[500px] rounded-[13px] overflow-hidden ml-40 mt-16 bg-white border border-[#686868CF] shadow-[0px_8px_8px_rgba(0,0,0,0.5)]">
+    <div class="absolute ml-4 mt-4">
+        <div class="grid grid-flow-col gap-[600px]">
+            <div class="grid-flow-row">
+                <h5 class="text-3xl font-bold tracking-tight  text-gray-900 ">Stock Curah</h5>
+            </div>
+            <div class="flex md:order-2">
+                <form class="flex items-center">
+                    <label for="simple-search" class="sr-only">Search</label>
+                    <div class="relative w-full">
+                        <div>
+                            <button class="absolute inset-y-0 right-0 flex items-center pr-3 type=" submit"
+                                class="p-2.5 ml-3 text-sm font-medium text-white bg-blue-700 rounded-[22px] border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 ">
+                                <svg class="w-5 h-5 text-yellow-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                                </svg>
+                                <span class="sr-only">Search Anything</span>
+                            </button>
+                        </div>
+                        <input type="text" id="search"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-yellow-300 focus:border-yellow-300 block w-full pl-10 p-2.5  "
+                            placeholder="Search">
                     </div>
-                    <input type="text" id="search"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-yellow-300 focus:border-yellow-300 block w-full pl-10 p-2.5  "
-                        placeholder="Search">
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
-        <div>
+    </div>
+
+    <div class="grid grid-flow-row mt-16">
+        <div class="grid-flow-row ml-3">
             <a href="{{ route('curah.create') }}">
                 <button type="button"
-                    class="text-white bg-[#22DB66] font-medium rounded-[22px] text-[13px] px-3 py-2.5 inline-flex items-center">
+                    class="text-white bg-[#22DB66] font-medium rounded-[20px] text-[13px] px-3 py-2.5 inline-flex items-center">
                     <div class="px-2">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="w-6 h-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                         </svg>
                     </div>
-                    Add New Curah
+                    Add New Stock Curah
                 </button>
             </a>
         </div>
-    </div>
-</div>
-
-<div
-    class="w-[1024px] h-[500px] rounded-[13px] overflow-hidden ml-40 mt-36 bg-white border border-[#686868CF] shadow-[0px_8px_8px_rgba(0,0,0,0.5)]">
-    <div class="absolute ml-6 mt-4">
-        <div class="grid grid-flow-col gap-[700px]">
-            <h5 class="text-3xl font-bold tracking-tight text-gray-900 ">Stock Curah</h5>
-            <div class="grid grid-flow-col">
-                <button data-modal-target="defaultModal" data-modal-toggle="defaultModal">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="w-8 h-8">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
-                    </svg>
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <div class="grid grid-flow-row mt-12">
-        <div>
+        <div class="grid-flow-row">
             <button type="button"
                 class="min-w-fit text-green-600/80 border border-green-500 bg-white hover:bg-green-300/80 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mt-5 ml-4">
                 <svg class="mr-5" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
@@ -599,7 +585,7 @@ class="w-[1024px] h-[570px] rounded-[13px] overflow-hidden ml-40 mt-40 bg-white 
                 <p class="mr-3">Import</p>
             </button>
         </div>
-        <div class="absolute mt-12">
+        <div class="absolute mt-24">
             <button type="button"
                 class="text-blue-700/80 border border-blue-500 bg-white hover:bg-blue-300 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mt-5 ml-4">
                 <svg class="mr-5" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
@@ -747,65 +733,54 @@ class="w-[1024px] h-[570px] rounded-[13px] overflow-hidden ml-40 mt-40 bg-white 
 </div>
 
 {{-- Stock Barang Pendukung --}}
-<div class="absolute ml-40 mt-28">
-    <div class="grid grid-flow-col gap-[650px]">
-        <div class="">
-            <form class="flex items-center">
-                <label for="simple-search" class="sr-only">Search</label>
-                <div class="relative w-full">
-                    <div>
-                        <button class="absolute inset-y-0 right-0 flex items-center pr-3 type=" submit"
-                            class="p-2.5 ml-3 text-sm font-medium text-white bg-blue-700 rounded-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 ">
-                            <svg class="w-5 h-5 text-yellow-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                            </svg>
-                            <span class="sr-only">Search Anything</span>
-                        </button>
-                    </div>
-                    <input type="text" id="simple-search"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-yellow-300 focus:border-yellow-300 block w-full pl-10 p-2.5  "
-                        placeholder="Search">
-                </div>
-            </form>
-        </div>
-        <div class="grid grid-flow-col">
-            <div>
-                <a href="{{ route('barang_pendukung.create') }}">
-                    <button
-                        class="text-white bg-[#22DB66] font-medium rounded-[22px] text-[13px] px-3 py-2.5 inline-flex items-center">
-                        <div class="px-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                stroke="currentColor" class="w-6 h-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-                            </svg>
-                        </div>
-                        Add Barang Pendukung
-                    </button>
-                </a>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="pb-10">
+    <div class="pb-10">
     <div
-        class="w-[1024px] h-[610px] rounded-[13px] overflow-hidden ml-40 mt-44 bg-white border border-[#686868CF] shadow-[0px_8px_8px_rgba(0,0,0,0.5)]">
-        <div class="grid grid-flow-col">
-            <div class="inline-flex mt-3 ml-5">
-                <h5 class="text-2xl font-bold tracking-tight text-gray-900 ">Stock Barang Pendukung</h5>
-            </div>
-            <div class="inline-flex mt-3 ml-[650px]">
-                <button>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="w-8 h-8">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
-                    </svg>
-                </button>
+        class="w-[1024px] h-[450px] rounded-[13px] overflow-hidden ml-40 mt-16 bg-white border border-[#686868CF] shadow-[0px_8px_8px_rgba(0,0,0,0.5)]">
+        <div class="absolute mt-3 ml-5">
+            <div class="grid grid-flow-col gap-[420px]">
+                <div class=" ">
+                    <h5 class="text-3xl font-bold tracking-tight text-gray-900 ">Stock Barang Pendukung</h5>
+                </div>
+                <div class="flex md:order-2">
+                    <form class="flex items-center">
+                        <label for="simple-search" class="sr-only">Search</label>
+                        <div class="relative w-full">
+                            <div>
+                                <button class="absolute inset-y-0 right-0 flex items-center pr-3 type=" submit"
+                                    class="p-2.5 ml-3 text-sm font-medium text-white bg-blue-700 rounded-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 ">
+                                    <svg class="w-5 h-5 text-yellow-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                                    </svg>
+                                    <span class="sr-only">Search Anything</span>
+                                </button>
+                            </div>
+                            <input type="text" id="simple-search"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-yellow-300 focus:border-yellow-300 block w-full pl-10 p-2.5  "
+                                placeholder="Search">
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
-        <div class="grid grid-flow-row">
+        <div class="grid grid-flow-row mt-16">
+            <div class="grid-flow-row ml-3">
+                <div>
+                    <a href="{{ route('barang_pendukung.create') }}">
+                        <button
+                            class="text-white bg-[#22DB66] font-medium rounded-[20px] text-[13px] px-3 py-2.5 inline-flex items-center">
+                            <div class="px-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                    stroke="currentColor" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                                </svg>
+                            </div>
+                            Add Barang Pendukung
+                        </button>
+                    </a>
+                </div>
+            </div>
             <div class="">
                 <button type="button"
                     class="min-w-fit text-green-600/80 border border-green-500 bg-white hover:bg-green-300/80 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mt-5 ml-4">
@@ -819,7 +794,7 @@ class="w-[1024px] h-[570px] rounded-[13px] overflow-hidden ml-40 mt-40 bg-white 
                     <p class="mr-3">Import</p>
                 </button>
             </div>
-            <div class="absolute mt-12">
+            <div class="absolute mt-24">
                 <button type="button"
                     class="text-blue-700/80 border border-blue-500 bg-white hover:bg-blue-300 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mt-5 ml-4">
                     <svg class="mr-5" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
@@ -916,7 +891,7 @@ class="w-[1024px] h-[570px] rounded-[13px] overflow-hidden ml-40 mt-40 bg-white 
                 @endforeach
             </table>
         </div>
-        <div class="flex justify-center py-5">
+        <div class="flex justify-center mt-14">
             <nav aria-label="Page navigation example">
                 <ul class="flex list-style-none">
                     <li class="page-item disabled"><a
@@ -938,7 +913,6 @@ class="w-[1024px] h-[570px] rounded-[13px] overflow-hidden ml-40 mt-40 bg-white 
             </nav>
         </div>
     </div>
-</div>
 </div>
 
 <!-- Dropdown menu -->
