@@ -41,25 +41,59 @@ class Order extends Model
             ->get();
     }
 
-    public function topProducts()
+    public function topProducts($topProducts)
     {
-        return DB::table('orders')
-            ->join('produk_jadis', 'orders.kode_barang', '=', 'produk_jadis.id')
-            ->select('produk_jadis.nama_barang', 'produk_jadis.size', DB::raw('SUM(orders.total_order) as total_order'))
-            ->groupBy('produk_jadis.nama_barang', 'produk_jadis.size')
-            ->orderBy('total_order', 'desc')
-            ->take(5) // Ubah angka 10 dengan jumlah produk teratas yang diinginkan
-            ->get();
+        $query = $this->newQuery();
+
+        if ($topProducts === 'Daily') {
+            $query->select('produk_jadis.nama_barang', 'produk_jadis.size', DB::raw('SUM(orders.total_order) as total_order'))
+                ->join('produk_jadis', 'orders.kode_barang', '=', 'produk_jadis.id')
+                ->whereDate('orders.created_at', Carbon::today())
+                ->groupBy('produk_jadis.nama_barang', 'produk_jadis.size')
+                ->orderBy('total_order', 'desc')
+                ->take(5);
+        } elseif ($topProducts === 'Monthly') {
+            $query->select('produk_jadis.nama_barang', 'produk_jadis.size', DB::raw('SUM(orders.total_order) as total_order'))
+                ->join('produk_jadis', 'orders.kode_barang', '=', 'produk_jadis.id')
+                ->whereYear('orders.created_at', Carbon::now()->year)
+                ->whereMonth('orders.created_at', Carbon::now()->month)
+                ->groupBy('produk_jadis.nama_barang', 'produk_jadis.size')
+                ->orderBy('total_order', 'desc')
+                ->take(5);
+        } elseif ($topProducts === 'Yearly') {
+            $query->select('produk_jadis.nama_barang', 'produk_jadis.size', DB::raw('SUM(orders.total_order) as total_order'))
+                ->join('produk_jadis', 'orders.kode_barang', '=', 'produk_jadis.id')
+                ->whereYear('orders.created_at', Carbon::now()->year)
+                ->groupBy('produk_jadis.nama_barang', 'produk_jadis.size')
+                ->orderBy('total_order', 'desc')
+                ->take(5);
+        }
+        return $query->get();
     }
 
-    public function topCustomer()
+    public function topCustomer($topCustomer)
     {
-        $topCustomers = DB::table('orders')
+        if (!is_array($topCustomer)) {
+            $topCustomer = [];
+        }
+
+        $sortBy = $topCustomer['sortBy'] ?? 'Daily';
+
+        $query = DB::table('orders')
             ->join('customers', 'orders.customer_id', '=', 'customers.id')
             ->select('customers.nama_lengkap', 'orders.customer_id', DB::raw('SUM(orders.total_pembelian) as revenue'), DB::raw('SUM(orders.total_order) as total_pembelian'))
             ->groupBy('customers.nama_lengkap', 'orders.customer_id')
-            ->orderBy('revenue', 'desc')
-            ->get();
+            ->orderBy('revenue', 'desc');
+
+        if ($sortBy === 'Daily') {
+            $query->whereDate('orders.created_at', Carbon::today());
+        } elseif ($sortBy === 'Monthly') {
+            $query->whereMonth('orders.created_at', Carbon::now()->month);
+        } elseif ($sortBy === 'Yearly') {
+            $query->whereYear('orders.created_at', Carbon::now()->year);
+        }
+
+        $topCustomers = $query->get();
 
         $result = [];
 
@@ -91,18 +125,44 @@ class Order extends Model
         return $result;
     }
 
-    public function marketingOverview()
+    public function marketingOverview($marketingOverview)
     {
-        return DB::table('orders')
-            ->select(
-                DB::raw('SUM(total_pembelian) as total_pembelian'),
-                DB::raw('SUM(total_order) as total_order'),
-                DB::raw('SUM(customer_id) as total_customer'),
-                DB::raw('COUNT(CASE WHEN status_pembayaran = "Dibayar" THEN 1 END) as total_dibayar'),
-                DB::raw('(COUNT(CASE WHEN status_pembayaran = "Dibayar" THEN 1 END) / COUNT(*)) * 100 as persentase_dibayar')
-            )
-            ->get();
+        if ($marketingOverview === 'Daily') {
+            return DB::table('orders')
+                ->select(
+                    DB::raw('SUM(total_pembelian) as total_pembelian'),
+                    DB::raw('SUM(total_order) as total_order'),
+                    DB::raw('SUM(customer_id) as total_customer'),
+                    DB::raw('COUNT(CASE WHEN status_pembayaran = "Dibayar" THEN 1 END) as total_dibayar'),
+                    DB::raw('(COUNT(CASE WHEN status_pembayaran = "Dibayar" THEN 1 END) / COUNT(*)) * 100 as persentase_dibayar')
+                )
+                ->where('created_at', Carbon::now())
+                ->get();
+        } elseif ($marketingOverview === 'Monthly') {
+            return DB::table('orders')
+                ->select(
+                    DB::raw('SUM(total_pembelian) as total_pembelian'),
+                    DB::raw('SUM(total_order) as total_order'),
+                    DB::raw('SUM(customer_id) as total_customer'),
+                    DB::raw('COUNT(CASE WHEN status_pembayaran = "Dibayar" THEN 1 END) as total_dibayar'),
+                    DB::raw('(COUNT(CASE WHEN status_pembayaran = "Dibayar" THEN 1 END) / COUNT(*)) * 100 as persentase_dibayar')
+                )
+                ->whereMonth('created_at', Carbon::now()->month)
+                ->get();
+        } elseif ($marketingOverview === 'Yearly') {
+            return DB::table('orders')
+                ->select(
+                    DB::raw('SUM(total_pembelian) as total_pembelian'),
+                    DB::raw('SUM(total_order) as total_order'),
+                    DB::raw('SUM(customer_id) as total_customer'),
+                    DB::raw('COUNT(CASE WHEN status_pembayaran = "Dibayar" THEN 1 END) as total_dibayar'),
+                    DB::raw('(COUNT(CASE WHEN status_pembayaran = "Dibayar" THEN 1 END) / COUNT(*)) * 100 as persentase_dibayar')
+                )
+                ->whereYear('created_at', Carbon::now()->year)
+                ->get();
+        }
     }
+
 
     public function totalPembelian()
     {

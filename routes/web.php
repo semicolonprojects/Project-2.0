@@ -100,13 +100,17 @@ Route::resource('targetKaryawanC', TargetKaryawanCurahController::class);
 
 Route::resource('orderCurah', OrderCurahController::class)->middleware('auth', 'curah');
 
-Route::get('/logout', [LoginController::class, 'logout']);
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::get('/admin', [MasukController::class, 'index']);
 
 Route::get('/superadmin', [SuperAdminController::class, 'index'])->middleware('auth', 'superadmin')->name('superadmin.index');
 
+Route::get('/superadmin/sort', [SuperAdminController::class, 'sortChannels'])->middleware('auth', 'superadmin')->name('superadmin.sort-channels');
+
 Route::get('/marketing', [MktdashController::class, 'index'])->middleware('marketing', 'auth');
+
+Route::get('/marketing/sort', [MktdashController::class, 'sort'])->middleware('marketing', 'auth')->name('marketing.sort');
 
 Route::get('/marketing/topcust/{id}', [MktdashController::class, 'show'])->name('topcust')->middleware('marketing', 'auth');
 
@@ -129,6 +133,8 @@ Route::patch('/marketing/targetkaryawan-edit', function () {
 })->middleware('marketing', 'auth');
 
 Route::get('/logistik', [LogistikController::class, 'index'])->middleware('logistik', 'auth');
+
+Route::get('/logistik/sort', [LogistikController::class, 'sort'])->middleware('logistik', 'auth')->name('logistik.sort');
 
 Route::get('/logistik/datasupplier', [DataSupplierController::class, 'index'])->middleware('logistik', 'auth');
 
@@ -165,7 +171,3 @@ Route::get('/curah-order', [OrderCurahController::class, 'index'])->middleware('
 Route::get('/curah-order', [OrderCurahController::class, 'search'])->middleware('curah', 'auth');
 
 Route::get('/data-absen', [DataAbsenController::class, 'index']);
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

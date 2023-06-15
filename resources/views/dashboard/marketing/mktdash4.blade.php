@@ -81,9 +81,9 @@
                             {{ $customerPaginates->no_telepon }} <br>
                             {{ $customerPaginates->email }}
                         </td>
-                        @foreach ($wallet as $wallet)
+                        @foreach ($wallet as $wallets)
                         <td class="px-6 py-4">
-                            {{'Rp.' . number_format($wallet->total, 2, ',', '.') }}
+                            {{'Rp.' . number_format($wallets->total, 2, ',', '.') }}
                         </td>
                         @endforeach
                         <td class="px-6 py-4">

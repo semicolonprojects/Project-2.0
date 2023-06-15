@@ -14,10 +14,10 @@ class SaleThisMonth
         $this->saleThisMonth = $saleThisMonth;
     }
 
-    public function build(): \ArielMejiaDev\LarapexCharts\BarChart
+    public function build($sortBy = 'highest'): \ArielMejiaDev\LarapexCharts\BarChart
     {
         $channel = new Channel();
-        $topChannel = $channel->topChannel();
+        $topChannel = $channel->orderByChannel($sortBy);
         $channelNames = $topChannel->pluck('nama_channel')->toArray();
         $salesData = $topChannel->pluck('rasio')->toArray();
         return $this->saleThisMonth->barChart()

@@ -54,28 +54,6 @@
     </div>
 </div>
 
-{{-- Revenue --}}
-<div
-    class="w-[1024px] rounded-[13px] overflow-hidden ml-40 mt-10 bg-white border border-[#686868CF] shadow-[0px_8px_8px_rgba(0,0,0,0.5)]">
-    <div class="px-6 py-4">
-        <div class="grid grid-flow-col gap-[690px]">
-            <h5 class="text-2xl font-bold tracking-tight text-gray-900 ">Revenue</h5>
-            <div class="inline-flex">
-                <p class="font-normal text-xl text-black/60">Daily</p>
-                <button id="topProducts" data-dropdown-toggle="topProductsTrigger">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="0.5"
-                        stroke="currentColor" class="w-5 h-5">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                    </svg>
-                </button>
-            </div>
-        </div>
-        <div>
-            <div id="" width="1028px" height="283px"></div>
-        </div>
-    </div>
-</div>
-
 {{-- Top Product --}}
 <div class="mt-14 ml-40">
     <div
@@ -191,30 +169,6 @@
     </ul>
 </div>
 
-{{-- Sales Analytics --}}
-<div class="mt-14 ml-40">
-    <div
-        class="h-fit w-[845px] sm:w-[845px] md:w-[845px] lg:w-[845px] xl:w-[1026px]  bg-white border-[1px] shadow-[0px_4px_4px_rgba(0,0,0,0.25)] border-[#686868cf] rounded-[13px]">
-        <div class="grid grid-flow-col gap-[693px]">
-            <div class="p-5">
-                <p class="text-[24px] text-black font-bold">Sales Analytics</p>
-            </div>
-            <div class="inline-flex self-center">
-                <p class="font-normal text-xl text-black/60">Daily</p>
-                <button id="topProducts" data-dropdown-toggle="topProductsTrigger">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="0.5"
-                        stroke="currentColor" class="w-5 h-5">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                    </svg>
-                </button>
-            </div>
-        </div>
-        <div>
-            <div id="" width="1028px" height="283px"></div>
-        </div>
-    </div>
-</div>
-
 {{-- Summary Orders & Targets --}}
 <div class="mt-14 ml-40">
     <div
@@ -270,7 +224,8 @@
                         @forelse ($targetKaryawanCurah as $targetKaryawanCurahs3)
                         @if ($targetKaryawanCurahs3->total_tercapai != 0)
                         <h5 class="text-3xl font-bold tracking-tight text-gray-900 ml-3 mt-3">Rp {{
-                            number_format(($targetKaryawanCurahs3->target)/($targetKaryawanCurahs3->total_tercapai)) }}</h5>
+                            number_format(($targetKaryawanCurahs3->target)/($targetKaryawanCurahs3->total_tercapai)) }}
+                        </h5>
                         @else
                         <h5 class="text-3xl font-bold tracking-tight text-gray-900 ml-3 mt-3">Rp {{
                             number_format($targetKaryawanCurahs3->target) }}</h5>
@@ -406,13 +361,13 @@
                 <a href="{{ route('targetKaryawanC.create') }}"
                     class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 ">Tambahkan Target</a>
             </li>
-           
+
             @endif
         </ul>
     </div>
 </div>
 
-    @vite(['resources/css/app.css','resources/js/app.js'])
+@vite(['resources/css/app.css','resources/js/app.js'])
 
 
-    @endsection
+@endsection

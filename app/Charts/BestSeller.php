@@ -14,10 +14,10 @@ class BestSeller
         $this->bestSeller = $bestSeller;
     }
 
-    public function build(): \ArielMejiaDev\LarapexCharts\BarChart
+    public function build($topProducts = 'Daily'): \ArielMejiaDev\LarapexCharts\BarChart
     {
         $model = new Order();
-        $bestSellers = $model->topProducts();
+        $bestSellers = $model->topProducts($topProducts);
 
         $chart = $this->bestSeller->barChart();
 

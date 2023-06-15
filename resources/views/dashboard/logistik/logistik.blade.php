@@ -29,6 +29,26 @@
     </div>
 </div>
 
+{{-- data-dropdown-toggle --}}
+<div id="topProductsTrigger" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 ">
+    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="topProducts">
+        <li>
+            <a href="{{ route('logistik.sort', ['topProducts' => 'Daily']) }}"
+                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 @if(request('topProducts') == 'Daily') bg-gray-100 dark:bg-gray-600 @endif"">Daily</a>
+        </li>
+        <li>
+            <a href=" {{ route('logistik.sort', ['topProducts'=> 'Monthly']) }}" class="block px-4 py-2
+                hover:bg-gray-100 dark:hover:bg-gray-600 @if(request('topProducts') == 'Monthly') bg-gray-100
+                dark:bg-gray-600 @endif">Monthly</a>
+        </li>
+        <li>
+            <a href="{{ route('logistik.sort', ['topProducts' => 'Yearly']) }}"
+                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600  @if(request('topProducts') == 'Yearly') bg-gray-100 dark:bg-gray-600 @endif">Yearly</a>
+        </li>
+        <li>
+    </ul>
+</div>
+
 {{-- STOCK & LOW STOCK --}}
 <div
     class="w-[1224px] h-[600px] rounded-[13px] overflow-hidden ml-16 mt-28 bg-white border border-[#686868CF] shadow-[0px_8px_8px_rgba(0,0,0,0.5)]">
@@ -199,22 +219,6 @@
     </div>
 </div>
 
-{{-- data-dropdown-toggle --}}
-<div id="orderStatsTrigger" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 ">
-    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="topProducts">
-        <li>
-            <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 ">Daily</a>
-        </li>
-        <li>
-            <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 ">Monthly</a>
-        </li>
-        <li>
-            <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 ">Yearly</a>
-        </li>
-        <li>
-    </ul>
-</div>
-
 {{-- low stock --}}
 
 <div
@@ -345,15 +349,15 @@
     <div class="absolute ml-4 mt-4">
         <div class="grid grid-flow-col gap-[650px]">
             <h5 class="text-3xl font-bold tracking-tight text-gray-900 ">In & Out Products</h5>
-    <div>
-        <button id="innout" data-dropdown-toggle="innoutTrigger">
+            <div>
+                <button id="innout" data-dropdown-toggle="innoutTrigger">
                     <div class="inline-flex">
-                        <p class="font-normal text-xl text-black/60">Monthly</p>
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="0.5"
-                                stroke="currentColor" class="w-5 h-5 ml-2 mt-2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                            </svg>
-            </div>
+                        <p class="font-normal text-xl text-black/60">Sort By</p>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="0.5"
+                            stroke="currentColor" class="w-5 h-5 ml-2 mt-2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                        </svg>
+                    </div>
                 </button>
             </div>
         </div>
@@ -486,8 +490,8 @@
                         <div>
                             <button class="absolute inset-y-0 right-0 flex items-center pr-3 type=" submit"
                                 class="p-2.5 ml-3 text-sm font-medium text-white bg-blue-700 rounded-[22px] border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 ">
-                                <svg class="w-5 h-5 text-yellow-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                    xmlns="http://www.w3.org/2000/svg">
+                                <svg class="w-5 h-5 text-yellow-300" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                                 </svg>
@@ -661,7 +665,7 @@
 </div>
 
 {{-- Stock Barang Pendukung --}}
-    <div class="pb-10">
+<div class="pb-10">
     <div
         class="w-[1024px] h-[450px] rounded-[13px] overflow-hidden ml-40 mt-16 bg-white border border-[#686868CF] shadow-[0px_8px_8px_rgba(0,0,0,0.5)]">
         <div class="absolute mt-3 ml-5">
@@ -676,8 +680,8 @@
                             <div>
                                 <button class="absolute inset-y-0 right-0 flex items-center pr-3 type=" submit"
                                     class="p-2.5 ml-3 text-sm font-medium text-white bg-blue-700 rounded-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 ">
-                                    <svg class="w-5 h-5 text-yellow-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                        xmlns="http://www.w3.org/2000/svg">
+                                    <svg class="w-5 h-5 text-yellow-300" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                             d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                                     </svg>
@@ -699,8 +703,8 @@
                         <button
                             class="text-white bg-[#22DB66] font-medium rounded-[20px] text-[13px] px-3 py-2.5 inline-flex items-center">
                             <div class="px-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                    stroke="currentColor" class="w-6 h-6">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                                 </svg>
                             </div>
@@ -829,10 +833,12 @@
 <div id="innoutTrigger" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 ">
     <ul class="py-2 text-sm text-gray-700 " aria-labelledby="innout">
         <li>
-            <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 ">Monthly</a>
+            <a href="{{ route('logistik.sort', ['inout' => 'Monthly']) }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 @if(request('inout') == 'Monthly') bg-gray-100
+                dark:bg-gray-600 @endif">Monthly</a>
         </li>
         <li>
-            <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 ">Yearly</a>
+            <a href="{{ route('logistik.sort', ['inout' => 'Yearly']) }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600  @if(request('inout') == 'Yearly') bg-gray-100
+                dark:bg-gray-600 @endif">Yearly</a>
         </li>
         <li>
     </ul>
