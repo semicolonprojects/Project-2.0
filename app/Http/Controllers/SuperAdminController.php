@@ -50,6 +50,7 @@ class SuperAdminController extends Controller
         $totalHpp = 0;
         $profit = 0;
         $profitCurah = 0;
+        $profitOrder = 0;
 
         foreach ($totalProduk as $totalProduks) {
             foreach ($hpp as $hpps) {
@@ -66,11 +67,15 @@ class SuperAdminController extends Controller
                     default:
                         $harga = $hpps->harga_ecer;
                         break;
+                        $hargaJual = $harga * $totalProduks->total_order;
+                        if ($hpps == 0) {
+                            $totalHpp = 0;
+                        } else {
+                            $totalHpp = $totalProduks->total_order * $hpps->total_hpp;
+                            $profitOrder = $hargaJual - $totalHpp;
+                        }
                 }
             }
-            $hargaJual = $harga * $totalProduks->total_order;
-            $totalHpp = $totalProduks->total_order * $hpps->total_hpp;
-            $profit = $hargaJual - $totalHpp;
         }
 
         foreach ($totalCurah as $totalCurahs) {
@@ -82,7 +87,7 @@ class SuperAdminController extends Controller
             $profitCurah = $hargaJual - $totalHpp;
         }
 
-        $totalRevenue = $profit + $profitCurah;
+        $totalRevenue = $profitOrder + $profitCurah;
 
         return view('dashboard.super-admin.sadash', ['orderStats' => $orderStats->build(), 'saleThisMonth' => $saleThisMonth->build()], compact('user', 'topProducts', 'products', 'lowStocksPaginate', 'topCust', 'hppPaginate', 'totalTercapai', 'totalRevenue', 'logistik'));
     }

@@ -5,8 +5,6 @@ namespace App\Charts;
 use ArielMejiaDev\LarapexCharts\LarapexChart;
 use App\Models\TargetKaryawan;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Date;
-use Illuminate\Support\Facades\DB;
 
 class DailyTargetStats
 {

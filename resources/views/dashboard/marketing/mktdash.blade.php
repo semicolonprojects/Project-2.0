@@ -6,7 +6,7 @@
 <div
     class="w-full md:w-[1024px] rounded-[13px] overflow-hidden mx-auto md:ml-40 mt-10 bg-white border border-[#686868CF] shadow-[0px_8px_8px_rgba(0,0,0,0.5)]">
     <div class="px-6 py-4 md:px-10 md:py-8">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
             <div class="font-bold text-2xl">Marketing Division Overview</div>
             <div class="flex items-center justify-end md:justify-end">
                 <p class="font-normal text-xl text-black/60">Sort By</p>

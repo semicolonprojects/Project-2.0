@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Channel;
 use App\Models\Order;
+use App\Models\ProdukJadi;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use LaravelDaily\Invoices\Classes\Buyer;
@@ -108,10 +110,25 @@ class FinanceInvoiceController extends Controller
         ]);
 
         $items = [];
-
         foreach ($orders as $order) {
+            $product = ProdukJadi::where('id', $order->kode_barang)->first();
+            $channel = Channel::findOrFail($order->tipe_pesanan);
+            switch ($channel->kode_channel) {
+                case 'MKL':
+                    $harga_barang = $product->harga_mkl;
+                    break;
+                case 'RS':
+                    $harga_barang = $product->harga_rs;
+                    break;
+                case 'DS':
+                    $harga_barang = $product->harga_ds;
+                    break;
+                default:
+                    $harga_barang = $product->harga_ecer;
+                    break;
+            }
             $invoiceItem = (new InvoiceItem())->title($order->produk->nama_barang)
-                ->pricePerUnit($order->produk->price)
+                ->pricePerUnit($harga_barang)
                 ->quantity($order->total_order)
                 ->subTotalPrice($order->produk->price * $order->total_order);
             $items[] = $invoiceItem;

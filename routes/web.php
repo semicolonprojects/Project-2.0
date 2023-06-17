@@ -166,6 +166,8 @@ Route::get('/invoice/download/{id}', [FinanceInvoiceController::class, 'generate
 
 Route::get('/curah', [MktCurahdashController::class, 'index'])->middleware('curah', 'auth');
 
+Route::get('/curah-sort', [MktCurahdashController::class, 'sort'])->middleware('curah', 'auth')->name('marekting_curah.sort');
+
 Route::get('/curah-order', [OrderCurahController::class, 'index'])->middleware('curah', 'auth');
 
 Route::get('/curah-order', [OrderCurahController::class, 'search'])->middleware('curah', 'auth');

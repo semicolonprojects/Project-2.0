@@ -6,11 +6,11 @@
 <div
     class="w-[1024px] rounded-[13px] overflow-hidden ml-40 mt-10 bg-white border border-[#686868CF] shadow-[0px_8px_8px_rgba(0,0,0,0.5)]">
     <div class="px-6 py-4">
-        <div class="grid grid-flow-col gap-[580px]">
-            <div class="font-bold text-2xl">Marketing Division Overview</div>
+        <div class="grid grid-flow-col gap-[480px]">
+            <div class="font-bold text-2xl">Marketing Curah Division Overview</div>
             <div class="inline-flex">
-                <p class="font-normal text-xl text-black/60">Daily</p>
-                <button id="topProducts" data-dropdown-toggle="topProductsTrigger">
+                <p class="font-normal text-xl text-black/60">Sort By</p>
+                <button id="marketingOverview" data-dropdown-toggle="marketingOverviewTrigger">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="0.5"
                         stroke="currentColor" class="w-5 h-5">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
@@ -19,151 +19,60 @@
             </div>
         </div>
     </div>
+    @foreach ($overview as $overviews)
     <div class="px-10 py-8">
         <p class="text-black/75 text-xl">This Month</p>
         <div class="grid grid-flow-col gap-0">
-            <p class="text-[#4E504F] text-[32px]">IDR 2.000.000</p>
+            <p class="text-[#4E504F] text-[32px]">{{ 'Rp. ' . number_format($overviews->total_pembelian, 2, ',',
+                '.') }}</p>
             <div class="absolute rounded bg-[#22DB6636] text-[#25D466F7] w-24 h-6 mt-4 ml-56">
                 <p class="text-center ml-1 text-[17px] font-medium">+ 4,20 % </p>
             </div>
         </div>
     </div>
+    @endforeach
+    @foreach ($overview as $overviews2)
     <div class="px-10 py-8">
         <div class="grid grid-flow-col divide-x divide-black ">
             <div class="grid grid-flow-row divide-y divide-black">
                 <div class="px-7 py-7">
                     <p class="text-[#000000B8] text-xl font-custom">Orders</p>
-                    <p class="text-black text-xl">5000</p>
+                    <p class="text-black text-xl">{{ $overviews2->total_order }}</p>
                 </div>
                 <div class="px-7 py-10">
                     <p class="text-[#000000B8] text-xl font-custom">Average sales success rate</p>
-                    <p class="text-black text-xl">12%</p>
+                    <p class="text-black text-xl">{{ $overviews2->persentase_dibayar }}</p>
                 </div>
             </div>
             <div class="grid grid-flow-row divide-y divide-black">
                 <div class="px-7 py-7">
                     <p class="text-[#000000B8] text-xl font-custom">Sales</p>
-                    <p class="text-black text-xl">20.000</p>
+                    <p class="text-black text-xl">{{ $overviews2->total_dibayar }}</p>
                 </div>
                 <div class="px-7 py-10">
                     <p class="text-[#000000B8] text-xl font-custom">Customers</p>
-                    <p class="text-black text-xl">1.000</p>
+                    <p class="text-black text-xl">{{ $overviews2->total_customer }}</p>
                 </div>
             </div>
         </div>
     </div>
+    @endforeach
 </div>
 
-{{-- Top Product --}}
-<div class="mt-14 ml-40">
-    <div
-        class="inline-block p-6 bg-white border border-gray-200 rounded-xl  hover:bg-gray-100 shadow-2xl w-[1024px] h-[700px]">
-        <div class="grid grid-flow-col gap-[690px]">
-            <h5 class="text-2xl font-bold tracking-tight text-gray-900 ">Top Products</h5>
-            <div class="grid grid-flow-col">
-                <p class="font-normal text-xl text-black/60">Daily</p>
-                <button id="topProducts" data-dropdown-toggle="topProductsTrigger">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="0.5"
-                        stroke="currentColor" class="w-5 h-5">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                    </svg>
-                </button>
-            </div>
-        </div>
-        <div class="grid grid-flow-col gap-x-40 py-10 ">
-            <div class="grid grid-flow-row  ml-14 gap-3">
-                <p class="ml-9 text-[32px] text-black">1</p>
-                <div class="flex flex-wrap ">
-                    <div
-                        class="bg-bgTopProducs rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-[94px] w-[93px]">
-                        <img class="mt-3 w-52 h-20" src="Assets\images\pure-honey-1-removebg-preview.png" />
-                    </div>
-                </div>
-                <p class="text-base text-black ">Madu Durian</p>
-                <p class="px-5 text-base text-black ">600ml</p>
-                <p class="px-5 text-base text-black ">20pcs</p>
-            </div>
-
-            <div class="grid grid-flow-row gap-3">
-                <p class="ml-9 text-[32px] text-black">2</p>
-                <div class="flex flex-wrap ">
-                    <div
-                        class="bg-bgTopProducs rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-[94px] w-[93px]">
-                        <img class="mt-3 w-52 h-20" src="Assets\images\pure-honey-1-removebg-preview.png" />
-                    </div>
-                </div>
-                <p class="text-base text-black ">Madu Durian</p>
-                <p class="px-5 text-base text-black ">600ml</p>
-                <p class="px-5 text-base text-black ">20pcs</p>
-            </div>
-
-            <div class="grid grid-flow-row gap-3">
-                <p class="ml-9 text-[32px] text-black">3</p>
-                <div class="flex flex-wrap ">
-                    <div
-                        class="bg-bgTopProducs rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-[94px] w-[93px]">
-                        <img class="mt-3 w-52 h-20" src="Assets\images\pure-honey-1-removebg-preview.png" />
-                    </div>
-                </div>
-                <p class="text-base text-black ">Madu Durian</p>
-                <p class="px-5 text-base text-black ">600ml</p>
-                <p class="px-5 text-base text-black ">20pcs</p>
-            </div>
-        </div>
-        <div class="inline-flex absolute gap-10 mt-3 ">
-            <div class="inline-flex absolute mt-5 gap-10">
-                <p class=" text-[20px] text-black">4.</p>
-                <div class="flex flex-wrap pb-3">
-                    <div
-                        class=" bg-bgTopProducs rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-[83px] w-[83px]">
-                        <img class=" w-52 h-20 mt-3" src="Assets\images\pure-honey-1-removebg-preview.png" />
-                    </div>
-                </div>
-                <p class=" text-base text-black ">Madu Durian</p>
-                <p class=" text-base text-black ">600ml</p>
-                <p class=" text-base text-black ">20pcs</p>
-            </div>
-            <div>
-                <div class="inline-flex absolute gap-10 mt-36 ">
-                    <p class=" text-[20px] text-black">5.</p>
-                    <div class="flex flex-wrap">
-                        <div
-                            class="bg-bgTopProducs rounded-full shadow-[inset_0px_4px_4px_rgba(0,0,0,0.25)] h-[83px] w-[83px]">
-                            <img class="w-52 h-20 mt-3" src="Assets\images\pure-honey-1-removebg-preview.png" />
-                        </div>
-                    </div>
-                    <p class=" text-base text-black ">Madu Durian</p>
-                    <p class=" text-base text-black ">600ml</p>
-                    <p class=" text-base text-black ">20pcs</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Back to top button -->
-<button type="button" data-mdb-ripple="true" data-mdb-ripple-color="light"
-    class="p-3 bg-background text-black font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-gradient-to-bl from-yellow-200 to-bg-yellow-300 focus:ring-yellow-400 focus:shadow-lg focus:outline-none transition duration-150 ease-in-out hidden bottom-5 right-5 fixed"
-    id="btn-back-to-top">
-    <svg aria-hidden="true" focusable="false" data-prefix="fas" class="w-4 h-4" role="img"
-        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-        <path fill="currentColor"
-            d="M34.9 289.5l-22.2-22.2c-9.4-9.4-9.4-24.6 0-33.9L207 39c9.4-9.4 24.6-9.4 33.9 0l194.3 194.3c9.4 9.4 9.4 24.6 0 33.9L413 289.4c-9.5 9.5-25 9.3-34.3-.4L264 168.6V456c0 13.3-10.7 24-24 24h-32c-13.3 0-24-10.7-24-24V168.6L69.2 289.1c-9.3 9.8-24.8 10-34.3.4z">
-        </path>
-    </svg>
-</button>
-
-<!-- Marketing Overview Dropdown Menu -->
-<div id="topProductsTrigger" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 ">
-    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="topProducts">
+<div id="marketingOverviewTrigger" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 ">
+    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="marketingOverview">
         <li>
-            <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 ">Daily</a>
+            <a href="{{ route('marekting_curah.sort', ['marketingOverview' => 'Daily']) }}"
+                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 @if(request('marketingOverview') == 'Daily') bg-gray-100 dark:bg-gray-600 @endif"">Daily</a>
         </li>
         <li>
-            <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 ">Monthly</a>
+            <a href=" {{ route('marekting_curah.sort', ['marketingOverview'=> 'Monthly']) }}" class="block px-4 py-2
+                hover:bg-gray-100 dark:hover:bg-gray-600 @if(request('marketingOverview') == 'Monthly') bg-gray-100
+                dark:bg-gray-600 @endif">Monthly</a>
         </li>
         <li>
-            <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 ">Yearly</a>
+            <a href="{{ route('marekting_curah.sort', ['marketingOverview' => 'Yearly']) }}"
+                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600  @if(request('marketingOverview') == 'Yearly') bg-gray-100 dark:bg-gray-600 @endif">Yearly</a>
         </li>
         <li>
     </ul>
@@ -321,7 +230,7 @@
                 <h5 class="text-2xl font-bold tracking-tight text-gray-900 ml-4 ">Daily Order Stats</h5>
                 <div class="mt-20 mr-16 absolute">
                     <div>
-                        {{-- <div id="{!! $dailyOrderStats->container() !!}" width=" 350px" height="200px"></div> --}}
+                        <div id="{!! $lineChartCurah->container() !!}" width=" 350px" height="200px"></div>
                     </div>
                 </div>
             </div>
@@ -329,7 +238,7 @@
             <div class="inline-flex absolute mt-3 ml-[495px]">
                 <h5 class="absolute text-2xl font-bold tracking-tight text-gray-900">Daily Target Stats</h5>
                 <div class="mt-3 mb-7 w-96">
-                    {{-- <div class='py-10' id="{!! $dailyTargetStats->container() !!}" width="280px"> --}}
+                    <div class='py-10' id="{!! $orderStats->container() !!}" width="280px">
                     </div>
                 </div>
             </div>
@@ -367,7 +276,11 @@
     </div>
 </div>
 
+
+<script src="{{ $lineChartCurah->cdn() }}"></script>
+
+{{ $lineChartCurah->script() }}
+{{ $orderStats->script() }}
+
 @vite(['resources/css/app.css','resources/js/app.js'])
-
-
 @endsection

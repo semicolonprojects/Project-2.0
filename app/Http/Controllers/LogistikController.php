@@ -50,7 +50,7 @@ class LogistikController extends Controller
 
         $lowStocksPaginate = ProdukJadi::paginateCollection($lowStocks, $perPage, $currentPage, $path);
 
-        return view('dashboard.logistik.logistik', ['bestSeller' => $bestSeller->build()], compact('stokPaginate', 'stok2', 'barangPendukungPaginate', 'barangPendukung2', 'barangPendukung3', 'produkCurahPaginate', 'inoutPaginate', 'produkCurah2', 'produkCurah3', 'lowStocksPaginate'));
+        return view('dashboard.logistik.logistik', ['bestSeller' => $bestSeller->build(), 'stokPaginate' => $stokPaginate, 'stok2' => $stok2, 'barangPendukungPaginate' => $barangPendukungPaginate, 'barangPendukung2' => $barangPendukung2, 'barangPendukung3' => $barangPendukung3, 'produkCurahPaginate' => $produkCurahPaginate, 'inoutPaginate' => $inoutPaginate, 'produkCurah2' => $produkCurah2, 'produkCurah3' => $produkCurah3, 'lowStocksPaginate' => $lowStocksPaginate]);
     }
 
     public function sort(BestSeller $bestSeller, Request $request)

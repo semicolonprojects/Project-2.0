@@ -94,14 +94,14 @@ class OrderCurah extends Model
     {
         $today = date('Y-m-d'); // Mendapatkan tanggal hari ini dalam format Y-m-d (misalnya: 2023-06-05)
 
-        return DB::table('orders')
-            ->join('produk_jadis', 'orders.kode_barang', '=', 'produk_jadis.id')
-            ->join('channels', 'orders.tipe_pesanan', '=', 'channels.id')
+        return DB::table('order_curahs')
+            ->join('produk_jadis', 'order_curahs.kode_barang', '=', 'produk_jadis.id')
+            ->join('channels', 'order_curahs.tipe_pesanan', '=', 'channels.id')
             ->select(
                 DB::raw('DATE_FORMAT(orders.created_at, "%d") AS hari'),
                 DB::raw('SUM(orders.total_order) AS total_order')
             )
-            ->whereDate('orders.created_at', $today) // Menambahkan kondisi where untuk tanggal hari ini
+            ->whereDate('order_curahs.created_at', $today) // Menambahkan kondisi where untuk tanggal hari ini
             ->groupBy('hari')
             ->get();
     }
@@ -121,6 +121,44 @@ class OrderCurah extends Model
         Paginator::useTailwind();
 
         return $paginator;
+    }
+
+    public function marketingOverview($marketingOverview)
+    {
+        if ($marketingOverview === 'Daily') {
+            return DB::table('order_curahs')
+                ->select(
+                    DB::raw('SUM(total_pembelian) as total_pembelian'),
+                    DB::raw('SUM(total_order) as total_order'),
+                    DB::raw('SUM(customer_id) as total_customer'),
+                    DB::raw('COUNT(CASE WHEN status_pembayaran = "Dibayar" THEN 1 END) as total_dibayar'),
+                    DB::raw('(COUNT(CASE WHEN status_pembayaran = "Dibayar" THEN 1 END) / COUNT(*)) * 100 as persentase_dibayar')
+                )
+                ->where('created_at', Carbon::now())
+                ->get();
+        } elseif ($marketingOverview === 'Monthly') {
+            return DB::table('order_curahs')
+                ->select(
+                    DB::raw('SUM(total_pembelian) as total_pembelian'),
+                    DB::raw('SUM(total_order) as total_order'),
+                    DB::raw('SUM(customer_id) as total_customer'),
+                    DB::raw('COUNT(CASE WHEN status_pembayaran = "Dibayar" THEN 1 END) as total_dibayar'),
+                    DB::raw('(COUNT(CASE WHEN status_pembayaran = "Dibayar" THEN 1 END) / COUNT(*)) * 100 as persentase_dibayar')
+                )
+                ->whereMonth('created_at', Carbon::now()->month)
+                ->get();
+        } elseif ($marketingOverview === 'Yearly') {
+            return DB::table('order_curahs')
+                ->select(
+                    DB::raw('SUM(total_pembelian) as total_pembelian'),
+                    DB::raw('SUM(total_order) as total_order'),
+                    DB::raw('SUM(customer_id) as total_customer'),
+                    DB::raw('COUNT(CASE WHEN status_pembayaran = "Dibayar" THEN 1 END) as total_dibayar'),
+                    DB::raw('(COUNT(CASE WHEN status_pembayaran = "Dibayar" THEN 1 END) / COUNT(*)) * 100 as persentase_dibayar')
+                )
+                ->whereYear('created_at', Carbon::now()->year)
+                ->get();
+        }
     }
 
 

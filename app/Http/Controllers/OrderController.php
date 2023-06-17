@@ -56,7 +56,6 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-
         if (count($request->kode_barang) !== count($request->total_order)) {
             return redirect('/marketing/orderstats')->with('error', 'Order Gagal Dimasukkan');
         }
@@ -120,6 +119,10 @@ class OrderController extends Controller
             $order->note = $request->note;
             $order->total_termin = $request->total_termin ?? 0;
             $order->tenggat_order = $request->tenggat_order;
+
+            if (TargetKaryawan::find($request->user_id) === null) {
+                return redirect('/marketing')->with('delete', 'Tambahkan Target Karyawan Terlebih Dahulu');
+            }
 
             $order->save();
         }
@@ -240,7 +243,7 @@ class OrderController extends Controller
         if ($count == 0) {
             return redirect('/marketing/orderstats')->with('success', 'Order berhasil dihapus');
         } else {
-            return redirect()->route('order.show', ['order' => $order->order_id])->with('success', 'Order berhasil dihapus');
+            return redirect()->route('order.show', ['order' => $order->order_id])->with('delete', 'Order berhasil dihapus');
         }
     }
 

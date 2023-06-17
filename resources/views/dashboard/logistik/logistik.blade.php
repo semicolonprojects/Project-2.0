@@ -51,7 +51,7 @@
 
 {{-- STOCK & LOW STOCK --}}
 <div
-    class="w-[1224px] h-[600px] rounded-[13px] overflow-hidden ml-16 mt-28 bg-white border border-[#686868CF] shadow-[0px_8px_8px_rgba(0,0,0,0.5)]">
+    class="w-[1224px] h-auto rounded-[13px] overflow-hidden ml-16 mt-28 bg-white border border-[#686868CF] shadow-[0px_8px_8px_rgba(0,0,0,0.5)]">
     <div class="absolute ml-4 mt-4">
         <div class="grid grid-flow-col gap-[940px]">
             <h5 class="text-3xl font-bold tracking-tight text-gray-900 ">Stock</h5>
@@ -213,7 +213,7 @@
 
         {{-- pagination --}}
 
-        <div class="flex justify-center py-24 mr-6">
+        <div class="flex justify-center my-auto p-5">
             {{$stokPaginate->links()}}
         </div>
     </div>
@@ -222,7 +222,7 @@
 {{-- low stock --}}
 
 <div
-    class="w-[1224px] h-[600px] rounded-[13px] overflow-hidden ml-16 mt-12 bg-white border border-[#686868CF] shadow-[0px_8px_8px_rgba(0,0,0,0.5)]">
+    class="w-[1224px] h-auto rounded-[13px] overflow-hidden ml-16 mt-12 bg-white border border-[#686868CF] shadow-[0px_8px_8px_rgba(0,0,0,0.5)]">
     <div class="absolute ml-4 mt-4">
         <div class="grid grid-flow-col gap-[810px]">
             <h5 class="text-3xl font-bold tracking-tight text-gray-900 ">Low Stock</h5>
@@ -335,7 +335,7 @@
         </table>
         {{-- pagination --}}
 
-        <div class="flex justify-center py-24 mr-6">
+        <div class="flex justify-center my-auto p-5">
             {{$lowStocksPaginate->links()}}
         </div>
     </div>
@@ -345,7 +345,7 @@
 
 {{-- In & Out Products --}}
 <div
-    class="w-[1024px] h-[570px] rounded-[13px] overflow-hidden ml-40 mt-20 bg-white border border-[#686868CF] shadow-[0px_8px_8px_rgba(0,0,0,0.5)]">
+    class="w-[1024px] h-auto rounded-[13px] overflow-hidden ml-40 mt-20 bg-white border border-[#686868CF] shadow-[0px_8px_8px_rgba(0,0,0,0.5)]">
     <div class="absolute ml-4 mt-4">
         <div class="grid grid-flow-col gap-[650px]">
             <h5 class="text-3xl font-bold tracking-tight text-gray-900 ">In & Out Products</h5>
@@ -467,7 +467,7 @@
             </tbody>
         </table>
     </div>
-    <div class="flex justify-center py-5">
+    <div class="flex justify-center my-auto p-5">
         {{$inoutPaginate->links()}}
     </div>
 </div>
@@ -477,7 +477,7 @@
 
 {{-- STOCK CURAH --}}
 <div
-    class="w-[1024px] h-[500px] rounded-[13px] overflow-hidden ml-40 mt-16 bg-white border border-[#686868CF] shadow-[0px_8px_8px_rgba(0,0,0,0.5)]">
+    class="w-[1024px] h-auto rounded-[13px] overflow-hidden ml-40 mt-16 bg-white border border-[#686868CF] shadow-[0px_8px_8px_rgba(0,0,0,0.5)]">
     <div class="absolute ml-4 mt-4">
         <div class="grid grid-flow-col gap-[600px]">
             <div class="grid-flow-row">
@@ -638,7 +638,7 @@
 
         {{-- pagination --}}
 
-        <div class="flex justify-center py-24 mr-6">
+        <div class="flex justify-center my-auto p-5">
             {{$produkCurahPaginate->links()}}
         </div>
     </div>
@@ -667,7 +667,7 @@
 {{-- Stock Barang Pendukung --}}
 <div class="pb-10">
     <div
-        class="w-[1024px] h-[450px] rounded-[13px] overflow-hidden ml-40 mt-16 bg-white border border-[#686868CF] shadow-[0px_8px_8px_rgba(0,0,0,0.5)]">
+        class="w-[1024px] h-auto rounded-[13px] overflow-hidden ml-40 mt-16 bg-white border border-[#686868CF] shadow-[0px_8px_8px_rgba(0,0,0,0.5)]">
         <div class="absolute mt-3 ml-5">
             <div class="grid grid-flow-col gap-[420px]">
                 <div class=" ">
@@ -823,7 +823,7 @@
                 @endforeach
             </table>
         </div>
-        <div class="flex justify-center mt-14">
+        <div class="flex justify-center my-auto p-5">
             {{$barangPendukungPaginate->links()}}
         </div>
     </div>

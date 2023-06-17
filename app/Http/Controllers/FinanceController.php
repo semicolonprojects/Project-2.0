@@ -16,8 +16,6 @@ use App\Models\OutcomesDetail;
 use App\Models\ProdukCurah;
 use App\Models\ProdukJadi;
 use App\Models\TargetKaryawan;
-use App\Models\User;
-use Carbon\Carbon;
 use Illuminate\Pagination\Paginator;
 
 class FinanceController extends Controller
@@ -90,11 +88,15 @@ class FinanceController extends Controller
                     default:
                         $harga = $hpps->harga_ecer;
                         break;
+                        $hargaJual = $harga * $totalProduks->total_order;
+                        if ($hpps == 0) {
+                            $totalHpp = 0;
+                        } else {
+                            $totalHpp = $totalProduks->total_order * $hpps->total_hpp;
+                            $profitOrder = $hargaJual - $totalHpp;
+                        }
                 }
             }
-            $hargaJual = $harga * $totalProduks->total_order;
-            $totalHpp = $totalProduks->total_order * $hpps->total_hpp;
-            $profitOrder = $hargaJual - $totalHpp;
         }
 
         foreach ($totalCurah as $totalCurahs) {
@@ -112,6 +114,7 @@ class FinanceController extends Controller
          * Profit Minggu ini Dan Minggu Kemarin
          */
         foreach ($totalProdukLalu as $totalProdukLalus) {
+
             foreach ($hpp as $hpps) {
                 switch ($totalProdukLalus->nama_channel) {
                     case 'Reseller':
@@ -129,12 +132,15 @@ class FinanceController extends Controller
                 }
             }
             $hargaJual = $harga * $totalProdukLalus->total_order;
-            $totalHpp = $totalProdukLalus->total_order * $hpps->total_hpp;
-            $profitOrderLalu = $hargaJual - $totalHpp;
+            if ($hpps == null) {
+                $totalHpp = 0;
+            } else {
+                $totalHpp = $totalProdukLalus->total_order * $hpps->total_hpp;
+                $profitOrderLalu = $hargaJual - $totalHpp;
+            }
         }
 
         foreach ($totalCurahLalu as $totalCurahLalus) {
-            dd($totalCurahLalus);
             foreach ($hppCurah as $hppCurahs) {
                 $harga = $hppCurahs->harga;
             }

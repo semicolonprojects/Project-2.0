@@ -20,15 +20,23 @@
                 <p
                     class="text-black text-sm sm:text-base md:text-base lg:text-base xl:text-base 2xl:text-base  font-normal">
                     Current Week</p>
+                @if ($totalRevenue == 0)
+                <p class="text-black text-lg sm:text-xl md:text-xl lg:text-xl xl:text-xl 2xl:text-xl font-normal">0</p>
+                @else
                 <p class="text-black text-lg sm:text-xl md:text-xl lg:text-xl xl:text-xl 2xl:text-xl font-normal">{{'Rp.
                     ' . number_format($totalRevenue, 0, ',', '.')}}</p>
+                @endif
             </div>
             <div class="grid grid-flow-row gap-3 px-10">
                 <p
                     class="text-black text-sm sm:text-base md:text-base lg:text-base xl:text-base 2xl:text-base font-normal">
                     Previous Week</p>
+                @if ($totalRevenueLalu==0)
+                <p class="text-black text-lg sm:text-xl md:text-xl lg:text-xl xl:text-xl 2xl:text-xl font-normal">0</p>
+                @else
                 <p class="text-black text-lg sm:text-xl md:text-xl lg:text-xl xl:text-xl 2xl:text-xl font-normal">{{'Rp.
                     ' . number_format($totalRevenueLalu, 0, ',', '.')}}</p>
+                @endif
             </div>
         </div>
         <div class="px-5 py-5">
@@ -304,7 +312,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($hpp as $hpps)
+                @forelse ($hpp as $hpps)
                 <tr
                     class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                     <th scope="row" class="px-4 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
@@ -319,7 +327,23 @@
                     <td class="px-6 py-4">
                         {{ "Rp " . number_format($hpps->harga_ds - $hpps->total_hpp ,2,',','.')}}
                     </td>
-                    @endforeach
+                    @empty
+                <tr
+                    class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                    <th scope="row" class="px-4 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+
+                    </th>
+                    <td class="px-6 py-4">
+
+                    </td>
+                    <td class="px-6 py-4">
+                        Rp.0,00
+                    </td>
+                    <td class="px-6 py-4">
+                        Rp.0,00
+                    </td>
+
+                    @endforelse
                 </tr>
             </tbody>
         </table>
