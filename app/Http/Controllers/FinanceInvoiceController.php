@@ -125,7 +125,7 @@ class FinanceInvoiceController extends Controller
             ->addItems($items)
             ->serialNumberFormat($serialNumber)
             ->currencyCode('IDR')
-            ->logo(public_path('/Assets/images/Madukuy CMYK Logo.png'));
+            ->logo(public_path('/Assets/images/Madukuy RGB Logotype.png'));
 
         return $invoice->stream();
     }

@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 
-class Marketing
+class LogistikRendra
 {
     /**
      * Handle an incoming request.
@@ -16,7 +16,7 @@ class Marketing
      */
     public function handle(Request $request, Closure $next)
     {
-        if (auth()->user()->role == 'marketing' || auth()->user()->role == 'superadmin' || auth()->user()->role == 'curah') {
+        if (auth()->user()->role == 'logistik' ) {
             return $next($request);
         }
 

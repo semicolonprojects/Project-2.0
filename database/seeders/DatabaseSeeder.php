@@ -29,33 +29,62 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
 
         User::factory()->create([
-            'username' => 'admin',
+            'username' => 'Andoni Pridatama',
             'role' => 'superadmin',
             'password' => bcrypt('123456')
         ]);
 
         User::factory()->create([
-            'username' => 'marketing',
+            'username' => 'Surya Indra Permana',
+            'role' => 'superadmin',
+            'password' => bcrypt('123456')
+        ]);
+
+        User::factory()->create([
+            'username' => 'Andru Bismantha Adwaya',
             'role' => 'marketing',
             'password' => bcrypt('123456')
         ]);
 
         User::factory()->create([
-            'username' => 'curah',
+            'username' => 'Nerika Kurniawati',
+            'role' => 'marketing',
+            'password' => bcrypt('123456')
+        ]);
+
+        User::factory()->create([
+            'username' => 'Nur Laili Azizah',
+            'role' => 'marketing',
+            'password' => bcrypt('123456')
+        ]);
+
+        User::factory()->create([
+            'username' => 'Haidir Adli Radian',
             'role' => 'curah',
             'password' => bcrypt('123456')
         ]);
 
+        User::factory()->create([
+            'username' => 'Deni Setiawan',
+            'role' => 'curah',
+            'password' => bcrypt('123456')
+        ]);
 
         User::factory()->create([
-            'username' => 'finance',
+            'username' => 'Ayu Hariaz',
             'role' => 'finance',
             'password' => bcrypt('123456')
         ]);
 
         User::factory()->create([
-            'username' => 'logistik',
-            'role' => 'logistik',
+            'username' => 'Mentary Puji Ayu',
+            'role' => 'finance',
+            'password' => bcrypt('123456')
+        ]);
+
+        User::factory()->create([
+            'username' => 'Muhammad Raey Rendra',
+            'role' => 'logistikrendra',
             'password' => bcrypt('123456')
         ]);
 

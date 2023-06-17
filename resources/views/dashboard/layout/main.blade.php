@@ -342,7 +342,7 @@
                         </button>
                     </a>
                 </li>
-                @elsecan('logistik')
+                @elsecan('logistikrendra')
                 <li>
                     <a href="/hpp">
                         <button type="button"

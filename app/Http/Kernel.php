@@ -6,6 +6,7 @@ use App\Http\Middleware\Curah;
 use App\Http\Middleware\Finance;
 use App\Http\Middleware\IsAdmin;
 use App\Http\Middleware\Logistik;
+use App\Http\Middleware\LogistikRendra;
 use App\Http\Middleware\Marketing;
 use App\Http\Middleware\SuperAdmin;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
@@ -74,6 +75,7 @@ class Kernel extends HttpKernel
         'curah' => Curah::class,
         'superadmin' => SuperAdmin::class,
         'finance' => Finance::class,
-        'logistik' => Logistik::class
+        'logistik' => Logistik::class,
+        'logistikrendra' => LogistikRendra::class
     ];
 }
