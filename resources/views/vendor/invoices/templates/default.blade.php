@@ -122,7 +122,7 @@
         }
         .inline-flex{
             position: absolute;
-            top: 150px;
+            top: 20px;
             right: 30px;
         }
         body,
@@ -218,7 +218,7 @@
 
        <div class="inline-flex ">
                        @if($invoice->logo)
-                       <img src="{{ $invoice->getLogo() }}" alt="logo" height="100">
+                       <img src="{{ $invoice->getLogo() }}" alt="logo" height="300">
                        @endif
        </div>
     </div>
