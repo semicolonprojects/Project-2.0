@@ -77,7 +77,7 @@ class OrderController extends Controller
             $order->tipe_pesanan = $request->tipe_pesanan;
 
             $channel = Channel::findOrFail($request->tipe_pesanan);
-            $product = ProdukJadi::where('kode_barang', $value)->first();
+            $product = ProdukJadi::where('id', $value)->first();
             $harga_barang = 0;
             $komisi = 0;
 

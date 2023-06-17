@@ -26,9 +26,12 @@ class LogistikController extends Controller
         $stokPaginate = ProdukJadi::paginateCollection($stok, $perPage, $currentPage, $path);
 
         $stok2 = ProdukJadi::all();
-        $barangPendukung = BarangPendukung::all();
 
-        $barangPendukungPaginate = ProdukJadi::paginateCollection($barangPendukung, $perPage, $currentPage, $path);
+        $barangPendukung = BarangPendukung::all();
+        $perPage2 = 10; // Jumlah item per halaman
+        $currentPage2 = Paginator::resolveCurrentPage('page');
+        $path2 = Paginator::resolveCurrentPath();
+        $barangPendukungPaginate = BarangPendukung::paginateCollection($barangPendukung, $perPage2, $currentPage2, $path2);
 
         $barangPendukung2 = BarangPendukung::all();
         $barangPendukung3 = BarangPendukung::all();
