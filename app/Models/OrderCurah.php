@@ -98,8 +98,8 @@ class OrderCurah extends Model
             ->join('produk_jadis', 'order_curahs.kode_barang', '=', 'produk_jadis.id')
             ->join('channels', 'order_curahs.tipe_pesanan', '=', 'channels.id')
             ->select(
-                DB::raw('DATE_FORMAT(orders.created_at, "%d") AS hari'),
-                DB::raw('SUM(orders.total_order) AS total_order')
+                DB::raw('DATE_FORMAT(order_curahs.created_at, "%d") AS hari'),
+                DB::raw('SUM(order_curahs.total_order) AS total_order')
             )
             ->whereDate('order_curahs.created_at', $today) // Menambahkan kondisi where untuk tanggal hari ini
             ->groupBy('hari')
