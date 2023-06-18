@@ -16,7 +16,7 @@ class LogistikRendra
      */
     public function handle(Request $request, Closure $next)
     {
-        if (auth()->user()->role == 'logistik' ) {
+        if (auth()->user()->role == 'logistikrendra' ) {
             return $next($request);
         }
 

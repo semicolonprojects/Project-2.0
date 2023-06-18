@@ -30,7 +30,7 @@ class AppServiceProvider extends ServiceProvider
         });
 
         Gate::define('marketing', function (User $user) {
-            return $user->role === 'marketing' || $user->role === 'superadmin';
+            return $user->role === 'marketing' || $user->role === 'superadmin' || $user->role === 'curah';
         });
 
         Gate::define('finance', function (User $user) {
@@ -38,11 +38,15 @@ class AppServiceProvider extends ServiceProvider
         });
 
         Gate::define('logistik', function (User $user) {
-            return $user->role === 'logistik' || $user->role === 'superadmin';
+            return $user->role === 'logistik' || $user->role === 'superadmin' || $user->role === 'logistikrendra';
+        });
+
+        Gate::define('logistikrendra', function (User $user) {
+            return $user->role === 'logistikrendra' || $user->role === 'superadmin';
         });
 
         Gate::define('superadmin', function (User $user) {
-            return $user->role === 'superadmin';
+            return $user->role === 'superadmin' || $user->role === 'logistikrendra';
         });
     }
 }

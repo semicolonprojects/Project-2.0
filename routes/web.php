@@ -132,29 +132,29 @@ Route::patch('/marketing/targetkaryawan-edit', function () {
     return view('dashboard.marketing.mkt-targetk-edit');
 })->middleware('marketing', 'auth');
 
-Route::get('/logistik', [LogistikController::class, 'index'])->middleware('logistik', 'auth');
+Route::get('/logistik', [LogistikController::class, 'index'])->middleware('logistik', 'logistikrendra' ,'auth');
 
-Route::get('/logistik/sort', [LogistikController::class, 'sort'])->middleware('logistik', 'auth')->name('logistik.sort');
+Route::get('/logistik/sort', [LogistikController::class, 'sort'])->middleware('logistik', 'logistikrendra' , 'auth')->name('logistik.sort');
 
-Route::get('/logistik/datasupplier', [DataSupplierController::class, 'index'])->middleware('logistik', 'auth');
+Route::get('/logistik/datasupplier', [DataSupplierController::class, 'index'])->middleware('logistik', 'logistikrendra' , 'auth');
 
-Route::get('/logistik/innout', [InOutController::class, 'index'])->middleware('logistik', 'auth');
+Route::get('/logistik/innout', [InOutController::class, 'index'])->middleware('logistik', 'logistikrendra' ,'auth');
 
-Route::get('/logistik/innout', [InOutController::class, 'search'])->middleware('logistik', 'auth');
+Route::get('/logistik/innout', [InOutController::class, 'search'])->middleware('logistik', 'logistikrendra' ,'auth');
 
-Route::get('/logistik/innout-curah', [InOutCurahController::class, 'index'])->middleware('logistik', 'auth');
+Route::get('/logistik/innout-curah', [InOutCurahController::class, 'index'])->middleware('logistik', 'logistikrendra' ,'auth');
 
-Route::get('/logistik/innout-curah', [InOutCurahController::class, 'search'])->middleware('logistik', 'auth');
+Route::get('/logistik/innout-curah', [InOutCurahController::class, 'search'])->middleware('logistik', 'logistikrendra' ,'auth');
 
-Route::get('/logistik/innout-pendukung', [InOutPendukungController::class, 'index'])->middleware('logistik', 'auth');
+Route::get('/logistik/innout-pendukung', [InOutPendukungController::class, 'index'])->middleware('logistik', 'logistikrendra' ,'auth');
 
-Route::get('/logistik/innout-pendukung', [InOutPendukungController::class, 'search'])->middleware('logistik', 'auth');
+Route::get('/logistik/innout-pendukung', [InOutPendukungController::class, 'search'])->middleware('logistik', 'logistikrendra' ,'auth');
 
-Route::get('/logistik/datasupplier-c', [SupplierCurahController::class, 'index'])->middleware('logistik', 'auth');
+Route::get('/logistik/datasupplier-c', [SupplierCurahController::class, 'index'])->middleware('logistik', 'logistikrendra' ,'auth');
 
-Route::get('/logistik/bahanmadu', [MaduKulakController::class, 'index'])->middleware('logistik', 'superadmin', 'auth');
+Route::get('/logistik/bahanmadu', [MaduKulakController::class, 'index'])->middleware('logistikrendra', 'superadmin', 'auth');
 
-Route::get('/hpp', [HargaPokokPenjualanController::class, 'index'])->middleware('superadmin', 'logistik', 'auth');
+Route::get('/hpp', [HargaPokokPenjualanController::class, 'index'])->middleware( 'superadmin','logistikrendra', 'auth');
 
 Route::get('/finance', [FinanceController::class, 'index'])->middleware('finance', 'auth');
 

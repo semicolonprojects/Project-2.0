@@ -16,7 +16,7 @@ class Logistik
      */
     public function handle(Request $request, Closure $next)
     {
-        if (auth()->user()->role == 'logistik' || auth()->user()->role == 'superadmin') {
+        if (auth()->user()->role == 'logistik' || auth()->user()->role == 'superadmin' || auth()->user()->role == 'logistikrendra') {
             return $next($request);
         }
 

@@ -88,6 +88,42 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('123456')
         ]);
 
+        User::factory()->create([
+            'username' => 'Muhammad Wahyudi',
+            'role' => 'logistik',
+            'password' => bcrypt('123456')
+        ]);
+
+        User::factory()->create([
+            'username' => 'Nurul Istiqomah',
+            'role' => 'logistik',
+            'password' => bcrypt('123456')
+        ]);
+
+        User::factory()->create([
+            'username' => 'Muhammad Ibnu Firmansyah',
+            'role' => 'logistik',
+            'password' => bcrypt('123456')
+        ]);
+
+        User::factory()->create([
+            'username' => 'Dita',
+            'role' => 'logistik',
+            'password' => bcrypt('123456')
+        ]);
+
+        User::factory()->create([
+            'username' => 'Satria',
+            'role' => 'logistik',
+            'password' => bcrypt('123456')
+        ]);
+
+        User::factory()->create([
+            'username' => 'Rizkyono',
+            'role' => 'logistik',
+            'password' => bcrypt('123456')
+        ]);
+
         ProdukJadi::factory()->create(
             [
                 'kode_barang' => '1',

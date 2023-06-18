@@ -28,5 +28,19 @@ class RedirectIfAuthenticated
         }
 
         return $next($request);
+        
+        if ($request->session()->has('lastActivity')) {
+            $lastActivity = $request->session()->get('lastActivity');
+            $sessionLifetime = config('session.lifetime');
+    
+            if (time() - $lastActivity > $sessionLifetime * 60) {
+                $request->session()->flush();
+                return redirect()->route('login');
+            }
+        }
+    
+        $request->session()->put('lastActivity', time());
+        return $next($request);
+        
     }
 }
