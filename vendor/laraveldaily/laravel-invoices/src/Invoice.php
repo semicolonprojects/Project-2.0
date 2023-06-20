@@ -75,7 +75,6 @@ class Invoice
      */
     public $logo;
 
-
     /**
      * @var float
      */
@@ -187,7 +186,6 @@ class Invoice
 
         $this->disk          = config('invoices.disk');
         $this->table_columns = static::TABLE_COLUMNS;
-        $this->logo(public_path('/Assets/images/Madukuy CMYK Logo.png'));
     }
 
     /**

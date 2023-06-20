@@ -12,7 +12,7 @@
     <link rel="icon" type="image/x-icon" href="\Assets\images\Madukuy RGB Logogram.ico">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    @vite('resources/css/app.css', 'resources/js/app.js')
+    @vite('resources/js/app.js')
 </head>
 
 <body>
@@ -194,7 +194,7 @@
                         </svg>
                     </button>
                     <a href="/dashboard">
-                        <img src='{{ asset('Assets\images\Madukuy CMYK Logo.png') }}'
+                        <img src='{{ asset(' Assets\images\Madukuy CMYK Logo.png') }}'
                             class="h-15 w-16  inset-y-0 flex-items-center ml-0.5 sm:ml-0.5 " />
                     </a>
                 </div>
@@ -325,7 +325,7 @@
                         <span class="ml-3 font-bold">Dashboard</span>
                     </a>
                 </li>
-                @can('superadmin') 
+                @can('superadmin')
                 <li>
                     <a href="/hpp">
                         <button type="button"
@@ -500,7 +500,7 @@
                                 Pendukung</a>
                         </li>
                     </ul>
-                </li> 
+                </li>
                 @endcan
                 @can('curah')
                 <li>
@@ -600,60 +600,71 @@
     {{-- Absensi, Cuti & Izin --}}
     <div class="ml-10 mt-36 sm:ml-16 md:ml-20 xl:ml-[530px]">
         <div class="flex items-center space-x-8">
-          <div class="flex flex-col items-center">
-            <button type="button" data-modal-toggle="authentication-modal" data-modal-target="authentication-modal" class="text-black bg-background hover:bg-gradient-to-bl from-yellow-200 to-bg-yellow-300 focus:ring-4 focus:outline-none focus:ring-yellow-400 font-medium rounded-full text-sm p-4 text-center inline-flex items-center">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
-                <path d="M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"></path>
-                <path d="M16 4h2a2 2 0 0 1 2 2v4"></path>
-                <path d="M21 14H11"></path>
-                <path d="m15 10-4 4 4 4"></path>
-              </svg>
-            </button>
-            </a>
-            <p class="font-semibold text-black mt-2">Masuk</p>
-          </div>
-          <div class="flex flex-col items-center">
-            <button type="button" data-modal-toggle="authentication-modal-2" data-modal-target="authentication-modal-2" class="text-black bg-background hover:bg-gradient-to-bl from-yellow-200 to-bg-yellow-300 focus:ring-4 focus:outline-none focus:ring-yellow-400 font-medium rounded-full text-sm p-4 text-center inline-flex items-center">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
-                <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-                <path d="m15 11-6 6"></path>
-                <path d="m9 11 6 6"></path>
-              </svg>
-            </button>
-            <p class="font-semibold text-black mt-2">Keluar</p>
-          </div>
-          <div class="flex flex-col items-center">
-            <button type="button" data-modal-toggle="authentication-modal-3" data-modal-target="authentication-modal-3" class="text-black bg-background hover:bg-gradient-to-bl from-yellow-200 to-bg-yellow-300 focus:ring-4 focus:outline-none focus:ring-yellow-400 font-medium rounded-full text-sm p-4 text-center inline-flex items-center">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
-                <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-                <path d="M12 11h4"></path>
-                <path d="M12 16h4"></path>
-                <path d="M8 11h.01"></path>
-                <path d="M8 16h.01"></path>
-              </svg>
-            </button>
-            <p class="font-semibold text-black mt-2">Ijin</p>
-          </div>
-          <div class="flex flex-col items-center">
-            <button type="button" data-modal-toggle="authentication-modal-4" data-modal-target="authentication-modal-4" class="text-black bg-background hover:bg-gradient-to-bl from-yellow-200 to-bg-yellow-300 focus:ring-4 focus:outline-none focus:ring-yellow-400 font-medium rounded-full text-sm p-4 text-center inline-flex items-center">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
-                <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-                <path d="M12 11h4"></path>
-                <path d="M12 16h4"></path>
-                <path d="M8 11h.01"></path>
-                <path d="M8 16h.01"></path>
-              </svg>
-            </button>
-            <p class="font-semibold text-black mt-2">Cuti</p>
-          </div>
+            <div class="flex flex-col items-center">
+                <button type="button" data-modal-toggle="authentication-modal" data-modal-target="authentication-modal"
+                    class="text-black bg-background hover:bg-gradient-to-bl from-yellow-200 to-bg-yellow-300 focus:ring-4 focus:outline-none focus:ring-yellow-400 font-medium rounded-full text-sm p-4 text-center inline-flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                        <path d="M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"></path>
+                        <path d="M16 4h2a2 2 0 0 1 2 2v4"></path>
+                        <path d="M21 14H11"></path>
+                        <path d="m15 10-4 4 4 4"></path>
+                    </svg>
+                </button>
+                </a>
+                <p class="font-semibold text-black mt-2">Masuk</p>
+            </div>
+            <div class="flex flex-col items-center">
+                <button type="button" data-modal-toggle="authentication-modal-2"
+                    data-modal-target="authentication-modal-2"
+                    class="text-black bg-background hover:bg-gradient-to-bl from-yellow-200 to-bg-yellow-300 focus:ring-4 focus:outline-none focus:ring-yellow-400 font-medium rounded-full text-sm p-4 text-center inline-flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                        <path d="m15 11-6 6"></path>
+                        <path d="m9 11 6 6"></path>
+                    </svg>
+                </button>
+                <p class="font-semibold text-black mt-2">Keluar</p>
+            </div>
+            <div class="flex flex-col items-center">
+                <button type="button" data-modal-toggle="authentication-modal-3"
+                    data-modal-target="authentication-modal-3"
+                    class="text-black bg-background hover:bg-gradient-to-bl from-yellow-200 to-bg-yellow-300 focus:ring-4 focus:outline-none focus:ring-yellow-400 font-medium rounded-full text-sm p-4 text-center inline-flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                        <path d="M12 11h4"></path>
+                        <path d="M12 16h4"></path>
+                        <path d="M8 11h.01"></path>
+                        <path d="M8 16h.01"></path>
+                    </svg>
+                </button>
+                <p class="font-semibold text-black mt-2">Ijin</p>
+            </div>
+            <div class="flex flex-col items-center">
+                <button type="button" data-modal-toggle="authentication-modal-4"
+                    data-modal-target="authentication-modal-4"
+                    class="text-black bg-background hover:bg-gradient-to-bl from-yellow-200 to-bg-yellow-300 focus:ring-4 focus:outline-none focus:ring-yellow-400 font-medium rounded-full text-sm p-4 text-center inline-flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                        <path d="M12 11h4"></path>
+                        <path d="M12 16h4"></path>
+                        <path d="M8 11h.01"></path>
+                        <path d="M8 16h.01"></path>
+                    </svg>
+                </button>
+                <p class="font-semibold text-black mt-2">Cuti</p>
+            </div>
         </div>
-      </div>
-      
-    
+    </div>
+
+
 
     <div id="authentication-modal" tabindex="-1" aria-hidden="true"
         class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] md:h-full mt-14 ml-14">
@@ -878,8 +889,6 @@
         @yield('mainContent')
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/datepicker.min.js"></script>
-
-    @vite(['resources/css/app.css','resources/js/app.js'])
 </body>
 
 </html>
