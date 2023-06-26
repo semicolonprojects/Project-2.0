@@ -3,7 +3,7 @@
 @section('mainContent')
 
 
-<section class="bg-white shadow-[4px_8px_8px_rgba(0,0,0,0.5)] w-[70%] rounded-[22px] ml-52 mt-10 dark:bg-gray-900">
+<section class="bg-white shadow-[4px_8px_8px_rgba(0,0,0,0.5)] w-[70%] rounded-[22px] ml-52 2xl:ml-[250px] mt-10 dark:bg-gray-900">
   <div class="py-8 px-4 mx-auto max-w-2xl lg:py-16">
       <h2 class="mb-4 text-4xl font-bold text-gray-900 dark:text-white">Tambahkan Target Anda </h2>
       <form action="{{ route('targetKaryawan.store') }}" method="post">

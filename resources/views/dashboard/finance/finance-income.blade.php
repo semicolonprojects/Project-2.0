@@ -2,12 +2,12 @@
 
 @section('mainContent')
 
-<div class="ml-16 mt-10">
+<div class="ml-16 2xl:ml-[410px] mt-10">
     <div class="grid grid-flow-col gap-7 py-10">
         <div class="ml-10 grid grid-flow-row">
             <h1 class="font-bold text-4xl text-black">Income</h1>
         </div>
-        <div class="grid-flow-row sm:ml-[322px] lg:ml-[670px] xl:ml-[750px] 2xl:ml-[928px]">
+        <div class="grid-flow-row sm:ml-[322px] lg:ml-[670px] xl:ml-[750px] 2xl:ml-[388px]">
             <button type="button" id="incomeModalButton" data-modal-toggle="incomeModal"
                 class="text-white bg-[#22DB66] font-medium rounded-[22px] text-[13px] px-5 py-2.5 inline-flex items-center">
                 <div class="px-2">

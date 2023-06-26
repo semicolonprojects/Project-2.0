@@ -3,7 +3,7 @@
 @section('mainContent')
 
 {{-- In & Out Products --}}
-<div class="absolute ml-40 mt-28">
+<div class="absolute ml-40 2xl:ml-[450px] mt-28">
   <div class="grid grid-flow-col gap-[720px]">
       <h5 class="text-2xl font-bold tracking-tight text-gray-900 ">In & Out Products</h5>
       <div class="grid grid-flow-col">

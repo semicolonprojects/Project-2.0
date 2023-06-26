@@ -13,13 +13,12 @@
 <body class="bg-background">
     <section class="bg-background font-custom">
         <!-- ... -->
-        <div class="p-2.5 md:p-1.5 flex flex-col justify-center ">
-            <div
-                class="w-[534px] h-[650px] p-4 m-auto bg-background rounded-3xl shadow-md ring-2 ring-white max-w-full">
+        <div class="p-2.5 lg:p-1.5  flex flex-col justify-center ">
+            <div class="w-[534px] h-[650px] p-4 lg:p-2 m-auto bg-background rounded-3xl shadow-md ring-2 ring-white max-w-full">
                 <div class="px-10 md:px-40">
                     <img class="w-[233px] mx-auto" src="Assets\images\Madukuy CMYK Logo.png" alt="">
                 </div>
-                <h1 class="text-4xl md:text-6xl font-extrabold text-center text-black">Selamat Datang</h1>
+                <h1 class="text-4xl lg:text-6xl font-extrabold text-center text-black">Selamat Datang</h1>
                 <form action="{{ route('login') }}" class="mt-10" method="POST">
                     @csrf
                     <div class="px-5">
@@ -35,7 +34,7 @@
                                 class="block w-full px-4 py-2 mt-2 text-sm text-gray-700 bg-white rounded-md focus:ring-black-600/70 focus:outline-none focus:ring focus:ring-opacity-40"
                                 name="password" id="password" required>
                         </div>
-                        <div class="mt-8 px-6 md:px-28">
+                        <div class="mt-8 px-6 lg:px-28">
                             <button
                                 class="w-full px-4 py-2 tracking-wide font-bold text-black transition-colors duration-200 transform bg-[#22DB66] shadow-md shadow-gray-800 rounded-md hover:bg-[#22DB66]/75 focus:outline-none md:w-[218px]"
                                 type="submit">

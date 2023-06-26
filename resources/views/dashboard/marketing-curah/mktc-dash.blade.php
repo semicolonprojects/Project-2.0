@@ -4,8 +4,8 @@
 
 {{-- Overview --}}
 <div
-    class="w-[1024px] rounded-[13px] overflow-hidden ml-40 mt-10 bg-white border border-[#686868CF] shadow-[0px_8px_8px_rgba(0,0,0,0.5)]">
-    <div class="px-6 py-4">
+    class="w-[1024px] rounded-[13px] overflow-hidden ml-40 2xl:ml-[450px] mt-10 bg-white border border-[#686868CF] shadow-[0px_8px_8px_rgba(0,0,0,0.5)]">
+    <div class="px-6 py-4 md:px-10 md:py-8">
         <div class="grid grid-flow-col gap-[480px]">
             <div class="font-bold text-2xl">Marketing Curah Division Overview</div>
             <div class="inline-flex">
@@ -32,24 +32,24 @@
     </div>
     @endforeach
     @foreach ($overview as $overviews2)
-    <div class="px-10 py-8">
-        <div class="grid grid-flow-col divide-x divide-black ">
-            <div class="grid grid-flow-row divide-y divide-black">
-                <div class="px-7 py-7">
+    <div class="p-10">
+        <div class="grid grid-cols-2 md:grid-cols-2 divide-x divide-black ">
+            <div class="grid grid-rows-2 md:grid-rows-1 divide-y divide-black">
+                <div class="px-4 py-4 md:px-7 md:py-3">
                     <p class="text-[#000000B8] text-xl font-custom">Orders</p>
                     <p class="text-black text-xl">{{ $overviews2->total_order }}</p>
                 </div>
-                <div class="px-7 py-10">
+                <div class="px-4 py-4 md:px-7 md:py-[3.35rem]">
                     <p class="text-[#000000B8] text-xl font-custom">Average sales success rate</p>
                     <p class="text-black text-xl">{{ $overviews2->persentase_dibayar }}</p>
                 </div>
             </div>
-            <div class="grid grid-flow-row divide-y divide-black">
-                <div class="px-7 py-7">
+            <div class="grid grid-rows-2 md:grid-rows-1 divide-y divide-black">
+                <div class="px-4 py-4 md:px-7 md:py-7">
                     <p class="text-[#000000B8] text-xl font-custom">Sales</p>
                     <p class="text-black text-xl">{{ $overviews2->total_dibayar }}</p>
                 </div>
-                <div class="px-7 py-10">
+                <div class="px-4 py-4 md:px-7 md:py-[3.35rem]">
                     <p class="text-[#000000B8] text-xl font-custom">Customers</p>
                     <p class="text-black text-xl">{{ $overviews2->total_customer }}</p>
                 </div>
@@ -79,7 +79,7 @@
 </div>
 
 {{-- Summary Orders & Targets --}}
-<div class="mt-14 ml-40">
+<div class="mt-14 2xl:ml-[450px] ml-40">
     <div
         class="inline-block p-6 bg-white border border-gray-200 rounded-xl  hover:bg-gray-100 shadow-2xl w-[1024px] h-[980px]">
         <div class="inline-flex absolute">

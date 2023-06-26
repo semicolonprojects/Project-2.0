@@ -3,7 +3,7 @@
 @section('mainContent')
 
 {{-- Best Seller Chart --}}
-<div class="ml-40 mt-10">
+<div class="ml-40 mt-10 2xl:ml-[450px]">
     <div
         class="w-[396px] sm:w-[600px] md:w-[600px] lg:w-[824px] xl:w-[1024px] 2xl:w-[1024px] bg-[#FFFFFF] shadow-[0px_8px_8px_rgba(0,0,0,0.5)] rounded-[20px] px-16">
         <h5 class="text-5xl text-black font-[700] text-center p-5">Best sellers</h5>
@@ -51,7 +51,7 @@
 
 {{-- STOCK & LOW STOCK --}}
 <div
-    class="w-[1224px] h-auto rounded-[13px] overflow-hidden ml-16 mt-28 bg-white border border-[#686868CF] shadow-[0px_8px_8px_rgba(0,0,0,0.5)]">
+    class="w-[1224px] h-auto rounded-[13px] overflow-hidden ml-16 2xl:ml-[350px] mt-28 bg-white border border-[#686868CF] shadow-[0px_8px_8px_rgba(0,0,0,0.5)]">
     <div class="absolute ml-4 mt-4">
         <div class="grid grid-flow-col gap-[940px]">
             <h5 class="text-3xl font-bold tracking-tight text-gray-900 ">Stock</h5>
@@ -222,7 +222,7 @@
 {{-- low stock --}}
 
 <div
-    class="w-[1224px] h-auto rounded-[13px] overflow-hidden ml-16 mt-12 bg-white border border-[#686868CF] shadow-[0px_8px_8px_rgba(0,0,0,0.5)]">
+    class="w-[1224px] h-auto rounded-[13px] overflow-hidden ml-16 mt-12 2xl:ml-[350px] bg-white border border-[#686868CF] shadow-[0px_8px_8px_rgba(0,0,0,0.5)]">
     <div class="absolute ml-4 mt-4">
         <div class="grid grid-flow-col gap-[810px]">
             <h5 class="text-3xl font-bold tracking-tight text-gray-900 ">Low Stock</h5>
@@ -345,7 +345,7 @@
 
 {{-- In & Out Products --}}
 <div
-    class="w-[1024px] h-auto rounded-[13px] overflow-hidden ml-40 mt-20 bg-white border border-[#686868CF] shadow-[0px_8px_8px_rgba(0,0,0,0.5)]">
+    class="w-[1024px] h-auto rounded-[13px] overflow-hidden ml-40 2xl:ml-[450px] mt-20 bg-white border border-[#686868CF] shadow-[0px_8px_8px_rgba(0,0,0,0.5)]">
     <div class="absolute ml-4 mt-4">
         <div class="grid grid-flow-col gap-[650px]">
             <h5 class="text-3xl font-bold tracking-tight text-gray-900 ">In & Out Products</h5>
@@ -477,7 +477,7 @@
 
 {{-- STOCK CURAH --}}
 <div
-    class="w-[1024px] h-auto rounded-[13px] overflow-hidden ml-40 mt-16 bg-white border border-[#686868CF] shadow-[0px_8px_8px_rgba(0,0,0,0.5)]">
+    class="w-[1024px] h-auto rounded-[13px] overflow-hidden 2xl:ml-[450px] ml-40 mt-16 bg-white border border-[#686868CF] shadow-[0px_8px_8px_rgba(0,0,0,0.5)]">
     <div class="absolute ml-4 mt-4">
         <div class="grid grid-flow-col gap-[600px]">
             <div class="grid-flow-row">
@@ -667,7 +667,7 @@
 {{-- Stock Barang Pendukung --}}
 <div class="pb-10">
     <div
-        class="w-[1024px] h-auto rounded-[13px] overflow-hidden ml-40 mt-16 bg-white border border-[#686868CF] shadow-[0px_8px_8px_rgba(0,0,0,0.5)]">
+        class="w-[1024px] h-auto rounded-[13px] overflow-hidden 2xl:ml-[450px] ml-40 mt-16 bg-white border border-[#686868CF] shadow-[0px_8px_8px_rgba(0,0,0,0.5)]">
         <div class="absolute mt-3 ml-5">
             <div class="grid grid-flow-col gap-[420px]">
                 <div class=" ">

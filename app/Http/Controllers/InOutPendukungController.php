@@ -193,6 +193,7 @@ class InOutPendukungController extends Controller
         $detail = $inOut->accordionInOut();
         $user = User::all();
         $barangJadi = BarangPendukung::all();
+        $barangPendukung = BarangPendukung::all();
 
 
         $perPage = 10; // Jumlah item per halaman
@@ -202,6 +203,6 @@ class InOutPendukungController extends Controller
         $stockPaginate = InOutPendukung::paginateCollection($results, $perPage, $currentPage, $path);
 
         // Lakukan sesuatu dengan hasil pencarian (misalnya, kirim data ke view)
-        return view('dashboard.logistik.logistik3', compact('stockPaginate', 'detail', 'user', 'barangJadi'));
+        return view('dashboard.logistik.logistik8', compact('stockPaginate', 'detail', 'user', 'barangJadi', 'barangPendukung'));
     }
 }

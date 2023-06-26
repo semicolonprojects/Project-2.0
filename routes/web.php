@@ -160,7 +160,7 @@ Route::get('/finance', [FinanceController::class, 'index'])->middleware('finance
 
 Route::get('/finance/income', [IncomeController::class, 'index'])->middleware('finance', 'auth');
 
-Route::get('/finance/outcome', [OutcomeController::class, 'index'])->name('outcomes.index')->middleware('finance', 'auth');
+Route::get('/finance/outcome', [OutcomeController::class, 'index'])->middleware('finance', 'auth');
 
 Route::get('/invoice/download/{id}', [FinanceInvoiceController::class, 'generate'])->name('invoice.download');
 
