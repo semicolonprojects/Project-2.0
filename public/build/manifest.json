@@ -1,25 +1,25 @@
 {
   "resources/css/app.css": {
-    "file": "assets/app-a0f39726.css",
-    "src": "resources/css/app.css",
-    "isEntry": true
-  },
-  "resources/sass/app.scss": {
-    "file": "assets/app-0795842c.css",
-    "src": "resources/sass/app.scss",
-    "isEntry": true
-  },
-  "resources/js/app.js": {
-    "file": "assets/app-57dbe7f3.js",
-    "src": "resources/js/app.js",
+    "file": "assets/app-75b27c7e.css",
     "isEntry": true,
-    "css": [
-      "assets/app-a0f39726.css"
-    ]
+    "src": "resources/css/app.css"
   },
   "resources/js/app.css": {
-    "file": "assets/app-a0f39726.css",
-    "src": "resources/css/app.css",
-    "isEntry": true
+    "file": "assets/app-75b27c7e.css",
+    "isEntry": true,
+    "src": "resources/css/app.css"
+  },
+  "resources/js/app.js": {
+    "css": [
+      "assets/app-75b27c7e.css"
+    ],
+    "file": "assets/app-45603866.js",
+    "isEntry": true,
+    "src": "resources/js/app.js"
+  },
+  "resources/sass/app.scss": {
+    "file": "assets/app-3f1c4ee8.css",
+    "isEntry": true,
+    "src": "resources/sass/app.scss"
   }
 }
