@@ -172,4 +172,4 @@ Route::get('/curah-order', [OrderCurahController::class, 'index'])->middleware('
 
 Route::get('/curah-order', [OrderCurahController::class, 'search'])->middleware('curah', 'auth');
 
-Route::get('/data-absen', [DataAbsenController::class, 'index']);
+Route::get('/data-absen', [DataAbsenController::class, 'index'])->middleware('superadmin', 'auth');;

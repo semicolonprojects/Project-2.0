@@ -704,13 +704,8 @@
 
             </div>
         </div>
-        <div class="mt-10 ml-3">
-            <div id="map" style="width:400px;height:400px" class="flex justify-center"></div>
-            <div>
-                <ul id="status" class="progressing">
-                    <li>Find accurate position … (Desired accuracy: 20)</li>
-                </ul>
-            </div>
+        <div hidden class="mt-10 ml-3">
+            <div hidden id="map" style="width:400px;height:400px" class="flex justify-center"></div>
         </div>
 
     </div>
