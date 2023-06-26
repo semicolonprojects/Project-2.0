@@ -2,7 +2,7 @@
 
 @section('mainContent')
 
-<div class="ml-28 mt-10">
+<div class="ml-28 2xl:ml-[450px] mt-10">
     <div
         class="bg-[#d9d9d91f] shadow-[0px_4px_4px_rgba(0,0,0,0.25)] rounded-[10px] sm:w-[556px] md:w-[556px] lg:w-[847px] xl:w-[1088px] 2xl:w-[1088px] p-5">
         <div
@@ -46,7 +46,7 @@
 </div>
 
 {{-- Daily Sales Stats --}}
-<div class="ml-5 mt-10 p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-20 ">
+<div class="ml-5 2xl:ml-[300px] mt-10 p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-20 ">
     <div
         class="inline-block p-6 bg-white border border-gray-200 rounded-xl  hover:bg-gray-100 shadow-2xl w-[550px] h-[634px]">
         <div class="grid grid-flow-col gap-70">
@@ -137,7 +137,7 @@
 </div>
 
 {{-- Tabel Invoice --}}
-<div class="ml-12">
+<div class="ml-12 2xl:ml-[450px]">
     <table class=" w-[1200px] table-fixed text-sm text-left text-gray-500 dark:text-gray-400 ">
         <div id="myTabContent">
             <thead class=" text-xs text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -289,7 +289,7 @@
 
 {{-- Tabel Margin --}}
 <div
-    class="w-[1200px] h-[420px] rounded-[13px] overflow-hidden bg-white border border-[#686868CF] shadow-[0px_8px_8px_rgba(0,0,0,0.5)] mt-10 ml-12">
+    class="w-[1200px] h-[420px] rounded-[13px] overflow-hidden bg-white border border-[#686868CF] shadow-[0px_8px_8px_rgba(0,0,0,0.5)] mt-10 2xl:ml-[450px] ml-12">
     <div class="mt-2 ml-2 relative overflow-x-auto shadow-md sm:rounded-lg">
         <div class="flex justify-center">
             <p class="font-bold text-2xl">Margin</p>
@@ -351,9 +351,9 @@
 </div>
 
 {{-- Summary Per Day --}}
-<div class="ml-24 mt-16">
+<div class="ml-24 mt-16 2xl:ml-[250px]">
     <p class="text-black text-[32px] font-bold text-center mr-28">Summary Per Day</p>
-    <div class="py-5 sm:ml-[422px] md: lg:ml-[670px] xl:ml-[928px] 2xl:ml-[928px]">
+    <div class="py-5 sm:ml-[422px] md: lg:ml-[670px] xl:ml-[928px] 2xl:ml-[1078px]">
         <a href="/finance/income">
             <button type="button"
                 class="text-white bg-[#22DB66] font-medium rounded-[22px] text-[13px] px-3 py-2.5 inline-flex items-center">
@@ -480,7 +480,7 @@
     </div>
 </div>
 
-<div class="ml-28 mt-10">
+<div class="ml-28 mt-10 2xl:ml-[470px]">
     <div
         class="bg-white border-[1px] border-[#686868d1] shadow-[0px_8px_8px_rgba(0,0,0,0.5)] rounded-[13px] sm:w-[556px] md:w-[556px] lg:w-[847px] xl:w-[1088px] 2xl:w-[1088px]">
         <p class="font-bold text-[32px] text-black text-end px-7 py-5">Summary Per Month</p>

@@ -5,9 +5,9 @@
     <div class="mb-3">
         <p class="text-[24px] text-black font-[700]">Customer Info</p>
     </div>
-    <div class="w-[1275px] bg-[#FFFFFF] shadow-[0px_8px_8px_rgba(0,0,0,0.5)] rounded-[22px]">
+    <div class="w-[1275px] 2xl:w-[95%] bg-[#FFFFFF] shadow-[0px_8px_8px_rgba(0,0,0,0.5)] rounded-[22px]">
         <div class="grid grid-flow-col gap-[640px] mb-3 px-5">
-            <div class="flex md:order-2 mt-6 ml-64">
+            <div class="flex md:order-2 mt-6 ml-[156px] 2xl:ml-[656px]">
                 <form class="flex items-center">
                     <label for="simple-search" class="sr-only">Search</label>
                     <div class="relative w-[190px]">
@@ -28,11 +28,11 @@
                     </div>
                 </form>
             </div>
-            <div class="mt-6">
+            <div class="mt-6 ">
                 <a href="{{ route('customer.create') }}">
                     <button type="button"
-                        class="text-white bg-[#22DB66] font-medium rounded-[22px] text-[13px] w-full m-3 py-3 inline-flex items-center">
-                        <div class="px-2">
+                        class="text-white bg-[#22DB66] font-medium w-[190px] rounded-[22px] text-[13px] m-3 py-3 inline-flex items-center">
+                        <div class="px-4">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                                 stroke="currentColor" class="w-6 h-6">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
@@ -45,10 +45,10 @@
         </div>
 
         <div class="relative overflow-x-auto" id="search-results">
-            <table class="w-[1250px] mt-10 text-[14px] text-left text-gray-500">
+            <table class="w-[1250px] 2xl:w-[97%] mt-10 text-[14px] text-left text-gray-500">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                     <tr>
-                        <th scope="col" class="px-6 py-3">
+                        <th scope="col" class="px-10 py-3">
                             Full Name
                         </th>
                         <th scope="col" class="px-6 py-3">

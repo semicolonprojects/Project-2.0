@@ -4,7 +4,7 @@
 
 {{-- Overview --}}
 <div
-    class="w-full md:w-[1024px] rounded-[13px] overflow-hidden mx-auto md:ml-40 mt-10 bg-white border border-[#686868CF] shadow-[0px_8px_8px_rgba(0,0,0,0.5)]">
+    class="w-full md:w-[1024px] rounded-[13px] overflow-hidden mx-auto md:ml-40 2xl:ml-[450px] mt-10 bg-white border border-[#686868CF] shadow-[0px_8px_8px_rgba(0,0,0,0.5)]">
     <div class="px-6 py-4 md:px-10 md:py-8">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
             <div class="font-bold text-2xl">Marketing Division Overview</div>
@@ -82,7 +82,7 @@
 {{-- Order Stats --}}
 
 <div
-    class="inline-block p-6 bg-white border border-gray-200 rounded-xl ml-1 md:ml-36 mt-7 md:mt-10 hover:bg-gray-100 shadow-2xl w-full md:w-[1070px] h-[600px]">
+    class="inline-block p-6 bg-white border border-gray-200 rounded-xl ml-1 md:ml-36 2xl:ml-[420px] mt-7 md:mt-10 hover:bg-gray-100 shadow-2xl w-full md:w-[1070px] h-[600px]">
     <div class="grid grid-flow-col justify-between mb-8">
         <div class="flex items-center">
             <h5 class="mb-2 ml-5 text-2xl font-bold tracking-tight text-gray-900">Order Stats</h5>
@@ -115,7 +115,7 @@
 
 
 {{-- Top Products --}}
-<div class="mt-14 ml-1 md:ml-[169px]">
+<div class="mt-14 ml-1 md:ml-[169px] 2xl:ml-[450px]">
     <div
         class="inline-block p-6 bg-white border border-gray-200 rounded-xl hover:bg-gray-100 shadow-2xl w-full md:w-[1024px] h-[700px]">
         <div class="flex justify-between items-center mb-6 md:mb-0">
@@ -170,7 +170,7 @@
 </div>
 
 {{-- Summary Orders & Targets --}}
-<div class="mt-14 ml-4 md:ml-40">
+<div class="mt-14 ml-4 md:ml-40 2xl:ml-[450px]">
     <div
         class="inline-block p-6 bg-white border border-gray-200 rounded-xl hover:bg-gray-100 shadow-2xl w-full md:w-[1024px] md:h-[980px]">
         <div class="inline-flex absolute">
@@ -369,7 +369,7 @@
 
 {{-- Top Customers --}}
 <div
-    class=" max-w-5xl md:ml-40 h-[480px] p-6 bg-white border border-gray-200 rounded-xl  hover:bg-gray-100 shadow-2xl mt-10">
+    class=" max-w-5xl md:ml-40 2xl:ml-[450px] h-[480px] p-6 bg-white border border-gray-200 rounded-xl  hover:bg-gray-100 shadow-2xl mt-10">
     <h5 class="inline-flex absolute mb-2 text-2xl font-bold tracking-tight  text-gray-900 ">Top Customers</h5>
     <div class="inline-flex ml-[900px]">
         <p class="font-normal text-xl text-black/60">Daily</p>

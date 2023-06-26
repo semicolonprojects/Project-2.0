@@ -2,11 +2,11 @@
 
 @section('mainContent')
 
-<div class="ml-5 mt-16 px-20 mb-10">
+<div class="ml-5 mt-16 px-20 mb-10 2xl:ml-[370px]">
     <p class="text-5xl text-black font-[700]">Data Barang Keluar Masuk</p>
 </div>
 
-<div class="ml-24 mb-10 inline-block p-6 bg-white border border-gray-200 rounded-xl shadow-2xl w-[1070px] h-[700px]">
+<div class="ml-24 2xl:ml-[450px] mb-10 inline-block p-6 bg-white border border-gray-200 rounded-xl shadow-2xl w-[1070px] h-[700px]">
     <div class="border-b border-gray-200 pb-4 mb-4">
         <p class="text-4xl text-black font-[700]">Barang Pendukung</p>
     </div>

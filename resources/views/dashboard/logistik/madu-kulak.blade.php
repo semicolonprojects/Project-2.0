@@ -4,12 +4,12 @@
 
 
 
-<div class="ml-16 mt-10">
+<div class="ml-16 mt-10 2xl:ml-[350px]">
     <div class="grid grid-flow-col gap-7 py-10">
         <div class="ml-2 grid grid-flow-row">
             <h1 class="font-bold text-4xl text-black">Produk Bahan Baku (Madu)</h1>
         </div>
-        <div class="grid-flow-row sm:ml-[320px] lg:ml-[350px] xl:ml-[450px] 2xl:ml-[918px]">
+        <div class="grid-flow-row sm:ml-[320px] lg:ml-[350px] xl:ml-[450px] 2xl:ml-[118px]">
             <a href="{{ route('maduKulak.create') }}">
                 <button type="button"
                     class="text-white bg-[#22DB66] font-medium rounded-[22px] text-[13px] px-5 py-2.5 inline-flex items-center">

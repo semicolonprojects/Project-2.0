@@ -465,7 +465,7 @@
                     <ul id="dropdown-logistik" class="hidden py-2 space-y-2">
                         @can('superadmin')
                         <li>
-                            <a href="/dashboard"
+                            <a href="/logistik"
                                 class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 font-medium">Dashboard</a>
                         </li>
                         @endcan
@@ -531,11 +531,6 @@
                                 class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 font-medium">Tabel
                                 Order</a>
                         </li>
-                        <li>
-                            <a href="/curah-customer-info"
-                                class="flex items-center w-full p-2 text-base font-medium text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Customer
-                                Info</a>
-                        </li>
                     </ul>
                 </li>
                 @endcan
@@ -598,8 +593,8 @@
     </div>
 
     {{-- Absensi, Cuti & Izin --}}
-    <div class="ml-10 mt-36 sm:ml-16 md:ml-20 xl:ml-[530px]">
-        <div class="flex items-center space-x-8">
+    <div class="ml-10 mt-36 sm:ml-16 md:ml-20 lg:ml-[530px] 2xl:ml-[795px]">
+        <div class="flex items-center space-x-8 ">
           <div class="flex flex-col items-center">
             <button type="button" data-modal-toggle="authentication-modal" data-modal-target="authentication-modal" class="text-black bg-background hover:bg-gradient-to-bl from-yellow-200 to-bg-yellow-300 focus:ring-4 focus:outline-none focus:ring-yellow-400 font-medium rounded-full text-sm p-4 text-center inline-flex items-center">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">

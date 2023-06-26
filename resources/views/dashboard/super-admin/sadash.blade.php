@@ -62,11 +62,11 @@
 
 
 {{-- Order Stats --}}
-<div class="ml-10 mt-14 md:ml-32 grid grid-flow-col gap-x-2 gap-y-4 md:gap-x-0 md:gap-y-0 md:flex md:items-center">
+<div class="ml-10 mt-14 md:ml-32 2xl:ml-[420px] grid grid-flow-col gap-x-2 gap-y-4 md:gap-x-0 md:gap-y-0 md:flex md:items-center">
     <h5 class="mb-2 ml-5 text-2xl font-bold tracking-tight text-gray-900">Order Stats</h5>
 </div>
 <div
-    class="inline-block p-6 bg-white border border-gray-200 rounded-xl ml-4 md:ml-36 mt-4 md:mt-0 hover:bg-gray-100 shadow-2xl w-full md:w-[1070px] h-[600px]">
+    class="inline-block p-6 bg-white border border-gray-200 rounded-xl ml-4 md:ml-36 2xl:ml-[420px] mt-4 md:mt-0 hover:bg-gray-100 shadow-2xl w-full md:w-[1070px] h-[600px]">
     <div class="grid grid-flow-col justify-end mb-8 mr-1 gap-2">
         <button class="text-gray-600 text-sm font-medium hover:text-gray-900 grid grid-flow-col gap-2" id="sortBy"
             data-dropdown-toggle="sortBytrigger">
@@ -84,7 +84,7 @@
 
 
 {{-- Top Products --}}
-<div class="mt-14 ml-4 md:ml-[169px]">
+<div class="mt-14 ml-4 md:ml-[169px] 2xl:ml-[450px]">
     <div
         class="inline-block p-6 bg-white border border-gray-200 rounded-xl hover:bg-gray-100 shadow-2xl w-full md:w-[1024px] h-[700px]">
         <div class="flex justify-between items-center mb-6 md:mb-0">
@@ -122,7 +122,7 @@
 
 {{-- Table Stok Produk --}}
 <div
-    class="max-w-5xl bg-white border border-black rounded-lg shadow-[0px_8px_8px_rgba(0,0,0,0.5)] mt-28 mb-10 ml-4 md:ml-[169px]">
+    class="max-w-5xl bg-white border border-black rounded-lg shadow-[0px_8px_8px_rgba(0,0,0,0.5)] mt-28 mb-10 ml-4 md:ml-[169px] 2xl:ml-[450px]">
     <a href="#">
         <img class="rounded-t-lg" src="/docs/images/blog/image-1.jpg" alt="" />
     </a>
@@ -210,7 +210,7 @@
 
 {{-- Table Low Stok --}}
 <div
-    class="max-w-5xl bg-white border border-black rounded-lg shadow-[0px_8px_8px_rgba(0,0,0,0.5)] mt-28 mb-10 ml-4 md:ml-[169px]">
+    class="max-w-5xl bg-white border border-black rounded-lg shadow-[0px_8px_8px_rgba(0,0,0,0.5)] mt-28 mb-10 ml-4 md:ml-[169px] 2xl:ml-[450px]">
     <a href="#">
         <img class="rounded-t-lg" src="/docs/images/blog/image-1.jpg" alt="" />
     </a>
@@ -288,7 +288,7 @@
 </div>
 
 {{-- Top Customers --}}
-<div class="ml-[123px] px-12 mt-10 p-10">
+<div class="ml-[123px] 2xl:ml-[400px] px-12 mt-10 p-10">
     <div class=" max-w-5xl h-[480px] p-6 bg-white border border-gray-200 rounded-xl  hover:bg-gray-100 shadow-2xl">
         <h5 class="inline-flex absolute mb-2 text-2xl font-bold tracking-tight  text-gray-900 ">Top Customers</h5>
         <div class="inline-flex ml-[900px]">

@@ -3,7 +3,7 @@
 @section('mainContent')
 
 {{-- Data Supplier --}}
-<div class="absolute ml-24 mt-28">
+<div class="absolute ml-24 mt-28 2xl:ml-[350px]">
     <div class="grid grid-flow-col gap-[780px] ">
         <h5 class="text-3xl font-bold tracking-tight text-gray-900">Data Supplier</h5>
         <div class="grid grid-flow-col mt-4">
@@ -23,7 +23,7 @@
     </div>
 </div>
 <div
-    class="w-[1134px] h-[420px] rounded-[13px] overflow-hidden ml-24 mt-48 bg-white border border-[#686868CF] shadow-[0px_8px_8px_rgba(0,0,0,0.5)]">
+    class="w-[1134px] h-[420px] rounded-[13px] overflow-hidden ml-24 2xl:ml-[350px] mt-48 bg-white border border-[#686868CF] shadow-[0px_8px_8px_rgba(0,0,0,0.5)]">
     <div class="relative overflow-x-hidden shadow-md sm:rounded-lg mt-16">
         <table class="w-[1130px] text-[14px] text-left text-gray-500">
             <thead class="text-xs text-gray-700 uppercase bg-gray-50">

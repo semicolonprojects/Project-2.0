@@ -6,7 +6,7 @@
         <div class="ml-10 grid grid-flow-row">
             <h1 class="font-bold text-4xl text-black">Outcome</h1>
         </div>
-        <div class="grid-flow-row sm:ml-[322px] lg:ml-[670px] xl:ml-[750px] 2xl:ml-[928px]">
+        <div class="grid-flow-row sm:ml-[322px] lg:ml-[670px] xl:ml-[750px] 2xl:ml-[1328px]">
             <button id="defaultModalButton" data-modal-toggle="defaultModal" type="button"
                 class="text-white bg-[#22DB66] font-medium rounded-[22px] text-[13px] px-5 py-2.5 inline-flex items-center">
                 <div class="px-2">

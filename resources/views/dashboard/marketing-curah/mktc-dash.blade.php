@@ -4,7 +4,7 @@
 
 {{-- Overview --}}
 <div
-    class="w-[1024px] rounded-[13px] overflow-hidden ml-40 mt-10 bg-white border border-[#686868CF] shadow-[0px_8px_8px_rgba(0,0,0,0.5)]">
+    class="w-[1024px] rounded-[13px] overflow-hidden ml-40 2xl:ml-[450px] mt-10 bg-white border border-[#686868CF] shadow-[0px_8px_8px_rgba(0,0,0,0.5)]">
     <div class="px-6 py-4 md:px-10 md:py-8">
         <div class="grid grid-flow-col gap-[480px]">
             <div class="font-bold text-2xl">Marketing Curah Division Overview</div>
@@ -79,7 +79,7 @@
 </div>
 
 {{-- Summary Orders & Targets --}}
-<div class="mt-14 ml-40">
+<div class="mt-14 2xl:ml-[450px] ml-40">
     <div
         class="inline-block p-6 bg-white border border-gray-200 rounded-xl  hover:bg-gray-100 shadow-2xl w-[1024px] h-[980px]">
         <div class="inline-flex absolute">

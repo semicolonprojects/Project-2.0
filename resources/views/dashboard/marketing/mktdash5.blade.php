@@ -1,7 +1,7 @@
 @extends('dashboard.layout.main')
 
 @section('mainContent')
-<div class="ml-5 mt-16 px-20">
+<div class="ml-5 mt-16 px-20 ">
     <div class="mb-5 ml-5">
         <p class="text-5xl text-black font-[700]">Tabel Order</p>
     </div>
@@ -33,7 +33,7 @@
         </ul>
     </div>
     <div id="myTabContent">
-        <div class="grid grid-flow-col gap-[740px] mb-3 ml-5 py-1">
+        <div class="grid grid-flow-col gap-[740px]  mb-3 ml-5 py-1">
             <div class="flex md:order-2">
                 <form class="flex items-center">
                     <label for="simple-search" class="sr-only">Search</label>
@@ -71,7 +71,7 @@
             </div>
         </div>
         <div class="hidden " id="profile" role="tabpanel" aria-labelledby="profile-tab">
-            <table class=" w-[1163px] table-fixed text-sm text-left text-gray-500 dark:text-gray-400 ">
+            <table class=" w-[1163px] 2xl:w-[83%] table-fixed text-sm text-left text-gray-500 dark:text-gray-400 ">
                 <thead class=" text-xs text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
                         <th scope="col" class="px-6 py-3">
@@ -98,7 +98,7 @@
                         <th scope="col" class="px-6 py-3">
                             Approved By
                         </th>
-                        <th scope="col" class="px-6 py-3">
+                        <th scope="col" class="px-6 2xl:px-16 py-3">
                             Action
                         </th>
                         <th></th>
@@ -132,7 +132,7 @@
                         <td class="px-6 py-4">
                             {{$showPaginates->username}}
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 2xl:px-16 py-4">
                             <a href="{{ route('order.show', ['order'=>$showPaginates->order_id]) }}">
                                 <button>
                                     <svg xmlns=" http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -179,7 +179,7 @@
                         <th scope="col" class="px-6 py-3">
                             Approved By
                         </th>
-                        <th scope="col" class="px-6 py-3">
+                        <th scope="col" class="px-6 2xl:px-16 py-3">
                             Action
                         </th>
                     </tr>
@@ -213,7 +213,7 @@
                         <td class="px-6 py-4">
                             {{$showPendings->username}}
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 2xl:px-16 py-4">
                             <a href="{{ route('order.show', ['order'=>$showPendings->order_id]) }}">
                                 <button>
                                     <svg xmlns=" http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -262,7 +262,7 @@
                         <th scope="col" class="px-6 py-3">
                             Approved By
                         </th>
-                        <th scope="col" class="px-6 py-3">
+                        <th scope="col" class="px-6 2xl:px-16 py-3">
                             Action
                         </th>
                     </tr>
@@ -296,7 +296,7 @@
                         <td class="px-6 py-4">
                             {{$showCompletes->username}}
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 2xl:px-16 py-4">
                             <a href="{{ route('order.show', ['order'=>$showCompletes->order_id]) }}">
                                 <button>
                                     <svg xmlns=" http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -378,7 +378,7 @@
                     <td class="px-6 py-4">
                         {{$showOverdues->username}}
                     </td>
-                    <td class="px-6 py-4">
+                    <td class="px-6 2xl:px-16 py-4">
                         <a href="{{ route('order.show', ['order'=>$showOverdues->order_id]) }}">
                             <button>
                                 <svg xmlns=" http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"

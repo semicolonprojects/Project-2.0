@@ -1,7 +1,7 @@
 @extends('dashboard.layout.main')
 
 @section('mainContent')
-<div class="ml-32 mt-16">
+<div class="ml-32 2xl:ml-[450px] mt-16">
     <div class="mb-10">
         <p class="text-[24px] text-black font-[700]">Order Stats</p>
     </div>
