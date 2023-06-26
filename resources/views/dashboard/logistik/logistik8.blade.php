@@ -6,7 +6,8 @@
     <p class="text-5xl text-black font-[700]">Data Barang Keluar Masuk</p>
 </div>
 
-<div class="ml-24 2xl:ml-[450px] mb-10 inline-block p-6 bg-white border border-gray-200 rounded-xl shadow-2xl w-[1070px] h-[700px]">
+<div
+    class="ml-24 2xl:ml-[450px] mb-10 inline-block p-6 bg-white border border-gray-200 rounded-xl shadow-2xl w-[1070px] h-[700px]">
     <div class="border-b border-gray-200 pb-4 mb-4">
         <p class="text-4xl text-black font-[700]">Barang Pendukung</p>
     </div>
@@ -262,6 +263,4 @@ const searchInput = document.getElementById('simple-search');
         });
     });
 </script>
-
-@vite(['resources/css/app.css','resources/js/app.js'])
 @endsection

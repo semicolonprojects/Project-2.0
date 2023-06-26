@@ -4,14 +4,8 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
-use App\Models\BarangPendukung;
 use App\Models\Channel;
-use App\Models\Customer;
-use App\Models\Cuti;
 use App\Models\DataSupplier;
-use App\Models\Izin;
-use App\Models\Keluar;
-use App\Models\Masuk;
 use App\Models\ProdukCurah;
 use App\Models\ProdukJadi;
 use App\Models\User;
@@ -27,6 +21,12 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
+
+        $this->call(BarangPendukungSeeder::class);
+
+        $this->call(ProdukCurahSeeder::class);
+
+        $this->call(ProdukJadiSeeder::class);
 
         User::factory()->create([
             'username' => 'Andoni Pridatama',
@@ -122,38 +122,6 @@ class DatabaseSeeder extends Seeder
             'username' => 'Rizkyono',
             'role' => 'logistik',
             'password' => bcrypt('123456')
-        ]);
-
-        ProdukJadi::factory()->create(
-            [
-                'kode_barang' => '1',
-                'nama_barang' => 'MULTIFLORA',
-                'size' => '1000',
-                'stock' => 2925,
-                'harga_ecer' => 95000,
-                'harga_rs' => 88000,
-                'harga_mkl' => 80000,
-                'harga_ds' => 75000,
-                'kategori' => '1 KG'
-            ]
-        );
-
-        ProdukCurah::factory()->create([
-            'kode_barang' => '1',
-            'nama_barang' => 'MULTIFLORA CURAH',
-            'size' => '1000',
-            'stock' => 2925,
-            'harga' => 95000,
-            'kategori' => '1 KG'
-        ]);
-
-        BarangPendukung::factory()->create([
-            'kode_barang' => '1000',
-            'nama_barang' => 'JERIGEN 1KG',
-            'kategori' => 'Jerigen',
-            'size' => 'PCS',
-            'stock' => 800,
-            'price' => 3700,
         ]);
 
         DataSupplier::factory()->create([
