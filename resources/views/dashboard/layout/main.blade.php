@@ -12,7 +12,7 @@
     <link rel="icon" type="image/x-icon" href="\Assets\images\Madukuy RGB Logogram.ico">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    @vite('resources/css/app.css', 'resources/js/app.js')
+    @vite('resources/js/app.js')
 </head>
 
 <body>
@@ -194,7 +194,7 @@
                         </svg>
                     </button>
                     <a href="/dashboard">
-                        <img src='{{ asset('Assets\images\Madukuy CMYK Logo.png') }}'
+                        <img src='{{ asset(' Assets\images\Madukuy CMYK Logo.png') }}'
                             class="h-15 w-16  inset-y-0 flex-items-center ml-0.5 sm:ml-0.5 " />
                     </a>
                 </div>
@@ -325,7 +325,7 @@
                         <span class="ml-3 font-bold">Dashboard</span>
                     </a>
                 </li>
-                @can('superadmin') 
+                @can('superadmin')
                 <li>
                     <a href="/hpp">
                         <button type="button"
@@ -500,7 +500,7 @@
                                 Pendukung</a>
                         </li>
                     </ul>
-                </li> 
+                </li>
                 @endcan
                 @can('curah')
                 <li>
@@ -646,9 +646,9 @@
             <p class="font-semibold text-black mt-2">Cuti</p>
           </div>
         </div>
-      </div>
-      
-    
+    </div>
+
+
 
     <div id="authentication-modal" tabindex="-1" aria-hidden="true"
         class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] md:h-full mt-14 ml-14">
@@ -873,8 +873,6 @@
         @yield('mainContent')
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/datepicker.min.js"></script>
-
-    @vite(['resources/css/app.css','resources/js/app.js'])
 </body>
 
 </html>

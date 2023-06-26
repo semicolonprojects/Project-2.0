@@ -4,10 +4,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    @vite('resources/css/app.css')
     <!-- Add the following line to make the view responsive -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css">
     <!-- ... -->
+    @vite('resources/js/app.js')
 </head>
 
 <body class="bg-background">
@@ -19,7 +19,7 @@
                     <img class="w-[233px] mx-auto" src="Assets\images\Madukuy CMYK Logo.png" alt="">
                 </div>
                 <h1 class="text-4xl lg:text-6xl font-extrabold text-center text-black">Selamat Datang</h1>
-                <form action="/" class="mt-10" method="POST">
+                <form action="{{ route('login') }}" class="mt-10" method="POST">
                     @csrf
                     <div class="px-5">
                         <label for="username" class="block font-semibold text-sm text-gray-800">Username</label>
@@ -46,8 +46,6 @@
             </div>
         </div>
     </section>
-
-    @vite('resources/js/app.js')
 </body>
 
 </html>
